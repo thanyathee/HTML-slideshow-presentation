@@ -449,4 +449,12 @@ tw{display:inline}
 .slide[data-pos="active"] .ptrack .fillbar::before{animation:flowx 7s linear 3.6s infinite}
 .slide[data-pos="active"] .ptrack .fillbar::after{animation:flowx 7s linear 7.1s infinite}
 @keyframes flowx{from{transform:translate3d(-100%,0,0)}to{transform:translate3d(420%,0,0)}}
-.ptrack .stop i{animation:none}
+
+/* each dot bumps (zoom in/out) as the flowing light passes it; shines hit every 3.5s */
+@keyframes bump{0%,35%{transform:scale(1)}50%{transform:scale(1.3)}65%,100%{transform:scale(1)}}
+.slide[data-pos="active"] .ptrack .stop i{animation:bump 3.5s ease-in-out infinite}
+.ptrack .stop:nth-child(2) i{animation-delay:2.83s!important}
+.ptrack .stop:nth-child(3) i{animation-delay:4.09s!important}
+.ptrack .stop:nth-child(4) i{animation-delay:5.33s!important}
+.ptrack .stop:nth-child(5) i{animation-delay:6.56s!important}
+.ptrack .stop:nth-child(6) i{animation-delay:7.83s!important}
