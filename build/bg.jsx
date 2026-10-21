@@ -38,8 +38,8 @@ function App({ lite }) {
       <ShaderGradient
         control="props"
         type="plane"
-        animate="off"
-        uSpeed={0}
+        animate="on"
+        uSpeed={0.05}
         uStrength={3.4}
         uDensity={1.3}
         uFrequency={5.5}
