@@ -27,6 +27,8 @@
       var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
     var list=[],n;while(n=w.nextNode())list.push(n);
     list.forEach(function(t){
+      var d=getComputedStyle(t.parentNode).display;
+      if(/flex|grid/.test(d)){var sp=document.createElement('tw');t.parentNode.replaceChild(sp,t);sp.appendChild(t);}
       var f=document.createDocumentFragment(),first=true;
       for(var x of sg.segment(t.nodeValue)){
         if(!first&&x.isWordLike!==false&&!/^\s/.test(x.segment))f.appendChild(document.createElement('wbr'));
