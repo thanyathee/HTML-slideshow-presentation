@@ -23,7 +23,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:border-box}
 *{box-sizing:border-box}
 .deck{position:relative;height:100%;overflow:hidden}
-.area{position:absolute;left:0;right:0;top:0;bottom:60px;overflow:hidden}
+.area{position:absolute;left:64px;right:64px;top:0;bottom:60px;overflow:hidden}
 .stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center;border:5px solid var(--line);border-radius:28px;overflow:hidden;background:var(--bg);box-shadow:10px 10px 0 var(--line)}
 .bg{position:absolute;inset:0;background-image:radial-gradient(var(--dot) 3px,transparent 3px);background-size:32px 32px}
 .cloud{position:absolute;width:190px;height:95px;animation:drift linear infinite}
@@ -179,6 +179,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 .again{margin-top:20px;align-self:flex-start;font-size:28px;padding:6px 26px 10px;flex:none}
 
 /* controls */
+.nav{position:absolute;z-index:20;width:52px;height:52px;border-radius:50%;background:var(--yellow);border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);cursor:pointer;display:grid;place-items:center;padding:0;transition:transform .15s,box-shadow .15s}
+.nav:hover{transform:translate(-1px,-2px);box-shadow:4px 5px 0 var(--line)}
+.nav:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
+.nav svg{width:28px;height:28px;fill:none;stroke:var(--dark);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+#prev,#next{top:calc((100% - 60px) / 2);margin-top:-26px}
+#prev{left:4px}#next{right:4px}
+#fs{top:6px;right:4px;width:44px;height:44px}
 .bar-ctl{position:absolute;left:0;right:0;bottom:0;height:60px;display:flex;align-items:center;justify-content:center;gap:12px;padding-bottom:6px}
 .ctl{font-family:var(--display);font-size:24px;color:var(--dark);background:var(--yellow);border:3px solid var(--line);border-radius:999px;padding:2px 20px 6px;box-shadow:3px 3px 0 var(--line);cursor:pointer}
 .ctl:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
@@ -188,7 +195,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 .count{font-family:var(--display);font-size:22px;min-width:56px;text-align:center}
 :focus-visible{outline:4px solid var(--blue);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
-@media (max-width:520px){.dots{display:none}}
+@media (max-width:520px){.dots{display:none}.area{left:40px;right:40px}.nav{width:36px;height:36px}.nav svg{width:20px;height:20px}#prev,#next{margin-top:-18px}#fs{width:34px;height:34px}}
 </style>
 </head>
 <body>
@@ -396,12 +403,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
   </section>
 </div>
 </div>
+<button class="nav" id="prev" type="button" aria-label="หน้าก่อนหน้า"><svg viewBox="0 0 32 32"><path d="M27 16H6M14 7L5 16l9 9"/></svg></button>
+<button class="nav" id="next" type="button" aria-label="หน้าถัดไป"><svg viewBox="0 0 32 32"><path d="M5 16h21M18 7l9 9-9 9"/></svg></button>
+<button class="nav" id="fs" type="button" aria-label="เต็มจอ" title="เต็มจอ"><svg viewBox="0 0 32 32"><path d="M4 12V4h8M20 4h8v8M28 20v8h-8M12 28H4v-8"/></svg></button>
 <div class="bar-ctl">
-  <button class="ctl" id="prev" type="button" aria-label="หน้าก่อนหน้า">ย้อนกลับ</button>
   <div class="dots" id="dots"></div>
   <span class="count" id="count">1 / 10</span>
-  <button class="ctl" id="next" type="button" aria-label="หน้าถัดไป">ต่อไป</button>
-  <button class="ctl" id="fs" type="button" aria-label="เต็มจอ">เต็มจอ</button>
 </div>
 </div>
 
@@ -412,7 +419,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
   var dotsEl=document.getElementById('dots'),countEl=document.getElementById('count');
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cur=0,token=0,timers=[];
-  if(!document.fullscreenEnabled){document.getElementById('fs').textContent='เปิดเต็มหน้าจอ'}
+  if(!document.fullscreenEnabled){var fb0=document.getElementById('fs');fb0.title='เปิดเต็มหน้าจอในแท็บใหม่';fb0.setAttribute('aria-label','เปิดเต็มหน้าจอในแท็บใหม่')}
   slides.forEach(function(_,i){var b=document.createElement('button');b.className='dot';b.type='button';b.setAttribute('aria-label','ไปหน้า '+(i+1));b.onclick=function(){go(i)};dotsEl.appendChild(b)});
 
   function fit(){var r=area.getBoundingClientRect();var s=Math.min(r.width/1310,r.height/750);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
