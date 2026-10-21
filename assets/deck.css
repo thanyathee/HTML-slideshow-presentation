@@ -458,3 +458,13 @@ tw{display:inline}
 .ptrack .stop:nth-child(4) i{animation-delay:5.33s!important}
 .ptrack .stop:nth-child(5) i{animation-delay:6.56s!important}
 .ptrack .stop:nth-child(6) i{animation-delay:7.83s!important}
+
+/* one light at a time, dots bump in order (period 7s = one light pass) */
+.ptrack .fillbar::after{display:none}
+@keyframes bump7{0%,43%{transform:scale(1)}50%{transform:scale(1.3)}57%,100%{transform:scale(1)}}
+.slide[data-pos="active"] .ptrack .stop i{animation:bump7 7s ease-in-out infinite}
+.ptrack .stop:nth-child(2) i{animation-delay:1.08s!important}
+.ptrack .stop:nth-child(3) i{animation-delay:2.34s!important}
+.ptrack .stop:nth-child(4) i{animation-delay:3.58s!important}
+.ptrack .stop:nth-child(5) i{animation-delay:4.81s!important}
+.ptrack .stop:nth-child(6) i{animation-delay:6.08s!important}
