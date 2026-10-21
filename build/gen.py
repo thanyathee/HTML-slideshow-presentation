@@ -10,7 +10,7 @@ def eb(sec): return '<div class="eyebrow pop" style="--i:0"><i></i><b>%s</b><spa
 MONTHS=['พ.ย.','ธ.ค.','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.','ม.ค.']
 # (date, text, short label, start month idx, end idx, colour, white-text)
 TRACKS=[
- dict(key='A',title='นักเรียนเรียนต่อสถานศึกษาเดิม',tag='รอบปกติ',steps=[
+ dict(key='A',title='นักเรียนเรียนต่อสถานศึกษาเดิม',tag='รอบแรก',steps=[
   ('1 พฤศจิกายน – 31 มกราคม','สมัครขอรับทุน (ทุนใหม่ + ทุนต่อเนื่อง)','สมัครขอรับทุน',0,2,'blue',1),
   ('กุมภาพันธ์ – เมษายน','มูลนิธิพิจารณาใบสมัคร','พิจารณาใบสมัคร',3,5,'red',1),
   ('มิถุนายน','ประกาศรายชื่อผู้ได้รับทุนรอบแรก','ประกาศรายชื่อรอบแรก',7,7,'green',0),
@@ -28,7 +28,7 @@ def sched(ti):
     for k,(d,t,sh,a,b,c,w) in enumerate(T['steps']):
         hl=' hl' if 'ประกาศรายชื่อ' in t else ''
         tag='<span class="annchip">★</span>' if hl else ''
-        rows+='<div class="srow pop%s" style="--i:%d"><span class="sn">%d</span><div class="sc"><span class="sd">%s</span><p>%s%s</p></div></div>'%(hl,k+1,k+1,d,tag,t)
+        rows+='<div class="srow pop%s" style="--i:%d"><span class="sn">%d</span><div class="sc"><span class="sd">%s</span><p%s>%s%s</p></div></div>'%(hl,k+1,k+1,d,' class="nw"' if hl else '',tag,t)
     return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="rbanner r%s pop" style="--i:0"><div class="rw">%s</div><div class="rt">%s</div></div>\n    <div class="steps2">%s</div>\n  </section>'%(eb('กำหนดการ'),T['key'],T['title'],T['tag'],rows)
 def gantt():
     rows=''

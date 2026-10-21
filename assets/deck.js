@@ -25,7 +25,7 @@
     if(!window.Intl||!Intl.Segmenter)return;
     var sg=new Intl.Segmenter('th',{granularity:'word'}),th=/[\u0E00-\u0E7F]/;
     var w=document.createTreeWalker(stage,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
-      var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue)||p.closest('.gantt,.mlab,.legend,.badge'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+      var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue)||p.closest('.gantt,.mlab,.legend,.badge,.nw'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
     var list=[],n;while(n=w.nextNode())list.push(n);
     list.forEach(function(t){
       var d=getComputedStyle(t.parentNode).display;
