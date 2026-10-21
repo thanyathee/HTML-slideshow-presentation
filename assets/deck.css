@@ -441,3 +441,4 @@ tw{display:inline}
 .list li:nth-child(odd){background:#EAF2FF;border-radius:14px;margin-left:-10px;padding-left:38px}
 .list li:nth-child(odd)::before{left:10px}
 .amt .arow{font-size:26px}
+.amt{gap:5px}.amt .arow{line-height:1.2;padding:4px 20px}.amt .arow b{font-size:32px}.list li{line-height:1.25}

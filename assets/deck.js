@@ -51,9 +51,9 @@
         [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&c.classList.contains('confetti')))w.appendChild(c)});
         s.appendChild(w);
       }
-      var W=1280-PADX,H=720-PADY,lo=1,hi=1.32,k=1;
+      var W=1280-PADX,H=720-PADY,lo=1,hi=1.32,k=1;w.style.minHeight='0';w.style.transform='none';
       function ok(x){w.style.width=(W/x)+'px';return w.offsetHeight*x<=H}
-      if(ok(hi))k=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m)){k=m;lo=m}else hi=m}k=lo}
+      if(ok(hi))k=hi;else{if(!ok(1)){lo=.72;hi=1}for(var i=0;i<10;i++){var m=(lo+hi)/2;if(ok(m)){k=m;lo=m}else hi=m}k=lo}
       w.style.width=(W/k)+'px';w.style.height='auto';w.style.minHeight=(H/k)+'px';w.style.transform='scale('+k+')';
     });
   }
