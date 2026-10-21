@@ -5,12 +5,12 @@ import { createRoot } from 'react-dom/client'
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
 const MOODS = {
-  cover: ['#2F6FED', '#0A1F6E', '#6FA8FF'],
-  blue: ['#1F5FD6', '#081A5C', '#4C8DFF'],
-  navy: ['#1A4FBF', '#06133F', '#3F7DEB'],
-  warm: ['#E5323B', '#1C2F8F', '#FFB36B'],
-  red: ['#C81E2E', '#12307F', '#FF7A59'],
-  green: ['#12906A', '#0A2F7A', '#4FD9A0']
+  cover: ['#FFFFFF', '#BCD7FF', '#E6F1FF'],
+  blue: ['#EAF3FF', '#BFD9FF', '#FFFFFF'],
+  navy: ['#DCEBFF', '#A9CCFF', '#F4F9FF'],
+  warm: ['#FFF3E3', '#CFE3FF', '#FFFFFF'],
+  red: ['#FFEBEE', '#C9DDFF', '#FFFFFF'],
+  green: ['#E6F9F1', '#BFD9FF', '#FFFFFF']
 }
 
 const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16))
@@ -47,7 +47,7 @@ function App({ lite }) {
         color2={colors[1]}
         color3={colors[2]}
         lightType="3d"
-        brightness={1.1}
+        brightness={1.0}
         reflection={0.1}
         grain="off"
         cAzimuthAngle={180}

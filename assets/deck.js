@@ -18,6 +18,24 @@
   function fit(){var r=area.getBoundingClientRect();var s=Math.min(r.width/1300,r.height/740);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
   if(window.ResizeObserver)new ResizeObserver(fit).observe(area);window.addEventListener('resize',fit);fit();
 
+
+  /* Thai word-aware line breaking: put <wbr> between dictionary words so lines never split mid-word */
+  (function(){
+    if(!window.Intl||!Intl.Segmenter)return;
+    var sg=new Intl.Segmenter('th',{granularity:'word'}),th=/[\u0E00-\u0E7F]/;
+    var w=document.createTreeWalker(stage,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+    var list=[],n;while(n=w.nextNode())list.push(n);
+    list.forEach(function(t){
+      var f=document.createDocumentFragment(),first=true;
+      for(var x of sg.segment(t.nodeValue)){
+        if(!first&&x.isWordLike!==false&&!/^\s/.test(x.segment))f.appendChild(document.createElement('wbr'));
+        f.appendChild(document.createTextNode(x.segment));first=false;
+      }
+      t.parentNode.replaceChild(f,t);
+    });
+  })();
+
   var counts=[];
   function setCount(){counts.forEach(function(c){c.textContent=(cur+1)+' / '+N})}
   function clear(){token++;timers.forEach(clearTimeout);timers=[];stopConf()}
@@ -62,7 +80,7 @@
         return b;
       };
       var bp=mk('',ICON.prev,'หน้าก่อนหน้า',function(){go(cur-1)});
-      var cnt=document.createElement('div');cnt.className='gcount';cnt.style.cssText='font:500 19px Prompt,sans-serif;color:#fff;min-width:84px;text-align:center;pointer-events:none';
+      var cnt=document.createElement('div');cnt.className='gcount';cnt.style.cssText='font:500 19px Prompt,sans-serif;color:#0B2A6F;min-width:84px;text-align:center;pointer-events:none';
       var bn=mk('',ICON.next,'หน้าถัดไป',function(){go(cur+1)});
       dock.addChild(bp);dock.element.appendChild(cnt);dock.addChild(bn);
       dock.element.style.cssText+=';display:flex;align-items:center;gap:6px;padding:6px 10px;position:relative;left:auto;top:auto;transform:none';
