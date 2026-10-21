@@ -12,10 +12,10 @@
 }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
-body{background:linear-gradient(135deg,#D6F3FF,#7ED6F8 60%,#3FC4F5);color:var(--ink);font-family:var(--body);overflow:hidden;
+body{background:linear-gradient(135deg,#FFFFFF,#E3F5FF 60%,#BFE8FC);color:var(--ink);font-family:var(--body);overflow:hidden;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 #bg{position:fixed;inset:0;z-index:0;pointer-events:none}
-.veil{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0))}
+.veil{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.1))}
 .deck{position:relative;z-index:2;height:100%;overflow:hidden}
 .area{position:absolute;left:0;right:0;top:0;bottom:78px;overflow:hidden}
 .stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}

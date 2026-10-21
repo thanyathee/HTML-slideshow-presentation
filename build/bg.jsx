@@ -5,12 +5,12 @@ import { createRoot } from 'react-dom/client'
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
 const MOODS = {
-  cover: ['#C4EDFF', '#3FC4F5', '#EAF9FF'],
-  blue: ['#A4E1FC', '#38C3F4', '#DDF6FF'],
-  navy: ['#8DDBF9', '#2DB9F0', '#CDF1FF'],
-  warm: ['#B8E9FB', '#46C6F5', '#FFF4DE'],
-  red: ['#BCE7FB', '#4AC3F2', '#FFE8EC'],
-  green: ['#AAEBF3', '#38C8F0', '#E2FBEF']
+  cover: ['#FFFFFF', '#CFF0FE', '#F2FBFF'],
+  blue: ['#F3FBFF', '#B9E7FB', '#FFFFFF'],
+  navy: ['#EAF8FF', '#A9E2FA', '#FAFDFF'],
+  warm: ['#FFF8EC', '#BDE8FB', '#FFFFFF'],
+  red: ['#FFF1F3', '#BFE6FB', '#FFFFFF'],
+  green: ['#EDFCF6', '#B3EAF6', '#FFFFFF']
 }
 
 const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16))
@@ -38,8 +38,8 @@ function App({ lite }) {
       <ShaderGradient
         control="props"
         type="plane"
-        animate="on"
-        uSpeed={0.22}
+        animate="off"
+        uSpeed={0}
         uStrength={3.4}
         uDensity={1.3}
         uFrequency={5.5}
