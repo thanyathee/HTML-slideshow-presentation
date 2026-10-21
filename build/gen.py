@@ -20,30 +20,29 @@ EV=[ # (date, text, short, start, end, color, white-text)
  ('1 พ.ย. – 31 ม.ค.','เปิดรับสมัครทุนการศึกษาปีถัดไป','เปิดรับสมัครปีถัดไป',12,14,'blue',1)]
 def mbar(a,b,c):
     return '<div class="mbar">'+''.join('<i%s></i>'%(' class="on"' if a<=k<=b else '') for k in range(15))+'</div>'
-def sched(part,idxs,title):
-    cards=''
-    for j,k in enumerate(idxs):
-        d,t,sh,a,b,c,w=EV[k]
-        cards+='<div class="card ev3 pop" style="--i:%d;--c:var(--%s)"><span class="stepn">%d</span><span class="badge%s big">%s</span><p>%s</p>%s</div>'%(j+1,c,k+1,' w' if w else '',d,t,mbar(a,b,c))
-    return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">กำหนดการ <small>ช่วงที่ %d / 3</small> %s</h2></div>\n    <div class="ev3row">%s</div>\n  </section>'%(eb('กำหนดการ'),part,title,cards)
-def gantt():
-    head='<div class="gt-head"><span class="gt-yr y1" style="left:0;width:%.4f%%">ปีนี้</span><span class="gt-yr y2" style="left:%.4f%%;right:0">ปีถัดไป</span></div><div class="gt-head gt-months">'%(12/15*100,12/15*100)
-    head+=''.join('<span class="%s">%s</span>'%('nx' if k>=12 else '',m) for k,m in enumerate(MONTHS))+'</div>'
-    rows=''
+GROUPS=[('สมัครและพิจารณา',[0,1,2]),('ประกาศรอบแรก',[3,4,5]),('รอบรอฟังผล',[6,7,8])]
+def sched(gi):
+    name,_=GROUPS[gi]
+    items=''
     for k,(d,t,sh,a,b,c,w) in enumerate(EV):
-        left=a/15*100; width=(b-a+1)/15*100
-        lab='<span class="gt-t %s" style="%s"><b>%s</b><small>%s</small></span>'
-        if b<=9: pos='left:calc(%.4f%% + 12px)'%((b+1)/15*100); cls='r'
-        else: pos='right:calc(%.4f%% + 12px)'%((14-b+0)/15*100+ (14-a+1-(b-a+1))/15*100*0 + 100/15*0 + 0) ; cls='l'
-        if b>9: pos='right:calc(%.4f%% + 12px)'%((15-a)/15*100); 
-        rows+='<div class="gt-row"><span class="stepn s" style="--c:var(--%s)">%d</span><div class="gt-area"><div class="gt-bar%s" style="left:%.4f%%;width:%.4f%%;--c:var(--%s)"></div>%s</div></div>'%(c,k+1,' dot' if a==b else '',left,width,c,lab%(cls,pos,sh,d))
-    return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="gantt card pop" style="--i:1"><div class="gt-top">%s</div>%s</div>\n  </section>'%(eb('กำหนดการ'),'',head+rows)
+        items+='<div class="ev3w" style="--c:var(--%s)"><span class="stepn">%d</span><div class="card ev3 pop" style="--i:%d"><span class="badge%s big">%s</span><p>%s</p>%s</div></div>'%(c,k+1,(k%3)+1,' w' if w else '',d,t,mbar(a,b,c))
+    mini=''.join('<a class="mg" data-g="%d" data-go="%d"><small>ช่วงที่ %d</small>%s</a>'%(j,j+1,j+1,''.join('<i style="--c:var(--%s)">%d</i>'%(EV[k][5],k+1) for k in ks)) for j,(n_,ks) in enumerate(GROUPS))
+    return '<section class="slide" data-t="strip" data-strip="%d" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">กำหนดการ <small>ช่วงที่ %d / 3</small> %s</h2></div>\n    <div class="stripvp"><div class="track" style="--g:%d">%s</div></div>\n    <div class="mini">%s</div>\n  </section>'%(gi,eb('กำหนดการ'),gi+1,name,gi,items,mini)
+def gantt():
+    rows=''
+    for j,(name,ks) in enumerate(GROUPS):
+        ch=''
+        for p,k in enumerate(ks):
+            d,t,sh,a,b,c,w=EV[k]
+            ch+='<div class="chev%s%s" style="--c:var(--%s)"><span class="stepn s">%d</span><b>%s</b><small>%s</small></div>'%(' first' if p==0 else '',' dk' if not w else '',c,k+1,sh,d)
+        rows+='<div class="ov-row pop" style="--i:%d"><div class="ov-l"><small>ช่วงที่ %d</small><b>%s</b></div>%s</div>'%(j+1,j+1,name,ch)
+    return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="ov">%s</div>\n  </section>'%(eb('กำหนดการ'),rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
     if n==2:
-        out.append(('sched','blue',sched(1,[0,1,2],'สมัครและพิจารณา')))
-        out.append(('','navy',sched(2,[3,4,5],'ประกาศรอบแรก')))
-        out.append(('','warm',sched(3,[6,7,8],'รอบรอฟังผล')))
+        out.append(('sched','blue',sched(0)))
+        out.append(('','navy',sched(1)))
+        out.append(('','warm',sched(2)))
         out.append(('','blue',gantt()))
         continue
     x=re.sub(r'<svg class="star".*?</svg>\s*','',x,flags=re.S)

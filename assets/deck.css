@@ -306,3 +306,37 @@ tw{display:inline}
 .gt-t b{font-size:21px}.gt-t small{font-size:17px}
 .gt-head{height:24px}.gt-yr{height:22px;line-height:22px;font-size:15px}.gt-months{height:26px}.gt-months span{font-size:17px;line-height:26px}
 .gt-head{margin-left:48px}
+
+/* ---- schedule strip: 9 steps on one long rail, 3 in view ---- */
+.slide[data-strip]{transition:none}
+.slide[data-strip][data-pos="before"],.slide[data-strip][data-pos="after"]{transform:none;filter:none}
+.slide.keep .pop{animation:none!important}
+.stripvp{container-type:inline-size;overflow:hidden;flex:1;padding:4px 0 14px;display:flex;flex-direction:column}
+.track{--gap:18px;--peek:58px;--cw:calc((100cqw - 2*var(--gap) - 2*var(--peek))/3);display:flex;gap:var(--gap);padding-left:var(--peek);flex:1;
+  transform:translateX(calc(var(--g)*-3*(var(--cw) + var(--gap))));transition:transform 1s var(--ease)}
+.ev3w{flex:0 0 var(--cw);position:relative;display:flex;flex-direction:column;gap:12px;transition:opacity .8s,transform .8s var(--ease),filter .8s}
+.ev3w::before{content:"";position:absolute;top:19px;left:20px;right:calc(-1*var(--gap) - 20px);height:6px;border-radius:6px;background:linear-gradient(90deg,var(--c),#C5D8F7)}
+.ev3w:last-child::before{right:20px;background:var(--c)}
+.ev3w .stepn{position:relative;z-index:1;width:44px;height:44px;font-size:24px;box-shadow:0 0 0 6px #EAF2FF}
+.ev3w.dim{opacity:.5;filter:saturate(.6)}
+.ev3w .ev3{flex:1;border-top:none}
+.mini{display:flex;justify-content:center;gap:18px;padding-top:2px}
+.mg{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:18px;background:rgba(255,255,255,.55);opacity:.55;cursor:pointer;transition:opacity .5s,background .5s,transform .5s var(--ease);text-decoration:none;color:var(--ink)}
+.mg small{font-weight:700;font-size:17px;margin-right:6px}
+.mg i{font-style:normal;width:30px;height:30px;border-radius:9px;background:var(--c);color:#fff;font-family:var(--display);font-weight:700;font-size:17px;display:grid;place-items:center}
+.mg.cur{opacity:1;background:#fff;box-shadow:0 8px 22px rgba(31,95,214,.25);transform:translateY(-2px)}
+/* overview: 3 rows of chevrons */
+.ov{display:flex;flex-direction:column;gap:14px;flex:1}
+.ov-row{display:flex;align-items:stretch;gap:0;flex:1}
+.ov-l{flex:0 0 190px;display:flex;flex-direction:column;justify-content:center;gap:2px;padding-right:14px}
+.ov-l small{font-size:18px;font-weight:600;color:var(--ink-3)}
+.ov-l b{font-family:var(--display);font-size:27px;font-weight:700;line-height:1.2;color:var(--ink)}
+.chev{flex:1;margin-left:-22px;padding:12px 44px 12px 52px;background:var(--c);color:#fff;display:flex;flex-direction:column;justify-content:center;gap:2px;position:relative;
+  clip-path:polygon(0 0,calc(100% - 34px) 0,100% 50%,calc(100% - 34px) 100%,0 100%,34px 50%)}
+.chev.first{margin-left:0;padding-left:24px;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 50%,calc(100% - 34px) 100%,0 100%)}
+.chev.dk{color:var(--dark)}
+.chev b{font-family:var(--display);font-size:26px;font-weight:700;line-height:1.2}
+.chev small{font-size:23px;font-weight:600;opacity:.95}
+.chev .stepn.s{background:#fff;color:var(--c);width:34px;height:34px;font-size:19px;margin-bottom:4px}
+.ov-l{flex:0 0 150px;padding-right:10px}.ov-l b{font-size:24px}
+.chev{padding:12px 40px 12px 46px}.chev b{font-size:25px}
