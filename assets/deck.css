@@ -407,3 +407,8 @@ tw{display:inline}
 .annchip{display:inline-block;margin-right:12px;font-size:22px;font-weight:700;background:#D8232A;color:#fff;padding:1px 14px 3px;border-radius:999px;vertical-align:middle}
 .srow.hl .sc p{font-size:29px}
 .annchip{padding:0 10px 2px;font-size:24px}
+
+.rbanner{padding:14px 30px 16px;justify-content:space-between}
+.rbanner .rw{margin:0;max-width:none;text-align:left;font-family:var(--display);font-weight:700;font-size:46px;line-height:1.15}
+.rbanner .rt{font-family:var(--display);font-weight:700;font-size:46px;background:#fff;padding:2px 28px 6px;border-radius:999px;color:#1F5FD6;white-space:nowrap}
+.rbanner.rB .rt{color:#D9650A}
