@@ -8,41 +8,39 @@ KEYS={3:'grant',6:'docs',12:'move',13:'ann',15:'rules'}
 out=[]   # (key, mood, html)
 def eb(sec): return '<div class="eyebrow pop" style="--i:0"><i></i><b>%s</b><span>@@N@@ / @@T@@</span></div>'%sec
 MONTHS=['พ.ย.','ธ.ค.','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.','ม.ค.']
-EV=[ # (date, text, short, start, end, color, white-text)
- ('1 พ.ย. – 31 ม.ค.','สมัครขอรับทุนการศึกษา ทั้งทุนใหม่และทุนต่อเนื่อง','สมัครขอรับทุน',0,2,'blue',1),
- ('ก.พ. – เม.ย.','มูลนิธิดำเนินการพิจารณาใบสมัครทุนการศึกษา','มูลนิธิพิจารณาใบสมัคร',3,5,'red',1),
- ('มี.ค. – 31 ก.ค.','ผู้ที่กรอกว่าปีการศึกษาหน้าจะย้ายสถานศึกษา ส่งหลักฐานยืนยันให้มูลนิธิ','ส่งหลักฐานย้ายสถานศึกษา',4,8,'green',0),
- ('มิถุนายน','ประกาศรายชื่อผู้ได้รับทุนรอบแรก ป.6 ม.3 ที่ส่งหลักฐานภายใน 15 พ.ค. มูลนิธิส่งตั๋วแลกเงินไปที่สถานศึกษา','ประกาศรายชื่อรอบแรก',7,7,'blue',1),
- ('31 กรกฎาคม','ปิดรับหลักฐานแจ้งย้ายสถานศึกษาทุกระดับชั้น ป.6 ม.3 ม.6 ปวช.3 ปวส.2','ปิดรับหลักฐานย้าย',8,8,'red',1),
- ('ส.ค. – ต.ค.','มูลนิธิพิจารณาทุนรอบรอฟังผล กลุ่มที่ส่งหลักฐานยืนยันการย้ายสถานศึกษา','พิจารณารอบรอฟังผล',9,11,'orange',0),
- ('พฤศจิกายน','ประกาศรายชื่อผู้ได้รับทุนรอบรอฟังผล ที่ส่งหลักฐานภายใน 31 ก.ค.','ประกาศรายชื่อรอบรอฟังผล',12,12,'blue',1),
- ('ธันวาคม','มูลนิธิส่งตั๋วแลกเงินรอบรอฟังผลไปที่สถานศึกษา','ส่งตั๋วแลกเงินรอบรอฟังผล',13,13,'red',1),
- ('1 พ.ย. – 31 ม.ค.','เปิดรับสมัครทุนการศึกษาปีถัดไป','เปิดรับสมัครปีถัดไป',12,14,'blue',1)]
+# (date, text, short label, start month idx, end idx, colour, white-text)
+TRACKS=[
+ dict(key='A',title='นักเรียนเรียนต่อสถานศึกษาเดิม',tag='รอบปกติ',steps=[
+  ('1 พ.ย. – 31 ม.ค.','สมัครขอรับทุน (ทุนใหม่ + ทุนต่อเนื่อง)','สมัครขอรับทุน',0,2,'blue',1),
+  ('ก.พ. – เม.ย.','มูลนิธิพิจารณาใบสมัคร','พิจารณาใบสมัคร',3,5,'red',1),
+  ('มิถุนายน','ประกาศรายชื่อผู้ได้รับทุนรอบแรก','ประกาศรายชื่อรอบแรก',7,7,'green',0),
+  ('กรกฎาคม','มูลนิธิส่งตั๋วแลกเงินไปที่สถานศึกษา','ส่งตั๋วแลกเงินไปสถานศึกษา',8,8,'orange',0)]),
+ dict(key='B',title='นักเรียนที่แจ้งย้ายสถานศึกษา',tag='รอบรอฟังผล',steps=[
+  ('1 พ.ย. – 31 ม.ค.','สมัครขอรับทุน (ทุนใหม่ + ทุนต่อเนื่อง) และกรอกในใบสมัครว่าปีการศึกษาหน้าจะย้ายสถานศึกษา','สมัครและแจ้งย้าย',0,2,'blue',1),
+  ('มี.ค. – 31 ก.ค.','ส่งหลักฐานยืนยันการย้ายให้มูลนิธิ','ส่งหลักฐานยืนยันการย้าย',4,8,'red',1),
+  ('ส.ค. – ต.ค.','มูลนิธิพิจารณาทุนรอบรอฟังผล (เฉพาะผู้ส่งหลักฐานแล้ว)','พิจารณารอบรอฟังผล',9,11,'orange',0),
+  ('พฤศจิกายน','ประกาศรายชื่อผู้ได้รับทุนรอบรอฟังผล','ประกาศรายชื่อ',12,12,'green',0),
+  ('ธันวาคม','มูลนิธิส่งตั๋วแลกเงินไปที่สถานศึกษา','ส่งตั๋วแลกเงินไปสถานศึกษา',13,13,'blue',1)])]
 def mbar(a,b,c):
     return '<div class="mbar">'+''.join('<i%s></i>'%(' class="on"' if a<=k<=b else '') for k in range(15))+'</div>'
-GROUPS=[('สมัครและพิจารณา',[0,1,2]),('ประกาศรอบแรก',[3,4,5]),('รอบรอฟังผล',[6,7,8])]
-def sched(gi):
-    name,_=GROUPS[gi]
-    items=''
-    for k,(d,t,sh,a,b,c,w) in enumerate(EV):
-        items+='<div class="ev3w" style="--c:var(--%s)"><span class="stepn">%d</span><div class="card ev3 pop" style="--i:%d"><span class="badge%s big">%s</span><p>%s</p>%s</div></div>'%(c,k+1,(k%3)+1,' w' if w else '',d,t,mbar(a,b,c))
-    mini=''.join('<a class="mg" data-g="%d" data-go="%d"><small>ช่วงที่ %d</small>%s</a>'%(j,j+1,j+1,''.join('<i style="--c:var(--%s)">%d</i>'%(EV[k][5],k+1) for k in ks)) for j,(n_,ks) in enumerate(GROUPS))
-    return '<section class="slide" data-t="strip" data-strip="%d" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">กำหนดการ <small>ช่วงที่ %d / 3</small> %s</h2></div>\n    <div class="stripvp"><div class="track" style="--g:%d">%s</div></div>\n    <div class="mini">%s</div>\n  </section>'%(gi,eb('กำหนดการ'),gi+1,name,gi,items,mini)
+def sched(ti):
+    T=TRACKS[ti];n=len(T['steps']);items=''
+    for k,(d,t,sh,a,b,c,w) in enumerate(T['steps']):
+        items+='<div class="ev3w" style="--c:var(--%s)"><span class="stepn">%d</span><div class="card ev3 pop" style="--i:%d"><span class="badge%s big">%s</span><p>%s</p>%s</div></div>'%(c,k+1,k+1,' w' if w else '',d,t,mbar(a,b,c))
+    return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title"><span class="ab">%s</span> %s</h2><span class="tpill" style="--c:var(--yellow)">%s</span></div>\n    <div class="rail n%d">%s</div>\n  </section>'%(eb('กำหนดการ'),T['key'],T['title'],T['tag'],n,items)
 def gantt():
     rows=''
-    for j,(name,ks) in enumerate(GROUPS):
+    for j,T in enumerate(TRACKS):
         ch=''
-        for p,k in enumerate(ks):
-            d,t,sh,a,b,c,w=EV[k]
-            ch+='<div class="chev%s%s" style="--c:var(--%s)"><span class="stepn s">%d</span><b>%s</b><small>%s</small></div>'%(' first' if p==0 else '',' dk' if not w else '',c,k+1,sh,d)
-        rows+='<div class="ov-row pop" style="--i:%d"><div class="ov-l"><small>ช่วงที่ %d</small><b>%s</b></div>%s</div>'%(j+1,j+1,name,ch)
+        for p,(d,t,sh,a,b,c,w) in enumerate(T['steps']):
+            ch+='<div class="chev%s%s" style="--c:var(--%s)"><span class="stepn s">%d</span><b>%s</b><small>%s</small></div>'%(' first' if p==0 else '',' dk' if not w else '',c,p+1,sh,d)
+        rows+='<div class="ov-row pop" style="--i:%d"><div class="ov-l"><span class="ab">%s</span><b>%s</b><em>%s</em></div><div class="ov-c">%s</div></div>'%(j+1,T['key'],T['title'],T['tag'],ch)
     return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="ov">%s</div>\n  </section>'%(eb('กำหนดการ'),rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
     if n==2:
         out.append(('sched','blue',sched(0)))
         out.append(('','navy',sched(1)))
-        out.append(('','warm',sched(2)))
         out.append(('','blue',gantt()))
         continue
     x=re.sub(r'<svg class="star".*?</svg>\s*','',x,flags=re.S)

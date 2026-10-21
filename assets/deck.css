@@ -340,3 +340,25 @@ tw{display:inline}
 .chev .stepn.s{background:#fff;color:var(--c);width:34px;height:34px;font-size:19px;margin-bottom:4px}
 .ov-l{flex:0 0 150px;padding-right:10px}.ov-l b{font-size:24px}
 .chev{padding:12px 40px 12px 46px}.chev b{font-size:25px}
+
+/* two tracks (A normal / B moving school) */
+.rail{display:flex;gap:16px;flex:1}
+.rail .ev3w{flex:1 1 0;min-width:0}
+.rail .ev3w .stepn{box-shadow:0 0 0 6px #EAF2FF}
+.rail.n5 .ev3 p{font-size:21px}.rail.n5 .badge.big{font-size:24px;white-space:normal}
+.rail.n4 .ev3 p{font-size:24px}.rail.n4 .badge.big{font-size:28px}
+.ab{display:inline-grid;place-items:center;width:1.05em;height:1.05em;border-radius:.3em;background:var(--blue);color:#fff;font-family:var(--display);font-size:.9em;margin-right:6px}
+.ov-row{flex-direction:column;gap:8px;flex:1}
+.ov-l{flex:none;flex-direction:row;align-items:center;gap:12px;padding:0}
+.ov-l b{font-size:28px}.ov-l em{font-style:normal;font-weight:600;font-size:20px;background:var(--yellow);color:var(--dark);padding:2px 14px 4px;border-radius:999px}
+.ov-l .ab{font-size:26px}
+.ov-c{display:flex;flex:1}
+.chev{padding:10px 40px 10px 46px}.chev b{font-size:24px}.chev small{font-size:22px}
+.rail{--gap:16px}
+.rail.n4 .badge.big{font-size:25px;white-space:nowrap}
+.rail.n5 .badge.big{font-size:21px;white-space:nowrap;padding:4px 12px 6px}
+.rail.n5 .ev3 p{font-size:22px}
+.ev3{padding:20px 16px 18px}
+.chev small{white-space:nowrap}
+.ov-row:nth-child(2) .chev{padding:8px 26px 8px 40px}.ov-row:nth-child(2) .chev.first{padding-left:20px}
+.ov-row:nth-child(2) .chev b{font-size:22px}.ov-row:nth-child(2) .chev small{font-size:19px}
