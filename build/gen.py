@@ -41,7 +41,6 @@ for i in range(1,24):
     if n==2:
         out.append(('sched','blue',sched(0)))
         out.append(('','navy',sched(1)))
-        out.append(('','blue',gantt()))
         continue
     x=re.sub(r'<svg class="star".*?</svg>\s*','',x,flags=re.S)
     x=re.sub(r'(<section[^>]*>)',lambda m:m.group(1)+'\n    '+eb(SEC[n]),x,count=1)
