@@ -139,5 +139,9 @@ html='''<!doctype html>
 '''%('\n  '.join(final),T)
 # confetti canvas: add to the announce slide
 html=html.replace('<canvas class="confetti" id="conf" width="1270" height="710"></canvas>','<canvas class="confetti" id="conf" width="1280" height="720"></canvas>')
+import hashlib
+for f in ('assets/glass.css','assets/deck.css','assets/html2canvas.min.js','vendor/liquid-glass-js/container.js','vendor/liquid-glass-js/button.js','assets/bg.js','assets/deck.js'):
+    v=hashlib.md5(open(f,'rb').read()).hexdigest()[:8]
+    html=html.replace('"%s"'%f,'"%s?v=%s"'%(f,v))
 open('index.html','w').write(html)
 print(len(html), html.count('<section'))
