@@ -178,6 +178,90 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 .confetti{position:absolute;left:-56px;top:-44px;width:1270px;height:710px;pointer-events:none;z-index:4}
 .again{margin-top:20px;align-self:flex-start;font-size:28px;padding:6px 26px 10px;flex:none}
 
+
+/* ---- 24-slide additions ---- */
+#cross circle{fill:var(--red);stroke:var(--line);stroke-width:5}
+#cross path{fill:none;stroke:#fff;stroke-width:9;stroke-linecap:round}
+.slide{padding:36px 52px;gap:16px}
+.trow{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.title{font-size:50px}
+.title.good{background:var(--green);color:var(--dark)}
+.title.bad{background:var(--red);color:#fff}
+.tpill{font-family:var(--display);font-size:34px;background:var(--c);color:var(--dark);border:4px solid var(--line);border-radius:999px;padding:0 24px 6px;box-shadow:4px 4px 0 var(--line)}
+.zhint{margin-left:auto;margin-right:150px;font-size:20px;font-weight:700;background:var(--paper);border:3px solid var(--line);border-radius:999px;padding:2px 16px 4px}
+.when.tight{min-height:0;padding:12px 18px 14px;gap:8px}
+.when.tight .badge{font-size:27px}
+.when.tight p{font-size:21px;line-height:1.3}
+.note{font-size:20px}
+.s3{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:stretch}
+.list{padding:14px 22px 16px;font-size:22px;line-height:1.35;font-weight:600}
+.list h3,.amt h3{font-family:var(--display);font-weight:400;font-size:32px;margin:0 0 8px;color:var(--blue)}
+.list ul{margin:0;padding-left:26px;display:flex;flex-direction:column;gap:6px}
+.amt{padding:14px 22px 16px;display:flex;flex-direction:column;gap:9px}
+.amt h3 small{font-family:var(--body);font-size:20px;color:var(--ink)}
+.hrow{display:grid;grid-template-columns:168px 1fr 86px;gap:10px;align-items:center;font-size:19px;font-weight:700;line-height:1.15}
+.htrack{height:30px;background:var(--soft);border:3px solid var(--line);border-radius:99px;overflow:hidden}
+.hb{height:100%;width:calc(var(--v)*100%);background:var(--c);border-right:3px solid var(--line);transform-origin:left}
+.slide[data-pos="active"] .hb{animation:growx 1s cubic-bezier(.3,1.2,.5,1) backwards;animation-delay:calc(var(--i)*.1s + .4s)}
+@keyframes growx{from{transform:scaleX(0)}}
+.hv{font-family:var(--display);font-size:24px;text-align:right}
+.bl{margin:0;padding-left:24px;font-size:25px;line-height:1.4}
+.bl li+li{margin-top:6px}
+.redband{background:var(--red);color:#fff;font-family:var(--display);font-size:36px;text-align:center;padding:4px 20px 10px;border:4px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.blueband{background:var(--blue);color:#fff;font-family:var(--display);font-size:28px;text-align:center;padding:4px 20px 10px;border:4px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.type small{font-family:var(--body);font-size:20px;font-weight:600;display:block}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.doc{display:flex;align-items:center;gap:16px;padding:12px 20px;font-size:24px;line-height:1.35;font-weight:600}
+.rowsx{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;gap:20px;padding:8px 22px;font-size:26px;font-weight:700;line-height:1.3}
+.row em{font-style:normal;color:var(--red)}
+.row.hi{background:var(--yellow);color:var(--dark)}
+.lblpill{align-self:flex-start;background:var(--blue);color:#fff;font-weight:700;font-size:24px;padding:4px 28px 6px;border-radius:0 999px 999px 0;border:3px solid var(--line);margin-left:-52px;padding-left:52px}
+.shot{margin:0;display:flex;justify-content:center;align-items:center}
+.shot img{display:block;max-width:100%;border:4px solid var(--line);border-radius:18px;box-shadow:var(--shadow);cursor:zoom-in;background:#fff}
+#zoom{position:absolute;inset:0;z-index:50;background:rgba(6,11,38,.93);display:grid;place-items:center;padding:14px;cursor:zoom-out}
+#zoom[hidden]{display:none}
+#zoom img{max-width:100%;max-height:100%;border-radius:12px;background:#fff}
+.steps{display:flex;flex-direction:column;gap:6px;padding:0}
+.st{background:var(--soft);border:3px solid var(--line);border-radius:14px;padding:6px 14px;font-size:22px;font-weight:600;line-height:1.3}
+.arr{text-align:center;font-size:16px;line-height:1;color:var(--red)}
+.type div.steps{padding:12px 24px 16px}
+.rounds .round{padding:14px 24px 18px;display:flex;flex-direction:column;gap:12px}
+.rn{width:78px;height:78px;border-radius:50%;background:var(--c);color:#fff;border:5px solid var(--line);font-family:var(--display);font-size:56px;line-height:68px;text-align:center}
+.round h3{margin:0;font-family:var(--display);font-weight:400;font-size:42px;line-height:1.1}
+.round h3 small{font-family:var(--body);font-size:28px;color:var(--red);font-weight:700}
+.rb{border:3px solid var(--line);border-radius:14px;padding:8px 16px;font-size:23px;line-height:1.35;font-weight:600}
+.rb.y{background:var(--yellow);color:var(--dark)}.rb.b{background:var(--blue);color:#fff}
+.confetti{left:0;top:0}
+.g14{grid-template-columns:repeat(3,1fr)}
+.after{padding:14px 20px 16px;display:flex;flex-direction:column;gap:6px;min-height:150px}
+.after b{font-family:var(--display);font-weight:400;font-size:27px;line-height:1.15;align-self:flex-start;background:var(--c);color:#fff;padding:0 14px 4px;border:3px solid var(--line);border-radius:12px}
+.after p{margin:0;font-size:21px;line-height:1.35;font-weight:600}
+.rule{font-size:21px;line-height:1.3;padding:8px 16px}
+.tag{width:86px;font-size:27px}
+.use{display:grid;grid-template-columns:1.6fr 1fr;gap:16px 22px}
+.ucard{overflow:hidden}
+.ucard h3{margin:0;font-family:var(--display);font-weight:400;font-size:32px;padding:2px 20px 6px;border-bottom:4px solid var(--line)}
+.ucard h3.g{background:var(--green);color:var(--dark)}.ucard h3.r{background:var(--red);color:#fff}
+.ucard ul{margin:0;padding:10px 20px 12px 38px;font-size:19px;line-height:1.3;font-weight:600}
+.ucard li{margin-bottom:5px;break-inside:avoid}
+.two-col{columns:2;column-gap:26px}
+.gband,.rband{border:4px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:8px 18px 10px;font-size:23px;font-weight:700;line-height:1.3;display:flex;align-items:center;justify-content:center;text-align:center}
+.gband{background:var(--green);color:var(--dark);font-family:var(--display);font-weight:400;font-size:28px}
+.rband{background:var(--red);color:#fff}
+.imgside{display:flex;align-items:center;justify-content:center;gap:40px}
+.imgside .side{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:420px}
+.warnbox{padding:16px 22px;font-size:25px;line-height:1.45;font-weight:600;background:var(--soft)}
+.warnbox b{display:block;font-family:var(--display);font-weight:400;font-size:36px;color:var(--red);text-decoration:underline;margin-bottom:6px}
+.type div.steps{padding:12px 24px 16px;gap:4px}
+.type div.st{padding:7px 14px;font-size:22px;line-height:1.3}
+.type div.arr{padding:0;font-size:15px;line-height:1}
+.g14{gap:20px}
+.after{min-height:200px;gap:10px}
+.after b{font-size:30px}
+.after p{font-size:24px}
+@media (max-width:520px){.zhint{display:none}}
+
 /* controls */
 .nav{position:absolute;z-index:20;width:52px;height:52px;border-radius:50%;background:var(--yellow);border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);cursor:pointer;display:grid;place-items:center;padding:0;transition:transform .15s,box-shadow .15s}
 .nav:hover{transform:translate(-1px,-2px);box-shadow:4px 5px 0 var(--line)}
@@ -195,6 +279,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 .count{font-family:var(--display);font-size:22px;min-width:56px;text-align:center}
 :focus-visible{outline:4px solid var(--blue);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+.dots.many{gap:5px}.dots.many .dot{width:12px;height:12px;border-width:2px}
 @media (max-width:520px){.dots{display:none}.area{left:40px;right:40px}.nav{width:36px;height:36px}.nav svg{width:20px;height:20px}#prev,#next{margin-top:-18px}#fs{width:34px;height:34px}}
 </style>
 </head>
@@ -228,6 +313,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 </symbol>
 <symbol id="cloud" viewBox="0 0 160 80"><path d="M30 72a22 22 0 0 1 4-43a32 32 0 0 1 60-6a26 26 0 0 1 40 18a20 20 0 0 1-4 31z"/></symbol>
 <symbol id="star" viewBox="0 0 50 50"><path d="M25 4l6 14 15 2-11 10 3 15-13-8-13 8 3-15L4 20l15-2z"/></symbol>
+<symbol id="cross" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26"/><path d="M20 20l20 20M40 20L20 40"/></symbol>
 <symbol id="check" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26"/><path d="M17 31l9 9 18-20"/></symbol>
 </defs></svg>
 
@@ -239,6 +325,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
   <svg class="cloud" style="top:520px;width:150px;animation-duration:95s;animation-delay:-60s;opacity:.9"><use href="#cloud"/></svg>
   <svg class="cloud" style="top:300px;width:120px;animation-duration:120s;animation-delay:-5s;opacity:.8"><use href="#cloud"/></svg>
   <div class="brand">TISCO FOUNDATION</div>
+  <div id="zoom" hidden><img alt=""></div>
 
   <!-- 1 -->
   <section class="slide" data-t="zoom" data-pos="active">
@@ -257,149 +344,247 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 
   <!-- 2 -->
   <section class="slide" data-t="slide" data-pos="after">
-    <h2 class="title pop" style="--i:0">กำหนดการขอรับทุนประจำปี</h2>
+    <div class="trow pop" style="--i:0"><h2 class="title ">กำหนดการขอรับทุนการศึกษาประจำปี</h2></div>
     <div class="grid3">
-      <div class="card when pop" style="--i:1"><span class="badge w" style="--c:var(--blue)">1 พ.ย. – 31 ม.ค.</span><p>เปิดรับสมัคร ทั้งทุนใหม่และทุนต่อเนื่อง</p></div>
-      <div class="card when pop" style="--i:2"><span class="badge w" style="--c:var(--red)">ก.พ. – เม.ย.</span><p>มูลนิธิพิจารณาใบสมัครทุนการศึกษา</p></div>
-      <div class="card when pop" style="--i:3"><span class="badge" style="--c:var(--green)">มิถุนายน</span><p>ประกาศรายชื่อผู้ได้รับทุน รอบแรก</p></div>
-      <div class="card when pop" style="--i:4"><span class="badge w" style="--c:var(--blue)">31 กรกฎาคม</span><p>ปิดรับหลักฐานแจ้งย้ายสถานศึกษา ทุกระดับชั้น</p></div>
-      <div class="card when pop" style="--i:5"><span class="badge w" style="--c:var(--red)">ส.ค. – ต.ค.</span><p>พิจารณารอบรอฟังผล สำหรับผู้ส่งหลักฐานย้ายสถานศึกษา</p></div>
-      <div class="card when pop" style="--i:6"><span class="badge" style="--c:var(--orange)">พ.ย. – ธ.ค.</span><p>ประกาศรายชื่อรอบรอฟังผล แล้วส่งตั๋วแลกเงินไปที่สถานศึกษา</p></div>
+      <div class="card when tight pop" style="--i:1"><span class="badge w" style="--c:var(--blue)">1 พ.ย. – 31 ม.ค.</span><p>สมัครขอรับทุนการศึกษา ทั้งทุนใหม่และทุนต่อเนื่อง</p></div>
+      <div class="card when tight pop" style="--i:2"><span class="badge w" style="--c:var(--red)">ก.พ. – เม.ย.</span><p>มูลนิธิดำเนินการพิจารณาใบสมัครทุนการศึกษา</p></div>
+      <div class="card when tight pop" style="--i:3"><span class="badge" style="--c:var(--green)">มี.ค. – 31 ก.ค.</span><p>ผู้ที่กรอกว่าปีการศึกษาหน้าจะย้ายสถานศึกษา ส่งหลักฐานยืนยันให้มูลนิธิ</p></div>
+      <div class="card when tight pop" style="--i:4"><span class="badge w" style="--c:var(--blue)">มิถุนายน</span><p>ประกาศรายชื่อผู้ได้รับทุนรอบแรก ป.6 ม.3 ที่ส่งหลักฐานภายใน 15 พ.ค. มูลนิธิส่งตั๋วแลกเงินไปที่สถานศึกษา</p></div>
+      <div class="card when tight pop" style="--i:5"><span class="badge w" style="--c:var(--red)">31 กรกฎาคม</span><p>ปิดรับหลักฐานแจ้งย้ายสถานศึกษาทุกระดับชั้น ป.6 ม.3 ม.6 ปวช.3 ปวส.2</p></div>
+      <div class="card when tight pop" style="--i:6"><span class="badge" style="--c:var(--orange)">ส.ค. – ต.ค.</span><p>มูลนิธิพิจารณาทุนรอบรอฟังผล กลุ่มที่ส่งหลักฐานยืนยันการย้ายสถานศึกษา</p></div>
+      <div class="card when tight pop" style="--i:7"><span class="badge w" style="--c:var(--blue)">พฤศจิกายน</span><p>ประกาศรายชื่อผู้ได้รับทุนรอบรอฟังผล ที่ส่งหลักฐานภายใน 31 ก.ค.</p></div>
+      <div class="card when tight pop" style="--i:8"><span class="badge w" style="--c:var(--red)">ธันวาคม</span><p>มูลนิธิส่งตั๋วแลกเงินรอบรอฟังผลไปที่สถานศึกษา</p></div>
+      <div class="card when tight pop" style="--i:9"><span class="badge" style="--c:var(--yellow)">1 พ.ย. – 31 ม.ค.</span><p>เปิดรับสมัครทุนการศึกษาปีถัดไป</p></div>
     </div>
-    <p class="note pop" style="--i:7">กำหนดการอาจมีการเปลี่ยนแปลงตามความเหมาะสม ติดตามข่าวสารที่ Facebook: TISCO Foundation</p>
+    <p class="note pop" style="--i:10">กำหนดการอาจมีการเปลี่ยนแปลงตามความเหมาะสม ติดตามข่าวสารที่ Facebook: TISCO Foundation · โทร 02 633 7502-4</p>
   </section>
 
   <!-- 3 -->
-  <section class="slide" data-t="flip" data-pos="after">
-    <h2 class="title pop" style="--i:0">ใครขอรับทุนได้บ้าง</h2>
-    <div class="grid4">
-      <div class="card crit pop" style="--i:1"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ขาดแคลนทุนทรัพย์</div>
-      <div class="card crit pop" style="--i:2"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>มีความประพฤติดี มีจริยธรรม</div>
-      <div class="card crit pop" style="--i:3"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>กำลังศึกษาตั้งแต่ ป.5 จนถึงระดับปริญญาตรี</div>
-      <div class="card crit pop" style="--i:4"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>เกรดเฉลี่ยไม่ต่ำกว่า 1.50</div>
-      <div class="card crit pop" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ไม่กู้ กยศ. หรือ กรอ.</div>
-      <div class="card crit pop" style="--i:6"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ไม่ได้รับทุนต่อเนื่องจากหน่วยงานอื่น</div>
-      <div class="card crit pop" style="--i:7"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ปริญญาตรี ไม่เรียนมหาวิทยาลัยเอกชน ภาคพิเศษ ภาคสมทบ</div>
-      <div class="card crit callout pop" style="--i:8">ความเห็นของคุณครูในใบสมัคร สำคัญมาก</div>
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">ทุนการศึกษา</h2></div>
+    <div class="s3">
+      <div class="card list pop" style="--i:1"><h3>เกณฑ์การพิจารณา</h3><ul><li>ขาดแคลนทุนทรัพย์</li><li>มีความประพฤติดี มีจริยธรรม</li><li>กำลังศึกษาอยู่ตั้งแต่ระดับชั้นประถมศึกษาปีที่ 5 จนถึงระดับปริญญาตรี</li><li>เกรดเฉลี่ยไม่ต่ำกว่า 1.50</li><li>ไม่กู้ กยศ. หรือ กรอ.</li><li>ไม่ได้รับทุนการศึกษาต่อเนื่องจากหน่วยงานใดๆ</li><li>ระดับปริญญาตรี ต้องไม่เรียนมหาวิทยาลัยเอกชน และไม่เรียนภาคพิเศษ ภาคสมทบ</li></ul></div>
+      <div class="card amt pop" style="--i:2"><h3>ทุนการศึกษาต่อปี แต่ละระดับดังนี้ <small>(บาท/ปี)</small></h3>
+        <div class="hrow"><span>ประถมศึกษาปีที่ 6</span><div class="htrack"><div class="hb" style="--v:0.0667;--c:var(--blue);--i:0"></div></div><span class="hv" data-count="1000">1,000</span></div>
+        <div class="hrow"><span>มัธยมศึกษาตอนต้น</span><div class="htrack"><div class="hb" style="--v:0.2000;--c:var(--red);--i:1"></div></div><span class="hv" data-count="3000">3,000</span></div>
+        <div class="hrow"><span>มัธยมศึกษาตอนปลาย</span><div class="htrack"><div class="hb" style="--v:0.2333;--c:var(--blue);--i:2"></div></div><span class="hv" data-count="3500">3,500</span></div>
+        <div class="hrow"><span>ปวช.</span><div class="htrack"><div class="hb" style="--v:0.4667;--c:var(--red);--i:3"></div></div><span class="hv" data-count="7000">7,000</span></div>
+        <div class="hrow"><span>ปวส. สาขาอื่นๆ</span><div class="htrack"><div class="hb" style="--v:0.6000;--c:var(--orange);--i:4"></div></div><span class="hv" data-count="9000">9,000</span></div>
+        <div class="hrow"><span>ปวส. สาขาอุตสาหกรรม</span><div class="htrack"><div class="hb" style="--v:0.9333;--c:var(--green);--i:5"></div></div><span class="hv" data-count="14000">14,000</span></div>
+        <div class="hrow"><span>ปริญญาตรี</span><div class="htrack"><div class="hb" style="--v:1.0000;--c:var(--yellow);--i:6"></div></div><span class="hv" data-count="15000">15,000</span></div>
+      </div>
     </div>
   </section>
 
   <!-- 4 -->
-  <section class="slide" data-t="drop" data-pos="after">
-    <h2 class="title pop" style="--i:0">ทุนการศึกษาต่อปี แต่ละระดับ</h2>
-    <p class="unit pop" style="--i:1">หน่วย: บาทต่อปี</p>
-    <div class="chart">
-      <div class="col"><div class="val" data-count="1000">1,000</div><div class="bar" style="--v:.0667;--c:var(--blue);--i:0"></div></div>
-      <div class="col"><div class="val" data-count="3000">3,000</div><div class="bar" style="--v:.2;--c:var(--red);--i:1"></div></div>
-      <div class="col"><div class="val" data-count="3500">3,500</div><div class="bar" style="--v:.2333;--c:var(--blue);--i:2"></div></div>
-      <div class="col"><div class="val" data-count="7000">7,000</div><div class="bar" style="--v:.4667;--c:var(--red);--i:3"></div></div>
-      <div class="col"><div class="val" data-count="9000">9,000</div><div class="bar" style="--v:.6;--c:var(--orange);--i:4"></div></div>
-      <div class="col"><div class="val" data-count="14000">14,000</div><div class="bar" style="--v:.9333;--c:var(--green);--i:5"></div></div>
-      <div class="col"><div class="val" data-count="15000">15,000</div><div class="bar" style="--v:1;--c:var(--yellow);--i:6"></div></div>
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">การสมัครขอทุนการศึกษา</h2></div>
+    <div class="two">
+      <div class="card type pop" style="--i:1"><h3 style="--c:var(--blue)">แบบฟอร์มขอทุนใหม่</h3><div><p>สำหรับผู้ที่<b>ไม่เคยยื่นสมัคร</b>ขอรับทุนของมูลนิธิฯ มาก่อน หรือเป็นผู้ที่<b>เคยได้รับทุน</b>จากมูลนิธิฯ แล้วในปีก่อน แต่<b>ไม่ได้รับทุนในปีการศึกษาล่าสุดนี้</b></p></div></div>
+      <div class="card type pop" style="--i:2"><h3 style="--c:var(--red)">แบบฟอร์มขอทุนต่อเนื่อง</h3><div><p>สำหรับผู้ขอทุนที่<b>ได้รับทุน</b>ของมูลนิธิฯ ในปีการศึกษาล่าสุดนี้ และประสงค์จะ<b>ขอรับทุนต่อเนื่องในปีการศึกษาต่อไป</b> ต้องยื่นแบบฟอร์มการขอรับทุนต่อเนื่องมายังมูลนิธิฯ ทุกปี</p></div></div>
     </div>
-    <div class="labels"><span>ประถมศึกษา<br>ปีที่ 6</span><span>มัธยมศึกษา<br>ตอนต้น</span><span>มัธยมศึกษา<br>ตอนปลาย</span><span>ปวช.</span><span>ปวส.<br>สาขาอื่นๆ</span><span>ปวส.<br>อุตสาหกรรม</span><span>ปริญญาตรี</span></div>
+    <div class="strip pop" style="--i:3">มูลนิธิทิสโก้ เพื่อการกุศล มอบทุนการศึกษาต่อเนื่อง ปีละ 1 ครั้ง โดยผู้ขอรับทุนจะต้องส่งแบบฟอร์มการขอรับทุนต่อเนื่องให้มูลนิธิทุกปี และต้องปฏิบัติตามระเบียบการใช้จ่ายเงินทุนการศึกษา จึงจะได้รับทุนการศึกษาต่อเนื่อง</div>
   </section>
 
   <!-- 5 -->
-  <section class="slide" data-t="zoom" data-pos="after">
-    <h2 class="title pop" style="--i:0">สมัครทุนแบบไหนดี</h2>
+  <section class="slide" data-t="drop" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">เกณฑ์การพิจารณาหลัก</h2></div>
     <div class="two">
-      <div class="card type pop" style="--i:1"><h3 style="--c:var(--blue)">แบบฟอร์มขอทุนใหม่</h3><div><p>สำหรับผู้ที่ไม่เคยสมัครขอรับทุน หรือเคยได้รับทุนปีก่อนแต่ไม่ได้รับในปีล่าสุด</p><b>พิจารณาจาก</b><br>สถานภาพครอบครัว · ฐานะทางเศรษฐกิจ · สภาพที่อยู่อาศัย · ปัญหาความเดือดร้อน</div></div>
-      <div class="card type pop" style="--i:2"><h3 style="--c:var(--red)">แบบฟอร์มขอทุนต่อเนื่อง</h3><div><p>สำหรับผู้ที่ได้รับทุนปีล่าสุดและต้องการรับต่อ ต้องยื่นแบบฟอร์มทุกปี</p><b>พิจารณาจาก</b><br>เอกสารครบถ้วน · บันทึกรายจ่าย · สมุดบัญชี · ใบเสร็จที่น่าเชื่อถือ ต้องสอดคล้องกัน</div></div>
+      <div class="card type pop" style="--i:1"><h3 style="--c:var(--blue)">ทุนใหม่</h3><div><ul class="bl"><li>สถานภาพครอบครัว</li><li>ฐานะทางเศรษฐกิจของครอบครัว</li><li>สภาพที่อยู่อาศัย</li><li>สภาพปัญหาความเดือดร้อน</li></ul></div></div>
+      <div class="card type pop" style="--i:2"><h3 style="--c:var(--red)">ทุนต่อเนื่อง</h3><div><ul class="bl"><li>พิจารณาความครบถ้วนสมบูรณ์ของเอกสาร การบันทึกรายการใช้จ่ายเงินทุนการศึกษา รายการเดินบัญชีธนาคาร และใบเสร็จที่น่าเชื่อถือ โดยเอกสารต้องมีความสอดคล้องกัน</li></ul></div></div>
     </div>
-    <div class="strip pop" style="--i:3"><b>สมัครได้ 2 ทาง (เลือกทางใดทางหนึ่ง)</b>ออนไลน์ที่ scholarship.tiscofoundation.org ครูผู้ดูแลทุนอัปโหลดเอกสารแล้วกดส่ง · หรือเขียนแบบฟอร์ม ดาวน์โหลดที่ www.tiscofoundation.org แล้วครูรวบรวมส่งไปรษณีย์</div>
+    <div class="redband pop" style="--i:3">*** ความเห็นของคุณครูในใบสมัครมีส่วนสำคัญมากเช่นกัน ***</div>
   </section>
 
   <!-- 6 -->
   <section class="slide" data-t="slide" data-pos="after">
-    <h2 class="title pop" style="--i:0">กรณีย้ายสถานศึกษา</h2>
-    <div class="row2">
-      <div class="card who pop" style="--i:1"><b>ใครต้องส่งหลักฐาน</b>ผู้ขอทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลว่าปีการศึกษาหน้าจะย้ายหรือเปลี่ยนสถานศึกษา</div>
-      <div class="card ev pop" style="--i:2"><b>หลักฐานยืนยันการย้าย</b><ul><li>ใบเสร็จจ่ายค่าเทอมของสถานศึกษาใหม่</li><li>บัตรประจำตัวนักเรียน/นักศึกษาใหม่</li><li>หนังสือรับรองสถานภาพของสถานศึกษาใหม่</li></ul></div>
-    </div>
-    <div class="warn pop" style="--i:3">ต้องส่งหลักฐานก่อน ถึงจะได้รับการพิจารณาทุน</div>
-    <div class="track pop" style="--i:4">
-      <div class="fillbar"></div>
-      <div class="stop"><i style="--c:var(--blue)"></i><b>31 ม.ค.</b>ปิดรับสมัคร</div>
-      <div class="stop"><i style="--c:var(--orange)"></i><b>15 พ.ค.</b>ป.6 ม.3<br>ส่งหลักฐานย้าย</div>
-      <div class="stop"><i style="--c:var(--green)"></i><b>มิถุนายน</b>ประกาศ<br>รอบแรก</div>
-      <div class="stop"><i style="--c:var(--red)"></i><b>31 ก.ค.</b>ป.6 ม.3 ม.6 ปวช.3<br>ปวส.2 ส่งหลักฐาน</div>
-      <div class="stop"><i style="--c:var(--blue)"></i><b>พฤศจิกายน</b>ประกาศ<br>รอบรอฟังผล</div>
+    <div class="trow pop" style="--i:0"><h2 class="title ">เอกสารการขอรับทุนการศึกษา</h2><span class="tpill" style="--c:var(--yellow)">ทุนใหม่</span></div>
+    <div class="docs">
+      <div class="card doc pop" style="--i:1"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>แบบฟอร์มการขอรับทุนการศึกษา-ทุนใหม่</span></div>
+      <div class="card doc pop" style="--i:2"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>สำเนาบัตรประจำตัวประชาชนผู้ขอรับทุน</span></div>
+      <div class="card doc pop" style="--i:3"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>หนังสือรับรองสถานภาพนักเรียน/นักศึกษา</span></div>
+      <div class="card doc pop" style="--i:4"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>สำเนาผลการเรียนเทอมล่าสุด</span></div>
+      <div class="card doc pop" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>รูปถ่ายหน้าตรง</span></div>
+      <div class="card doc pop" style="--i:6"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>รูปถ่ายบ้านสภาพที่อยู่อาศัย ทั้งภายนอกและภายในบ้าน</span></div>
+      <div class="card doc pop" style="--i:7"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>เขียนเล่าสภาพชีวิตความเป็นอยู่ สภาพครอบครัว และสภาพที่อยู่อาศัย 1 หน้ากระดาษ</span></div>
+      <div class="card doc pop" style="--i:8"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>จดหมายรับรองจากอาจารย์ที่ปรึกษา (ระดับปริญญาตรีเท่านั้น)</span></div>
     </div>
   </section>
 
   <!-- 7 -->
-  <section class="slide" data-t="flip" data-pos="after" id="s-game">
-    <h2 class="title pop" style="--i:0">ลองเล่น: ใช้เงินทุนได้ไหม</h2>
-    <div class="gm">
-      <div class="card q pop" style="--i:1" id="gcard">
-        <div class="qtop"><span id="gprog">ข้อ 1 / 8</span><span>เลือกคำตอบ</span></div>
-        <div class="item" id="gq"></div>
-        <div class="ans" id="gans">
-          <button class="big-btn yes" id="gy" type="button">ใช้ได้</button>
-          <button class="big-btn no" id="gn" type="button">ใช้ไม่ได้</button>
-        </div>
-        <div class="fb" id="gfb"></div>
-        <button class="big-btn nx" id="gnext" type="button" hidden>ข้อต่อไป</button>
-      </div>
-      <div class="gside pop" style="--i:3">
-        <svg id="gmas" width="220" height="253" viewBox="0 0 200 232"><use href="#mascot"/></svg>
-        <div class="score" id="gscore">คะแนน 0</div>
-      </div>
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">เอกสารการขอรับทุนการศึกษา</h2><span class="tpill" style="--c:var(--orange)">ทุนต่อเนื่อง</span></div>
+    <div class="docs">
+      <div class="card doc pop" style="--i:1"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>แบบฟอร์มการขอรับทุนการศึกษา-ทุนต่อเนื่อง</span></div>
+      <div class="card doc pop" style="--i:2"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>สำเนาบัตรประจำตัวประชาชนผู้ขอรับทุน</span></div>
+      <div class="card doc pop" style="--i:3"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>หนังสือรับรองสถานภาพนักเรียน/นักศึกษา</span></div>
+      <div class="card doc pop" style="--i:4"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>สำเนาผลการเรียนเทอมล่าสุด</span></div>
+      <div class="card doc pop" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>สำเนาสมุดบัญชีธนาคาร หน้าที่แสดงชื่อเจ้าของบัญชี และหน้ารายการเดินบัญชี</span></div>
+      <div class="card doc pop" style="--i:6"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>แบบฟอร์มรายการใช้จ่ายเงินทุนการศึกษา</span></div>
+      <div class="card doc pop" style="--i:7"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>ใบเสร็จรับเงินที่น่าเชื่อถือ ตั้งแต่ 500 บาทขึ้นไปต่อรายการ/ต่อใบเสร็จ โดยเฉพาะใบเสร็จการใช้จ่ายเป็นค่าธรรมเนียมการศึกษาและค่าอินเทอร์เน็ตนักเรียนที่กู้ยืม กยศ. กรอ. อยู่ปัจจุบัน</span></div>
     </div>
   </section>
 
   <!-- 8 -->
-  <section class="slide" data-t="drop" data-pos="after">
-    <h2 class="title pop" style="--i:0">ข้อปฏิบัติและข้อห้าม ทุนต่อเนื่อง</h2>
-    <div class="rules">
-      <div class="card rule pop" style="--i:1"><span class="tag must" style="--i:1">ต้อง</span>ใช้เงินเฉพาะเรื่องการศึกษา และเท่าที่จำเป็น</div>
-      <div class="card rule pop" style="--i:2"><span class="tag must" style="--i:2">ต้อง</span>บันทึกรายการใช้จ่ายทันที เซ็นรับทราบทั้งนักเรียน ผู้ปกครอง และครู</div>
-      <div class="card rule pop" style="--i:3"><span class="tag must" style="--i:3">ต้อง</span>ค่าใช้จ่ายตั้งแต่ 500 บาทขึ้นไป แนบใบเสร็จที่น่าเชื่อถือ</div>
-      <div class="card rule pop" style="--i:4"><span class="tag must" style="--i:4">ต้อง</span>นำตั๋วแลกเงินไปขึ้นเงินทันที ตั๋วมีอายุ 3 เดือน</div>
-      <div class="card rule pop" style="--i:5"><span class="tag ban" style="--i:5">ห้าม</span>สมัครใช้บัตร ATM</div>
-      <div class="card rule pop" style="--i:6"><span class="tag ban" style="--i:6">ห้าม</span>เบิกเงินเป็นก้อนล่วงหน้า แล้วทยอยใช้ในเดือนต่อๆ ไป</div>
-      <div class="card rule pop" style="--i:7"><span class="tag ban" style="--i:7">ห้าม</span>นำเงินครอบครัวหรือเพื่อนมาฝาก-ถอนร่วมกับบัญชีทุน</div>
-      <div class="card rule pop" style="--i:8"><span class="tag care" style="--i:8">ระวัง</span>ค่ารถบ้านไป-กลับโรงเรียนได้ แต่ค่าเดินทางกลับภูมิลำเนาไม่ได้</div>
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">การสมัครขอทุนการศึกษา</h2></div>
+    <div class="rowsx">
+      <div class="card row pop " style="--i:1"><svg class="chk" viewBox="0 0 60 60"><use href="#cross"/></svg><span>สมัครผ่านทางโรงเรียนครั้งเดียวได้รับทุนทุกปี</span></div>
+      <div class="card row pop " style="--i:2"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>ทุนของมูลนิธิทิสโก้ฯ เป็น<em>ทุนต่อเนื่อง แต่ไม่อัตโนมัติ</em> นักเรียนจะต้องยื่นส่งสมัครทุนเข้ามาใหม่ทุกปี</span></div>
+      <div class="lblpill pop" style="--i:3">นักเรียนที่กู้ยืม กยศ. กรอ.</div>
+      <div class="card row pop " style="--i:4"><svg class="chk" viewBox="0 0 60 60"><use href="#cross"/></svg><span>นักเรียนที่กู้ยืม กยศ. กรอ. อยู่<em>ปัจจุบัน</em></span></div>
+      <div class="card row pop hi" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>นักเรียนที่กู้ยืม กยศ. กรอ. อยู่ปัจจุบัน แต่ใน<em>ปีการศึกษาหน้าจะไม่กู้ยืมต่อ</em></span></div>
+      <div class="card row pop " style="--i:6"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span>นักเรียนที่<em>รอยื่นกู้ยืม</em> กยศ. กรอ. ในปีการศึกษาหน้า</span></div>
     </div>
   </section>
 
   <!-- 9 -->
-  <section class="slide" data-t="zoom" data-pos="after" id="s-rcpt">
-    <h2 class="title pop" style="--i:0">ใบเสร็จที่น่าเชื่อถือ</h2>
-    <div class="rc">
-      <div class="rcpt pop" style="--i:1">
-        <div class="zone" data-z="1"><b class="shop">ร้านเครื่องเขียนตัวอย่าง</b>99 หมู่ 1 ต.ตัวอย่าง อ.ตัวอย่าง จ.ตัวอย่าง · โทร 000-000-0000</div>
-        <div class="rrow"><div class="zone" data-z="3">ได้รับเงินจาก น.ส.ชมพู เรียนดี</div><div class="zone" data-z="2">วันที่ 6 พ.ย. 2569</div></div>
-        <div class="zone" data-z="4"><table><tr><td>หนังสือเรียน 1 ชุด</td><td>350.00</td></tr><tr><td>สมุด 10 เล่ม</td><td>150.00</td></tr><tr><td><b>รวมเป็นเงิน (ห้าร้อยบาทถ้วน)</b></td><td><b>500.00</b></td></tr></table></div>
-        <div class="zone sig" data-z="5">ผู้รับเงิน <svg viewBox="0 0 130 40"><path d="M6 30C18 4 26 4 24 24C22 38 36 8 46 20C54 30 60 12 72 22C82 30 96 18 124 14"/></svg></div>
-      </div>
-      <div class="chips">
-        <div class="card chip pop" data-z="1" style="--i:2"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>มีชื่อร้านค้า ที่อยู่ เบอร์โทร</div>
-        <div class="card chip pop" data-z="2" style="--i:3"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ระบุวันที่</div>
-        <div class="card chip pop" data-z="3" style="--i:4"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ระบุชื่อผู้ซื้อชัดเจน</div>
-        <div class="card chip pop" data-z="4" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>รายการสินค้า ราคา ชัดเจน</div>
-        <div class="card chip pop" data-z="5" style="--i:6"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg>ลงชื่อผู้รับเงิน</div>
+  <section class="slide" data-t="drop" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">สมัครแบบเขียนแบบฟอร์ม</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p09.jpg" alt="ตัวอย่างแบบฟอร์มที่เขียนแจ้งว่าปีการศึกษาหน้าจะไม่กู้ กยศ." style="max-height:500px"></figure>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" data-t="slide" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">สมัครผ่านระบบออนไลน์</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p10.jpg" alt="ตัวอย่างหน้าระบบออนไลน์ ช่องข้อมูลอื่นๆ" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">วิธีการสมัครขอทุนการศึกษา</h2><span class="tpill" style="--c:var(--yellow)">เลือกวิธีใดวิธีหนึ่ง</span></div>
+    <p class="note pop" style="--i:1"><b>มูลนิธิเปิดรับสมัครทั้งทุนใหม่และทุนต่อเนื่อง ตั้งแต่ 1 พฤศจิกายน – 31 มกราคม ของทุกปี</b> สมัครผ่านทางสถานศึกษาที่กำลังศึกษาอยู่ปัจจุบัน</p>
+    <div class="two">
+      <div class="card type pop" style="--i:2"><h3 style="--c:var(--blue)">ระบบออนไลน์ <small>scholarship.tiscofoundation.org</small></h3><div class="steps"><div class="st">นักเรียนกรอกข้อมูล</div><div class="arr">▼</div><div class="st">ครูผู้ดูแลทุน ลงทะเบียนขอรับรหัสผ่านและเพิ่มชื่อสถานศึกษา</div><div class="arr">▼</div><div class="st">ครูผู้ดูแลทุน อัพโหลดเอกสารให้นักเรียน แล้วกดส่งข้อมูลให้มูลนิธิ</div></div></div>
+      <div class="card type pop" style="--i:3"><h3 style="--c:var(--red)">เขียนแบบฟอร์ม <small>ดาวน์โหลด www.tiscofoundation.org</small></h3><div class="steps"><div class="st">นักเรียนเขียนแบบฟอร์ม</div><div class="arr">▼</div><div class="st">ครูผู้ดูแลทุน รวบรวมเอกสารของนักเรียน</div><div class="arr">▼</div><div class="st">ส่งให้มูลนิธิทางไปรษณีย์</div></div></div>
+    </div>
+    <div class="strip pop" style="--i:4">* เฉพาะผู้ขอรับทุนที่กำลังศึกษาอยู่ระดับปริญญาตรี สามารถรวบรวมเอกสารแล้วส่งให้มูลนิธิด้วยตนเองได้ *</div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">กรณีย้ายสถานศึกษา</h2></div>
+    <div class="row2">
+      <div class="card who pop" style="--i:1"><b>ใครบ้างที่ต้องส่งหลักฐาน</b>น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่ในปีการศึกษาหน้า</div>
+      <div class="card ev pop" style="--i:2"><b>หลักฐานยืนยันการย้ายสถานศึกษา</b><ul><li>ใบเสร็จการจ่ายค่าเทอมของสถานศึกษาใหม่</li><li>บัตรประจำตัวนักเรียน/นักศึกษาของสถานศึกษาใหม่</li><li>หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษาของสถานศึกษาใหม่</li></ul></div>
+    </div>
+    <div class="warn pop" style="--i:3">ต้องส่งหลักฐานยืนยันการย้ายสถานศึกษาก่อน ถึงจะได้รับการพิจารณาทุน</div>
+    <div class="track pop" style="--i:4">
+      <div class="fillbar"></div>
+      <div class="stop"><i style="--c:var(--blue)"></i><b>31 ม.ค.</b>ปิดรับสมัคร</div>
+      <div class="stop"><i style="--c:var(--orange)"></i><b>15 พ.ค.</b>ป.6 ม.3<br>ส่งหลักฐานย้าย</div>
+      <div class="stop"><i style="--c:var(--green)"></i><b>มิถุนายน</b>ประกาศ<br>รอบแรก (1)</div>
+      <div class="stop"><i style="--c:var(--red)"></i><b>31 ก.ค.</b>ป.6 ม.3 ม.6 ปวช.3<br>ปวส.2 ส่งหลักฐาน</div>
+      <div class="stop"><i style="--c:var(--blue)"></i><b>พฤศจิกายน</b>ประกาศรอบ<br>รอฟังผล (2)</div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide" data-t="drop" data-pos="after" id="s-ann">
+    <canvas class="confetti" id="conf" width="1270" height="710"></canvas>
+    <div class="trow pop" style="--i:0"><h2 class="title ">ประกาศรายชื่อผู้ได้รับทุน</h2></div>
+    <div class="two rounds">
+      <div class="card round pop" style="--i:1"><div class="rn" style="--c:var(--green)">1</div><h3>รอบแรก <small>มิถุนายน</small></h3>
+        <div class="rb y">นักเรียนที่กรอกข้อมูลว่า <b>เรียนต่อสถานศึกษาเดิม</b></div>
+        <div class="rb b">นักเรียน ป.6 ม.3 ที่ส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่ ภายในวันที่ 15 พฤษภาคม</div></div>
+      <div class="card round pop" style="--i:2"><div class="rn" style="--c:var(--red)">2</div><h3>รอบรอฟังผล <small>พฤศจิกายน</small></h3>
+        <div class="rb b">นักเรียน / นักศึกษา ป.6 ม.3 ม.6 ปวช.3 ปวส.2 ที่ส่งหลักฐานการย้ายสถานศึกษา ภายในวันที่ 31 กรกฎาคม</div></div>
+    </div>
+    <div class="blueband pop" style="--i:3">ติดตามประกาศรายชื่อได้ที่ www.tiscofoundation.org และเพจ Facebook : TISCO Foundation</div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide" data-t="slide" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">หลังจากประกาศรายชื่อ</h2></div>
+    <div class="grid3 g14">
+      <div class="card after pop" style="--i:1"><b style="--c:var(--blue)">ตรวจสอบรายชื่อที่ประกาศ</b><p>ชื่อ-สกุล สะกดถูกต้อง หรือมีการเปลี่ยนชื่อ-สกุล สถานศึกษาตรงกับที่เรียนอยู่ปัจจุบันไหม หากพบว่าข้อมูลไม่ถูกต้องให้แจ้งมูลนิธิทันที</p></div>
+      <div class="card after pop" style="--i:2"><b style="--c:var(--red)">มูลนิธิแจ้งวันส่งตั๋วออก</b><p>ที่หน้าเพจ Facebook TISCO Foundation</p></div>
+      <div class="card after pop" style="--i:3"><b style="--c:var(--orange)">2 สัปดาห์ – 1 เดือน</b><p>หากโรงเรียนยังไม่ได้รับตั๋วแลกเงิน ให้ตรวจสอบที่ธุรการของโรงเรียนก่อน ถ้าไม่พบ ให้ติดต่อมูลนิธิเพื่อตรวจสอบทันที</p></div>
+      <div class="card after pop" style="--i:4"><b style="--c:var(--red)">นำตั๋วแลกเงินไปขึ้นเงินทันที</b><p>ตั๋วแลกเงินมีอายุ 3 เดือน นับจากวันที่ ที่ระบุบนหน้าตั๋ว</p></div>
+      <div class="card after pop" style="--i:5"><b style="--c:var(--green)">หากมีการใช้จ่าย</b><p>ลงบันทึกรายการค่าใช้จ่ายไว้ และเก็บใบเสร็จไว้ เพื่อเตรียมแนบขอทุนต่อเนื่องปีถัดไป</p></div>
+      <div class="card after pop" style="--i:6"><b style="--c:var(--blue)">เก็บสมุดบัญชีไว้ที่คุณครู</b></div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง</h2></div>
+    <div class="rules">
+      <div class="card rule pop" style="--i:1"><span class="tag must" style="--i:1">ต้อง</span>เงินทุนการศึกษา ใช้จ่ายเฉพาะเรื่องการศึกษาของนักเรียน/นักศึกษาเท่านั้น และใช้เฉพาะที่จำเป็น</div>
+      <div class="card rule pop" style="--i:2"><span class="tag must" style="--i:2">ต้อง</span>เมื่อมีการใช้จ่าย ต้องบันทึกใน "แบบฟอร์มรายการใช้จ่าย" ครบถ้วนทันที ผู้รับทุน ผู้ปกครอง และครูผู้ดูแลทุน ต้องเซ็นรับทราบทุกรายการ</div>
+      <div class="card rule pop" style="--i:3"><span class="tag ban" style="--i:3">ห้าม</span>สมัครใช้บัตร ATM</div>
+      <div class="card rule pop" style="--i:4"><span class="tag care" style="--i:4">ระวัง</span>ตั๋วแลกเงิน/แคชเชียร์เช็ค มีอายุ 3 เดือน นับจากวันที่บนหน้าตั๋วแลกเงิน/แคชเชียร์เช็ค</div>
+      <div class="card rule pop" style="--i:5"><span class="tag ban" style="--i:5">ห้าม</span>เบิกเงินเป็นก้อนล่วงหน้า แล้วทยอยใช้ในเดือนต่อๆ ไป</div>
+      <div class="card rule pop" style="--i:6"><span class="tag must" style="--i:6">ต้อง</span>ค่าใช้จ่ายต่อรายการหรือต่อใบเสร็จตั้งแต่ 500 บาทขึ้นไป ต้องแนบใบเสร็จที่น่าเชื่อถือมาด้วย</div>
+      <div class="card rule pop" style="--i:7"><span class="tag ban" style="--i:7">ห้าม</span>นำเงินของครอบครัวหรือของเพื่อน มาฝาก-ถอน ร่วมกับบัญชีเงินทุนการศึกษาของมูลนิธิฯ</div>
+      <div class="card rule pop" style="--i:8"><span class="tag care" style="--i:8">ระวัง</span>ใช้เป็นค่าใช้จ่ายในการเดินทางระหว่างบ้านไปกลับโรงเรียนได้ แต่ใช้เป็นค่าเดินทางไปกลับภูมิลำเนาไม่ได้</div>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">การใช้จ่ายเงินทุนการศึกษา</h2></div>
+    <div class="use">
+      <div class="card ucard pop" style="--i:1"><h3 class="g">เบิกใช้จ่ายได้</h3><ul class="two-col"><li>ค่าเทอม</li><li>ค่าเรียนพิเศษ / ค่าสมัครสอบ</li><li>ค่ากิจกรรม / ทัศนศึกษา / เข้าค่าย</li><li>หนังสือเรียน อุปกรณ์การเรียน</li><li>ชุดนักเรียนนักศึกษา / ชุดพละ</li><li>ชุดลูกเสือเนตรนารี / รด. / ชุดพื้นเมือง</li><li>ตัดแว่นสายตา</li><li>รถโดยสารจากบ้านไป-กลับโรงเรียน</li><li>อาหารกลางวัน</li><li>คอมพิวเตอร์ / แล็ปท็อป / ไอแพด (เฉพาะ ปวช. ปวส. ปริญญาตรี เท่านั้น)</li><li>เครื่องปริ้นเตอร์</li><li>อุปกรณ์การเรียนช่าง / ทำโครงงาน</li><li>ถ่ายเอกสาร / พิมพ์งาน / เข้าเล่ม</li><li><b>อินเทอร์เน็ต (ต้องแนบหลักฐานเท่านั้น)</b></li><li>ค่าหอพักนักเรียน</li><li>ค่าตรวจสุขภาพ เพื่อมอบตัวเข้าศึกษาต่อ</li><li>ซื้อ/ซ่อม รถจักรยาน</li></ul></div>
+      <div class="card ucard pop" style="--i:2"><h3 class="r">ค่าใช้จ่ายผิดวัตถุประสงค์</h3><ul><li>ค่าเดินทางกลับภูมิลำเนา</li><li>เติมน้ำมันรถ</li><li>ซ่อมรถจักรยานยนต์</li><li>ซื้อโทรศัพท์ / จ่ายค่าโทรศัพท์</li><li>ข้าวสาร อาหารแห้ง ให้ครอบครัว</li><li>จ่ายค่าเช่าบ้าน ค่าน้ำ-ค่าไฟ ของที่บ้าน</li><li>ค่ายารักษาโรค/ค่ารักษาพยาบาล</li></ul></div>
+      <div class="gband pop" style="--i:3">น้องๆ สามารถเก็บออมไว้โดยไม่เบิกถอนเงินได้นะคะ</div>
+      <div class="rband pop" style="--i:4">*หากมีการใช้จ่ายที่ผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือมา จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</div>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide" data-t="drop" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">แบบฟอร์มรายการใช้จ่ายเงิน</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <div class="imgside">
+      <figure class="shot pop" style="--i:1"><img src="images/p17.jpg" alt="แบบฟอร์มรายการใช้จ่ายเงินที่ยังว่าง" style="max-height:500px"></figure>
+      <div class="side pop" style="--i:2">
+        <div class="card warnbox"><b>คำเตือน</b>กรุณาอ่านระเบียบปฏิบัติการใช้จ่ายเงินทุนเพื่อการศึกษาด้านหลังอย่างละเอียด และต้องใช้แบบฟอร์มรายการใช้จ่ายเงินของมูลนิธิฯ เท่านั้น</div>
+        <svg class="bob" width="200" height="230" viewBox="0 0 200 232"><use href="#mascot"/></svg>
       </div>
     </div>
   </section>
 
-  <!-- 10 -->
-  <section class="slide" data-t="zoom" data-pos="after" id="s-end">
-    <canvas class="confetti" id="conf" width="1270" height="710"></canvas>
-    <div class="s10">
-      <div>
-        <h1 class="pop" style="--i:0">ขอบคุณค่ะ</h1>
-        <div class="contact pop" style="--i:1">
-          <span>โทร 02 633 7502-4</span>
-          <span>Facebook: TISCO Foundation</span>
-          <span>www.tiscofoundation.org</span>
-          <span>scholarship.tiscofoundation.org</span>
-        </div>
-        <button class="ctl again pop" style="--i:2" type="button" id="again">กลับไปหน้าแรก</button>
-      </div>
-      <div class="pop" style="--i:1"><svg class="bob" width="340" height="391" viewBox="0 0 200 232"><use href="#mascot"/></svg></div>
-    </div>
+  <!-- 18 -->
+  <section class="slide" data-t="slide" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">ตัวอย่างการกรอกแบบฟอร์ม</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p18.jpg" alt="ตัวอย่างการกรอกข้อมูลส่วนหัวของแบบฟอร์มรายการใช้จ่าย" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">ตัวอย่างการบันทึกรายการ</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p19.jpg" alt="ตัวอย่างการบันทึกรายการใช้จ่ายในตาราง" style="max-height:430px"></figure>
+    <div class="blueband pop" style="--i:2">ตัวอย่างการบันทึกรายการค่าอาหารกลางวันและค่ารถโดยสารจากบ้านไปกลับโรงเรียนที่ไม่มีใบเสร็จ</div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title good">ตัวอย่างใบเสร็จที่น่าเชื่อถือ</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p20.jpg" alt="ใบเสร็จที่น่าเชื่อถือ พร้อมคำอธิบายจุดสำคัญ" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide" data-t="drop" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title good">ตัวอย่างใบเสร็จที่น่าเชื่อถือ</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p21.jpg" alt="ตัวอย่างบิลเงินสดที่น่าเชื่อถือ 3 ใบ" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide" data-t="slide" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title bad">ตัวอย่างใบเสร็จที่ไม่น่าเชื่อถือ</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p22.jpg" alt="ตัวอย่างบิลเงินสดที่ไม่น่าเชื่อถือ" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 23 -->
+  <section class="slide" data-t="zoom" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title bad">ตัวอย่างใบเสร็จที่ไม่น่าเชื่อถือ</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p23.jpg" alt="ตัวอย่างบิลเงินสดที่ไม่น่าเชื่อถือ" style="max-height:500px"></figure>
+  </section>
+
+  <!-- 24 -->
+  <section class="slide" data-t="flip" data-pos="after">
+    <div class="trow pop" style="--i:0"><h2 class="title ">ตัวอย่างหลักฐานใบเสร็จค่าอินเทอร์เน็ต</h2><span class="zhint">คลิกรูปเพื่อขยาย</span></div>
+    <figure class="shot pop" style="--i:1"><img src="images/p24.jpg" alt="ตัวอย่างหลักฐานค่าอินเทอร์เน็ต" style="max-height:500px"></figure>
   </section>
 </div>
 </div>
@@ -408,7 +593,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
 <button class="nav" id="fs" type="button" aria-label="เต็มจอ" title="เต็มจอ"><svg viewBox="0 0 32 32"><path d="M4 12V4h8M20 4h8v8M28 20v8h-8M12 28H4v-8"/></svg></button>
 <div class="bar-ctl">
   <div class="dots" id="dots"></div>
-  <span class="count" id="count">1 / 10</span>
+  <span class="count" id="count">1 / 24</span>
 </div>
 </div>
 
@@ -417,27 +602,31 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var stage=document.getElementById('stage'),area=document.getElementById('area'),deck=document.getElementById('deck');
   var dotsEl=document.getElementById('dots'),countEl=document.getElementById('count');
+  var zoom=document.getElementById('zoom'),zimg=zoom.querySelector('img');
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cur=0,token=0,timers=[];
+  var N=slides.length,CHART=2,CONFETTI=12;
   if(!document.fullscreenEnabled){var fb0=document.getElementById('fs');fb0.title='เปิดเต็มหน้าจอในแท็บใหม่';fb0.setAttribute('aria-label','เปิดเต็มหน้าจอในแท็บใหม่')}
   slides.forEach(function(_,i){var b=document.createElement('button');b.className='dot';b.type='button';b.setAttribute('aria-label','ไปหน้า '+(i+1));b.onclick=function(){go(i)};dotsEl.appendChild(b)});
+  if(N>14)dotsEl.classList.add('many');
 
   function fit(){var r=area.getBoundingClientRect();var s=Math.min(r.width/1310,r.height/750);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
   if(window.ResizeObserver)new ResizeObserver(fit).observe(area);window.addEventListener('resize',fit);fit();
 
-  function clear(){token++;timers.forEach(clearTimeout);timers=[];stopRcpt();stopConf()}
+  function clear(){token++;timers.forEach(clearTimeout);timers=[];stopConf()}
   function go(n){
-    n=Math.max(0,Math.min(slides.length-1,n));
+    n=Math.max(0,Math.min(N-1,n));
+    hideZoom();
     if(n!==cur||!slides[n].dataset.ready){clear()}
     cur=n;
     slides.forEach(function(s,i){s.dataset.pos=i<n?'before':i>n?'after':'active';s.dataset.ready=1});
     [].forEach.call(dotsEl.children,function(d,i){d.classList.toggle('on',i===n)});
-    countEl.textContent=(n+1)+' / '+slides.length;
-    if(n===3)counters();if(n===6)gameReset();if(n===8)startRcpt();if(n===9)startConf();
+    countEl.textContent=(n+1)+' / '+N;
+    if(n===CHART)counters();
+    if(n===CONFETTI)startConf();
   }
   document.getElementById('prev').onclick=function(){go(cur-1)};
   document.getElementById('next').onclick=function(){go(cur+1)};
-  document.getElementById('again').onclick=function(){go(0)};
   document.getElementById('fs').onclick=function(){
     try{
       if(document.fullscreenElement){document.exitFullscreen();return}
@@ -445,21 +634,32 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
       var p=deck.requestFullscreen();if(p&&p.catch)p.catch(function(){window.open(location.href,'_blank')});
     }catch(e){window.open(location.href,'_blank')}
   };
+
+  /* click an image to enlarge it */
+  function showZoom(src,alt){zimg.src=src;zimg.alt=alt||'';zoom.hidden=false}
+  function hideZoom(){if(!zoom.hidden){zoom.hidden=true;zimg.removeAttribute('src')}}
+  stage.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.closest&&t.closest('.shot')&&t.tagName==='IMG'){showZoom(t.src,t.alt)}
+  });
+  zoom.addEventListener('click',hideZoom);
+
   document.addEventListener('keydown',function(e){
     var k=e.key,btn=e.target&&e.target.tagName==='BUTTON';
+    if(k==='Escape'){hideZoom();return}
     if(k==='ArrowRight'||k==='PageDown'||(k===' '&&!btn)){e.preventDefault();go(cur+1)}
     else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();go(cur-1)}
-    else if(k==='Home')go(0);else if(k==='End')go(slides.length-1);
+    else if(k==='Home')go(0);else if(k==='End')go(N-1);
     else if(k==='f'||k==='F')document.getElementById('fs').click();
   });
   var tx=null;
   area.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
   area.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>60)go(cur+(dx<0?1:-1))},{passive:true});
 
-  /* count-up on the chart slide */
+  /* count-up on the scholarship amounts */
   function counters(){
     var my=token;
-    [].forEach.call(slides[3].querySelectorAll('[data-count]'),function(el,i){
+    [].forEach.call(slides[CHART].querySelectorAll('[data-count]'),function(el,i){
       var end=+el.dataset.count;
       if(reduce){el.textContent=end.toLocaleString('en-US');return}
       el.textContent='0';
@@ -471,74 +671,26 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow:hidd
           el.textContent=Math.round(end*e).toLocaleString('en-US');
           if(p<1)requestAnimationFrame(step);
         })(t0);
-      },350+i*100);timers.push(t);
+      },400+i*100);timers.push(t);
     });
   }
 
-  /* mini game */
-  var items=[
-    {t:'ค่าเทอม',ok:true,m:'ใช้ได้ เป็นค่าใช้จ่ายด้านการศึกษาโดยตรง'},
-    {t:'เติมน้ำมันรถ',ok:false,m:'ใช้ไม่ได้ เป็นค่าใช้จ่ายผิดวัตถุประสงค์'},
-    {t:'หนังสือเรียน และอุปกรณ์การเรียน',ok:true,m:'ใช้ได้ เป็นของจำเป็นสำหรับการเรียน'},
-    {t:'ซื้อโทรศัพท์ หรือจ่ายค่าโทรศัพท์',ok:false,m:'ใช้ไม่ได้ เป็นค่าใช้จ่ายผิดวัตถุประสงค์'},
-    {t:'อาหารกลางวัน',ok:true,m:'ใช้ได้ ถ้าไม่มีใบเสร็จ ให้บันทึกรายการตามตัวอย่างของมูลนิธิ'},
-    {t:'ข้าวสาร อาหารแห้ง ให้ครอบครัว',ok:false,m:'ใช้ไม่ได้ เป็นค่าใช้จ่ายผิดวัตถุประสงค์'},
-    {t:'ค่าเดินทางกลับภูมิลำเนา',ok:false,m:'ใช้ไม่ได้ แต่ค่ารถจากบ้านไป-กลับโรงเรียนใช้ได้'},
-    {t:'รถโดยสารจากบ้านไป-กลับโรงเรียน',ok:true,m:'ใช้ได้ เป็นค่าเดินทางไปเรียน'}
-  ];
-  var gi=0,gs=0,locked=false;
-  var q=document.getElementById('gq'),fb=document.getElementById('gfb'),yb=document.getElementById('gy'),nb=document.getElementById('gn'),nx=document.getElementById('gnext'),card=document.getElementById('gcard'),sc=document.getElementById('gscore'),pg=document.getElementById('gprog'),mas=document.getElementById('gmas'),ans=document.getElementById('gans');
-  function react(el,c){el.classList.remove('shake','hop');void el.getBBox&&el.getBBox();void el.offsetWidth;el.classList.add(c)}
-  function gameReset(){gi=0;gs=0;sc.textContent='คะแนน 0';showQ()}
-  function showQ(){
-    locked=false;ans.hidden=false;yb.disabled=nb.disabled=false;nx.hidden=true;fb.textContent='';fb.className='fb';
-    q.textContent=items[gi].t;pg.textContent='ข้อ '+(gi+1)+' / '+items.length;
-  }
-  function answer(v){
-    if(locked)return;locked=true;yb.disabled=nb.disabled=true;
-    var it=items[gi],right=(v===it.ok);
-    if(right){gs++;react(mas,'hop')}else{react(card,'shake')}
-    sc.textContent='คะแนน '+gs;
-    fb.className='fb '+(right?'good':'bad');fb.textContent=(right?'ถูกต้อง! ':'ยังไม่ใช่ ')+it.m;
-    nx.hidden=false;nx.textContent=gi===items.length-1?'ดูผลคะแนน':'ข้อต่อไป';nx.focus&&nx.focus({preventScroll:true});
-  }
-  yb.onclick=function(){answer(true)};nb.onclick=function(){answer(false)};
-  nx.onclick=function(){
-    if(gi<items.length-1){gi++;showQ();return}
-    ans.hidden=true;nx.textContent='เล่นอีกครั้ง';nx.onclick=again;
-    q.textContent='ได้ '+gs+' จาก '+items.length+' ข้อ';fb.className='fb good';
-    fb.textContent=gs>=7?'เก่งมาก! พร้อมอธิบายให้น้องๆ แล้ว':gs>=4?'ใกล้แล้ว ลองอีกรอบ':'ไม่เป็นไร ลองทบทวนแล้วเล่นใหม่';
-    react(mas,'hop');
-  };
-  function again(){nx.onclick=defaultNext;gameReset()}
-  var defaultNext=nx.onclick;
-
-  /* receipt highlight loop */
-  var rz=0,rt=null,paused=false,rs=slides[8];
-  function hl(z){[].forEach.call(rs.querySelectorAll('[data-z]'),function(e){e.classList.toggle('hl',e.dataset.z==String(z))})}
-  function startRcpt(){stopRcpt();rz=0;paused=false;rt=setInterval(function(){if(paused)return;rz=rz%5+1;hl(rz)},1700)}
-  function stopRcpt(){if(rt){clearInterval(rt);rt=null}hl(0)}
-  [].forEach.call(rs.querySelectorAll('[data-z]'),function(e){
-    e.addEventListener('mouseenter',function(){paused=true;hl(e.dataset.z)});
-    e.addEventListener('mouseleave',function(){paused=false});
-  });
-
-  /* confetti */
+  /* confetti when the winners are announced */
   var cv=document.getElementById('conf'),cx=cv.getContext('2d'),raf=0;
   function stopConf(){if(raf)cancelAnimationFrame(raf);raf=0;cx.clearRect(0,0,cv.width,cv.height)}
   function startConf(){
     if(reduce)return;
-    var cols=['#2578DC','#FFC53D','#FF6B5B','#2FBF71'],W=cv.width,H=cv.height,t0=performance.now();
-    var ps=[];for(var i=0;i<150;i++)ps.push({x:Math.random()*W,y:-Math.random()*500,vx:(Math.random()-.5)*3,vy:2+Math.random()*4,s:9+Math.random()*10,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%4]});
+    var cols=['#1F66D0','#D8232A','#FFC53D','#2FBF71','#FF8A1F'],W=cv.width,H=cv.height,t0=performance.now();
+    var ps=[];for(var i=0;i<150;i++)ps.push({x:Math.random()*W,y:-Math.random()*500,vx:(Math.random()-.5)*3,vy:2+Math.random()*4,s:9+Math.random()*10,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%5]});
     (function loop(now){
       cx.clearRect(0,0,W,H);var alive=false;
       ps.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;if(p.y<H+30)alive=true;
-        cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.strokeStyle='#1B1F4B';cx.lineWidth=2;cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.strokeRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});
+        cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.strokeStyle='#12214F';cx.lineWidth=2;cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.strokeRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});
       if(alive&&now-t0<7000)raf=requestAnimationFrame(loop);else{raf=0;cx.clearRect(0,0,W,H)}
     })(t0);
   }
 
-  go(0);gameReset();
+  go(0);
 })();
 </script>
 
