@@ -429,3 +429,4 @@ tw{display:inline}
 .amt .arow b{font-family:var(--display);font-size:34px;font-weight:700;color:#1F5FD6}
 .list li{white-space:normal}
 .list{font-size:26px}.list ul{gap:12px}.list h3{font-size:32px}
+.list{font-size:24px}.s3{grid-template-columns:1.2fr 1fr}
