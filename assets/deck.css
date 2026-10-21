@@ -412,3 +412,8 @@ tw{display:inline}
 .rbanner .rw{margin:0;max-width:none;text-align:left;font-family:var(--display);font-weight:700;font-size:46px;line-height:1.15}
 .rbanner .rt{font-family:var(--display);font-weight:700;font-size:46px;background:#fff;padding:2px 28px 6px;border-radius:999px;color:#1F5FD6;white-space:nowrap}
 .rbanner.rB .rt{color:#D9650A}
+.rbanner .rw,.rbanner .rt{font-size:52px;line-height:1.15;font-weight:700;color:#fff;background:none;padding:0}
+.rbanner .rt{border-left:5px solid rgba(255,255,255,.7);padding-left:34px;white-space:nowrap}
+.rbanner.rB .rt,.rbanner.rA .rt{color:#fff}
+.rbanner{padding:14px 34px 16px}
+.rbanner .rt{border-radius:0;border-left-width:5px}.rbanner .rw,.rbanner .rt{font-size:50px}
