@@ -27,15 +27,17 @@ def sched(part,idxs,title):
         cards+='<div class="card ev3 pop" style="--i:%d;--c:var(--%s)"><span class="stepn">%d</span><span class="badge%s big">%s</span><p>%s</p>%s</div>'%(j+1,c,k+1,' w' if w else '',d,t,mbar(a,b,c))
     return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">กำหนดการ <small>ช่วงที่ %d / 3</small> %s</h2></div>\n    <div class="ev3row">%s</div>\n  </section>'%(eb('กำหนดการ'),part,title,cards)
 def gantt():
-    head='<div class="g-h"></div>'+''.join('<div class="g-m">%s</div>'%m for m in MONTHS)
+    head='<div class="gt-head"><span class="gt-yr y1" style="left:0;width:%.4f%%">ปีนี้</span><span class="gt-yr y2" style="left:%.4f%%;right:0">ปีถัดไป</span></div><div class="gt-head gt-months">'%(12/15*100,12/15*100)
+    head+=''.join('<span class="%s">%s</span>'%('nx' if k>=12 else '',m) for k,m in enumerate(MONTHS))+'</div>'
     rows=''
     for k,(d,t,sh,a,b,c,w) in enumerate(EV):
-        if a==b:
-            bar='<div class="g-bar dot" style="grid-column:%d / span 1;--c:var(--%s)"><b></b><em>%s</em></div>'%(a+2,c,d)
-        else:
-            bar='<div class="g-bar" style="grid-column:%d / span %d;--c:var(--%s)%s"><em>%s</em></div>'%(a+2,b-a+1,c,'' if w else ';color:var(--dark)',d)
-        rows+='<div class="g-l"><span class="stepn s">%d</span>%s</div>%s'%(k+1,sh,bar)
-    return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="gantt pop" style="--i:1"><div class="g-grid">%s%s</div></div>\n  </section>'%(eb('กำหนดการ'),head,rows)
+        left=a/15*100; width=(b-a+1)/15*100
+        lab='<span class="gt-t %s" style="%s"><b>%s</b><small>%s</small></span>'
+        if b<=9: pos='left:calc(%.4f%% + 12px)'%((b+1)/15*100); cls='r'
+        else: pos='right:calc(%.4f%% + 12px)'%((14-b+0)/15*100+ (14-a+1-(b-a+1))/15*100*0 + 100/15*0 + 0) ; cls='l'
+        if b>9: pos='right:calc(%.4f%% + 12px)'%((15-a)/15*100); 
+        rows+='<div class="gt-row"><span class="stepn s" style="--c:var(--%s)">%d</span><div class="gt-area"><div class="gt-bar%s" style="left:%.4f%%;width:%.4f%%;--c:var(--%s)"></div>%s</div></div>'%(c,k+1,' dot' if a==b else '',left,width,c,lab%(cls,pos,sh,d))
+    return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="gantt card pop" style="--i:1"><div class="gt-top">%s</div>%s</div>\n  </section>'%(eb('กำหนดการ'),'',head+rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
     if n==2:
