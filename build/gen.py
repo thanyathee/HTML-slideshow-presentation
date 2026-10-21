@@ -3,41 +3,55 @@ src=open('/tmp/claude-0/build/index.v24.html').read()
 secs=re.findall(r'<section class="slide".*?</section>',src,re.S)
 qr=json.load(open('/tmp/claude-0/build/qr.json'))
 SEC={2:'กำหนดการ',3:'ทุนการศึกษา',4:'ทุนการศึกษา',5:'ทุนการศึกษา',6:'เอกสาร',7:'เอกสาร',8:'เอกสาร',9:'การสมัคร',10:'การสมัคร',11:'การสมัคร',12:'ย้ายสถานศึกษา',13:'ประกาศผล',14:'ประกาศผล',15:'ข้อปฏิบัติ',16:'การใช้จ่าย',17:'การใช้จ่าย',18:'การใช้จ่าย',19:'การใช้จ่าย',20:'ใบเสร็จ',21:'ใบเสร็จ',22:'ใบเสร็จ',23:'ใบเสร็จ',24:'ใบเสร็จ'}
-out=[]
-cover='''<section class="slide cover" data-t="zoom" data-pos="active">
-    <div class="cover-grid">
-      <div>
-        <div class="kicker pop" style="--i:0"><i></i>มูลนิธิทิสโก้ เพื่อการกุศล</div>
-        <h1 class="pop" style="--i:1">คู่มือสำหรับ<br>สถานศึกษา</h1>
-        <p class="sub pop" style="--i:2">เพื่อใช้ชี้แจงให้นักเรียนทุน</p>
-        <span class="org pop" style="--i:3">TISCO Foundation</span>
-      </div>
-      <nav class="card agenda pop" style="--i:3"><h3>สารบัญ</h3>
-        <button data-go="1" style="--c:var(--blue)"><i></i>กำหนดการ<span>2</span></button>
-        <button data-go="2" style="--c:var(--red)"><i></i>ทุนการศึกษา<span>3</span></button>
-        <button data-go="5" style="--c:var(--yellow)"><i></i>เอกสารและการสมัคร<span>6</span></button>
-        <button data-go="11" style="--c:var(--orange)"><i></i>ย้ายสถานศึกษา<span>12</span></button>
-        <button data-go="12" style="--c:var(--green)"><i></i>ประกาศผล<span>13</span></button>
-        <button data-go="14" style="--c:var(--red)"><i></i>ข้อปฏิบัติและการใช้จ่าย<span>15</span></button>
-        <button data-go="24" style="--c:var(--blue)"><i></i>ติดต่อมูลนิธิ<span>25</span></button>
-      </nav>
-    </div>
-  </section>'''
-out.append(cover)
+OLDMOOD={2:'blue',3:'blue',4:'navy',5:'navy',6:'blue',7:'blue',8:'navy',9:'navy',10:'blue',11:'warm',12:'green',13:'warm',14:'blue',15:'red',16:'navy',17:'red',18:'navy',19:'navy',20:'green',21:'green',22:'red',23:'red',24:'red'}
+KEYS={3:'grant',6:'docs',12:'move',13:'ann',15:'rules'}
+out=[]   # (key, mood, html)
+def eb(sec): return '<div class="eyebrow pop" style="--i:0"><i></i><b>%s</b><span>@@N@@ / @@T@@</span></div>'%sec
+MONTHS=['พ.ย.','ธ.ค.','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.','ม.ค.']
+EV=[ # (date, text, short, start, end, color, white-text)
+ ('1 พ.ย. – 31 ม.ค.','สมัครขอรับทุนการศึกษา ทั้งทุนใหม่และทุนต่อเนื่อง','สมัครขอรับทุน',0,2,'blue',1),
+ ('ก.พ. – เม.ย.','มูลนิธิดำเนินการพิจารณาใบสมัครทุนการศึกษา','มูลนิธิพิจารณาใบสมัคร',3,5,'red',1),
+ ('มี.ค. – 31 ก.ค.','ผู้ที่กรอกว่าปีการศึกษาหน้าจะย้ายสถานศึกษา ส่งหลักฐานยืนยันให้มูลนิธิ','ส่งหลักฐานย้ายสถานศึกษา',4,8,'green',0),
+ ('มิถุนายน','ประกาศรายชื่อผู้ได้รับทุนรอบแรก ป.6 ม.3 ที่ส่งหลักฐานภายใน 15 พ.ค. มูลนิธิส่งตั๋วแลกเงินไปที่สถานศึกษา','ประกาศรายชื่อรอบแรก',7,7,'blue',1),
+ ('31 กรกฎาคม','ปิดรับหลักฐานแจ้งย้ายสถานศึกษาทุกระดับชั้น ป.6 ม.3 ม.6 ปวช.3 ปวส.2','ปิดรับหลักฐานย้าย',8,8,'red',1),
+ ('ส.ค. – ต.ค.','มูลนิธิพิจารณาทุนรอบรอฟังผล กลุ่มที่ส่งหลักฐานยืนยันการย้ายสถานศึกษา','พิจารณารอบรอฟังผล',9,11,'orange',0),
+ ('พฤศจิกายน','ประกาศรายชื่อผู้ได้รับทุนรอบรอฟังผล ที่ส่งหลักฐานภายใน 31 ก.ค.','ประกาศรายชื่อรอบรอฟังผล',12,12,'blue',1),
+ ('ธันวาคม','มูลนิธิส่งตั๋วแลกเงินรอบรอฟังผลไปที่สถานศึกษา','ส่งตั๋วแลกเงินรอบรอฟังผล',13,13,'red',1),
+ ('1 พ.ย. – 31 ม.ค.','เปิดรับสมัครทุนการศึกษาปีถัดไป','เปิดรับสมัครปีถัดไป',12,14,'blue',1)]
+def mbar(a,b,c):
+    return '<div class="mbar">'+''.join('<i%s></i>'%(' class="on"' if a<=k<=b else '') for k in range(15))+'</div>'
+def sched(part,idxs,title):
+    cards=''
+    for j,k in enumerate(idxs):
+        d,t,sh,a,b,c,w=EV[k]
+        cards+='<div class="card ev3 pop" style="--i:%d;--c:var(--%s)"><span class="stepn">%d</span><span class="badge%s big">%s</span><p>%s</p>%s</div>'%(j+1,c,k+1,' w' if w else '',d,t,mbar(a,b,c))
+    return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">กำหนดการ <small>ช่วงที่ %d / 3</small> %s</h2></div>\n    <div class="ev3row">%s</div>\n  </section>'%(eb('กำหนดการ'),part,title,cards)
+def gantt():
+    head='<div class="g-h"></div>'+''.join('<div class="g-m">%s</div>'%m for m in MONTHS)
+    rows=''
+    for k,(d,t,sh,a,b,c,w) in enumerate(EV):
+        if a==b:
+            bar='<div class="g-bar dot" style="grid-column:%d / span 1;--c:var(--%s)"><b></b><em>%s</em></div>'%(a+2,c,d)
+        else:
+            bar='<div class="g-bar" style="grid-column:%d / span %d;--c:var(--%s)%s"><em>%s</em></div>'%(a+2,b-a+1,c,'' if w else ';color:var(--dark)',d)
+        rows+='<div class="g-l"><span class="stepn s">%d</span>%s</div>%s'%(k+1,sh,bar)
+    return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="gantt pop" style="--i:1"><div class="g-grid">%s%s</div></div>\n  </section>'%(eb('กำหนดการ'),head,rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
+    if n==2:
+        out.append(('sched','blue',sched(1,[0,1,2],'สมัครและพิจารณา')))
+        out.append(('','navy',sched(2,[3,4,5],'ประกาศรอบแรก')))
+        out.append(('','warm',sched(3,[6,7,8],'รอบรอฟังผล')))
+        out.append(('','blue',gantt()))
+        continue
     x=re.sub(r'<svg class="star".*?</svg>\s*','',x,flags=re.S)
-    x=x.replace('class="slide"','class="slide"',1)
-    # eyebrow before first child
-    eb='<div class="eyebrow pop" style="--i:0"><i></i><b>%s</b><span>%d / 25</span></div>'%(SEC[n],n)
-    x=re.sub(r'(<section[^>]*>)',lambda m:m.group(1)+'\n    '+eb,x,count=1)
+    x=re.sub(r'(<section[^>]*>)',lambda m:m.group(1)+'\n    '+eb(SEC[n]),x,count=1)
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
-    x=x.replace('"zoom" data-pos="after"','"zoom" data-pos="after"')
-    out.append(x)
+    out.append((KEYS.get(n,''),OLDMOOD[n],x))
 def ico(p): return '<svg viewBox="0 0 24 24">%s</svg>'%p
 contact='''<section class="slide" data-t="zoom" data-pos="after">
-    <div class="eyebrow pop" style="--i:0"><i></i><b>ติดต่อ</b><span>25 / 25</span></div>
+    <div class="eyebrow pop" style="--i:0"><i></i><b>ติดต่อ</b><span>@@N@@ / @@T@@</span></div>
     <div class="trow pop" style="--i:0"><h2 class="title">ติดต่อมูลนิธิทิสโก้ เพื่อการกุศล</h2></div>
     <div class="contact">
       <div class="cinfo">
@@ -58,7 +72,26 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
  mail=ico('<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/>'),
  fb=ico('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/>'),
  q1=qr['scholarship'],q2=qr['website'],q3=qr['facebook'])
-out.append(contact)
+out.append(('contact','cover',contact))
+def idx(key): return [o[0] for o in out].index(key)+2   # 1-based slide number incl. cover
+AG=[('sched','blue','กำหนดการ'),('grant','red','ทุนการศึกษา'),('docs','yellow','เอกสารและการสมัคร'),('move','orange','ย้ายสถานศึกษา'),('ann','green','ประกาศผล'),('rules','red','ข้อปฏิบัติและการใช้จ่าย'),('contact','blue','ติดต่อมูลนิธิ')]
+agenda=''.join('<button data-go="%d" style="--c:var(--%s)"><i></i>%s<span>%d</span></button>'%(idx(k)-1,c,t,idx(k)) for k,c,t in AG)
+cover='''<section class="slide cover" data-t="zoom" data-pos="active" data-mood="cover">
+    <div class="cover-grid">
+      <div>
+        <div class="kicker pop" style="--i:0"><i></i>มูลนิธิทิสโก้ เพื่อการกุศล</div>
+        <h1 class="pop" style="--i:1">คู่มือสำหรับ<br>สถานศึกษา</h1>
+        <p class="sub pop" style="--i:2">เพื่อใช้ชี้แจงให้นักเรียนทุน</p>
+        <span class="org pop" style="--i:3">TISCO Foundation</span>
+      </div>
+      <nav class="card agenda pop" style="--i:3"><h3>สารบัญ</h3>'''+agenda+'''</nav>
+    </div>
+  </section>'''
+final=[cover]
+for k,m,h in out:
+    final.append(h.replace('<section class="slide"','<section class="slide" data-mood="%s"'%m,1))
+T=len(final)
+final=[h.replace('@@N@@',str(i+1)).replace('@@T@@',str(T)) for i,h in enumerate(final)]
 html='''<!doctype html>
 <html lang="th">
 <head>
@@ -86,7 +119,7 @@ html='''<!doctype html>
 </div>
 </div>
 <div id="dock"></div><div id="fsWrap"></div>
-<div class="fallback-dock" id="fbDock"><button data-a="prev" type="button" aria-label="หน้าก่อนหน้า"><svg viewBox="0 0 32 32"><path d="M27 16H6M14 7L5 16l9 9"/></svg></button><span>1 / 25</span><button data-a="next" type="button" aria-label="หน้าถัดไป"><svg viewBox="0 0 32 32"><path d="M5 16h21M18 7l9 9-9 9"/></svg></button></div>
+<div class="fallback-dock" id="fbDock"><button data-a="prev" type="button" aria-label="หน้าก่อนหน้า"><svg viewBox="0 0 32 32"><path d="M27 16H6M14 7L5 16l9 9"/></svg></button><span>1 / %d</span><button data-a="next" type="button" aria-label="หน้าถัดไป"><svg viewBox="0 0 32 32"><path d="M5 16h21M18 7l9 9-9 9"/></svg></button></div>
 <button class="fallback-dock fallback-fs" id="fbFs" type="button" style="width:48px;height:48px;padding:0;border-radius:50%%;place-items:center;background:rgba(255,255,255,.16)"><svg viewBox="0 0 32 32" style="width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M4 12V4h8M20 4h8v8M28 20v8h-8M12 28H4v-8"/></svg></button>
 <script src="assets/html2canvas.min.js"></script>
 <script src="vendor/liquid-glass-js/container.js"></script>
@@ -95,7 +128,7 @@ html='''<!doctype html>
 <script src="assets/deck.js"></script>
 </body>
 </html>
-'''%'\n  '.join(out)
+'''%('\n  '.join(final),T)
 # confetti canvas: add to the announce slide
 html=html.replace('<canvas class="confetti" id="conf" width="1270" height="710"></canvas>','<canvas class="confetti" id="conf" width="1280" height="720"></canvas>')
 open('index.html','w').write(html)

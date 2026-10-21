@@ -6,8 +6,9 @@
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var lite=/[?&]lite/.test(location.search)||(navigator.hardwareConcurrency||8)<=2||(navigator.deviceMemory||8)<=2;
   if(lite)document.documentElement.classList.add('lite');
-  var cur=0,token=0,timers=[],N=slides.length,CHART=2,CONFETTI=12;
-  var MOODS=['cover','blue','blue','navy','navy','blue','blue','navy','navy','blue','warm','green','warm','blue','red','navy','red','navy','navy','green','green','red','red','red','cover'];
+  var cur=0,token=0,timers=[],N=slides.length;
+  var CHART=slides.findIndex(function(s){return s.querySelector('[data-count]')}),CONFETTI=slides.findIndex(function(s){return s.querySelector('#conf')});
+  var MOODS=slides.map(function(s){return s.dataset.mood||'blue'});
   var ICON={
     prev:'<svg viewBox="0 0 32 32"><path d="M27 16H6M14 7L5 16l9 9"/></svg>',
     next:'<svg viewBox="0 0 32 32"><path d="M5 16h21M18 7l9 9-9 9"/></svg>',
@@ -15,7 +16,7 @@
   };
   var fsLabel=document.fullscreenEnabled?'เต็มจอ':'เปิดเต็มหน้าจอในแท็บใหม่';
 
-  function fit(){var r=area.getBoundingClientRect();var s=Math.min(r.width/1300,r.height/740);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
+  function fit(){var r=area.getBoundingClientRect();var s=Math.min(r.width/1280,r.height/720);stage.style.transform='translate(-50%,-50%) scale('+s+')'}
   if(window.ResizeObserver)new ResizeObserver(fit).observe(area);window.addEventListener('resize',fit);fit();
 
 
@@ -24,19 +25,39 @@
     if(!window.Intl||!Intl.Segmenter)return;
     var sg=new Intl.Segmenter('th',{granularity:'word'}),th=/[\u0E00-\u0E7F]/;
     var w=document.createTreeWalker(stage,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
-      var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+      var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|CANVAS)$/.test(p.nodeName)||!th.test(n.nodeValue)||p.closest('.gantt,.mlab,.legend,.badge'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
     var list=[],n;while(n=w.nextNode())list.push(n);
     list.forEach(function(t){
       var d=getComputedStyle(t.parentNode).display;
       if(/flex|grid/.test(d)){var sp=document.createElement('tw');t.parentNode.replaceChild(sp,t);sp.appendChild(t);}
-      var f=document.createDocumentFragment(),first=true;
+      var f=document.createDocumentFragment(),first=true,prev='';
       for(var x of sg.segment(t.nodeValue)){
-        if(!first&&x.isWordLike!==false&&!/^\s/.test(x.segment))f.appendChild(document.createElement('wbr'));
-        f.appendChild(document.createTextNode(x.segment));first=false;
+        if(!first&&x.isWordLike!==false&&!/^\s/.test(x.segment)&&!/[.\u0E2F]$/.test(prev))f.appendChild(document.createElement('wbr'));
+        f.appendChild(document.createTextNode(x.segment));first=false;prev=x.segment;
       }
       t.parentNode.replaceChild(f,t);
     });
   })();
+
+
+  /* Fill the slide: scale each slide's content up (never down) until it uses the available width and height */
+  function fillSlides(){
+    var PADX=72,PADY=38;
+    slides.forEach(function(s){
+      if(s.classList.contains('cover'))return;
+      var w=s.querySelector(':scope>.fit');
+      if(!w){
+        w=document.createElement('div');w.className='fit';
+        [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&c.classList.contains('confetti')))w.appendChild(c)});
+        s.appendChild(w);
+      }
+      var W=1280-PADX,H=720-PADY,lo=1,hi=1.32,k=1;
+      function ok(x){w.style.width=(W/x)+'px';return w.offsetHeight*x<=H}
+      if(ok(hi))k=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m)){k=m;lo=m}else hi=m}k=lo}
+      w.style.width=(W/k)+'px';w.style.height='auto';w.style.minHeight=(H/k)+'px';w.style.transform='scale('+k+')';
+    });
+  }
+  window.deckFill=fillSlides;
 
   var counts=[];
   function setCount(){counts.forEach(function(c){c.textContent=(cur+1)+' / '+N})}
@@ -166,6 +187,7 @@
     })(t0);
   }
 
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fillSlides);setTimeout(fillSlides,2500);
   go(0);
   if(document.readyState==='complete')boot();else window.addEventListener('load',boot);
 })();
