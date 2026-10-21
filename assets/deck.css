@@ -238,3 +238,7 @@ body{background:linear-gradient(135deg,#FFFFFF,#DCEBFF 60%,#BFD9FF);color:var(--
 .title,.note,.when p,.list li,.doc,.rule,.row,.ev li,.after p,.rb,.st,.ucard li,.bl li,.type>div,.warnbox,.who,.crow div,.strip,.zhint{word-break:keep-all;overflow-wrap:normal}
 .title{text-wrap:balance}.when p,.after p,.rb,.doc,.rule,.st{text-wrap:pretty}
 .glass-container{box-shadow:0 10px 30px rgba(31,95,214,.22)}
+/* Thai text: no letter-spacing (it splits vowels/tone marks from their consonants) */
+.agenda h3,.kicker,.eyebrow,.crow small{letter-spacing:0;text-transform:none}
+.agenda h3{font-size:20px}
+.eyebrow{font-size:18px}.kicker{font-size:21px}.crow small{font-size:17px}
