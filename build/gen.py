@@ -53,6 +53,7 @@ for i in range(1,24):
         rowsA=[('ประถมศึกษาปีที่ 6',1000),('มัธยมศึกษาตอนต้น',3000),('มัธยมศึกษาตอนปลาย',3500),('ปวช.',7000),('ปวส. สาขาอื่นๆ',9000),('ปวส. สาขาอุตสาหกรรม',14000),('ปริญญาตรี',15000)]
         tbl='<div class="card amt pop" style="--i:2"><h3>ทุนการศึกษาต่อปี แต่ละระดับดังนี้</h3>'+''.join('<div class="arow"><span>%s</span><b class="hv" data-count="%d">{:,}</b></div>'.replace('{:,}','%s')%(l,v,format(v,',')) for l,v in rowsA)+'</div>'
         x=re.sub(r'<div class="card amt pop".*?</div>\s*</div>\s*</div>\s*</section>',lambda m:tbl+'\n    </div>\n  </section>',x,flags=re.S)
+    x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
     out.append((KEYS.get(n,''),OLDMOOD[n],x))
