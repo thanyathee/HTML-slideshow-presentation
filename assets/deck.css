@@ -709,3 +709,8 @@ tw{display:inline}
 .who{background:#1D55C4;color:#fff}
 .who b{color:#fff}
 .warn{background:#FFD23F;color:#0B2A6F;box-shadow:0 8px 22px rgba(31,95,214,.14)}
+/* slide 11: headings span card edge to edge */
+.row2 .who,.row2 .ev{padding-top:0;overflow:hidden}
+.row2 .who b,.row2 .ev b{margin:0 -26px 14px;padding:14px 26px 16px;text-align:center;font-size:34px;white-space:nowrap}
+.row2 .who b{background:#0F3A94;color:#fff}
+.row2 .ev b{background:#E8F0FF;color:#1D55C4}
