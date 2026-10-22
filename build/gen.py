@@ -116,6 +116,19 @@ for i in range(1,24):
           +c('ok','check','นักเรียนที่<em>จะยื่นกู้</em><br>กยศ. กรอ.<br><em>ในปีการศึกษาหน้า</em>',6)
           +'</div></div>')
         x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:new9+'\n  </section>',x,flags=re.S)
+    if n==11:
+        def stp(i,t): return '<div class="hs"><i>%d</i><span class="nw">%s</span></div>'%(i,t)
+        L=''.join(stp(i+1,t) for i,t in enumerate(['ครูผู้ดูแลทุน ลงทะเบียนขอรหัสผ่าน<br>และเพิ่มชื่อสถานศึกษาในระบบ','นักเรียนกรอกข้อมูล','ครูผู้ดูแลทุน อัพโหลดเอกสาร<br>แล้วกดส่งข้อมูลให้มูลนิธิ']))
+        R=''.join(stp(i+1,t) for i,t in enumerate(['นักเรียนกรอกข้อมูลในแบบฟอร์ม','ครูผู้ดูแลทุน รวบรวม<br>เอกสารการขอรับทุน','ส่งให้มูลนิธิฯ ทางไปรษณีย์']))
+        body=('<div class="lead pop" style="--i:1"><p class="nw">เปิดรับสมัคร ตั้งแต่ <b>1 พฤศจิกายน – 31 มกราคม</b> ของทุกปี พร้อมกันทั้งทุนใหม่และทุนต่อเนื่อง</p>'
+          '<p class="nw key">สมัครผ่านทางสถานศึกษาที่กำลังศึกษาอยู่ปัจจุบัน<u>เท่านั้น</u></p></div>'
+          '<div class="how">'
+          '<div class="hc blue pop" style="--i:2"><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a><div class="hl">'+L+'</div></div>'
+          '<div class="hc red pop" style="--i:3"><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span><div class="hl">'+R+'</div></div>'
+          '</div>'
+          '<div class="ybar pop" style="--i:4">* เฉพาะผู้ขอรับทุนที่กำลังศึกษาอยู่ระดับปริญญาตรี สามารถรวบรวมเอกสารแล้วสมัครเองได้ 2 ช่องทาง *</div>')
+        x=re.sub(r'<p class="note pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+        x=re.sub(r'<span class="tpill"[^>]*>เลือกวิธีใดวิธีหนึ่ง</span>','<span class="pickpill">เลือกวิธีใดวิธีหนึ่ง</span>',x)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
