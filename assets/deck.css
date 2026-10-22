@@ -557,3 +557,6 @@ tw{display:inline}
 .rowsx .row.vok .vb{background:#12A56E}
 .rowsx .row.vno .vb{background:#E5333E}
 .rowsx .row.vno .chk{filter:drop-shadow(0 3px 6px rgba(229,51,62,.4))}
+.lblrow{display:flex;align-items:center;gap:18px}
+.lblrow .lblpill{flex:none}
+.lblrow span{font-size:17px;font-weight:500;color:var(--ink);opacity:.85;line-height:1.35}
