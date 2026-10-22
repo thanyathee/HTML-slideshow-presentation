@@ -102,6 +102,18 @@ for i in range(1,24):
     if n==8:
         x=x.replace('>นักเรียนที่กู้ยืม กยศ. กรอ.</div>','>การกู้ยืม กยศ. กรอ.</div>')
         x=x.replace('<div class="card row pop hi" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/>','<div class="card row pop" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#cross"/>')
+    if n==8:
+        BAD=['เข้าใจผิด','ถูกต้อง','สมัครไม่ได้','สมัครไม่ได้','สมัครได้']
+        parts=x.split('<div class="card row pop')
+        out2=[parts[0]]
+        for i,pt in enumerate(parts[1:]):
+            good=i in (1,4)
+            head,rest=pt.split('</span></div>',1)
+            head=head.replace('hi" style','" style').lstrip(' "') if False else head
+            # head starts like ' " style="--i:1">...<span>text'
+            head=head.replace('<span>','<span class="nw">',1)
+            out2.append(' v%s'%('ok' if good else 'no')+head+'</span><em class="vb">%s</em></div>'%BAD[i]+rest)
+        x='<div class="card row pop'.join(out2)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)

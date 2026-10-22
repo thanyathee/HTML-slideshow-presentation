@@ -547,3 +547,13 @@ tw{display:inline}
 .loans .row{font-size:25px;padding:40px 32px}
 .loans .row .chk{width:56px;height:56px}
 .loans .row{font-size:27px;padding:36px 32px}
+/* slide 9 v2: strong right/wrong */
+.rowsx .row.vok,.rowsx .row.vno{font-size:23px;padding:12px 22px 12px 18px;gap:20px;white-space:nowrap}
+.rowsx .row.vok{background:#E3F8EE;border:3px solid #22C58B;box-shadow:0 8px 22px rgba(34,197,139,.25)}
+.rowsx .row.vno{background:#FFECEE;border:3px solid #F0525C;box-shadow:0 8px 22px rgba(240,82,92,.18)}
+.rowsx .row.vok .chk,.rowsx .row.vno .chk{width:60px;height:60px}
+.rowsx .row>span.nw{flex:1;min-width:0}
+.rowsx .row .vb{flex:none;font-style:normal;font-weight:700;font-size:21px;color:#fff;border-radius:999px;padding:5px 22px 7px;min-width:150px;text-align:center}
+.rowsx .row.vok .vb{background:#12A56E}
+.rowsx .row.vno .vb{background:#E5333E}
+.rowsx .row.vno .chk{filter:drop-shadow(0 3px 6px rgba(229,51,62,.4))}
