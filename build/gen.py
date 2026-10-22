@@ -100,7 +100,7 @@ for i in range(1,24):
         x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9 d9b">\n      '+cards+'</div>\n  </section>',x,flags=re.S)
         x=re.sub(r'<span class="tpill"[^>]*>ทุนต่อเนื่อง</span>','<span class="newbig red">ทุนต่อเนื่อง</span>',x)
     if n==8:
-        x=x.replace('การสมัครขอทุนการศึกษา','สมัครได้หรือไม่ ดูตรงนี้')
+        x=x.replace('การสมัครขอทุนการศึกษา','ข้อควรรู้ก่อนสมัครทุน')
         def r(cls,ic,t,i):
             return '<div class="card top %s pop" style="--i:%d"><svg class="chk" viewBox="0 0 60 60"><use href="#%s"/></svg><span class="nw">%s</span></div>'%(cls,i,ic,t)
         def c(cls,ic,t,i):
@@ -110,9 +110,9 @@ for i in range(1,24):
           +r('ok','check','เป็น<em>ทุนต่อเนื่อง แต่ไม่ต่อให้อัตโนมัติ</em> ต้องยื่นสมัครทุนเข้ามาทุกปี',2)
           +'<div class="lblrow pop" style="--i:3"><div class="lblpill">การกู้ยืม กยศ. กรอ.</div><span>กองทุนเงินให้กู้ยืมเพื่อการศึกษา (กยศ.) และกองทุนเงินให้กู้ยืมที่ผูกกับรายได้ในอนาคต (กรอ.)</span></div>'
           +'<div class="cases">'
-          +c('no','cross','นักเรียนที่<em>กำลังกู้ยืม</em><br>กยศ. กรอ. อยู่<br>ในปัจจุบัน',4)
-          +c('no','cross','นักเรียนที่กำลังกู้ยืม<br>กยศ. กรอ. อยู่<br>แต่<em>ปีการศึกษาหน้าไม่กู้ต่อ</em>',5)
-          +c('ok','check','นักเรียนที่<em>จะยื่นกู้</em><br>กยศ. กรอ.<br>ในปีการศึกษาหน้า',6)
+          +c('no','cross','นักเรียนที่<em>กำลังกู้ยืม</em><br>กยศ. กรอ. อยู่<br><em>ในปัจจุบัน</em>',4)
+          +c('no','cross','นักเรียนที่<em>กำลังกู้ยืม</em><br>กยศ. กรอ. อยู่<br><em>แต่ปีการศึกษาหน้าไม่กู้ต่อ</em>',5)
+          +c('ok','check','นักเรียนที่<em>จะยื่นกู้</em><br>กยศ. กรอ.<br><em>ในปีการศึกษาหน้า</em>',6)
           +'</div></div>')
         x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:new9+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
