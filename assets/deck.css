@@ -560,3 +560,25 @@ tw{display:inline}
 .lblrow{display:flex;align-items:center;gap:18px}
 .lblrow .lblpill{flex:none}
 .lblrow span{font-size:17px;font-weight:500;color:var(--ink);opacity:.85;line-height:1.35}
+/* slide 9 redesign */
+.s9{display:flex;flex-direction:column;gap:16px;flex:1;min-height:0}
+.s9 .top{display:flex;align-items:center;gap:22px;padding:14px 28px 14px 18px;font-size:27px;font-weight:600;line-height:1.4;white-space:nowrap}
+.s9 .top .chk{width:62px;height:62px;flex:none}
+.s9 .top em,.s9 .case em{font-style:normal;color:#C8141F;font-weight:700}
+.s9 .no{background:linear-gradient(180deg,#FFF3F4,#FFE7EA);border:2px solid #F5A3A9}
+.s9 .ok{background:linear-gradient(180deg,#EEFBF5,#DDF6EA);border:2px solid #6FDDB6}
+.s9 .lblrow{margin-top:6px}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1;min-height:0}
+.s9 .case{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:20px 18px;font-size:26px;font-weight:600;line-height:1.5}
+.s9 .case .chk{width:96px;height:96px;flex:none}
+.s9 .case.ok{border-width:3px;border-color:#22C58B;box-shadow:0 14px 34px rgba(34,197,139,.32);transform:translateY(-6px)}
+.s9 .case.no .chk{opacity:.95}
+.s9 .top{font-size:32px}
+.s9 .top .chk{width:70px;height:70px}
+.s9 .case{font-size:29px}
+.lblrow span{font-size:19px}
+.s9 .top{font-size:30px;padding:10px 26px 10px 18px}
+.s9 .top .chk{width:62px;height:62px}
+.s9 .case{font-size:27px;gap:12px;padding:14px 18px}
+.s9 .case .chk{width:84px;height:84px}
+.s9{gap:12px}

@@ -100,30 +100,21 @@ for i in range(1,24):
         x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9 d9b">\n      '+cards+'</div>\n  </section>',x,flags=re.S)
         x=re.sub(r'<span class="tpill"[^>]*>ทุนต่อเนื่อง</span>','<span class="newbig red">ทุนต่อเนื่อง</span>',x)
     if n==8:
-        x=x.replace('>นักเรียนที่กู้ยืม กยศ. กรอ.</div>','>การกู้ยืม กยศ. กรอ.</div>')
-        x=x.replace('<div class="card row pop hi" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#check"/>','<div class="card row pop" style="--i:5"><svg class="chk" viewBox="0 0 60 60"><use href="#cross"/>')
-    if n==8:
-        BAD=['เข้าใจผิด','ถูกต้อง','สมัครไม่ได้','สมัครไม่ได้','สมัครได้']
-        parts=x.split('<div class="card row pop')
-        out2=[parts[0]]
-        for i,pt in enumerate(parts[1:]):
-            good=i in (1,4)
-            head,rest=pt.split('</span></div>',1)
-            head=head.replace('hi" style','" style').lstrip(' "') if False else head
-            # head starts like ' " style="--i:1">...<span>text'
-            head=head.replace('<span>','<span class="nw">',1)
-            out2.append(' v%s'%('ok' if good else 'no')+head+'</span><em class="vb">%s</em></div>'%BAD[i]+rest)
-        x='<div class="card row pop'.join(out2)
-    if n==8 and __import__('os').environ.get('P9'):
-        R=[('การสมัครขอทุนการศึกษา','สมัครได้หรือไม่ ดูตรงนี้'),
-           ('สมัครผ่านทางโรงเรียนครั้งเดียวได้รับทุนทุกปี','สมัครครั้งเดียว ได้รับทุนทุกปี'),
-           ('ทุนของมูลนิธิทิสโก้ฯ เป็น<em>ทุนต่อเนื่อง แต่ไม่อัตโนมัติ</em> นักเรียนจะต้องยื่นส่งสมัครทุนเข้ามาใหม่ทุกปี','เป็น<em>ทุนต่อเนื่อง แต่ไม่ต่อให้อัตโนมัติ</em> ต้องสมัครใหม่ทุกปี'),
-           ('<div class="lblpill pop" style="--i:3">การกู้ยืม กยศ. กรอ.</div>','<div class="lblrow pop" style="--i:3"><div class="lblpill">การกู้ยืม กยศ. กรอ.</div><span>กองทุนเงินให้กู้ยืมเพื่อการศึกษา (กยศ.) และกองทุนเงินให้กู้ยืมที่ผูกกับรายได้ในอนาคต (กรอ.)</span></div>'),
-           ('นักเรียนที่กู้ยืม กยศ. กรอ. อยู่<em>ปัจจุบัน</em>','นักเรียนที่<em>กำลังกู้ยืม</em> กยศ. กรอ. อยู่ในปัจจุบัน'),
-           ('นักเรียนที่กู้ยืม กยศ. กรอ. อยู่ปัจจุบัน แต่ใน<em>ปีการศึกษาหน้าจะไม่กู้ยืมต่อ</em>','นักเรียนที่กำลังกู้ยืม กยศ. กรอ. อยู่ แต่<em>ปีการศึกษาหน้าไม่กู้ต่อ</em>'),
-           ('นักเรียนที่<em>รอยื่นกู้ยืม</em> กยศ. กรอ. ในปีการศึกษาหน้า','นักเรียนที่<em>ยังไม่เคยกู้</em> แต่จะยื่นกู้ กยศ. กรอ. ในปีการศึกษาหน้า')]
-        for a,b in R:
-            assert a in x,a; x=x.replace(a,b,1)
+        x=x.replace('การสมัครขอทุนการศึกษา','สมัครได้หรือไม่ ดูตรงนี้')
+        def r(cls,ic,t,i):
+            return '<div class="card top %s pop" style="--i:%d"><svg class="chk" viewBox="0 0 60 60"><use href="#%s"/></svg><span class="nw">%s</span></div>'%(cls,i,ic,t)
+        def c(cls,ic,t,i):
+            return '<div class="card case %s pop" style="--i:%d"><svg class="chk" viewBox="0 0 60 60"><use href="#%s"/></svg><span class="nw">%s</span></div>'%(cls,i,ic,t)
+        new9=('<div class="s9">'
+          +r('no','cross','สมัครครั้งเดียว ได้รับทุนทุกปี',1)
+          +r('ok','check','เป็น<em>ทุนต่อเนื่อง แต่ไม่ต่อให้อัตโนมัติ</em> ต้องยื่นสมัครทุนเข้ามาทุกปี',2)
+          +'<div class="lblrow pop" style="--i:3"><div class="lblpill">การกู้ยืม กยศ. กรอ.</div><span>กองทุนเงินให้กู้ยืมเพื่อการศึกษา (กยศ.) และกองทุนเงินให้กู้ยืมที่ผูกกับรายได้ในอนาคต (กรอ.)</span></div>'
+          +'<div class="cases">'
+          +c('no','cross','นักเรียนที่<em>กำลังกู้ยืม</em><br>กยศ. กรอ.<br>อยู่ในปัจจุบัน',4)
+          +c('no','cross','นักเรียนที่กำลังกู้ยืม<br>กยศ. กรอ. อยู่ แต่<br><em>ปีการศึกษาหน้าไม่กู้ต่อ</em>',5)
+          +c('ok','check','นักเรียนที่<em>จะยื่นกู้</em><br>กยศ. กรอ.<br>ในปีการศึกษาหน้า',6)
+          +'</div></div>')
+        x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:new9+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
