@@ -529,3 +529,7 @@ tw{display:inline}
 .d9b{gap:8px 16px}
 .d9b .doc{padding:9px 16px}
 .d9b .doc:last-child{grid-column:1/-1}
+.trow:has(.newbig){flex-wrap:nowrap;justify-content:space-between}
+.trow .newbig{order:-1;flex:none}
+.trow:has(.newbig) .title{margin-left:auto}
+.trow .newbig{margin-left:14px}
