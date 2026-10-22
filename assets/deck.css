@@ -484,3 +484,11 @@ tw{display:inline}
 .l1+.strip{padding:8px 24px 10px;line-height:1.5}
 .l1+.strip{font-size:19px;line-height:1.38;padding:6px 20px 8px;border-radius:16px}
 .l1 .type>div{padding:44px 18px 46px;line-height:2}
+/* slide 6 */
+.type p.cont{font-size:25px;line-height:1.75;font-weight:500;white-space:nowrap}
+.redband{background:#E11D2E;font-size:27px;padding:10px 20px 12px;border-radius:16px;font-weight:700;letter-spacing:0;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 10px 28px rgba(225,29,46,.38)}
+.l2{grid-template-columns:.78fr 1.22fr}
+.type p.cont{font-size:23px;line-height:1.85}
+.l2{grid-template-columns:.9fr 1.1fr}
+.l2 .bl{font-size:24px;padding-left:22px}.l2 .bl li{white-space:nowrap}
+.type p.cont{font-size:22px}
