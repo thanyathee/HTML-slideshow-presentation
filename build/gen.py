@@ -117,14 +117,16 @@ for i in range(1,24):
           +'</div></div>')
         x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:new9+'\n  </section>',x,flags=re.S)
     if n==11:
-        def stp(i,t): return '<div class="hs"><i>%d</i><span class="nw">%s</span></div>'%(i,t)
-        L=''.join(stp(i+1,t) for i,t in enumerate(['ครูผู้ดูแลทุน ลงทะเบียนขอรหัสผ่าน<br>และเพิ่มชื่อสถานศึกษาในระบบ','นักเรียนกรอกข้อมูล','ครูผู้ดูแลทุน อัพโหลดเอกสาร<br>แล้วกดส่งข้อมูลให้มูลนิธิ']))
-        R=''.join(stp(i+1,t) for i,t in enumerate(['นักเรียนกรอกข้อมูลในแบบฟอร์ม','ครูผู้ดูแลทุน รวบรวม<br>เอกสารการขอรับทุน','ส่งให้มูลนิธิฯ ทางไปรษณีย์']))
-        body=('<div class="lead pop" style="--i:1"><p class="nw">เปิดรับสมัคร ตั้งแต่ <b>1 พฤศจิกายน – 31 มกราคม</b> ของทุกปี พร้อมกันทั้งทุนใหม่และทุนต่อเนื่อง</p>'
+        def stp(i,who,t): return '<div class="hs"><i>%d</i><div><b class="chip %s">%s</b><span class="nw">%s</span></div></div>'%(i,'t' if who=='ครู' else 's',{'ครู':'ครูผู้ดูแลทุน','นร':'นักเรียน'}[who],t)
+        L=''.join(stp(i+1,w,t) for i,(w,t) in enumerate([('ครู','ลงทะเบียนขอรหัสผ่านและเพิ่มชื่อสถานศึกษาในระบบ'),('นร','กรอกข้อมูล'),('ครู','อัพโหลดเอกสาร แล้วกดส่งข้อมูลให้มูลนิธิ')]))
+        R=''.join(stp(i+1,w,t) for i,(w,t) in enumerate([('นร','กรอกข้อมูลในแบบฟอร์ม'),('ครู','รวบรวมเอกสารการขอรับทุน'),('ครู','ส่งให้มูลนิธิฯ ทางไปรษณีย์')]))
+        ic1='<svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="25" rx="4" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M16 41h16M24 34v7" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>'
+        ic2='<svg viewBox="0 0 48 48"><rect x="6" y="11" width="36" height="26" rx="4" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M8 15l16 12 16-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        body=('<div class="lead pop" style="--i:1"><p class="nw l1b">เปิดรับสมัคร ตั้งแต่ <b>1 พฤศจิกายน – 31 มกราคม</b> ของทุกปี พร้อมกันทั้งทุนใหม่และทุนต่อเนื่อง</p>'
           '<p class="nw key">สมัครผ่านทางสถานศึกษาที่กำลังศึกษาอยู่ปัจจุบัน<u>เท่านั้น</u></p></div>'
           '<div class="how">'
-          '<div class="hc blue pop" style="--i:2"><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a><div class="hl">'+L+'</div></div>'
-          '<div class="hc red pop" style="--i:3"><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span><div class="hl">'+R+'</div></div>'
+          '<div class="hc blue pop" style="--i:2"><div class="hico">'+ic1+'</div><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a><div class="hl">'+L+'</div></div>'
+          '<div class="hc red pop" style="--i:3"><div class="hico">'+ic2+'</div><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span><div class="hl">'+R+'</div></div>'
           '</div>'
           '<div class="ybar pop" style="--i:4">* เฉพาะผู้ขอรับทุนที่กำลังศึกษาอยู่ระดับปริญญาตรี สามารถรวบรวมเอกสารแล้วสมัครเองได้ 2 ช่องทาง *</div>')
         x=re.sub(r'<p class="note pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
