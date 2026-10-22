@@ -747,3 +747,24 @@ tw{display:inline}
 .ai i{width:40px;height:40px}
 .al{gap:16px}
 .ai span{font-size:18px}
+/* slide 12 v2: bigger headers, tighter details */
+.ah{padding:16px 18px 18px 14px;gap:12px}
+.ah em{width:62px;height:62px;font-size:40px;border-radius:20px}
+.ah h3{font-size:44px}
+.ah .mo{font-size:29px;padding:5px 18px 9px}
+.al{gap:10px;padding:12px 16px 14px}
+.ai{padding:8px 14px 8px 10px}
+.ai span{line-height:1.4}
+.ah{gap:10px;padding:16px 14px 18px 12px}
+.ah em{width:56px;height:56px;font-size:36px}
+.ah h3{font-size:38px;flex:1 1 auto;min-width:0;white-space:nowrap}
+.ah h3 *{white-space:nowrap}
+.ah .mo{font-size:26px;padding:5px 16px 8px}
+.ah h3.nw{font-size:36px}
+.ah{gap:10px;padding:16px 12px 18px 10px}
+.ah em{width:46px;height:46px;font-size:30px;border-radius:15px}
+.ah h3.nw{font-size:37px}
+.ah .mo{font-size:25px;padding:5px 14px 8px;transform:rotate(3deg)}
+.ah h3.nw{font-size:35px}
+.ah .mo{font-size:23px;padding:5px 14px 8px;margin-right:4px}
+.ah{gap:12px}
