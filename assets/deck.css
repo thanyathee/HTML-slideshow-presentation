@@ -714,3 +714,36 @@ tw{display:inline}
 .row2 .who b,.row2 .ev b{margin:0 -26px 14px;padding:14px 26px 16px;text-align:center;font-size:34px;white-space:nowrap}
 .row2 .who b{background:#0F3A94;color:#fff}
 .row2 .ev b{background:#E8F0FF;color:#1D55C4}
+/* slide 12: announce (gen-z bento) */
+.ann{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;min-height:0}
+.ac{position:relative;border-radius:36px;background:#fff;box-shadow:0 14px 36px rgba(31,95,214,.14);display:flex;flex-direction:column;overflow:hidden}
+.ah{display:flex;align-items:center;gap:16px;padding:16px 24px 16px 18px;color:#fff;background:var(--c)}
+.a1{--c:#1D55C4}.a2{--c:#E8303A}
+.ah em{flex:none;width:60px;height:60px;border-radius:20px;background:#fff;color:var(--c);font-style:normal;font-family:var(--display);font-weight:700;font-size:38px;display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.ah h3{margin:0;font-family:var(--display);font-weight:700;font-size:40px;line-height:1.1;color:#fff;flex:1}
+.ah .mo{flex:none;background:#FFD23F;color:#0B2A6F;font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;border-radius:999px;padding:6px 22px 9px;transform:rotate(3deg);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.al{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px 22px}
+.ai{display:flex;align-items:center;gap:16px;background:#F1F6FF;border-radius:28px;padding:14px 20px 14px 14px}
+.a2 .ai{background:#FFF1F2}
+.ai i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--c);display:flex;align-items:center;justify-content:center}
+.ai i svg{width:26px;height:26px}
+.ai span{font-size:21px;line-height:1.5;font-weight:500;color:var(--ink);white-space:nowrap}
+.ai b{color:var(--c);font-weight:700}
+.afoot{display:flex;align-items:center;justify-content:center;gap:14px;background:#FFD23F;border-radius:999px;padding:10px 26px 12px;box-shadow:0 8px 22px rgba(31,95,214,.14);white-space:nowrap}
+.afoot span{font-size:24px;font-weight:600;color:#0B2A6F}
+.afoot b{font-size:24px;font-weight:700;color:#fff;background:#1D55C4;border-radius:999px;padding:4px 20px 6px}
+.ah{padding:12px 20px 12px 14px;gap:12px}
+.ah em{width:48px;height:48px;font-size:30px;border-radius:16px}
+.ah h3{font-size:30px;white-space:nowrap}
+.ah .mo{font-size:20px;padding:4px 16px 7px}
+.al{gap:12px;padding:14px 16px 18px}
+.ai{padding:10px 14px 10px 10px;gap:12px;border-radius:24px}
+.ai i{width:36px;height:36px}.ai i svg{width:22px;height:22px}
+.ai span{font-size:17.5px;line-height:1.5}
+.afoot{gap:10px;padding:8px 20px 10px}
+.afoot span{font-size:19px}.afoot b{font-size:19px;padding:3px 16px 5px}
+.ai span{font-size:19.5px;line-height:1.55}
+.ai{padding:14px 16px 14px 12px}
+.ai i{width:40px;height:40px}
+.al{gap:16px}
+.ai span{font-size:18px}
