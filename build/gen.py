@@ -133,7 +133,7 @@ for i in range(1,24):
         x=re.sub(r'<span class="tpill"[^>]*>เลือกวิธีใดวิธีหนึ่ง</span>','<span class="pickpill">เลือกวิธีใดวิธีหนึ่ง</span>',x)
     if n==12:
         x=x.replace('น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่ในปีการศึกษาหน้า','<span class="wl nw">น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูล</span><span class="wl nw">ตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่</span><span class="wl nw">ในปีการศึกษาหน้า</span>')
-        x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งให้ส่งหลักฐาน<br>/ หน้าเพจ Facebook')
+        x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน')
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
