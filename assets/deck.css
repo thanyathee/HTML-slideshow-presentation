@@ -789,3 +789,4 @@ tw{display:inline}
 .ah h3.nw{flex:none;text-align:center}
 .ah .mo{margin:0;align-self:center}
 .ah::after{right:-30px}
+.ai b.lv{color:var(--c);font-weight:700;background:linear-gradient(transparent 62%,rgba(255,210,63,.75) 62%);padding:0 4px;border-radius:3px}
