@@ -493,3 +493,4 @@ tw{display:inline}
 .l2 .bl{font-size:24px;padding-left:22px}.l2 .bl li{white-space:nowrap}
 .type p.cont{font-size:22px}
 .redband{font-size:23px;font-weight:500;padding:8px 20px 10px}
+.redband{background:#FFD23F;color:#0B2A6F;font-weight:600;box-shadow:0 8px 22px rgba(31,95,214,.14)}
