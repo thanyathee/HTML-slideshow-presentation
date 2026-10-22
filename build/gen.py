@@ -146,6 +146,28 @@ for i in range(1,24):
           '</div>'
           '<div class="afoot pop" style="--i:3"><span class="nw">ติดตามประกาศรายชื่อได้ที่</span><b class="nw">tiscofoundation.org</b><span class="nw">และ</span><b class="nw">เพจ Facebook : TISCO Foundation</b></div>')
         x=re.sub(r'<div class="two rounds">.*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n==14:
+        I=lambda d:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%d
+        ic=[I('<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/>'),
+            I('<path d="M4 10v4h3l7 5V5L7 10H4z"/><path d="M17.5 9a4 4 0 010 6"/>'),
+            I('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
+            I('<rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/>'),
+            I('<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>'),
+            I('<path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/>')]
+        st=[('#1D55C4','เช็กรายชื่อให้ชัวร์','','ชื่อ-สกุล สะกดถูกไหม<br>เปลี่ยนชื่อ-สกุลหรือเปล่า<br>สถานศึกษาตรงกับที่เรียนอยู่ไหม<br><u>ข้อมูลผิด แจ้งมูลนิธิทันที!</u>'),
+            ('#E8303A','รอฟังวันส่งตั๋ว','','มูลนิธิจะแจ้งวันส่งตั๋วแลกเงิน<br>ที่เพจ Facebook <b>TISCO Foundation</b>'),
+            ('#F07A12','ตั๋วยังไม่มา?','2 สัปดาห์ – 1 เดือน','เช็กที่ธุรการโรงเรียนก่อน<br>ถ้าไม่พบ <u>ติดต่อมูลนิธิทันที</u>'),
+            ('#E8303A','ได้ตั๋วแล้ว รีบขึ้นเงิน!','อายุ 3 เดือน','ตั๋วแลกเงินมีอายุ 3 เดือน<br>นับจากวันที่ที่ระบุบนหน้าตั๋ว'),
+            ('#12A87A','ใช้เงินแล้ว จดไว้ด้วย','','ลงบันทึกรายการค่าใช้จ่าย<br>เก็บใบเสร็จไว้แนบขอทุนต่อเนื่อง<br>ในปีถัดไป'),
+            ('#1D55C4','สมุดบัญชีฝากไว้ที่ครู','','เก็บสมุดบัญชีไว้ที่คุณครู')]
+        cards=''
+        for k,(c,t,tag,b) in enumerate(st):
+            tg='<span class="tk-tag nw">%s</span>'%tag if tag else ''
+            cards+=('<div class="tk pop" style="--i:%d;--c:%s"><div class="tk-top"><em>%d</em><span class="tk-ic">%s</span>%s</div>'
+                    '<h3 class="nw">%s</h3><p class="nw">%s</p></div>')%(k+1,c,k+1,ic[k],tg,t,b)
+        body=('<div class="trow pop" style="--i:0"><h2 class="title">หลังจากประกาศรายชื่อ</h2><span class="tk-sub nw">ได้ทุนแล้ว ทำอะไรต่อ?</span></div>'
+              '<div class="tkline"><div class="tkrail"></div><div class="tkrail r2"></div>'+cards+'</div>')
+        x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
