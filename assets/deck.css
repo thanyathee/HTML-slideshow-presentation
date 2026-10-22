@@ -533,3 +533,6 @@ tw{display:inline}
 .trow .newbig{order:-1;flex:none}
 .trow:has(.newbig) .title{margin-left:auto}
 .trow .newbig{margin-left:14px}
+.newbig,.newbig.red{font-size:48px;min-width:330px;text-align:center;padding:6px 20px 10px}
+.trow .newbig{margin-left:22px}
+@keyframes newpulse{0%,100%{transform:scale(1) rotate(0)}30%{transform:scale(1.045) rotate(-1.5deg)}60%{transform:scale(1.025) rotate(1deg)}}
