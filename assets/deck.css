@@ -478,3 +478,7 @@ tw{display:inline}
 .l1 .type>div{font-size:17.5px;line-height:1.95;padding:30px 22px 34px}
 .l1 .type h3{padding:18px 26px 20px}
 .l1+.strip{line-height:1.75;padding:22px 28px 24px}
+.l1 .type>div{font-size:20px;line-height:1.8;padding:24px 18px 26px}
+.l1+.strip{background:#FFD23F;box-shadow:0 8px 22px rgba(31,95,214,.14);text-align:center;line-height:1.6;padding:14px 24px 16px}
+.l1 .type>div{font-size:18.5px;padding:26px 18px 28px}
+.l1+.strip{padding:8px 24px 10px;line-height:1.5}
