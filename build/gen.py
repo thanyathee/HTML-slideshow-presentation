@@ -80,6 +80,25 @@ for i in range(1,24):
                 cards+='<div class="card doc pop" style="--i:%d">%s</div>\n      '%(k+1,inner)
         x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9">\n      '+cards+'</div>\n  </section>',x,flags=re.S)
         x=re.sub(r'<span class="tpill"[^>]*>ทุนใหม่</span>','<span class="newbig">ทุนใหม่</span>',x)
+    if n==7:
+        DOCS=[('แบบฟอร์มการขอรับทุนการศึกษา-ทุนต่อเนื่อง','','1E6UvDAav_k4fr3vUjWo1xMQg7iljlaCh'),
+        ('สำเนาบัตรประจำตัวประชาชนของผู้ขอรับทุน','',''),
+        ('หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษา','',''),
+        ('สำเนาผลการศึกษาเทอมล่าสุด','',''),
+        ('แบบฟอร์มรับรองสถานะการกู้ยืม กยศ./กรอ.<br>และการได้รับทุนการศึกษาอื่น','สำหรับระดับมัธยมศึกษาตอนปลาย<br>อาชีวศึกษา และปริญญาตรีเท่านั้น','1pGk5Rxvp8VcDgNputG_PXCLe-sk-kqGS'),
+        ('สำเนาสมุดบัญชีเงินฝาก','หน้าที่แสดงชื่อเจ้าของบัญชี',''),
+        ('สำเนาสมุดบัญชีเงินฝาก','หน้าที่แสดงรายการเดินบัญชีจำนวนเงินทุนในปีล่าสุด<br>ที่เข้าบัญชีจนถึงรายการปัจจุบัน',''),
+        ('แบบฟอร์มรายการใช้จ่ายเงินทุนการศึกษา','','1E-gknKGFJaSOgHhfO4pATvLUPX0JOIoN'),
+        ('ใบเสร็จรับเงิน ของการใช้จ่ายจากเงินทุนการศึกษาเท่านั้น','โดยเป็นรายการที่มีมูลค่าต่อรายการหรือต่อใบเสร็จตั้งแต่ 500 บาทขึ้นไป','')]
+        cards=''
+        for k,(t,sub,fid) in enumerate(DOCS):
+            inner='<svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span class="dt nw">%s%s</span>'%(t,('<small>%s</small>'%sub) if sub else '')
+            if fid:
+                cards+='<a class="card doc lnk pop" style="--i:%d" href="https://drive.google.com/file/d/%s/view" target="_blank" rel="noopener">%s<em class="ext" aria-hidden="true">↗</em></a>\n      '%(k+1,fid,inner)
+            else:
+                cards+='<div class="card doc pop" style="--i:%d">%s</div>\n      '%(k+1,inner)
+        x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9 d9b">\n      '+cards+'</div>\n  </section>',x,flags=re.S)
+        x=re.sub(r'<span class="tpill"[^>]*>ทุนต่อเนื่อง</span>','<span class="newbig red">ทุนต่อเนื่อง</span>',x)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)

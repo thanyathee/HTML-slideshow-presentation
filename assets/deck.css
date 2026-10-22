@@ -524,3 +524,8 @@ tw{display:inline}
 .d9{grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr)}
 .d9 .doc{font-size:19.5px;gap:12px}
 .d9 .ext{width:34px;height:34px;padding:0;display:flex;align-items:center;justify-content:center;font-size:18px}
+/* slide 8 */
+.newbig.red{font-size:46px;background:linear-gradient(100deg,#E8303A 0%,#FF6A3D 100%);color:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.95),0 12px 30px rgba(232,48,58,.4)}
+.d9b{gap:8px 16px}
+.d9b .doc{padding:9px 16px}
+.d9b .doc:last-child{grid-column:1/-1}
