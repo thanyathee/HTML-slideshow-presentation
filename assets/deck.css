@@ -492,3 +492,4 @@ tw{display:inline}
 .l2{grid-template-columns:.9fr 1.1fr}
 .l2 .bl{font-size:24px;padding-left:22px}.l2 .bl li{white-space:nowrap}
 .type p.cont{font-size:22px}
+.redband{font-size:23px;font-weight:500;padding:8px 20px 10px}
