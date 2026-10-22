@@ -699,3 +699,9 @@ tw{display:inline}
 .hico svg *{stroke:var(--c)}
 .hico svg{width:36px;height:36px}
 .hhead{align-self:stretch;width:100%;box-sizing:border-box}
+/* slide 11 */
+.who{background:#FFA94D;color:#0B2A6F}
+.who b{color:#0B2A6F}
+.who .wl{display:block}
+.warn{align-self:center;background:#3DD598;color:#0B2A6F;box-shadow:0 8px 22px rgba(31,95,214,.14);text-align:center}
+.ptrack .fillbar{background:#1D55C4}
