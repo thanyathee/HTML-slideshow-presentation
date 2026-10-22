@@ -705,3 +705,4 @@ tw{display:inline}
 .who .wl{display:block}
 .warn{align-self:center;background:#3DD598;color:#0B2A6F;box-shadow:0 8px 22px rgba(31,95,214,.14);text-align:center}
 .ptrack .fillbar{background:#1D55C4}
+.warn{background:#1D55C4;color:#fff;box-shadow:0 8px 22px rgba(29,85,196,.25)}
