@@ -591,3 +591,10 @@ tw{display:inline}
 .l2 .bl li{margin:0;line-height:56px}
 .l2 .bl li+li{margin-top:0}
 .l2 .type p.cont{padding-left:0}
+/* slide 6 v2: fixed row pitch, no font-dependent marker */
+.l2 .bl{list-style:none;padding-left:0}
+.l2 .bl li{position:relative;height:56px;line-height:56px;padding-left:28px;white-space:nowrap;margin:0}
+.l2 .bl li::marker{content:""}
+.l2 .bl li::before{content:"";position:absolute;left:2px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--orange)}
+.l2 .cont{font-size:22px;font-weight:500;margin:0}
+.l2 .cont .ln{display:block;height:56px;line-height:56px;white-space:nowrap;padding-left:28px;overflow:visible}
