@@ -99,6 +99,13 @@ for i in range(1,24):
                 cards+='<div class="card doc pop" style="--i:%d">%s</div>\n      '%(k+1,inner)
         x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9 d9b">\n      '+cards+'</div>\n  </section>',x,flags=re.S)
         x=re.sub(r'<span class="tpill"[^>]*>ทุนต่อเนื่อง</span>','<span class="newbig red">ทุนต่อเนื่อง</span>',x)
+    if n==8:
+        x=x.replace('การสมัครขอทุนการศึกษา','การกู้ยืม กยศ. กรอ.')
+        R3=[('cross','นักเรียนที่กู้ยืม กยศ. กรอ. อยู่<em>ปัจจุบัน</em>',''),
+            ('cross','นักเรียนที่กู้ยืม กยศ. กรอ. อยู่ปัจจุบัน แต่ใน<em>ปีการศึกษาหน้าจะไม่กู้ยืมต่อ</em>',''),
+            ('check','นักเรียนที่<em>รอยื่นกู้ยืม</em> กยศ. กรอ. ในปีการศึกษาหน้า',' ok')]
+        rr=''.join('<div class="card row loan%s pop" style="--i:%d"><svg class="chk" viewBox="0 0 60 60"><use href="#%s"/></svg><span class="nw">%s</span></div>\n      '%(c,i+1,ic,t) for i,(ic,t,c) in enumerate(R3))
+        x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:'<div class="rowsx loans">\n      '+rr+'</div>\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
