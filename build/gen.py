@@ -141,8 +141,8 @@ for i in range(1,24):
         r1=it('นักเรียนที่กรอกข้อมูลว่า<br><b>เรียนต่อสถานศึกษาเดิม</b>')+it('นักเรียน ป.6 ม.3 ที่ส่งหลักฐานยืนยัน<br>การย้ายสถานศึกษาใหม่<br>ภายในวันที่ <b>15 พฤษภาคม</b>')
         r2=it('นักเรียน / นักศึกษา ป.6 ม.3 ม.6 ปวช.3 ปวส.2<br>ที่ส่งหลักฐานการย้ายสถานศึกษา<br>ภายในวันที่ <b>31 กรกฎาคม</b>')
         body=('<div class="ann">'
-          '<div class="ac a1 pop" style="--i:1"><div class="ah"><em>1</em><h3 class="nw">รอบแรก</h3><span class="mo">มิถุนายน</span></div><div class="al">'+r1+'</div></div>'
-          '<div class="ac a2 pop" style="--i:2"><div class="ah"><em>2</em><h3 class="nw">รอบรอฟังผล</h3><span class="mo">พฤศจิกายน</span></div><div class="al">'+r2+'</div></div>'
+          '<div class="ac a1 pop" style="--i:1"><div class="ah"><div class="hrow"><em>1</em><h3 class="nw">รอบแรก</h3></div><span class="mo">มิถุนายน</span></div><div class="al">'+r1+'</div></div>'
+          '<div class="ac a2 pop" style="--i:2"><div class="ah"><div class="hrow"><em>2</em><h3 class="nw">รอบรอฟังผล</h3></div><span class="mo">พฤศจิกายน</span></div><div class="al">'+r2+'</div></div>'
           '</div>'
           '<div class="afoot pop" style="--i:3"><span class="nw">ติดตามประกาศรายชื่อได้ที่</span><b class="nw">www.tiscofoundation.org</b><span class="nw">และ</span><b class="nw">เพจ Facebook : TISCO Foundation</b></div>')
         x=re.sub(r'<div class="two rounds">.*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)

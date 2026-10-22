@@ -783,3 +783,9 @@ tw{display:inline}
 .ah .mo{font-size:41px;padding:0 22px 6px;border-width:3px;box-shadow:6px 6px 0 #0B2A6F;margin-top:2px}
 .al{padding:16px 16px 12px;gap:8px}
 .ai{padding:5px 14px 5px 10px}
+/* slide 12: headers centered in card */
+.ah{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px 20px 18px}
+.ah .hrow{display:flex;align-items:center;justify-content:center;gap:14px}
+.ah h3.nw{flex:none;text-align:center}
+.ah .mo{margin:0;align-self:center}
+.ah::after{right:-30px}
