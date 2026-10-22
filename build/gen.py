@@ -138,8 +138,8 @@ for i in range(1,24):
     if n==13:
         ck='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         def it(t,cls=''): return '<div class="ai %s"><i>%s</i><span class="nw">%s</span></div>'%(cls,ck,t)
-        r1=it('นักเรียนที่กรอกข้อมูลว่า<br><b>เรียนต่อสถานศึกษาเดิม</b>')+it('นักเรียน <b class="lv">ป.6 ม.3</b><br>ที่ส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่<br>ภายในวันที่ <b>15 พฤษภาคม</b>')
-        r2=it('นักเรียน <b class="lv">ป.6 ม.3 ม.6 ปวช.3 ปวส.2</b><br>ที่ส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่<br>ภายในวันที่ <b>31 กรกฎาคม</b>')
+        r1=it('นักเรียนที่กรอกข้อมูลว่า<br><b>เรียนต่อสถานศึกษาเดิม</b>')+it('นักเรียน <b class="lv"><lvl>ป.6</lvl><lvl>ม.3</lvl></b><br>ที่ส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่<br>ภายในวันที่ <b>15 พฤษภาคม</b>')
+        r2=it('นักเรียน <b class="lv"><lvl>ป.6</lvl><lvl>ม.3</lvl><lvl>ม.6</lvl><lvl>ปวช.3</lvl><lvl>ปวส.2</lvl></b><br>ที่ส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่<br>ภายในวันที่ <b>31 กรกฎาคม</b>')
         body=('<div class="ann">'
           '<div class="ac a1 pop" style="--i:1"><div class="ah"><div class="hrow"><em>1</em><h3 class="nw">รอบแรก</h3></div><span class="mo">มิถุนายน</span></div><div class="al">'+r1+'</div></div>'
           '<div class="ac a2 pop" style="--i:2"><div class="ah"><div class="hrow"><em>2</em><h3 class="nw">รอบรอฟังผล</h3></div><span class="mo">พฤศจิกายน</span></div><div class="al">'+r2+'</div></div>'

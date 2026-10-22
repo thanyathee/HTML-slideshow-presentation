@@ -790,3 +790,6 @@ tw{display:inline}
 .ah .mo{margin:0;align-self:center}
 .ah::after{right:-30px}
 .ai b.lv{color:var(--c);font-weight:700;background:linear-gradient(transparent 62%,rgba(255,210,63,.75) 62%);padding:0 4px;border-radius:3px}
+.ai b.lv{padding:0 6px;white-space:nowrap}
+.ai b.lv lvl{font-style:normal;display:inline-block;margin:0 .42em}
+.ai b.lv lvl:first-child{margin-left:0}.ai b.lv lvl:last-child{margin-right:0}
