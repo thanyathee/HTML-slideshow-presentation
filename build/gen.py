@@ -126,7 +126,7 @@ for i in range(1,24):
           '<p class="nw key">สมัครผ่านทางสถานศึกษาที่กำลังศึกษาอยู่ปัจจุบัน<u>เท่านั้น</u></p></div>'
           '<div class="how">'
           '<div class="hc blue pop" style="--i:2"><div class="hhead"><div class="hico">'+ic1+'</div><div class="ht"><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a></div></div><div class="hlist">'+L+'</div></div>'
-          '<div class="hc red pop" style="--i:3"><div class="hhead"><div class="hico">'+ic2+'</div><div class="ht"><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span></div></div><div class="hlist">'+R+'</div></div>'
+          '<div class="hc red pop" style="--i:3"><div class="hhead"><div class="hico">'+ic2+'</div><div class="ht"><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">tiscofoundation.org</a></span></div></div><div class="hlist">'+R+'</div></div>'
           '</div>'
           '<div class="ybar pop" style="--i:4">* เฉพาะผู้ขอรับทุนที่กำลังศึกษาอยู่ระดับปริญญาตรี สามารถรวบรวมเอกสารแล้วสมัครเองได้ 2 ช่องทาง *</div>')
         x=re.sub(r'<p class="note pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
@@ -144,7 +144,7 @@ for i in range(1,24):
           '<div class="ac a1 pop" style="--i:1"><div class="ah"><div class="hrow"><em>1</em><h3 class="nw">รอบแรก</h3></div><span class="mo">มิถุนายน</span></div><div class="al">'+r1+'</div></div>'
           '<div class="ac a2 pop" style="--i:2"><div class="ah"><div class="hrow"><em>2</em><h3 class="nw">รอบรอฟังผล</h3></div><span class="mo">พฤศจิกายน</span></div><div class="al">'+r2+'</div></div>'
           '</div>'
-          '<div class="afoot pop" style="--i:3"><span class="nw">ติดตามประกาศรายชื่อได้ที่</span><b class="nw">www.tiscofoundation.org</b><span class="nw">และ</span><b class="nw">เพจ Facebook : TISCO Foundation</b></div>')
+          '<div class="afoot pop" style="--i:3"><span class="nw">ติดตามประกาศรายชื่อได้ที่</span><b class="nw">tiscofoundation.org</b><span class="nw">และ</span><b class="nw">เพจ Facebook : TISCO Foundation</b></div>')
         x=re.sub(r'<div class="two rounds">.*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
@@ -163,7 +163,7 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
       </div>
       <div class="qrs">
         <div class="card qr pop" style="--i:2"><div class="code">%(q1)s</div><div><b>สมัครทุนออนไลน์</b><span>scholarship.tiscofoundation.org</span></div></div>
-        <div class="card qr pop" style="--i:3"><div class="code">%(q2)s</div><div><b>เว็บไซต์มูลนิธิ</b><span>www.tiscofoundation.org</span></div></div>
+        <div class="card qr pop" style="--i:3"><div class="code">%(q2)s</div><div><b>เว็บไซต์มูลนิธิ</b><span>tiscofoundation.org</span></div></div>
         <div class="card qr pop" style="--i:4"><div class="code">%(q3)s</div><div><b>Facebook</b><span>facebook.com/tiscofoundation</span></div></div>
       </div>
     </div>
