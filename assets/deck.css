@@ -689,3 +689,13 @@ tw{display:inline}
 .hs span{font-size:22.5px}
 .hlist{padding:8px 20px 14px}
 .hs span{font-size:21.5px}.hs{padding-right:14px}
+/* slide 10 v4 */
+.pickpill{box-shadow:none}
+.hhead{background:var(--c);border-radius:40px 40px 0 0;padding:14px 20px 14px;margin-bottom:6px}
+.hc.blue{--c:#1D55C4}.hc.red{--c:#D4252D}
+.hc h3,.hc .url,.hc .url a,.hc.blue .url{color:#fff;opacity:1}
+.hc .url{font-weight:500}
+.hico{background:#fff;box-shadow:none;width:60px;height:60px}
+.hico svg *{stroke:var(--c)}
+.hico svg{width:36px;height:36px}
+.hhead{align-self:stretch;width:100%;box-sizing:border-box}
