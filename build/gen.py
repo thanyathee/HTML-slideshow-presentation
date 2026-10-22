@@ -63,12 +63,11 @@ for i in range(1,24):
         x=x.replace('<div class="two">','<div class="two l2">',1)
         x=re.sub(r'<ul class="bl"><li>พิจารณา.*?</li></ul>','<p class="nw cont">พิจารณาความครบถ้วนสมบูรณ์ของเอกสาร<br>การบันทึกรายการใช้จ่ายเงินทุนการศึกษา<br>รายการเดินบัญชีธนาคาร และใบเสร็จที่น่าเชื่อถือ<br>โดยเอกสารต้องมีความสอดคล้องกัน</p>',x,flags=re.S)
     if n==6:
-        DOCS=[('แบบฟอร์มการขอรับทุนการศึกษา-<br>ทุนใหม่','','1E0QsEzwqoGII7ZdYn0fVI0tbFmZlbKMP'),
-        ('สำเนาบัตรประจำตัวประชาชน<br>ของนักเรียน/นักศึกษา','',''),
+        DOCS=[('แบบฟอร์มการขอรับทุนการศึกษา-ทุนใหม่','','1E0QsEzwqoGII7ZdYn0fVI0tbFmZlbKMP'),
+        ('สำเนาบัตรประจำตัวประชาชนของผู้ขอรับทุน','',''),
         ('หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษา','',''),
         ('สำเนาผลการศึกษาเทอมล่าสุด','',''),
-        ('รูปถ่ายหน้าตรง จำนวน 1 รูป','ใช้เฉพาะกรณียื่นแบบฟอร์มสมัครแบบเอกสารเท่านั้น<br>หากสมัครผ่านระบบออนไลน์ไม่ต้องแนบ',''),
-        ('รูปถ่ายสภาพบ้านที่อยู่อาศัย<br>พร้อมผู้ปกครองและผู้ขอรับทุน','',''),
+        ('รูปถ่ายสภาพบ้านที่อยู่อาศัย','',''),
         ('แบบฟอร์ม<br>“เขียนเล่าประวัติและสภาพความเป็นอยู่”','ยกเว้นระดับประถมศึกษาปีที่ 5','1iRyTIoz-zYIA11FyjEmqI3XHBs9SfTnG'),
         ('แบบฟอร์มรับรองสถานะการกู้ยืม กยศ./กรอ.<br>และการได้รับทุนการศึกษาอื่น','สำหรับระดับมัธยมศึกษาตอนปลาย<br>อาชีวศึกษา และปริญญาตรีเท่านั้น','1pGk5Rxvp8VcDgNputG_PXCLe-sk-kqGS'),
         ('จดหมายรับรองจากอาจารย์ที่ปรึกษา','เฉพาะระดับปริญญาตรีเท่านั้น','1LZu62vBiLPk5sxJEwYTYuoIFCKoaVfLh')]
@@ -76,7 +75,7 @@ for i in range(1,24):
         for k,(t,sub,fid) in enumerate(DOCS):
             inner='<svg class="chk" viewBox="0 0 60 60"><use href="#check"/></svg><span class="dt nw">%s%s</span>'%(t,('<small>%s</small>'%sub) if sub else '')
             if fid:
-                cards+='<a class="card doc lnk pop" style="--i:%d" href="https://drive.google.com/file/d/%s/view" target="_blank" rel="noopener">%s<em class="ext" aria-hidden="true">เปิดดู ↗</em></a>\n      '%(k+1,fid,inner)
+                cards+='<a class="card doc lnk pop" style="--i:%d" href="https://drive.google.com/file/d/%s/view" target="_blank" rel="noopener">%s<em class="ext" aria-hidden="true">↗</em></a>\n      '%(k+1,fid,inner)
             else:
                 cards+='<div class="card doc pop" style="--i:%d">%s</div>\n      '%(k+1,inner)
         x=re.sub(r'<div class="docs">.*?</section>',lambda m:'<div class="docs d9">\n      '+cards+'</div>\n  </section>',x,flags=re.S)

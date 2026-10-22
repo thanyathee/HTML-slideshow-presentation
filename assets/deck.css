@@ -514,3 +514,13 @@ tw{display:inline}
 .d9 .dt{min-width:0}
 .d9 .dt small{font-size:15.5px}
 .d9 .ext{font-size:14px;padding:3px 10px 4px}
+.d9 .doc:last-child{grid-column:auto}
+.d9 .doc{font-size:22px;padding:12px 18px}
+.d9 .dt small{font-size:17px}
+.d9 .chk{width:40px;height:40px}
+.d9 .doc{font-size:20px;padding:14px 16px}
+.d9 .dt small{font-size:15.5px}
+.d9 .chk{width:38px;height:38px}
+.d9{grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr)}
+.d9 .doc{font-size:19.5px;gap:12px}
+.d9 .ext{width:34px;height:34px;padding:0;display:flex;align-items:center;justify-content:center;font-size:18px}
