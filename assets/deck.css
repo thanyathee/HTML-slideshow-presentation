@@ -482,3 +482,5 @@ tw{display:inline}
 .l1+.strip{background:#FFD23F;box-shadow:0 8px 22px rgba(31,95,214,.14);text-align:center;line-height:1.6;padding:14px 24px 16px}
 .l1 .type>div{font-size:18.5px;padding:26px 18px 28px}
 .l1+.strip{padding:8px 24px 10px;line-height:1.5}
+.l1+.strip{font-size:19px;line-height:1.38;padding:6px 20px 8px;border-radius:16px}
+.l1 .type>div{padding:44px 18px 46px;line-height:2}
