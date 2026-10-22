@@ -584,3 +584,10 @@ tw{display:inline}
 .s9{gap:12px}
 .s9 .lblrow{width:100%;justify-content:space-between;gap:24px}
 .s9 .lblrow span{flex:1;white-space:nowrap;font-size:24px;text-align:right;opacity:1;font-weight:500}
+/* slide 6: equal text size + line pitch in both cards */
+.l2 .type>div{display:block}
+.l2 .bl,.l2 .type p.cont{font-size:22px;line-height:56px;margin:0;font-weight:500}
+.l2 .bl{padding-left:26px}
+.l2 .bl li{margin:0;line-height:56px}
+.l2 .bl li+li{margin-top:0}
+.l2 .type p.cont{padding-left:0}
