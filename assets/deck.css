@@ -582,3 +582,5 @@ tw{display:inline}
 .s9 .case{font-size:27px;gap:12px;padding:14px 18px}
 .s9 .case .chk{width:84px;height:84px}
 .s9{gap:12px}
+.s9 .lblrow{width:100%;justify-content:space-between;gap:24px}
+.s9 .lblrow span{flex:1;white-space:nowrap;font-size:24px;text-align:right;opacity:1;font-weight:500}
