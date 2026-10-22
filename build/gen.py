@@ -40,6 +40,7 @@ def gantt():
     return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="ov">%s</div>\n  </section>'%(eb('กำหนดการ'),rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
+    if n in (9,10): continue  # removed: write-form / online application detail slides
     if n==2:
         out.append(('sched','blue',sched(0)))
         out.append(('','navy',sched(1)))
