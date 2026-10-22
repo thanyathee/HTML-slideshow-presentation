@@ -613,7 +613,7 @@ tw{display:inline}
 .hc h3{margin:0;background:var(--c);color:#fff;font-family:var(--display);font-weight:600;font-size:32px;line-height:1.2;padding:12px 24px 14px}
 .hc .url{display:block;padding:10px 24px 0;font-size:21px;font-weight:600;color:var(--c);text-decoration:none}
 .hc .url a{color:inherit;text-decoration:none}
-.hl{padding:10px 20px 16px;display:flex;flex-direction:column;gap:12px}
+.hlist{padding:10px 20px 16px;display:flex;flex-direction:column;gap:12px}
 .hs{display:flex;align-items:center;gap:18px;background:rgba(47,111,235,.07);border-radius:16px;padding:10px 16px}
 .hc.red .hs{background:rgba(232,48,58,.07)}
 .hs i{flex:none;width:50px;height:50px;border-radius:50%;background:var(--c);color:#fff;font-style:normal;font-family:var(--display);font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}
@@ -624,7 +624,7 @@ tw{display:inline}
 .lead p.key u{background:#D8232A;color:#fff;border-radius:8px;padding:0 12px 2px;margin-left:6px}
 .hc h3{font-size:30px;padding:10px 24px 12px}
 .hc .url{font-size:20px;padding-top:8px}
-.hl{gap:9px;padding:8px 18px 14px}
+.hlist{gap:9px;padding:8px 18px 14px}
 .hs{padding:7px 14px}
 .hs i{width:46px;height:46px;font-size:26px}
 .hs span{font-size:23px;line-height:1.35}
@@ -645,8 +645,8 @@ tw{display:inline}
 .hc .url{padding:6px 20px 0;font-size:20px;font-weight:600;color:#3a4f7a;opacity:.9}
 .hc .url a{color:var(--c)}
 .hc.blue .url{color:var(--c)}
-.hl{align-self:stretch;position:relative;padding:12px 26px 10px;gap:10px;text-align:left}
-.hl::before{content:"";position:absolute;left:49px;top:40px;bottom:40px;border-left:4px dotted var(--c);opacity:.35}
+.hlist{align-self:stretch;position:relative;padding:12px 26px 10px;gap:10px;text-align:left}
+.hlist::before{content:"";position:absolute;left:49px;top:40px;bottom:40px;border-left:4px dotted var(--c);opacity:.35}
 .hs{background:#fff;border-radius:999px;padding:7px 22px 7px 8px;gap:16px;box-shadow:0 5px 14px rgba(31,95,214,.1);position:relative}
 .hc.red .hs{background:#fff}
 .hs i{width:48px;height:48px;font-size:26px;box-shadow:0 0 0 4px #fff}
@@ -661,7 +661,7 @@ tw{display:inline}
 .how{margin-top:16px;gap:30px}
 .hc h3{padding:42px 20px 0;font-size:32px}
 .hc .url{font-size:19px;padding-top:2px}
-.hl{padding:8px 24px 8px;gap:8px}
+.hlist{padding:8px 24px 8px;gap:8px}
 .hs{padding:4px 20px 4px 6px}
 .hs i{width:44px;height:44px;font-size:24px}
 .chip{font-size:15px;padding:3px 11px 4px}

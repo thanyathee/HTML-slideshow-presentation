@@ -125,8 +125,8 @@ for i in range(1,24):
         body=('<div class="lead pop" style="--i:1"><p class="nw l1b">เปิดรับสมัคร ตั้งแต่ <b>1 พฤศจิกายน – 31 มกราคม</b> ของทุกปี พร้อมกันทั้งทุนใหม่และทุนต่อเนื่อง</p>'
           '<p class="nw key">สมัครผ่านทางสถานศึกษาที่กำลังศึกษาอยู่ปัจจุบัน<u>เท่านั้น</u></p></div>'
           '<div class="how">'
-          '<div class="hc blue pop" style="--i:2"><div class="hico">'+ic1+'</div><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a><div class="hl">'+L+'</div></div>'
-          '<div class="hc red pop" style="--i:3"><div class="hico">'+ic2+'</div><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span><div class="hl">'+R+'</div></div>'
+          '<div class="hc blue pop" style="--i:2"><div class="hico">'+ic1+'</div><h3>ระบบออนไลน์</h3><a class="url" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener">scholarship.tiscofoundation.org</a><div class="hlist">'+L+'</div></div>'
+          '<div class="hc red pop" style="--i:3"><div class="hico">'+ic2+'</div><h3>เขียนแบบฟอร์มส่งทางไปรษณีย์</h3><span class="url">ดาวน์โหลด <a href="https://www.tiscofoundation.org" target="_blank" rel="noopener">www.tiscofoundation.org</a></span><div class="hlist">'+R+'</div></div>'
           '</div>'
           '<div class="ybar pop" style="--i:4">* เฉพาะผู้ขอรับทุนที่กำลังศึกษาอยู่ระดับปริญญาตรี สามารถรวบรวมเอกสารแล้วสมัครเองได้ 2 ช่องทาง *</div>')
         x=re.sub(r'<p class="note pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
