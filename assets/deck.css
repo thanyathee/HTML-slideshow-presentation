@@ -1198,3 +1198,10 @@ tw{display:inline}
 .f16 .trow .title{font-size:46px;white-space:nowrap}
 .f16 .fside{top:148px}
 .f16 .trow{top:62px}.f16 .fside{top:162px}
+/* handwriting font: Itim */
+.hw{font-family:"Itim",cursive;font-weight:400;line-height:1.2}
+.fv .hw{font-size:21px}
+.fc .hw{font-size:17px}
+.fc .hw.wide{font-size:14.5px}
+.fc.dt .hw{font-size:14.5px}
+.fc .hw{font-size:18px}.fc .hw.wide{font-size:15px}.fc.dt .hw{font-size:15px}
