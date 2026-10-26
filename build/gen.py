@@ -32,7 +32,7 @@ def sched(ti):
         hl=' hl' if 'ประกาศรายชื่อ' in t else ''
         tag='<span class="annchip">★</span>' if hl else ''
         rows+='<div class="srow pop%s" style="--i:%d"><span class="sn">%d</span><div class="sc"><span class="sd">%s</span><p%s>%s%s</p></div></div>'%(hl,k+1,k+1,d,(' class="nw"' if hl else (' class="ml"' if '<br>' in t else '')),tag,t)
-    return '<section class="slide" data-t="slide" data-pos="after">\n    %s\n    <div class="rbanner r%s pop" style="--i:0"><div class="rw">%s</div><div class="rt">%s</div></div>\n    <div class="steps2">%s</div>\n  </section>'%(eb('กำหนดการ'),T['key'],T['title'],T['tag'],rows)
+    return '<section class="slide" data-t="slide" data-pos="after"'+(' data-sched="1"' if ti==0 else '')+'>\n    %s\n    <div class="rbanner r%s pop" style="--i:0"><div class="rw">%s</div><div class="rt">%s</div></div>\n    <div class="steps2">%s</div>\n  </section>'%(eb('กำหนดการ'),T['key'],T['title'],T['tag'],rows)
 def gantt():
     rows=''
     for j,T in enumerate(TRACKS):
@@ -310,8 +310,12 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
  fb=ico('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/>'),
  q1=qr['scholarship'],q2=qr['website'],q3=qr['facebook'])
 out.append(('contact','cover',contact))
+_sc=[o for o in out if o[0]=='sched']+[out[[o[0] for o in out].index('sched')+1]]
+out=[o for o in out if all(o is not x for x in _sc)]
+_m=[o[0] for o in out].index('move')
+out=out[:_m]+_sc+out[_m:]
 def idx(key): return [o[0] for o in out].index(key)+3   # 1-based slide number incl. opening slide + cover
-AG=[('blue','กำหนดการ','@@SCHED@@'),('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
+AG=[('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('blue','กำหนดการ','@@SCHED@@'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
 agenda=''.join('<button data-go="@@GO%d@@" style="--c:var(--%s)"><i></i>%s<span>@@PG%d@@</span></button>'%(k,c,t,k) for k,(c,t,_) in enumerate(AG))
 cover='''<section class="slide cover" data-t="slide" data-pos="after" data-mood="cover">
     <div class="cover-grid">
@@ -329,7 +333,7 @@ for k,m,h in out:
     final.append(h.replace('<section class="slide"','<section class="slide" data-mood="%s"'%m,1))
 T=len(final)
 for k,(_c,_t,needle) in enumerate(AG):
-    pg=2 if needle=='@@SCHED@@' else next(i for i,h in enumerate(final) if i>1 and any(needle.strip('<>') in re.sub(r'<[^>]+>','',t) for t in re.findall(r'<h2[^>]*>(.*?)</h2>',h,re.S)))
+    pg=next(i for i,h in enumerate(final) if 'data-sched' in h) if needle=='@@SCHED@@' else next(i for i,h in enumerate(final) if i>1 and any(needle.strip('<>') in re.sub(r'<[^>]+>','',t) for t in re.findall(r'<h2[^>]*>(.*?)</h2>',h,re.S)))
     final=[h.replace('@@GO%d@@'%k,str(pg)).replace('@@PG%d@@'%k,str(pg+1)) for h in final]
 final=[h.replace('@@N@@',str(i+1)).replace('@@T@@',str(T)) for i,h in enumerate(final)]
 html='''<!doctype html>
