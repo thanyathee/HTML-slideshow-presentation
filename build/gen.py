@@ -45,15 +45,17 @@ SJ=[
   ('<b>ธันวาคม</b>','มูลนิธิส่ง<br>ตั๋วแลกเงิน<br>ไปที่สถานศึกษา','','#2F6FED',0)]]
 def sched2(ti):
     T=TRACKS[ti];st=SJ[ti];n=len(st)
+    AR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>'
     cols=''
     for k,(d,t,note,c,hl) in enumerate(st):
-        nt='<span class="sjnote nw">%s</span>'%note if note else ''
-        star='<em class="sjstar nw">ประกาศผล!</em>' if hl else ''
-        cols+=('<div class="sjcol%s" style="--c:%s;--k:%d"><div class="sjm nw">%s</div><div class="sjn">%d</div>'
-               '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%(' hl' if hl else '',c,k,d,k+1,star,t,nt)
+        nt='<span class="s3note nw">%s</span>'%note if note else ''
+        star='<em class="s3star nw">ประกาศผล!</em>' if hl else ''
+        arrow='<i class="s3ar">%s</i>'%AR if k<n-1 else ''
+        cols+=('<div class="s3c pop%s" style="--c:%s;--i:%d"><div class="s3h"><em>%d</em><div class="s3m nw">%s</div></div>'
+               '<div class="s3b">%s<p class="nw">%s</p>%s</div>%s</div>')%(' hl' if hl else '',c,k+1,k+1,d,star,t,nt,arrow)
     return ('<section class="slide" data-t="slide" data-pos="after"'+(' data-sched="1"' if ti==0 else '')+'>\n    '+eb('กำหนดการ')+
-            '\n    <div class="sjh pop" style="--i:0"><span class="sjtag t%s nw">%s</span><h2 class="sjt nw">%s</h2></div>'
-            '\n    <div class="sj n%d"><div class="sjroad"><i></i></div>%s</div>\n  </section>')%(T['key'],T['tag'],T['title'],n,cols)
+            '\n    <div class="trow pop" style="--i:0"><h2 class="title nw">%s</h2><span class="s3tag t%s nw">%s</span></div>'
+            '\n    <div class="s3 n%d">%s</div>\n  </section>')%(T['title'],T['key'],T['tag'],n,cols)
 def gantt():
     rows=''
     for j,T in enumerate(TRACKS):
