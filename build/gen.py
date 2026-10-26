@@ -171,6 +171,15 @@ for i in range(1,24):
     if n==15:
         S=lambda d:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%d
         mk={'do':S('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),'no':S('<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>'),'ca':S('<path d="M12 5v9"/><circle cx="12" cy="19" r=".6" fill="currentColor"/>')}
+        G=lambda d:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%d
+        HOUSE=G('<path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/>')
+        SCHOOL=G('<path d="M3 20h18"/><path d="M5 20V10l7-4 7 4v10"/><path d="M12 6V2.5l4 1.5-4 1.5"/><path d="M10 20v-4h4v4"/><circle cx="12" cy="11" r="1.6"/>')
+        HOME2=G('<path d="M2.5 19l6-9 4 5.5 3-4 6 7.5z"/><circle cx="17.5" cy="6" r="2"/>')
+        def place(ic,lab,cls=''): return '<span class="pl %s"><i>%s</i><small class="nw">%s</small></span>'%(cls,ic,lab)
+        TRV=('<span class="ddtr">'
+             '<span class="rt ok">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em></span>'+place(SCHOOL,'โรงเรียน')+'<b class="st nw">ใช้ได้</b></span>'
+             '<span class="rt ng">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em><u>'+mk['no']+'</u></span>'+place(HOME2,'ภูมิลำเนา')+'<b class="st nw">ใช้ไม่ได้</b></span>'
+             '</span>')
         cols=[('do','ต้องทำ','DO',[
                 'ใช้เงินทุน<b>เฉพาะเรื่องการศึกษา</b><br>ของนักเรียน/นักศึกษาเท่านั้น<br>และใช้เฉพาะที่จำเป็น',
                 'ใช้จ่ายเมื่อไร <b>บันทึกทันที</b><br>ใน “แบบฟอร์มรายการใช้จ่าย”<br>ผู้รับทุน ผู้ปกครอง และครูผู้ดูแลทุน<br>ต้องเซ็นรับทราบทุกรายการ',
@@ -182,7 +191,7 @@ for i in range(1,24):
                 '<b>นำเงินส่วนตัวหรือเงินครอบครัว</b><br>มาฝากหรือถอนร่วมกับ<br>บัญชีเงินทุนการศึกษา']),
               ('ca','ระวัง','CAREFUL',[
                 'ได้รับตั๋วแลกเงิน / แคชเชียร์เช็ค<br><b>รีบนำไปฝากเข้าบัญชีทันที</b><br>มีอายุเพียง 3 เดือน นับจากวันที่<br>ที่ระบุบนตั๋วแลกเงิน / แคชเชียร์เช็ค<span class="ddw">หากเกินกำหนด<br>ถือว่าสละสิทธิ์รับทุนในปีนั้น</span>',
-                '<b>ค่าเดินทาง</b><span class="ddtr"><span class="ok">'+mk['do']+'บ้าน ⇄ โรงเรียน <em>ใช้ได้</em></span><span class="ng">'+mk['no']+'ไป-กลับภูมิลำเนา <em>ใช้ไม่ได้</em></span></span>'])]
+                '<b>ค่าเดินทาง</b>'+TRV])]
         h=''
         for j,(k,lab,en,items) in enumerate(cols):
             li=''.join('<div class="ddi"><i>%s</i><span class="nw">%s</span></div>'%(mk[k],t) for t in items)

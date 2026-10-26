@@ -848,3 +848,40 @@ tw{display:inline}
 .ddic svg{animation:ddbob 2.8s ease-in-out infinite;will-change:transform;backface-visibility:hidden}
 .dd-no .ddic svg{animation-delay:-.9s}.dd-ca .ddic svg{animation-delay:-1.8s}
 @keyframes ddbob{0%,100%{transform:translate3d(0,1.5px,0)}50%{transform:translate3d(0,-2.5px,0)}}
+/* slide 14: cute travel routes */
+.ddtr{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.ddtr .rt{position:relative;display:flex;align-items:center;gap:6px;background:#fff;border-radius:16px;padding:8px 12px 6px;border:2px dashed transparent}
+.ddtr .rt.ok{border-color:rgba(18,168,122,.45)}
+.ddtr .rt.ng{border-color:rgba(232,48,58,.4);background:#FFF7F7}
+.ddtr .pl{display:flex;flex-direction:column;align-items:center;gap:1px;flex:none}
+.ddtr .pl i{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#E8F0FF;color:#1D55C4;border:2px solid #0B2A6F;box-shadow:2px 2px 0 #0B2A6F}
+.ddtr .ok .pl:nth-of-type(3) i{background:#E6F8F1;color:#12A87A}
+.ddtr .ng .pl:nth-of-type(3) i{background:#FFF2E2;color:#F07A12}
+.ddtr .pl i svg{width:22px;height:22px}
+.ddtr .pl small{font-size:13px;font-weight:600;color:var(--ink-2);line-height:1.3}
+.ddtr .rd{position:relative;flex:1;min-width:46px;height:30px;margin-top:-16px;display:flex;align-items:center;justify-content:center}
+.ddtr .rd::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:3px dashed #0B2A6F;opacity:.55}
+.ddtr .ok .rd::after{content:"⇄";position:absolute;right:-2px;top:50%;transform:translateY(-58%);font-size:15px;color:#0B2A6F;opacity:.6}
+.ddtr .rd em{position:relative;font-style:normal;font-size:12.5px;font-weight:600;color:var(--ink-2);background:#fff;padding:0 5px;border-radius:6px;margin-top:-26px}
+.ddtr .ng .rd em{background:#FFF7F7}
+.ddtr .rd u{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);width:24px;height:24px;border-radius:50%;background:#E8303A;color:#fff;display:grid;place-items:center;box-shadow:0 0 0 3px #FFF7F7}
+.ddtr .rd u svg{width:14px;height:14px}
+.ddtr .st{position:absolute;right:-8px;top:-12px;font-family:var(--display);font-weight:700;font-size:16px;line-height:1;padding:4px 10px 6px;border-radius:10px;border:2px solid #0B2A6F;box-shadow:2px 2px 0 #0B2A6F;color:#fff}
+.ddtr .ok .st{background:#12A87A;transform:rotate(5deg)}
+.ddtr .ng .st{background:#E8303A;transform:rotate(-4deg)}
+.ddtr .rt{margin-right:14px;padding-right:12px}
+.dd-ca .ddi>span{flex:1;min-width:0}
+.ddtr{margin-right:0}
+.ddtr .rt{margin-right:0;padding:10px 12px 6px}
+.ddtr .st{position:static;flex:none;margin-left:8px;align-self:center;margin-top:-14px}
+.ddtr .ng .rd u svg,.ddtr .ng .rd u{color:#fff}
+.ddtr .ng .pl svg{color:#E8303A}
+.ddtr .ng .pl:first-of-type svg,.ddtr .ok .pl:first-of-type svg{color:#1D55C4}
+.ddtr .ok .pl:nth-of-type(3) svg{color:#12A87A}.ddtr .ng .pl:nth-of-type(3) svg{color:#F07A12}
+.ddtr .rd{min-width:60px}
+.ddtr .rd u{top:50%}
+.ddtr .ng .rd em{transform:translateX(0)}
+.ddtr .ok .rd::after{content:none}
+.ddtr .rd em{margin-top:-40px}
+.ddtr .rd u{width:22px;height:22px}
+.ddtr .st{min-width:96px;text-align:center}
