@@ -1,6 +1,7 @@
 import re,json,sys
 sys.path.insert(0,__import__('os').path.dirname(__file__))
 from form import page as a4page
+from opening import OPEN1,OPEN2
 src=open('/tmp/claude-0/build/index.v24.html').read()
 secs=re.findall(r'<section class="slide".*?</section>',src,re.S)
 qr=json.load(open('/tmp/claude-0/build/qr.json'))
@@ -309,10 +310,10 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
  fb=ico('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/>'),
  q1=qr['scholarship'],q2=qr['website'],q3=qr['facebook'])
 out.append(('contact','cover',contact))
-def idx(key): return [o[0] for o in out].index(key)+2   # 1-based slide number incl. cover
+def idx(key): return [o[0] for o in out].index(key)+4   # 1-based slide number incl. 2 opening slides + cover
 AG=[('sched','blue','กำหนดการ'),('grant','red','ทุนการศึกษา'),('docs','yellow','เอกสารและการสมัคร'),('move','orange','ย้ายสถานศึกษา'),('ann','green','ประกาศผล'),('rules','red','ข้อปฏิบัติและการใช้จ่าย'),('contact','blue','ติดต่อมูลนิธิ')]
 agenda=''.join('<button data-go="%d" style="--c:var(--%s)"><i></i>%s<span>%d</span></button>'%(idx(k)-1,c,t,idx(k)) for k,c,t in AG)
-cover='''<section class="slide cover" data-t="zoom" data-pos="active" data-mood="cover">
+cover='''<section class="slide cover" data-t="zoom" data-pos="after" data-mood="cover">
     <div class="cover-grid">
       <div>
         <div class="kicker pop" style="--i:0"><i></i>มูลนิธิทิสโก้ เพื่อการกุศล</div>
@@ -323,7 +324,7 @@ cover='''<section class="slide cover" data-t="zoom" data-pos="active" data-mood=
       <nav class="card agenda pop" style="--i:3"><h3>สารบัญ</h3>'''+agenda+'''</nav>
     </div>
   </section>'''
-final=[cover]
+final=[OPEN1,OPEN2,cover]
 for k,m,h in out:
     final.append(h.replace('<section class="slide"','<section class="slide" data-mood="%s"'%m,1))
 T=len(final)

@@ -1361,3 +1361,83 @@ tw{display:inline}
 .rcp:has(img[src*="r24_1"]){--tx:88%}
 
 .rcps.rseq{position:relative;z-index:6}
+/* ===== opening slides ===== */
+.slide.opening{padding:0;z-index:6}
+.slide.opening .eyebrow{display:none}
+/* slide 1: formal */
+.opbg{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,#1F5FD6 0%,#0F3B9C 45%,#06133F 100%);overflow:hidden}
+.opbg .ray{position:absolute;top:-30%;width:180px;height:160%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:rotate(18deg)}
+.opbg .r1{left:12%}.opbg .r2{left:48%;width:120px}.opbg .r3{left:78%;width:220px}
+.slide[data-pos="active"] .opbg .ray{animation:raySlide 14s ease-in-out infinite alternate}
+.slide[data-pos="active"] .opbg .r2{animation-duration:18s}.slide[data-pos="active"] .opbg .r3{animation-duration:22s}
+@keyframes raySlide{to{transform:rotate(18deg) translate3d(160px,0,0)}}
+.opwave{position:absolute;left:0;right:0;bottom:0;width:100%;height:220px}
+.opc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;text-align:center}
+.opc h1{margin:0;font-family:var(--display);font-weight:700;font-size:84px;line-height:1.15;letter-spacing:0;text-shadow:0 6px 30px rgba(0,0,0,.25)}
+.opc p{margin:0;font-family:var(--display);font-weight:600;font-size:34px;letter-spacing:.42em;padding-left:.42em;color:#CFE0FF}
+.opline{display:block;width:120px;height:6px;border-radius:3px;background:#E8303A}
+.opline.b{background:#fff;width:60px;opacity:.6}
+.slide.op1[data-pos="active"] .opc>*{animation:rise 1s var(--ease) backwards}
+.slide.op1[data-pos="active"] .opc h1{animation-delay:.15s}.slide.op1[data-pos="active"] .opc p{animation-delay:.35s}.slide.op1[data-pos="active"] .opline.b{animation-delay:.5s}
+/* slide 2: playful school scene */
+.ksky{position:absolute;inset:0;background:linear-gradient(180deg,#7CCBFF 0%,#BFE8FC 55%,#E9F8FF 100%);overflow:hidden}
+.ksun{position:absolute;left:4%;top:30%;width:120px;height:120px;border-radius:50%;background:#FFD23F;border:5px solid #0B2A6F;box-shadow:6px 6px 0 #0B2A6F}
+.ksun i{position:absolute;inset:-30px;border-radius:50%;background:repeating-conic-gradient(rgba(255,210,63,.55) 0 10deg,transparent 10deg 30deg);z-index:-1}
+.slide[data-pos="active"] .ksun i{animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kcloud{position:absolute;width:170px;height:56px;background:#fff;border-radius:40px;border:4px solid #0B2A6F}
+.kcloud::before,.kcloud::after{content:"";position:absolute;background:#fff;border:4px solid #0B2A6F;border-bottom:0;border-radius:50% 50% 0 0}
+.kcloud::before{left:26px;top:-36px;width:66px;height:42px}.kcloud::after{left:76px;top:-50px;width:70px;height:56px;border-radius:50% 50% 0 0}
+.kcloud.c1{left:22%;top:8%}.kcloud.c2{left:60%;top:4%;transform:scale(.8)}.kcloud.c3{left:40%;top:22%;transform:scale(.6)}
+.slide[data-pos="active"] .kcloud{animation:drift 26s linear infinite}
+.slide[data-pos="active"] .kcloud.c2{animation-duration:34s;animation-delay:-10s}.slide[data-pos="active"] .kcloud.c3{animation-duration:30s;animation-delay:-18s}
+@keyframes drift{0%{translate:-60px 0}50%{translate:60px 0}100%{translate:-60px 0}}
+.stk{position:absolute;transform:rotate(var(--r));filter:drop-shadow(4px 4px 0 rgba(11,42,111,.9))}
+.stk svg{width:100%;height:100%;overflow:visible}
+.slide[data-pos="active"] .stk{animation:stkIn .6s cubic-bezier(.3,1.7,.5,1) calc(var(--d) + .8s) backwards,bob 3.2s ease-in-out calc(var(--d) + 1.4s) infinite}
+@keyframes stkIn{from{opacity:0;scale:.2}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.kscene{position:absolute;inset:0;width:100%;height:100%}
+.kid .kb{transform-box:fill-box;transform-origin:50% 100%}
+.slide[data-pos="active"] .kid .kb{animation:hop .9s ease-in-out var(--d) infinite}
+@keyframes hop{0%,100%{transform:translateY(0)}45%{transform:translateY(-22px) scaleY(1.03)}55%{transform:translateY(-22px)}80%{transform:translateY(0) scaleY(.96)}}
+.kid .arm{transform-box:fill-box;transform-origin:0 100%}
+.slide[data-pos="active"] .kid .arm{animation:wave .6s ease-in-out var(--d) infinite alternate}
+@keyframes wave{to{transform:rotate(-24deg)}}
+.school .flag{transform-box:fill-box;transform-origin:0 50%}
+.slide[data-pos="active"] .school .flag{animation:flagw 1.4s ease-in-out infinite alternate}
+@keyframes flagw{to{transform:skewY(-8deg) scaleX(.9)}}
+.ktitle{position:absolute;left:0;right:0;top:9%;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:2}
+.ktitle h1{margin:0;font-family:var(--display);font-weight:700;font-size:64px;line-height:1.2;color:#0B2A6F;background:#fff;border:5px solid #0B2A6F;border-radius:28px;padding:6px 34px 12px;box-shadow:8px 8px 0 #0B2A6F;transform:rotate(-2deg)}
+.ktitle p{margin:0;font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.2em;padding:6px 26px 8px calc(26px + .2em);color:#fff;background:#E8303A;border:4px solid #0B2A6F;border-radius:999px;box-shadow:5px 5px 0 #0B2A6F;transform:rotate(2deg)}
+.slide.op2[data-pos="active"] .ktitle h1{animation:titlePop .8s cubic-bezier(.3,1.6,.5,1) .3s backwards}
+.slide.op2[data-pos="active"] .ktitle p{animation:titlePop .8s cubic-bezier(.3,1.6,.5,1) .6s backwards}
+@keyframes titlePop{from{opacity:0;scale:.3}}
+.lite .opening *{animation:none!important}
+/* opening slides: bleed backgrounds to the whole screen */
+.opbg,.ksky{inset:-40% -60%}
+.opc{inset:0}
+.ksky .kscene,.ksky .ktitle{position:absolute}
+body::before,body::after{content:"";position:fixed;inset:0;z-index:1;opacity:0;transition:opacity .7s ease;pointer-events:none}
+body::before{background:#06133F}
+body::after{background:linear-gradient(180deg,#7CCBFF 0%,#BFE8FC 50%,#54C474 50.1%,#54C474 100%)}
+body:has(.op1[data-pos="active"])::before{opacity:1}
+body:has(.op2[data-pos="active"])::after{opacity:1}
+.kbox{position:absolute;inset:0}
+.ksky{position:absolute;background:linear-gradient(180deg,#7CCBFF 0%,#BFE8FC 60%,#E9F8FF 100%)}
+.ksky::after{content:"";position:absolute;left:0;right:0;bottom:0;height:calc(40% + 7.5%);background:#54C474}
+.ksun::before{content:"";position:absolute;inset:-34px;border-radius:50%;background:repeating-conic-gradient(rgba(255,210,63,.7) 0 10deg,transparent 10deg 30deg)}
+.ksun i{display:none}
+.ksun{z-index:0}
+.slide[data-pos="active"] .ksun::before{animation:spin 24s linear infinite}
+.ksun::after{content:"";position:absolute;inset:0;border-radius:50%;background:#FFD23F}
+.kscene{transform:translateY(40px) scale(.92);transform-origin:50% 100%}
+.ktitle{top:5%}
+.ktitle h1{font-size:58px}
+.kscene{overflow:visible}
+.ksky::after{height:30%;background:#54C474}
+body::before{background:radial-gradient(120% 100% at 50% 45%,#1A52C8,#0D3594 60%,#082467)}
+body::after{background:linear-gradient(180deg,#7CCBFF 0%,#BFE8FC 55%,#54C474 55.1%,#54C474 100%)}
+body::before{background:linear-gradient(180deg,#1A50C2,#1240A8)}
+body::after{background:linear-gradient(180deg,#8ED2FF 0%,#C4EAFC 72%,#7BD88F 72.1%,#54C474 82%,#54C474 100%)}
+body:has(.opening[data-pos="active"]) .veil{opacity:0}
