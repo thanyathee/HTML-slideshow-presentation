@@ -1219,3 +1219,11 @@ tw{display:inline}
 .f18 .fco{left:905px}
 .f18 .fco span{white-space:nowrap;font-size:16.5px}
 .f18 .fco.c1{top:140px}.f18 .fco.c2{top:285px}
+/* slide 17: zoom out to written overview at end; slide 18 zooms in from there */
+.fslide{--OV:translate(118px,6px) scale(1.2)}
+.f17 .a4w{transform:var(--OV)}
+.slide.f17[data-pos="active"] .a4w{animation:cam17b 9.8s cubic-bezier(.45,0,.25,1) both}
+@keyframes cam17b{0%{transform:var(--F)}13%{transform:var(--HEAD)}51%{transform:var(--HEAD)}61%,82%{transform:var(--TAB)}96%,100%{transform:var(--OV)}}
+.slide.f17[data-pos="active"] .fstep.s2{animation:stepIn .5s ease 6.1s forwards,stepOut .4s ease 8s forwards}
+.slide.f18[data-pos="active"] .a4w{animation:cam18b 1.4s cubic-bezier(.45,0,.25,1) .1s both}
+@keyframes cam18b{from{transform:var(--OV)}to{transform:var(--END)}}
