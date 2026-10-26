@@ -1008,3 +1008,5 @@ tw{display:inline}
 .ubl{justify-content:space-between}
 .upsub{font-size:20px;align-self:center;padding:2px 0 2px 14px}
 .upsub u{font-size:23px;padding:1px 8px 3px;margin:0 2px;box-shadow:2px 2px 0 #0B2A6F}
+.ddtr .ok .rd u{background:#12A87A;box-shadow:0 0 0 3px #fff;transform:translate(-50%,-50%) rotate(6deg)}
+.ddtr .ok .rd u svg{color:#fff}
