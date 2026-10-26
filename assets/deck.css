@@ -1172,3 +1172,10 @@ tw{display:inline}
 .fmk{left:712px}
 .fhl{left:283px;top:440px;width:476px;height:158px}
 .fc.dt .hw{font-size:13.5px;padding:0}
+/* slide 16: full-height A4 left, text column right */
+.fslide.f16{--F:translate(40px,58px) scale(.575)}
+.f16 .cam{position:absolute;inset:0;height:auto;border-radius:0;overflow:visible}
+.f16 .trow{position:absolute;left:560px;right:40px;top:58px;z-index:2}
+.f16 .fside{left:560px;right:40px;top:150px;bottom:40px;gap:16px}
+.f16 .fs-i{padding:18px 22px}
+.f16 .fs-i b{font-size:25px}.f16 .fs-i span{font-size:19px}
