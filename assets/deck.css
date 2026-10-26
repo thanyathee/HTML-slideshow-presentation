@@ -1559,3 +1559,16 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
   #fbFs.fallback-fs svg{width:13px!important;height:13px!important}
 }
 a.card.qr{text-decoration:none;color:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s}a.card.qr:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(31,95,214,.22)}
+/* slide 1: background truly full-screen */
+body:has(.op1[data-pos="active"]) .area,body:has(.op1[data-pos="active"]) .stage{overflow:visible}
+.op1 .opbg{inset:-120% -120%}
+body:has(.op1[data-pos="active"]) .progress{opacity:0}
+.slide.op1,.slide.op1 .fit{overflow:visible!important}body::before{background:#1748B8}
+/* slide 1 background lives on the page itself so it always fills the whole screen */
+.op1 .opbg{display:none}
+body::before{background:
+  linear-gradient(108deg,transparent 0 30%,rgba(255,255,255,.06) 34%,transparent 38%,transparent 58%,rgba(255,255,255,.05) 61%,transparent 64%,transparent 80%,rgba(255,255,255,.07) 85%,transparent 90%) 0 0/200% 100%,
+  radial-gradient(120% 95% at 50% 42%,#1F5FD6 0%,#1546B5 50%,#0B2E86 100%)}
+body:has(.op1[data-pos="active"])::before{animation:beams 22s ease-in-out infinite alternate}
+@keyframes beams{from{background-position:0 0,0 0}to{background-position:100% 0,0 0}}
+body:has(.op1[data-pos="active"]) .brand{opacity:0}.brand{transition:opacity .5s}
