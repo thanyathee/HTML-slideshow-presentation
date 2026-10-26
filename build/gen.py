@@ -270,6 +270,17 @@ for i in range(1,24):
               '<div class="rgood"><div class="rpic pop" style="--i:1"><img src="images/receipt_good.jpg" alt="ตัวอย่างใบเสร็จที่น่าเชื่อถือ">'+boxes+'</div>'
               '<div class="rlist">'+cards+'</div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n in (21,22,23,24):
+        cnt={21:3,22:2,23:2,24:3}[n]; kind={21:'ok',22:'ng',23:'ng',24:''}[n]
+        OKI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+        NGI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>'
+        alt=re.search(r'alt="([^"]*)"',x).group(1)
+        items=''
+        for k in range(cnt):
+            bd=('<i class="rcb %s">%s</i>'%(kind,OKI if kind=='ok' else NGI)) if kind else ''
+            items+='<figure class="rcp pop" style="--i:%d"><img src="images/r%d_%d.jpg" alt="%s">%s</figure>'%(k+1,n,k+1,alt,bd)
+        x=re.sub(r'<span class="zhint">.*?</span>','',x)
+        x=re.sub(r'<figure class="shot.*?</figure>','<div class="rcps n%d">%s</div>'%(cnt,items),x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
