@@ -1296,3 +1296,7 @@ tw{display:inline}
 .arow:nth-of-type(even){background:#FFEBD6}
 .arow:nth-of-type(even) b{color:#D2600A}
 .arow span{color:#0B2A6F}
+.arow,.arow span{font-size:30px;font-weight:600}.arow b{font-size:30px;font-weight:700}
+.arow,.arow span,.arow b{font-size:28px}.arow span{white-space:nowrap}
+.arow *{white-space:nowrap}.arow span{flex:none}
+.arow,.arow span,.arow b{font-size:27px}.arow{gap:10px;padding:4px 18px}
