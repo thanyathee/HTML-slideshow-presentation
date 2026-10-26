@@ -44,7 +44,7 @@
   function fillSlides(){
     var PADX=72,PADY=38;
     slides.forEach(function(s){
-      if(s.classList.contains('cover'))return;
+      if(s.classList.contains('cover')||s.classList.contains('nofit'))return;
       var w=s.querySelector(':scope>.fit');
       if(!w){
         w=document.createElement('div');w.className='fit';

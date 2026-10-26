@@ -1,9 +1,11 @@
-import re,json
+import re,json,sys
+sys.path.insert(0,__import__('os').path.dirname(__file__))
+from form import page as a4page
 src=open('/tmp/claude-0/build/index.v24.html').read()
 secs=re.findall(r'<section class="slide".*?</section>',src,re.S)
 qr=json.load(open('/tmp/claude-0/build/qr.json'))
 SEC={2:'กำหนดการ',3:'ทุนการศึกษา',4:'ทุนการศึกษา',5:'ทุนการศึกษา',6:'เอกสาร',7:'เอกสาร',8:'เอกสาร',9:'การสมัคร',10:'การสมัคร',11:'การสมัคร',12:'ย้ายสถานศึกษา',13:'ประกาศผล',14:'ประกาศผล',15:'ข้อปฏิบัติ',16:'การใช้จ่าย',17:'การใช้จ่าย',18:'การใช้จ่าย',19:'การใช้จ่าย',20:'ใบเสร็จ',21:'ใบเสร็จ',22:'ใบเสร็จ',23:'ใบเสร็จ',24:'ใบเสร็จ'}
-OLDMOOD={2:'blue',3:'blue',4:'navy',5:'navy',6:'blue',7:'blue',8:'navy',9:'navy',10:'blue',11:'warm',12:'green',13:'warm',14:'blue',15:'red',16:'navy',17:'red',18:'navy',19:'navy',20:'green',21:'green',22:'red',23:'red',24:'red'}
+OLDMOOD={2:'blue',3:'blue',4:'navy',5:'navy',6:'blue',7:'blue',8:'navy',9:'navy',10:'blue',11:'warm',12:'green',13:'warm',14:'blue',15:'red',16:'navy',17:'blue',18:'blue',19:'blue',20:'green',21:'green',22:'red',23:'red',24:'red'}
 KEYS={3:'grant',6:'docs',12:'move',13:'ann',15:'rules'}
 out=[]   # (key, mood, html)
 def eb(sec): return '<div class="eyebrow pop" style="--i:0"><i></i><b>%s</b><span>@@N@@ / @@T@@</span></div>'%sec
@@ -224,6 +226,31 @@ for i in range(1,24):
               '<div class="uwarn bot pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ <u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'
               '')%(PIG,CK,sum(len(c[3]) for c in cats),'<div class="ucc">'+cc[0]+'</div><div class="ucc">'+cc[1]+'</div>',NO,bl)
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n in (17,18,19):
+        x=re.sub(r'<section class="slide"[^>]*>',{17:'<section class="slide nofit fslide f16" data-t="cam" data-pos="after">',18:'<section class="slide nofit fslide f17" data-t="cam" data-pos="after">',19:'<section class="slide nofit fslide f18" data-t="cam" data-pos="after">'}[n],x,count=1)
+        CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+        if n==17:
+            mk='<span class="fmk m1">1</span><span class="fmk m2">2</span><span class="fmk m3">3</span>'
+            side=('<div class="fside pop" style="--i:3">'
+                  '<div class="fs-h"><b class="nw">ใช้แบบฟอร์มของมูลนิธิฯ เท่านั้น</b></div>'
+                  '<div class="fs-i"><em>1</em><div><b class="nw">ส่วนหัว</b><span class="nw">ข้อมูลนักเรียน ครูผู้ดูแลทุน และยอดเงิน</span></div></div>'
+                  '<div class="fs-i"><em>2</em><div><b class="nw">ตารางรายการใช้จ่าย</b><span class="nw">บันทึกทุกครั้งที่ฝาก-ถอน / ใช้จ่าย<br>นักเรียน ผู้ปกครอง ครูผู้ดูแลทุน เซ็นทุกรายการ</span></div></div>'
+                  '<div class="fs-i fw3"><em>3</em><div><b class="nw">คำเตือน</b><span class="nw">อ่านระเบียบปฏิบัติการใช้จ่ายเงินทุน<br>ด้านหลังแบบฟอร์มอย่างละเอียด</span></div></div>'
+                  '</div>')
+            body=('<div class="trow pop" style="--i:0"><h2 class="title">แบบฟอร์มรายการใช้จ่ายเงิน</h2></div>'
+                  '<div class="cam"><div class="a4w">'+a4page('blank').replace('<div class="a4 nw">','<div class="a4 nw">'+mk,1)+'</div>'+side+'</div>')
+        elif n==18:
+            body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการกรอกแบบฟอร์ม</h2></div>'
+                  '<div class="cam"><div class="a4w">'+a4page('head')+'</div>'
+                  '<div class="fstep s1 nw"><em>1</em>กรอกข้อมูลส่วนหัวให้ครบ</div>'
+                  '<div class="fstep s2 nw"><em>2</em>บรรทัดแรก บันทึกยอดฝากเงินทุน</div></div>')
+        else:
+            body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการบันทึกรายการ</h2></div>'
+                  '<div class="cam"><div class="a4w">'+a4page('rows')+'<div class="fhl"></div></div>'
+                  '<div class="fco c1"><i>'+CHK+'</i><div><b class="nw">มีใบเสร็จ</b><span class="nw">ใช้จ่าย 500 บาทขึ้นไป<br>ต้องแนบใบเสร็จ</span></div></div>'
+                  '<div class="fco c2"><i>!</i><div><b class="nw">ไม่มีใบเสร็จ</b><span class="nw">เขียนรายละเอียดให้ชัด<br>วันที่ จำนวนวัน ราคาต่อวัน</span></div></div>'
+                  '<div class="fband nw">ตัวอย่างการบันทึกค่าอาหารกลางวันและค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน ที่ไม่มีใบเสร็จ</div></div>')
+        x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
@@ -278,7 +305,7 @@ html='''<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>สไลด์คู่มือทุนการศึกษา</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&family=Sriracha&display=swap">
 <link rel="stylesheet" href="assets/glass.css">
 <link rel="stylesheet" href="assets/deck.css">
 </head>
