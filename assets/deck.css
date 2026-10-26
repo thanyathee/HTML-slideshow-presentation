@@ -1527,3 +1527,5 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
 .t3 .ln+.ln{margin-top:-8px}
 .t3 .ln+.ln{margin-top:14px}.t3 h1{font-size:96px}
 
+.agenda button{padding-top:6px;padding-bottom:6px}
+.cover .agenda{margin-top:44px}.cover .agenda h3{margin-bottom:2px}

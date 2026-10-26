@@ -311,8 +311,8 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
  q1=qr['scholarship'],q2=qr['website'],q3=qr['facebook'])
 out.append(('contact','cover',contact))
 def idx(key): return [o[0] for o in out].index(key)+3   # 1-based slide number incl. opening slide + cover
-AG=[('sched','blue','กำหนดการ'),('grant','red','ทุนการศึกษา'),('docs','yellow','เอกสารและการสมัคร'),('move','orange','ย้ายสถานศึกษา'),('ann','green','ประกาศผล'),('rules','red','ข้อปฏิบัติและการใช้จ่าย'),('contact','blue','ติดต่อมูลนิธิ')]
-agenda=''.join('<button data-go="%d" style="--c:var(--%s)"><i></i>%s<span>%d</span></button>'%(idx(k)-1,c,t,idx(k)) for k,c,t in AG)
+AG=[('blue','กำหนดการ','@@SCHED@@'),('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
+agenda=''.join('<button data-go="@@GO%d@@" style="--c:var(--%s)"><i></i>%s<span>@@PG%d@@</span></button>'%(k,c,t,k) for k,(c,t,_) in enumerate(AG))
 cover='''<section class="slide cover" data-t="zoom" data-pos="after" data-mood="cover">
     <div class="cover-grid">
       <div>
@@ -328,6 +328,9 @@ final=[OPEN1,cover]
 for k,m,h in out:
     final.append(h.replace('<section class="slide"','<section class="slide" data-mood="%s"'%m,1))
 T=len(final)
+for k,(_c,_t,needle) in enumerate(AG):
+    pg=2 if needle=='@@SCHED@@' else next(i for i,h in enumerate(final) if i>1 and any(needle.strip('<>') in re.sub(r'<[^>]+>','',t) for t in re.findall(r'<h2[^>]*>(.*?)</h2>',h,re.S)))
+    final=[h.replace('@@GO%d@@'%k,str(pg)).replace('@@PG%d@@'%k,str(pg+1)) for h in final]
 final=[h.replace('@@N@@',str(i+1)).replace('@@T@@',str(T)) for i,h in enumerate(final)]
 html='''<!doctype html>
 <html lang="th">
