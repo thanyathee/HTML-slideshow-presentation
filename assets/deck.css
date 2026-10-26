@@ -1488,3 +1488,17 @@ body:has(.opening[data-pos="active"]) .veil{opacity:0}
 .slide[data-pos="active"] .k2sunglow{animation:glow 4s ease-in-out infinite alternate}
 @keyframes glow{to{transform:scale(1.12);opacity:.8}}
 body::after{background:linear-gradient(180deg,#5DB8F5 0%,#BFE6FB 70%,#6CCB86 72%,#5BBE77 100%)}
+/* slide 1: bigger English line, gentle moving beams */
+.opc{gap:22px}
+.opc p{font-size:48px;letter-spacing:.34em;padding-left:.34em;color:#E3ECFF}
+.slide[data-pos="active"] .opbg .ray{animation:raySweep 16s ease-in-out infinite alternate}
+.slide[data-pos="active"] .opbg .r2{animation-duration:21s;animation-delay:-6s}
+.slide[data-pos="active"] .opbg .r3{animation-duration:26s;animation-delay:-12s}
+@keyframes raySweep{from{transform:rotate(18deg) translate3d(-260px,0,0)}to{transform:rotate(18deg) translate3d(320px,0,0)}}
+.opwave path{transform-box:view-box}
+.slide[data-pos="active"] .opwave path:first-child{animation:waveX 14s ease-in-out infinite alternate}
+.slide[data-pos="active"] .opwave path:last-child{animation:waveX 18s ease-in-out infinite alternate-reverse}
+@keyframes waveX{from{transform:translateX(-60px)}to{transform:translateX(60px)}}
+.opwave{left:-80px;right:-80px;width:calc(100% + 160px)}
+.opbg .opwave{bottom:288px;height:240px}
+.opbg .opwave{bottom:60px;height:470px}
