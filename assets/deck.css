@@ -1034,3 +1034,17 @@ tw{display:inline}
 .ddtr .st{font-size:22px;min-width:120px}
 .ddtr .rd{min-width:96px}
 .ddtr .rd em{margin-top:-52px}.ddtr .rt{padding-top:16px}
+/* slide 15: savings sticker v2 */
+.trow .usave.top{position:relative;gap:14px;padding:8px 22px 9px 12px;background:#FFD23F;border:3.5px solid #0B2A6F;border-radius:22px;box-shadow:6px 6px 0 #0B2A6F;transform:rotate(-2deg)}
+.trow .usave.top .pig{width:62px;height:62px;border-width:3px;background:#FF8FB1}
+.trow .usave.top .pig svg{width:42px;height:42px}
+.svt{display:flex;flex-direction:column;line-height:1.15}
+.svt b{font-family:var(--display);font-weight:700;font-size:29px;color:#0B2A6F}
+.svt>span{font-size:19px;font-weight:600;color:#0B2A6F;margin-top:2px}
+.svt u{text-decoration:none;font-weight:700;color:#fff;background:#12A87A;border-radius:8px;padding:0 8px 2px;margin-left:4px}
+.coin{position:absolute;left:40px;top:-14px;width:18px;height:18px;border-radius:50%;background:#FFB800;border:2.5px solid #0B2A6F;animation:coindrop 2.6s cubic-bezier(.5,0,.6,1) infinite;will-change:transform,opacity}
+@keyframes coindrop{0%{transform:translate3d(0,-6px,0);opacity:0}20%{opacity:1}60%{transform:translate3d(0,18px,0);opacity:1}75%,100%{transform:translate3d(0,22px,0);opacity:0}}
+.trow .usave.top{padding:5px 20px 6px 10px;margin-bottom:0}
+.trow .usave.top .pig{width:54px;height:54px}.trow .usave.top .pig svg{width:36px;height:36px}
+.svt b{font-size:27px}.svt>span{font-size:18px;margin-top:0}
+.coin{left:36px;top:-12px}
