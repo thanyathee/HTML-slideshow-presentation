@@ -199,6 +199,33 @@ for i in range(1,24):
         body=('<div class="trow pop" style="--i:0"><h2 class="title">ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง</h2><span class="tk-sub nw">อ่านให้ครบ ห้ามพลาด!</span></div>'
               '<div class="dd">'+h+'</div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n==16:
+        G=lambda d,w='2.2':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%s" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%(w,d)
+        BOOK=G('<path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 23H20"/><path d="M9 8h7"/>')
+        SHIRT=G('<path d="M8 3l4 2.5L16 3l5 3.5-2.5 4L17 9.5V21H7V9.5l-1.5 1L3 6.5z"/>')
+        BUS=G('<rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".8" fill="currentColor"/><circle cx="16" cy="14.5" r=".8" fill="currentColor"/>')
+        LAP=G('<rect x="4" y="4.5" width="16" height="11" rx="2"/><path d="M2 19.5h20"/>')
+        PIG=G('<path d="M5 11a7 6 0 0113.3-2.5H20v3.5l-1.6.8A7 6 0 0116 17v3h-3v-2h-3v2H7v-3.2A6 6 0 015 11z"/><circle cx="15.5" cy="10.5" r=".9" fill="currentColor"/><path d="M10 6.5h3"/>')
+        CK=G('<path d="M5 12.5l4.5 4.5L19 7.5"/>','3.2'); NO=G('<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>','3.2')
+        cats=[('เรื่องเรียน',BOOK,'#1D55C4',['ค่าเทอม','ค่าเรียนพิเศษ / ค่าสมัครสอบ','ค่ากิจกรรม / ทัศนศึกษา / เข้าค่าย','หนังสือเรียน อุปกรณ์การเรียน','อุปกรณ์การเรียนช่าง / ทำโครงงาน','ถ่ายเอกสาร / พิมพ์งาน / เข้าเล่ม']),
+              ('แต่งกาย & สุขภาพ',SHIRT,'#E8303A',['ชุดนักเรียนนักศึกษา / ชุดพละ','ชุดลูกเสือเนตรนารี / รด. / ชุดพื้นเมือง','ตัดแว่นสายตา','ค่าตรวจสุขภาพ เพื่อมอบตัวเข้าศึกษาต่อ']),
+              ('เดินทาง กิน อยู่',BUS,'#F07A12',['รถโดยสารจากบ้านไป-กลับโรงเรียน','ซื้อ/ซ่อม รถจักรยาน','อาหารกลางวัน','ค่าหอพักนักเรียน']),
+              ('อุปกรณ์ไอที',LAP,'#7B4DE0',['คอมพิวเตอร์ / แล็ปท็อป / ไอแพด<em>เฉพาะ ปวช. ปวส. ปริญญาตรี เท่านั้น</em>','เครื่องปริ้นเตอร์','อินเทอร์เน็ต<em>ต้องแนบหลักฐานเท่านั้น</em>'])]
+        cc=['','']
+        for j,(lab,ic,c,its) in enumerate(cats):
+            cc[(0,1,1,0)[j]]+='<div class="uc" style="--c:%s"><div class="uch"><i>%s</i><b class="nw">%s</b></div><div class="ucl">%s</div></div>'%(c,ic,lab,''.join('<span class="nw">%s</span>'%t for t in its))
+        bad=['ค่าเดินทางกลับภูมิลำเนา','เติมน้ำมันรถ','ซ่อมรถจักรยานยนต์','ซื้อโทรศัพท์ / จ่ายค่าโทรศัพท์','ข้าวสาร อาหารแห้ง ให้ครอบครัว','ค่าเช่าบ้าน ค่าน้ำ-ค่าไฟ ของที่บ้าน','ค่ายารักษาโรค / ค่ารักษาพยาบาล']
+        bl=''.join('<div class="ubi"><i>%s</i><span class="nw">%s</span></div>'%(NO,t) for t in bad)
+        body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><span class="tk-sub nw">ใช้อะไรได้บ้างนะ?</span></div>'
+              '<div class="ug">'
+              '<div class="up ok pop" style="--i:1"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><small class="nw">%d รายการ</small></div><div class="ucg">%s</div></div>'
+              '<div class="up ng pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
+              '</div>'
+              '<div class="ufoot">'
+              '<div class="usave pop" style="--i:3"><span class="pig">%s</span><span class="nw"><b>ไม่จำเป็นต้องใช้?</b> เก็บออมไว้โดยไม่เบิกถอนก็ได้นะ</span></div>'
+              '<div class="uwarn pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ<br><u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'
+              '</div>')%(CK,sum(len(c[3]) for c in cats),'<div class="ucc">'+cc[0]+'</div><div class="ucc">'+cc[1]+'</div>',NO,bl,PIG)
+        x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
