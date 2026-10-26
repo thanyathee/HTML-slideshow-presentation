@@ -216,15 +216,13 @@ for i in range(1,24):
             cc[(0,1,0,1)[j]]+='<div class="uc" style="--c:%s"><div class="uch"><i>%s</i><b class="nw">%s</b></div><div class="ucl">%s</div></div>'%(c,ic,lab,''.join(('<span class="nw hot">%s<sup>แนะนำ</sup></span>'%t[1:]) if t[0]=='*' else '<span class="nw">%s</span>'%t for t in its))
         bad=['ค่าเดินทางกลับภูมิลำเนา','เติมน้ำมันรถ','ซ่อมรถจักรยานยนต์','ซื้อโทรศัพท์ / จ่ายค่าโทรศัพท์','ข้าวสาร อาหารแห้ง ให้ครอบครัว','ค่าเช่าบ้าน ค่าน้ำ-ค่าไฟ ของที่บ้าน','ค่ายารักษาโรค / ค่ารักษาพยาบาล']
         bl=''.join('<div class="ubi"><i>%s</i><span class="nw">%s</span></div>'%(NO,t) for t in bad)
-        body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><span class="tk-sub nw">ใช้อะไรได้บ้างนะ?</span></div>'
-              '<div class="ug">'
-              '<div class="up ok pop" style="--i:1"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><small class="nw">%d รายการ</small></div><div class="ucg">%s</div></div>'
-              '<div class="up ng pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
+        body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><div class="usave top"><span class="pig">%s</span><span class="nw"><b>ไม่จำเป็นต้องใช้?</b> เก็บออมไว้โดยไม่เบิกถอนก็ได้นะ</span></div></div>'
+                            '<div class="ug">'
+              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><small class="nw">%d รายการ</small></div><div class="ucg">%s</div></div>'
+              '<div class="up ng pop" style="--i:3"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
               '</div>'
-              '<div class="ufoot">'
-              '<div class="usave pop" style="--i:3"><span class="pig">%s</span><span class="nw"><b>ไม่จำเป็นต้องใช้?</b> เก็บออมไว้โดยไม่เบิกถอนก็ได้นะ</span></div>'
-              '<div class="uwarn pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ<br><u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'
-              '</div>')%(CK,sum(len(c[3]) for c in cats),'<div class="ucc">'+cc[0]+'</div><div class="ucc">'+cc[1]+'</div>',NO,bl,PIG)
+              '<div class="uwarn bot pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ <u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'
+              '')%(PIG,CK,sum(len(c[3]) for c in cats),'<div class="ucc">'+cc[0]+'</div><div class="ucc">'+cc[1]+'</div>',NO,bl)
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:

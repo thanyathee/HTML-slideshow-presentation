@@ -993,3 +993,8 @@ tw{display:inline}
 .ufoot{margin-top:8px}
 .uwarn{padding:4px 16px;line-height:1.3}
 .trow:has(.tk-sub){margin-bottom:0}
+.usave.top{margin:2px 0 10px;padding:4px 16px;justify-content:center}
+.usave.top .pig{width:34px;height:34px}.usave.top .pig svg{width:21px;height:21px}
+.uwarn.bot{margin-top:10px;justify-content:center;padding:5px 16px}
+.trow:has(.usave){display:flex;align-items:center;gap:22px}
+.trow .usave.top{margin:0 0 6px auto;flex:none;transform:rotate(-1.5deg);padding:6px 18px;font-size:20px}
