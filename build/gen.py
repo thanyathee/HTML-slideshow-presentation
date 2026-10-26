@@ -177,8 +177,8 @@ for i in range(1,24):
         HOME2=G('<path d="M2.5 19l6-9 4 5.5 3-4 6 7.5z"/><circle cx="17.5" cy="6" r="2"/>')
         def place(ic,lab,cls=''): return '<span class="pl %s"><i>%s</i><small class="nw">%s</small></span>'%(cls,ic,lab)
         TRV=('<span class="ddtr">'
-             '<span class="rt ok">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em><u>'+mk['do']+'</u></span>'+place(SCHOOL,'โรงเรียน')+'<b class="st nw">ใช้ได้</b></span>'
-             '<span class="rt ng">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em><u>'+mk['no']+'</u></span>'+place(HOME2,'ภูมิลำเนา')+'<b class="st nw">ใช้ไม่ได้</b></span>'
+             '<span class="rt ok">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em><u>'+mk['do']+'</u></span>'+place(SCHOOL,'')+'<b class="st nw">โรงเรียน</b></span>'
+             '<span class="rt ng">'+place(HOUSE,'บ้าน')+'<span class="rd"><em class="nw">ไป-กลับ</em><u>'+mk['no']+'</u></span>'+place(HOME2,'')+'<b class="st nw">ภูมิลำเนา</b></span>'
              '</span>')
         cols=[('do','ต้องทำ','DO',[
                 'ใช้เงินทุน<b>เฉพาะเรื่องการศึกษา</b><br>ของนักเรียน/นักศึกษาเท่านั้น<br>และใช้เฉพาะที่จำเป็น',
