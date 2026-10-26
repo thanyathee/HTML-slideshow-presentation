@@ -313,7 +313,7 @@ out.append(('contact','cover',contact))
 def idx(key): return [o[0] for o in out].index(key)+3   # 1-based slide number incl. opening slide + cover
 AG=[('blue','กำหนดการ','@@SCHED@@'),('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
 agenda=''.join('<button data-go="@@GO%d@@" style="--c:var(--%s)"><i></i>%s<span>@@PG%d@@</span></button>'%(k,c,t,k) for k,(c,t,_) in enumerate(AG))
-cover='''<section class="slide cover" data-t="zoom" data-pos="after" data-mood="cover">
+cover='''<section class="slide cover" data-t="slide" data-pos="after" data-mood="cover">
     <div class="cover-grid">
       <div>
         <div class="kicker pop" style="--i:0"><i></i>มูลนิธิทิสโก้ เพื่อการกุศล</div>

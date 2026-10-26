@@ -1,6 +1,6 @@
 # Two opening slides shown before the cover: formal title + playful animated school scene.
 
-OPEN1 = '''<section class="slide opening op1 nofit" data-t="zoom" data-pos="active" data-mood="navy">
+OPEN1 = '''<section class="slide opening op1 nofit" data-t="slide" data-pos="active" data-mood="navy">
     <div class="opbg">
       <i class="ray r1"></i><i class="ray r2"></i><i class="ray r3"></i>
       <svg class="opwave" viewBox="0 0 1280 220" preserveAspectRatio="none"><path d="M0 120 C220 60 420 190 660 130 S1080 40 1280 110 V220 H0Z" fill="rgba(255,255,255,.06)"/><path d="M0 160 C260 110 470 220 720 170 S1100 110 1280 150 V220 H0Z" fill="rgba(255,255,255,.08)"/></svg>

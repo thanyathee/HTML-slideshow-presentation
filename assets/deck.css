@@ -1541,3 +1541,20 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
 #fbFs.fallback-fs svg{width:15px!important;height:15px!important}
 #fbFs.fallback-fs{left:auto!important;transform:none!important;bottom:auto!important;top:max(12px,env(safe-area-inset-top,0px))!important;right:max(14px,env(safe-area-inset-right,0px))!important;display:none}#fbFs.fallback-fs.on{display:grid}
 .area{bottom:54px}
+/* phones / small screens: vertical nav at the right edge */
+@media (max-width:900px),(max-height:520px){
+  .area{bottom:0;right:44px}
+  .fallback-dock:not(.fallback-fs){flex-direction:column;left:auto!important;right:max(6px,env(safe-area-inset-right,0px));top:50%;bottom:auto;transform:translateY(-50%);padding:6px 3px;gap:2px}
+  .fallback-dock:not(.fallback-fs) span{min-width:0;font-size:11px;line-height:1.2;writing-mode:horizontal-tb;padding:2px 0}
+  .fallback-dock:not(.fallback-fs) button{width:30px;height:34px}
+  #fbFs.fallback-fs{top:max(8px,env(safe-area-inset-top,0px))!important;right:max(7px,env(safe-area-inset-right,0px))!important;width:30px!important;height:30px!important}
+}
+@media (max-width:900px),(max-height:520px){
+  .area{right:36px}
+  .fallback-dock:not(.fallback-fs){padding:4px 2px;opacity:.8}
+  .fallback-dock:not(.fallback-fs) button{width:26px;height:28px}
+  .fallback-dock:not(.fallback-fs) svg{width:14px;height:14px}
+  .fallback-dock:not(.fallback-fs) span{font-size:10px}
+  #fbFs.fallback-fs{width:26px!important;height:26px!important}
+  #fbFs.fallback-fs svg{width:13px!important;height:13px!important}
+}
