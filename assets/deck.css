@@ -1259,3 +1259,16 @@ tw{display:inline}
 .f18 .fco>span{font-size:16.5px}
 .f18 .fco{left:895px;right:0}
 .f18 .fco.c1::before{top:92px}
+/* slide 18 callouts v2: projector-safe contrast, compact */
+.f18 .fco.c1{--c:#0E7A57}.f18 .fco.c2{--c:#C2410C}
+.f18 .fco{left:912px;right:14px;padding:0 0 10px;background:#fff;color:#0B2A6F;border:3px solid #0B2A6F;box-shadow:5px 5px 0 #0B2A6F;border-radius:20px;overflow:visible}
+.f18 .fct{background:var(--c);border-radius:16px 16px 0 0;padding:7px 12px 8px;margin:0 0 6px;gap:8px}
+.f18 .fci{width:34px;height:34px;border-radius:11px;border-width:2.5px;box-shadow:2px 2px 0 #0B2A6F}
+.f18 .fci svg{width:21px;height:21px}
+.f18 .fco b{font-size:23px;text-shadow:none}
+.f18 .fco>span{color:#0B2A6F;font-size:15.5px;line-height:1.45;padding:0 12px;font-weight:500}
+.f18 .fco u{background:#FFE07A;color:#0B2A6F;padding:0 4px}
+.f18 .fco.c2 u{display:inline-block;margin-top:2px}
+.fstamp{font-size:14.5px;right:-6px;top:-14px;padding:0 8px 2px}
+.f18 .fco.c1{top:120px}.f18 .fco.c2{top:315px}
+.f18 .fco.c1::before{top:60px}.f18 .fco.c2::before{top:50px}
