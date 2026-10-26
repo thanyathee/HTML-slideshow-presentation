@@ -33,6 +33,27 @@ def sched(ti):
         tag='<span class="annchip">★</span>' if hl else ''
         rows+='<div class="srow pop%s" style="--i:%d"><span class="sn">%d</span><div class="sc"><span class="sd">%s</span><p%s>%s%s</p></div></div>'%(hl,k+1,k+1,d,(' class="nw"' if hl else (' class="ml"' if '<br>' in t else '')),tag,t)
     return '<section class="slide" data-t="slide" data-pos="after"'+(' data-sched="1"' if ti==0 else '')+'>\n    %s\n    <div class="rbanner r%s pop" style="--i:0"><div class="rw">%s</div><div class="rt">%s</div></div>\n    <div class="steps2">%s</div>\n  </section>'%(eb('กำหนดการ'),T['key'],T['title'],T['tag'],rows)
+SJ=[
+ [('1 พฤศจิกายน –<br>31 มกราคม','สมัครขอรับทุน<br>ทุนใหม่ +<br>ทุนต่อเนื่อง','','#2F6FED',0),
+  ('กุมภาพันธ์ –<br>เมษายน','มูลนิธิ<br>พิจารณาใบสมัคร','','#E8303A',0),
+  ('มิถุนายน','ประกาศรายชื่อ<br>ผู้ได้รับทุนรอบแรก','','#12A87A',1),
+  ('กรกฎาคม','มูลนิธิส่ง<br>ตั๋วแลกเงิน<br>ไปที่สถานศึกษา','','#F07A12',0)],
+ [('1 พฤศจิกายน –<br>31 มกราคม','สมัครขอรับทุน<br>ทุนใหม่ +<br>ทุนต่อเนื่อง','กรอกในใบสมัครว่า<br><b>ปีการศึกษาหน้า<br>จะย้ายสถานศึกษา</b>','#2F6FED',0),
+  ('มีนาคม –<br>31 กรกฎาคม','ส่งหลักฐาน<br>ยืนยันการย้าย<br>ให้มูลนิธิ','','#E8303A',0),
+  ('สิงหาคม –<br>ตุลาคม','มูลนิธิพิจารณา<br>ทุนรอบรอฟังผล','เฉพาะผู้ที่ส่งหลักฐาน<br>ยืนยันการย้ายแล้ว<br>เท่านั้น','#F07A12',0),
+  ('พฤศจิกายน','ประกาศรายชื่อ<br>ผู้ได้รับทุน<br>รอบรอฟังผล','','#12A87A',1),
+  ('ธันวาคม','มูลนิธิส่ง<br>ตั๋วแลกเงิน<br>ไปที่สถานศึกษา','','#2F6FED',0)]]
+def sched2(ti):
+    T=TRACKS[ti];st=SJ[ti];n=len(st)
+    cols=''
+    for k,(d,t,note,c,hl) in enumerate(st):
+        nt='<span class="sjnote nw">%s</span>'%note if note else ''
+        star='<em class="sjstar nw">ประกาศผล!</em>' if hl else ''
+        cols+=('<div class="sjcol%s" style="--c:%s;--k:%d"><div class="sjm nw">%s</div><div class="sjn">%d</div>'
+               '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%(' hl' if hl else '',c,k,d,k+1,star,t,nt)
+    return ('<section class="slide" data-t="slide" data-pos="after"'+(' data-sched="1"' if ti==0 else '')+'>\n    '+eb('กำหนดการ')+
+            '\n    <div class="sjh pop" style="--i:0"><span class="sjtag t%s nw">%s</span><h2 class="sjt nw">%s</h2></div>'
+            '\n    <div class="sj n%d"><div class="sjroad"><i></i></div>%s</div>\n  </section>')%(T['key'],T['tag'],T['title'],n,cols)
 def gantt():
     rows=''
     for j,T in enumerate(TRACKS):
@@ -45,8 +66,8 @@ for i in range(1,24):
     x=secs[i]; n=i+1
     if n in (9,10): continue  # removed: write-form / online application detail slides
     if n==2:
-        out.append(('sched','blue',sched(0)))
-        out.append(('','navy',sched(1)))
+        out.append(('sched','blue',sched2(0)))
+        out.append(('','navy',sched2(1)))
         continue
     x=re.sub(r'<svg class="star".*?</svg>\s*','',x,flags=re.S)
     x=re.sub(r'(<section[^>]*>)',lambda m:m.group(1)+'\n    '+eb(SEC[n]),x,count=1)
