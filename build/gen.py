@@ -340,7 +340,6 @@ html='''<!doctype html>
 <title>สไลด์คู่มือทุนการศึกษา</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&family=Itim&family=Sarabun:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/glass.css">
 <link rel="stylesheet" href="assets/deck.css">
 </head>
 <body>
@@ -361,9 +360,6 @@ html='''<!doctype html>
 <div id="dock"></div><div id="fsWrap"></div>
 <div class="fallback-dock" id="fbDock"><button data-a="prev" type="button" aria-label="หน้าก่อนหน้า"><svg viewBox="0 0 32 32"><path d="M27 16H6M14 7L5 16l9 9"/></svg></button><span>1 / %d</span><button data-a="next" type="button" aria-label="หน้าถัดไป"><svg viewBox="0 0 32 32"><path d="M5 16h21M18 7l9 9-9 9"/></svg></button></div>
 <button class="fallback-dock fallback-fs" id="fbFs" type="button" style="width:48px;height:48px;padding:0;border-radius:50%%;place-items:center;background:rgba(255,255,255,.16)"><svg viewBox="0 0 32 32" style="width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M4 12V4h8M20 4h8v8M28 20v8h-8M12 28H4v-8"/></svg></button>
-<script src="assets/html2canvas.min.js"></script>
-<script src="vendor/liquid-glass-js/container.js"></script>
-<script src="vendor/liquid-glass-js/button.js"></script>
 <script src="assets/bg.js"></script>
 <script src="assets/deck.js"></script>
 </body>

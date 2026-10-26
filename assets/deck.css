@@ -1529,3 +1529,15 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
 
 .agenda button{padding-top:6px;padding-bottom:6px}
 .cover .agenda{margin-top:44px}.cover .agenda h3{margin-bottom:2px}
+/* solid, compact controls (no glass) */
+.fallback-dock{gap:4px;padding:4px 6px;background:#0B2A6F;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 4px 12px rgba(11,42,111,.25);opacity:.85;bottom:max(10px,env(safe-area-inset-bottom,0px))}
+.fallback-dock:hover{opacity:1}
+.fallback-dock button{width:30px;height:30px;background:transparent;color:#fff}
+.fallback-dock button:hover{background:rgba(255,255,255,.16)}
+.fallback-dock svg{width:16px;height:16px;stroke-width:2.6}
+.fallback-dock span{color:#fff;font-size:13px;min-width:48px}
+#fbFs.fallback-fs{width:32px!important;height:32px!important;background:#0B2A6F!important;opacity:.75;box-shadow:0 4px 12px rgba(11,42,111,.25);padding:0!important;gap:0}
+#fbFs.fallback-fs:hover{opacity:1}
+#fbFs.fallback-fs svg{width:15px!important;height:15px!important}
+#fbFs.fallback-fs{left:auto!important;transform:none!important;bottom:auto!important;top:max(12px,env(safe-area-inset-top,0px))!important;right:max(14px,env(safe-area-inset-right,0px))!important;display:none}#fbFs.fallback-fs.on{display:grid}
+.area{bottom:54px}

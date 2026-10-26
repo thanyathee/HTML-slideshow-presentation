@@ -139,7 +139,7 @@
       DeckBG.setMood(MOODS[cur],true);
     }
     /* take the glass snapshot after the background has painted a few frames */
-    setTimeout(glassDock,lite?0:1800);
+    /* glass dock disabled: plain solid buttons work on every device */
   }
 
   /* image zoom */
