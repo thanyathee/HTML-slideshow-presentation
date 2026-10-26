@@ -210,7 +210,7 @@ for i in range(1,24):
         cats=[('เรื่องเรียน',BOOK,'#1D55C4',['*ค่าเทอม','ค่าเรียนพิเศษ / ค่าสมัครสอบ','ค่ากิจกรรม / ทัศนศึกษา / เข้าค่าย','หนังสือเรียน อุปกรณ์การเรียน','อุปกรณ์การเรียนช่าง / ทำโครงงาน','ถ่ายเอกสาร / พิมพ์งาน / เข้าเล่ม']),
               ('แต่งกาย & สุขภาพ',SHIRT,'#E8303A',['*ชุดนักเรียนนักศึกษา / ชุดพละ','ชุดลูกเสือเนตรนารี / รด. / ชุดพื้นเมือง','ตัดแว่นสายตา','ค่าตรวจสุขภาพ เพื่อมอบตัวเข้าศึกษาต่อ']),
               ('เดินทาง กิน อยู่',BUS,'#F07A12',['รถโดยสารจากบ้านไป-กลับโรงเรียน','ซื้อ/ซ่อม รถจักรยาน','อาหารกลางวัน','ค่าหอพักนักเรียน']),
-              ('อุปกรณ์ไอที',LAP,'#7B4DE0',['คอมพิวเตอร์ / แล็ปท็อป / ไอแพด<em class="blk">เฉพาะ ปวช. ปวส. ปริญญาตรี เท่านั้น</em>','เครื่องปริ้นเตอร์','อินเทอร์เน็ต<em>ต้องแนบหลักฐานเท่านั้น</em>'])]
+              ('อุปกรณ์ไอที',LAP,'#7B4DE0',['คอมพิวเตอร์ / แล็ปท็อป / ไอแพด<em class="note"><i>หมายเหตุ</i>เฉพาะ ปวช. ปวส. ปริญญาตรี เท่านั้น</em>','เครื่องปริ้นเตอร์','อินเทอร์เน็ต<em class="note"><i>หมายเหตุ</i>ต้องแนบหลักฐานเท่านั้น</em>'])]
         cc=['','']
         for j,(lab,ic,c,its) in enumerate(cats):
             cc[(0,1,0,1)[j]]+='<div class="uc" style="--c:%s"><div class="uch"><i>%s</i><b class="nw">%s</b></div><div class="ucl">%s</div></div>'%(c,ic,lab,''.join(('<span class="nw hot">%s<sup>แนะนำ</sup></span>'%t[1:]) if t[0]=='*' else '<span class="nw">%s</span>'%t for t in its))
@@ -218,7 +218,7 @@ for i in range(1,24):
         bl=''.join('<div class="ubi"><i>%s</i><span class="nw">%s</span></div>'%(NO,t) for t in bad)
         body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><div class="usave top"><span class="pig">%s</span><span class="nw"><b>ไม่จำเป็นต้องใช้?</b> เก็บออมไว้โดยไม่เบิกถอนก็ได้นะ</span></div></div>'
                             '<div class="ug">'
-              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><small class="nw">%d รายการ</small></div><div class="ucg">%s</div></div>'
+              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><span class="upsub nw">เฉพาะค่าใช้จ่าย <u>เพื่อการเรียน</u> เท่านั้น</span><!--%d--></div><div class="ucg">%s</div></div>'
               '<div class="up ng pop" style="--i:3"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
               '</div>'
               '<div class="uwarn bot pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ <u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'

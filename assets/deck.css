@@ -998,3 +998,13 @@ tw{display:inline}
 .uwarn.bot{margin-top:10px;justify-content:center;padding:5px 16px}
 .trow:has(.usave){display:flex;align-items:center;gap:22px}
 .trow .usave.top{margin:0 0 6px auto;flex:none;transform:rotate(-1.5deg);padding:6px 18px;font-size:20px}
+/* slide 15 v3 */
+.upsub{position:relative;z-index:1;margin-left:14px;padding-left:14px;border-left:3px solid rgba(255,255,255,.55);font-size:18px;line-height:1.2;font-weight:600}
+.upsub u{text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;background:#FFD23F;color:#0B2A6F;border-radius:6px;padding:0 6px;margin-right:4px}
+.ucc .uc{flex:auto;display:flex;flex-direction:column}
+.ucl{flex:1;justify-content:space-evenly}
+.ucl span em.note{display:flex;align-items:center;gap:6px;margin:3px 0 1px;font-size:15px;font-weight:600;color:#5B3BB8;background:#EFE8FF;border-radius:8px;padding:1px 8px 2px 4px;width:max-content}
+.ucl span em.note i{font-style:normal;font-size:12.5px;font-weight:700;color:#fff;background:#7B4DE0;border-radius:6px;padding:0 6px 1px}
+.ubl{justify-content:space-between}
+.upsub{font-size:20px;align-self:center;padding:2px 0 2px 14px}
+.upsub u{font-size:23px;padding:1px 8px 3px;margin:0 2px;box-shadow:2px 2px 0 #0B2A6F}
