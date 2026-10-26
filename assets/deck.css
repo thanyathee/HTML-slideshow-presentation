@@ -1643,3 +1643,40 @@ body::before{background:
 .sjstar{border:0;box-shadow:0 6px 14px rgba(11,42,111,.2);border-radius:999px;padding:3px 12px 5px;transform:rotate(6deg)}
 .sjpills i{border:0;background:#fff;box-shadow:0 2px 8px rgba(31,95,214,.14)}
 .sjnote{background:#fff}
+/* ===== schedule overview (gantt) ===== */
+.ov2{flex:1;display:flex;flex-direction:column;gap:18px;margin-top:6px}
+.ovhead{display:flex;align-items:flex-end}
+.ovl{flex:none;width:300px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-right:16px}
+.ovms{flex:1;display:grid;grid-template-columns:repeat(14,1fr)}
+.ovm{text-align:center;font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink-2);padding-bottom:6px}
+.ovm.yr{border-left:3px dashed rgba(11,42,111,.25)}
+.ovr{flex:1;display:flex;align-items:center;background:#fff;border-radius:28px;box-shadow:0 12px 30px rgba(31,95,214,.12);padding:16px 18px}
+.ovr .sjtag{font-size:26px;padding:7px 18px 10px;border-radius:16px}
+.ovr .ovl b{font-family:var(--display);font-weight:700;font-size:22px;color:#0B2A6F;line-height:1.25}
+.ovt{position:relative;flex:1;align-self:stretch;display:grid;grid-template-columns:repeat(14,1fr);align-items:center}
+.ovgrid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(14,1fr)}
+.ovgrid i{border-left:1px solid rgba(11,42,111,.07)}
+.ovgrid i:nth-child(3){border-left:3px dashed rgba(11,42,111,.2)}
+.ovb{position:relative;grid-column:calc(var(--a) + 1)/calc(var(--b) + 2);grid-row:1;height:64px;margin:0 3px;border-radius:16px;background:var(--c);color:#fff;font-family:var(--display);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 8px;box-shadow:0 8px 18px color-mix(in srgb,var(--c) 35%,transparent);transform-origin:0 50%}
+.ovb.hl{background:#FFD23F;color:#0B2A6F;box-shadow:0 0 0 4px rgba(255,210,63,.35),0 8px 18px rgba(240,160,0,.35);font-size:17px}
+.ovb.hl i{font-style:normal;color:#E8303A}
+.slide[data-pos="active"] .ovb{animation:ovGrow .7s cubic-bezier(.3,1.2,.5,1) backwards;animation-delay:calc(.5s + var(--j,0)*.5s + var(--k)*.18s)}
+.ovr.rB .ovb{--j:1}
+@keyframes ovGrow{from{opacity:0;transform:scaleX(.2)}}
+.slide[data-pos="active"] .ovr{animation:rise .8s var(--ease) backwards;animation-delay:calc(.25s + var(--j)*.2s)}
+/* morph-like hand-off: overview zooms into round 1 row, slide 10 grows out of it */
+.slide.ovw{transform-origin:62% 46%}
+.slide.ovw[data-pos="before"]{transform:scale(1.9);opacity:0;filter:blur(6px)}
+.slide.ovw[data-pos="before"] .ovr.rB{opacity:0}
+.slide[data-t="morph"]{transform-origin:62% 46%}
+.slide[data-t="morph"][data-pos="after"]{transform:scale(.45);filter:blur(4px)}
+.slide.ovw,.slide[data-t="morph"]{transition:transform .9s cubic-bezier(.6,0,.2,1),opacity .6s ease,filter .6s,visibility 0s .9s}
+.slide.ovw[data-pos="active"],.slide[data-t="morph"][data-pos="active"]{transition:transform .9s cubic-bezier(.6,0,.2,1),opacity .6s ease .15s,filter .6s,visibility 0s 0s}
+.ovl{width:220px}
+.ovr .ovl b{font-size:21px;white-space:nowrap}
+.ovb{white-space:nowrap;font-size:18px;padding:0 6px;height:58px}
+.ovb.hl{font-size:16px;padding:0 4px}
+.ovb.hl i{position:absolute;top:-14px;right:-8px;width:28px;height:28px;border-radius:50%;background:#E8303A;color:#fff;display:grid;place-items:center;font-size:15px;box-shadow:0 3px 8px rgba(232,48,58,.4)}
+.ovm{font-size:17px}
+.ovr{padding:16px 14px}
+.ovb{font-size:16.5px;padding:0 4px}.ovb.hl{font-size:15.5px}

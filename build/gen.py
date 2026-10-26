@@ -51,9 +51,24 @@ def sched2(ti):
         star='<em class="sjstar nw">ประกาศผล!</em>' if hl else ''
         cols+=('<div class="sjcol%s" style="--c:%s;--k:%d"><div class="sjm nw">%s</div><div class="sjn">%d</div>'
                '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%(' hl' if hl else '',c,k,d,k+1,star,t,nt)
-    return ('<section class="slide" data-t="slide" data-pos="after"'+(' data-sched="1"' if ti==0 else '')+'>\n    '+eb('กำหนดการ')+
+    return ('<section class="slide sjs s%d" data-t="%s" data-pos="after">\n    '%(ti,'morph' if ti==0 else 'slide')+eb('กำหนดการ')+
             '\n    <div class="sjh pop" style="--i:0"><span class="sjtag t%s nw">%s</span><h2 class="sjt nw">%s</h2></div>'
             '\n    <div class="sj n%d"><div class="sjroad"><i></i></div>%s</div>\n  </section>')%(T['key'],T['tag'],T['title'],n,cols)
+OVM=['พ.ย.','ธ.ค.','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.']
+OVB=[[('สมัครขอรับทุน',0,2,'#2F6FED',0),('พิจารณาใบสมัคร',3,5,'#E8303A',0),('ประกาศ',7,7,'#12A87A',1),('ส่งตั๋ว',8,8,'#F07A12',0)],
+     [('สมัครและแจ้งย้าย',0,2,'#2F6FED',0),('ส่งหลักฐานยืนยันการย้าย',4,8,'#E8303A',0),('พิจารณา',9,11,'#F07A12',0),('ประกาศ',12,12,'#12A87A',1),('ส่งตั๋ว',13,13,'#2F6FED',0)]]
+def overview():
+    head=''.join('<span class="ovm%s">%s</span>'%(' yr' if i==2 else '',m) for i,m in enumerate(OVM))
+    rows=''
+    for j,T in enumerate(TRACKS):
+        bars=''
+        for k,(t,a,b,c,hl) in enumerate(OVB[j]):
+            bars+='<span class="ovb%s nw" style="--a:%d;--b:%d;--c:%s;--k:%d">%s%s</span>'%(' hl' if hl else '',a,b,c,k,'<i>★</i>' if hl else '',t)
+        rows+=('<div class="ovr r%s" style="--j:%d"><div class="ovl"><span class="sjtag t%s nw">%s</span><b class="nw">%s</b></div>'
+               '<div class="ovt"><div class="ovgrid">%s</div>%s</div></div>')%(T['key'],j,T['key'],T['tag'],T['title'].replace('นักเรียน','นักเรียน<br>',1),'<i></i>'*14,bars)
+    return ('<section class="slide ovw" data-t="ovw" data-pos="after" data-sched="1">\n    '+eb('กำหนดการ')+
+            '\n    <div class="trow pop" style="--i:0"><h2 class="title nw">ภาพรวมกำหนดการ</h2><span class="tk-sub nw">2 รอบ ต่างกันยังไง?</span></div>'
+            '\n    <div class="ov2"><div class="ovhead"><span class="ovl"></span><div class="ovms">%s</div></div>%s</div>\n  </section>')%(head,rows)
 def gantt():
     rows=''
     for j,T in enumerate(TRACKS):
@@ -334,7 +349,7 @@ out.append(('contact','cover',contact))
 _sc=[o for o in out if o[0]=='sched']+[out[[o[0] for o in out].index('sched')+1]]
 out=[o for o in out if all(o is not x for x in _sc)]
 _m=[o[0] for o in out].index('move')
-out=out[:_m]+_sc+out[_m:]
+out=out[:_m]+[('','blue',overview())]+_sc+out[_m:]
 def idx(key): return [o[0] for o in out].index(key)+3   # 1-based slide number incl. opening slide + cover
 AG=[('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('blue','กำหนดการ','@@SCHED@@'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
 agenda=''.join('<button data-go="@@GO%d@@" style="--c:var(--%s)"><i></i>%s<span>@@PG%d@@</span></button>'%(k,c,t,k) for k,(c,t,_) in enumerate(AG))
