@@ -1227,3 +1227,35 @@ tw{display:inline}
 .slide.f17[data-pos="active"] .fstep.s2{animation:stepIn .5s ease 6.1s forwards,stepOut .4s ease 8s forwards}
 .slide.f18[data-pos="active"] .a4w{animation:cam18b 1.4s cubic-bezier(.45,0,.25,1) .1s both}
 @keyframes cam18b{from{transform:var(--OV)}to{transform:var(--END)}}
+/* slide 18: cute callout stickers */
+.f18 .fco{display:block;left:905px;right:4px;padding:12px 16px 14px;border-radius:24px;background:var(--c);color:#fff;border:3.5px solid #0B2A6F;box-shadow:6px 6px 0 #0B2A6F;border-left-width:3.5px}
+.f18 .fco::before{left:-24px;top:26px;border:10px solid transparent;border-right:14px solid #0B2A6F}
+.f18 .fco.c1{transform:rotate(-2deg)}.f18 .fco.c2{transform:rotate(1.5deg);top:300px}
+.fct{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.fci{width:44px;height:44px;flex:none;border-radius:14px;background:#fff;color:var(--c);display:grid;place-items:center;border:3px solid #0B2A6F;box-shadow:3px 3px 0 #0B2A6F}
+.fci svg{width:27px;height:27px}
+.f18 .fco b{font-size:28px;color:#fff;text-shadow:2px 2px 0 rgba(11,42,111,.35);display:inline}
+.f18 .fco>span{display:block;color:#fff;font-size:17px;line-height:1.45;font-weight:500}
+.f18 .fco u{text-decoration:none;font-weight:700;color:#0B2A6F;background:#FFD23F;border-radius:6px;padding:0 5px}
+.fstamp{position:absolute;right:-8px;top:-18px;font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;color:#E8303A;background:#fff;border:3px solid #E8303A;border-radius:10px;padding:1px 10px 3px;transform:rotate(9deg);opacity:0}
+.c2 .fstamp{color:#0B2A6F;border-color:#0B2A6F;background:#FFD23F;transform:rotate(-8deg)}
+.slide.f18[data-pos="active"] .fco.c1{animation:coPop .7s cubic-bezier(.3,1.7,.5,1) 2.7s backwards,coFloat 3.2s ease-in-out 3.5s infinite;opacity:1}
+.slide.f18[data-pos="active"] .fco.c2{animation:coPop2 .7s cubic-bezier(.3,1.7,.5,1) 5.2s backwards,coFloat2 3.4s ease-in-out 6s infinite;opacity:1}
+.slide.f18[data-pos="active"] .c1 .fstamp{animation:stamp .45s cubic-bezier(.3,1.6,.5,1) 3.3s forwards}
+.slide.f18[data-pos="active"] .c2 .fstamp{animation:stamp2 .45s cubic-bezier(.3,1.6,.5,1) 5.8s forwards}
+.slide.f18[data-pos="active"] .c1 .fci{animation:wig 2.4s ease-in-out 3.6s infinite}
+.slide.f18[data-pos="active"] .c2 .fci svg{animation:scribble 1.6s ease-in-out 6s infinite}
+@keyframes coPop{from{opacity:0;transform:translateX(40px) scale(.4) rotate(8deg)}to{opacity:1;transform:rotate(-2deg)}}
+@keyframes coPop2{from{opacity:0;transform:translateX(40px) scale(.4) rotate(-8deg)}to{opacity:1;transform:rotate(1.5deg)}}
+@keyframes coFloat{0%,100%{transform:rotate(-2deg) translate3d(0,0,0)}50%{transform:rotate(-1deg) translate3d(0,-5px,0)}}
+@keyframes coFloat2{0%,100%{transform:rotate(1.5deg) translate3d(0,0,0)}50%{transform:rotate(.5deg) translate3d(0,-5px,0)}}
+@keyframes stamp{from{opacity:0;transform:rotate(9deg) scale(2.2)}to{opacity:1;transform:rotate(9deg) scale(1)}}
+@keyframes stamp2{from{opacity:0;transform:rotate(-8deg) scale(2.2)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+@keyframes wig{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+@keyframes scribble{0%,100%{transform:translate3d(0,0,0) rotate(0)}30%{transform:translate3d(-2px,2px,0) rotate(-8deg)}60%{transform:translate3d(2px,-1px,0) rotate(6deg)}}
+.lite .f18 .fstamp{opacity:1!important}
+.f18 .fco.c1{top:96px}.f18 .fco.c2{top:318px}
+.f18 .fco.c1::before{top:60px}
+.f18 .fco>span{font-size:16.5px}
+.f18 .fco{left:895px;right:0}
+.f18 .fco.c1::before{top:92px}

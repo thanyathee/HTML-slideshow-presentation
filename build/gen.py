@@ -229,6 +229,9 @@ for i in range(1,24):
     if n in (17,18,19):
         x=re.sub(r'<section class="slide"[^>]*>',{17:'<section class="slide nofit fslide f16" data-t="cam" data-pos="after">',18:'<section class="slide nofit fslide f17" data-t="cam" data-pos="after">',19:'<section class="slide nofit fslide f18" data-t="cam" data-pos="after">'}[n],x,count=1)
         CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+        G2=lambda d:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%d
+        RCPT=G2('<path d="M6 2.5h12v19l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4-2 1.4z"/><path d="M9 7.5h6M9 11h6M9 14.5h3.5"/>')
+        PEN=G2('<path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 013 3L8 18.5z"/><path d="M13.5 7l3 3"/><path d="M4 20h7"/>')
         if n==17:
             mk='<span class="fmk m1">1</span><span class="fmk m2">2</span><span class="fmk m3">3</span>'
             side=('<div class="fside pop" style="--i:3">'
@@ -247,8 +250,8 @@ for i in range(1,24):
         else:
             body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการบันทึกรายการ</h2></div>'
                   '<div class="cam"><div class="a4w">'+a4page('rows')+'<div class="fhl h1"></div><div class="fhl h2"></div></div>'
-                  '<div class="fco c1"><i>'+CHK+'</i><div><b class="nw">มีใบเสร็จ</b><span class="nw">ซื้อชุดนักเรียน 500 บาท<br>ใช้จ่าย 500 บาทขึ้นไป<br>ต้องแนบใบเสร็จ</span></div></div>'
-                  '<div class="fco c2"><i>!</i><div><b class="nw">ไม่มีใบเสร็จ</b><span class="nw">ค่าอาหารกลางวัน และค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน<br>เขียนรายละเอียดให้ชัด<br>วันที่ จำนวนวัน ราคาต่อวัน</span></div></div></div>')
+                  '<div class="fco c1"><div class="fct"><span class="fci">'+RCPT+'</span><b class="nw">มีใบเสร็จ</b></div><span class="nw">ซื้อชุดนักเรียน 500 บาท<br>ใช้จ่าย <u>500 บาทขึ้นไป</u><br>ต้องแนบใบเสร็จ</span><em class="fstamp nw">แนบด้วย!</em></div>'
+                  '<div class="fco c2"><div class="fct"><span class="fci">'+PEN+'</span><b class="nw">ไม่มีใบเสร็จ</b></div><span class="nw">ค่าอาหารกลางวัน และค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน<br>เขียนให้ชัด <u>วันที่ จำนวนวัน ราคาต่อวัน</u></span><em class="fstamp nw">เขียนละเอียด!</em></div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
