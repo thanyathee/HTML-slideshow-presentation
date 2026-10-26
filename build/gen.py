@@ -250,7 +250,7 @@ for i in range(1,24):
         else:
             body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการบันทึกรายการ</h2></div>'
                   '<div class="cam"><div class="a4w">'+a4page('rows')+'<div class="fhl h1"></div><div class="fhl h2"></div></div>'
-                  '<div class="fco c1"><div class="fct"><span class="fci">'+RCPT+'</span><b class="nw">มีใบเสร็จ</b></div><span class="nw">ซื้อชุดนักเรียน 500 บาท<br>ใช้จ่าย <u>500 บาทขึ้นไป</u><br>ต้องแนบใบเสร็จ</span><em class="fstamp nw">แนบด้วย!</em></div>'
+                  '<div class="fco c1"><div class="fct"><span class="fci">'+RCPT+'</span><b class="nw">มีใบเสร็จ</b></div><span class="nw">ค่าเทอม 1,000 บาท<br>ชุดนักเรียน 500 บาท<br>ใช้จ่าย <u>500 บาทขึ้นไป</u><br>ต้องแนบใบเสร็จ</span><em class="fstamp nw">แนบด้วย!</em></div>'
                   '<div class="fco c2"><div class="fct"><span class="fci">'+PEN+'</span><b class="nw">ไม่มีใบเสร็จ</b></div><span class="nw">ค่าอาหารกลางวัน และค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน<br>เขียนให้ชัด <u>วันที่ จำนวนวัน ราคาต่อวัน</u></span><em class="fstamp nw">เขียนละเอียด!</em></div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')

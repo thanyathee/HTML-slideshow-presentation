@@ -1272,3 +1272,14 @@ tw{display:inline}
 .fstamp{font-size:14.5px;right:-6px;top:-14px;padding:0 8px 2px}
 .f18 .fco.c1{top:120px}.f18 .fco.c2{top:315px}
 .f18 .fco.c1::before{top:60px}.f18 .fco.c2::before{top:50px}
+.fhl.h1{top:404px;height:80px}
+.fhl.h2{top:482px}
+.slide.f18[data-pos="active"] .fhl.h1,.slide.f18[data-pos="active"] .fco.c1{animation-delay:3.4s}
+.slide.f18[data-pos="active"] .c1 .fstamp{animation-delay:4s}
+.slide.f18[data-pos="active"] .fhl.h2{animation-delay:6s}
+.slide.f18[data-pos="active"] .fco.c2{animation-delay:6s,6.8s}
+.slide.f18[data-pos="active"] .c2 .fstamp{animation-delay:6.6s}
+.slide.f18[data-pos="active"] .fco.c1{animation-delay:3.4s,4.2s}
+.f18 .fco.c1{top:110px}.f18 .fco.c2{top:330px}
+.f18 .fco.c1::before{top:70px}.f18 .fco.c2::before{top:62px}
+.f18 .fco.c1{top:96px}.f18 .fco.c1::before{top:84px}
