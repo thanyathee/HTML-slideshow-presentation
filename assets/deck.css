@@ -1188,3 +1188,13 @@ tw{display:inline}
 .fv{margin-top:3px}
 .hw{clip-path:inset(-60% 100% -60% 0)}
 @keyframes hwrite{to{clip-path:inset(-60% -4% -60% 0)}}
+/* slide 16 v3: equal halves, text column = A4 height */
+.fslide.f16{--F:translate(102px,58px) scale(.545)}
+.f16 .trow{left:660px;right:40px;top:50px}
+.f16 .fside{left:660px;right:40px;top:150px;bottom:50px;justify-content:flex-start}
+.f16 .fs-h{flex:none}
+.f16 .fs-i{flex:1;padding:12px 22px}
+.f16 .trow{top:46px}
+.f16 .trow .title{font-size:46px;white-space:nowrap}
+.f16 .fside{top:148px}
+.f16 .trow{top:62px}.f16 .fside{top:162px}

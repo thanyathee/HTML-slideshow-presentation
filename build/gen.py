@@ -235,7 +235,7 @@ for i in range(1,24):
                   '<div class="fs-h"><b class="nw">ใช้แบบฟอร์มของมูลนิธิฯ เท่านั้น</b></div>'
                   '<div class="fs-i"><em>1</em><div><b class="nw">ส่วนหัว</b><span class="nw">ข้อมูลนักเรียน ครูผู้ดูแลทุน และยอดเงิน</span></div></div>'
                   '<div class="fs-i"><em>2</em><div><b class="nw">ตารางรายการใช้จ่าย</b><span class="nw">บันทึกทุกครั้งที่ฝาก-ถอน / ใช้จ่าย<br>นักเรียน ผู้ปกครอง ครูผู้ดูแลทุน เซ็นทุกรายการ</span></div></div>'
-                  '<div class="fs-i fw3"><em>3</em><div><b class="nw">คำเตือน</b><span class="nw">อ่านระเบียบปฏิบัติการใช้จ่ายเงินทุน<br>ด้านหลังแบบฟอร์มอย่างละเอียด</span></div></div>'
+                  '<div class="fs-i fw3"><em>3</em><div><b class="nw">คำเตือน</b><span class="nw">อ่านระเบียบปฏิบัติการใช้จ่ายเงินทุนอย่างละเอียด</span></div></div>'
                   '</div>')
             body=('<div class="trow pop" style="--i:0"><h2 class="title">แบบฟอร์มรายการใช้จ่ายเงิน</h2></div>'
                   '<div class="cam"><div class="a4w">'+a4page('blank').replace('<div class="a4 nw">','<div class="a4 nw">'+mk,1).replace('form2570.jpg','form2570s.jpg')+'</div>'+side+'</div>')
