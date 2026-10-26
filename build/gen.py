@@ -218,7 +218,7 @@ for i in range(1,24):
         bl=''.join('<div class="ubi"><i>%s</i><span class="nw">%s</span></div>'%(NO,t) for t in bad)
         body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><div class="usave top"><span class="pig">%s</span><span class="nw"><b>ยังไม่ใช้ ไม่ต้องเบิก</b> ออมไว้ในบัญชีได้ ไม่ถูกตัดทุน</span></div></div>'
                             '<div class="ug">'
-              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ค่าใช้จ่ายเพื่อการเรียนเท่านั้น</b><!--%d--></div><div class="ucg">%s</div></div>'
+              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><span class="upsub2 nw">ค่าใช้จ่ายเพื่อการเรียนเท่านั้น</span><!--%d--></div><div class="ucg">%s</div></div>'
               '<div class="up ng pop" style="--i:3"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
               '</div>'
               '<div class="uwarn bot pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ <u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'

@@ -1024,3 +1024,5 @@ tw{display:inline}
 .ubi span{font-size:21px;line-height:1.35}
 .ubi{padding:8px 14px;gap:12px}
 .ubi i{width:28px;height:28px}.ubi i svg{width:16px;height:16px}
+.up.ok .uph b{font-size:34px}
+.upsub2{position:relative;z-index:1;margin-left:26px;padding:2px 0 3px 22px;border-left:3px solid rgba(255,255,255,.6);font-family:var(--display);font-weight:700;font-size:27px;line-height:1.1;color:#fff;text-shadow:2px 2px 0 rgba(11,42,111,.3)}
