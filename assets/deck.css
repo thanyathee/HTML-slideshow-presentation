@@ -885,3 +885,24 @@ tw{display:inline}
 .ddtr .rd em{margin-top:-40px}
 .ddtr .rd u{width:22px;height:22px}
 .ddtr .st{min-width:96px;text-align:center}
+/* travel routes: full width & bigger */
+.ddtr{margin-left:-38px;margin-top:10px;gap:10px}
+.ddtr .rt{padding:14px 14px 8px;gap:8px}
+.ddtr .pl i{width:46px;height:46px;border-radius:14px;border-width:2.5px;box-shadow:3px 3px 0 #0B2A6F}
+.ddtr .pl i svg{width:28px;height:28px}
+.ddtr .pl small{font-size:15px}
+.ddtr .rd{min-width:70px;margin-top:-20px}
+.ddtr .rd::before{border-top-width:3.5px}
+.ddtr .rd em{font-size:14.5px;margin-top:-44px}
+.ddtr .rd u{width:28px;height:28px}
+.ddtr .rd u svg{width:16px;height:16px}
+.ddtr .st{font-size:20px;min-width:118px;padding:6px 12px 8px;border-width:2.5px;box-shadow:3px 3px 0 #0B2A6F;margin-top:-18px}
+.dd{grid-template-columns:1.02fr 1fr 1.14fr}
+.ddtr{margin-top:6px;gap:8px}
+.ddtr .rt{padding:12px 12px 4px}
+.ddtr .pl i{width:42px;height:42px}
+.ddtr .pl i svg{width:26px;height:26px}
+.ddtr .st{min-width:104px;font-size:19px;padding:5px 10px 7px}
+.dd-ca .ddl{gap:8px;padding-top:12px;padding-bottom:12px}
+.dd-ca .ddi{padding:8px 12px}
+.ddw{margin-top:6px}
