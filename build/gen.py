@@ -246,10 +246,9 @@ for i in range(1,24):
                   '<div class="fstep s2 nw"><em>2</em>บรรทัดแรก บันทึกยอดฝากเงินทุน</div></div>')
         else:
             body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการบันทึกรายการ</h2></div>'
-                  '<div class="cam"><div class="a4w">'+a4page('rows')+'<div class="fhl"></div></div>'
-                  '<div class="fco c1"><i>'+CHK+'</i><div><b class="nw">มีใบเสร็จ</b><span class="nw">ใช้จ่าย 500 บาทขึ้นไป<br>ต้องแนบใบเสร็จ</span></div></div>'
-                  '<div class="fco c2"><i>!</i><div><b class="nw">ไม่มีใบเสร็จ</b><span class="nw">เขียนรายละเอียดให้ชัด<br>วันที่ จำนวนวัน ราคาต่อวัน</span></div></div>'
-                  '<div class="fband nw">ตัวอย่างการบันทึกค่าอาหารกลางวันและค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน ที่ไม่มีใบเสร็จ</div></div>')
+                  '<div class="cam"><div class="a4w">'+a4page('rows')+'<div class="fhl h1"></div><div class="fhl h2"></div></div>'
+                  '<div class="fco c1"><i>'+CHK+'</i><div><b class="nw">มีใบเสร็จ</b><span class="nw">ซื้อชุดนักเรียน 500 บาท<br>ใช้จ่าย 500 บาทขึ้นไป<br>ต้องแนบใบเสร็จ</span></div></div>'
+                  '<div class="fco c2"><i>!</i><div><b class="nw">ไม่มีใบเสร็จ</b><span class="nw">ค่าอาหารกลางวัน และค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน<br>เขียนรายละเอียดให้ชัด<br>วันที่ จำนวนวัน ราคาต่อวัน</span></div></div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
