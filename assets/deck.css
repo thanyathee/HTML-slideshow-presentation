@@ -1290,3 +1290,9 @@ tw{display:inline}
 .svt{align-items:center;text-align:center;gap:2px;flex:1}
 .svt b{font-size:22px;line-height:1.2}
 .trow .usave.top{padding:7px 22px 8px 12px;gap:14px}
+/* slide 4: alternating blue / orange rows */
+.arow:nth-of-type(odd){background:#E3EDFF}
+.arow:nth-of-type(odd) b{color:#1D55C4}
+.arow:nth-of-type(even){background:#FFEBD6}
+.arow:nth-of-type(even) b{color:#D2600A}
+.arow span{color:#0B2A6F}
