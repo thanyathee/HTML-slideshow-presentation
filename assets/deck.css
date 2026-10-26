@@ -841,3 +841,5 @@ tw{display:inline}
 .ddtr em{font-style:normal;font-weight:700;margin-left:auto}
 .ddtr .ok em{color:#12A87A}.ddtr .ng em{color:#E8303A}
 .dd{grid-template-columns:1.08fr 1.04fr 1.06fr}
+.ddw{display:block;margin-top:8px;background:#E8303A;color:#fff;font-weight:700;border-radius:10px;padding:3px 10px 5px;font-size:17px;text-align:center}
+.dd-no .ddl{gap:8px}
