@@ -168,6 +168,27 @@ for i in range(1,24):
         body=('<div class="trow pop" style="--i:0"><h2 class="title">หลังจากประกาศรายชื่อ</h2><span class="tk-sub nw">ได้ทุนแล้ว ทำอะไรต่อ?</span></div>'
               '<div class="tkline"><div class="tkrail"></div><div class="tkrail r2"></div>'+cards+'</div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n==15:
+        S=lambda d:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%d
+        mk={'do':S('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),'no':S('<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>'),'ca':S('<path d="M12 5v9"/><circle cx="12" cy="19" r=".6" fill="currentColor"/>')}
+        cols=[('do','ต้องทำ','DO',[
+                'ใช้เงินทุน<b>เฉพาะเรื่องการศึกษา</b><br>ของนักเรียน/นักศึกษาเท่านั้น<br>และใช้เฉพาะที่จำเป็น',
+                'ใช้จ่ายเมื่อไร <b>บันทึกทันที</b><br>ใน “แบบฟอร์มรายการใช้จ่าย”<br>ผู้รับทุน ผู้ปกครอง และครูผู้ดูแลทุน<br>ต้องเซ็นรับทราบทุกรายการ',
+                'ใช้จ่าย<b>ตั้งแต่ 500 บาทขึ้นไป</b><br>ต่อรายการหรือต่อใบเสร็จ<br>ต้องแนบใบเสร็จที่น่าเชื่อถือ']),
+              ('no','ห้ามทำ',"DON'T",[
+                '<b>สมัครใช้บัตร ATM</b>',
+                '<b>เบิกเงินเป็นก้อนล่วงหน้า</b><br>แล้วทยอยใช้ในเดือนต่อ ๆ ไป',
+                '<b>นำเงินครอบครัวหรือเพื่อน</b><br>มาฝาก-ถอนร่วมกับบัญชี<br>เงินทุนการศึกษาของมูลนิธิฯ']),
+              ('ca','ระวัง','CAREFUL',[
+                'ตั๋วแลกเงิน / แคชเชียร์เช็ค<br><b>มีอายุ 3 เดือน</b> นับจากวันที่ที่ระบุไว้<br>ที่หน้าตั๋วแลกเงิน / แคชเชียร์เช็ค',
+                '<b>ค่าเดินทาง</b><span class="ddtr"><span class="ok">'+mk['do']+'บ้าน ⇄ โรงเรียน <em>ใช้ได้</em></span><span class="ng">'+mk['no']+'ไป-กลับภูมิลำเนา <em>ใช้ไม่ได้</em></span></span>'])]
+        h=''
+        for j,(k,lab,en,items) in enumerate(cols):
+            li=''.join('<div class="ddi"><i>%s</i><span class="nw">%s</span></div>'%(mk[k],t) for t in items)
+            h+=('<div class="ddc dd-%s pop" style="--i:%d"><div class="ddh"><span class="ddic">%s</span><b class="nw">%s</b><small>%s</small></div><div class="ddl">%s</div></div>')%(k,j+1,mk[k],lab,en,li)
+        body=('<div class="trow pop" style="--i:0"><h2 class="title">ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง</h2><span class="tk-sub nw">อ่านให้ครบ ห้ามพลาด!</span></div>'
+              '<div class="dd">'+h+'</div>')
+        x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
