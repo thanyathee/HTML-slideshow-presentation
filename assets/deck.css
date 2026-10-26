@@ -1572,3 +1572,6 @@ body::before{background:
 body:has(.op1[data-pos="active"])::before{animation:beams 22s ease-in-out infinite alternate}
 @keyframes beams{from{background-position:0 0,0 0}to{background-position:100% 0,0 0}}
 body:has(.op1[data-pos="active"]) .brand{opacity:0}.brand{transition:opacity .5s}
+body::before{background:
+  linear-gradient(108deg,transparent 0 28%,rgba(255,255,255,.13) 33%,transparent 38%,transparent 56%,rgba(255,255,255,.10) 60%,transparent 64%,transparent 78%,rgba(255,255,255,.14) 84%,transparent 90%) 0 0/200% 100%,
+  radial-gradient(120% 95% at 50% 42%,#1F5FD6 0%,#1546B5 50%,#0B2E86 100%)}
