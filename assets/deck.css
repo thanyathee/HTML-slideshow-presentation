@@ -1283,3 +1283,7 @@ tw{display:inline}
 .f18 .fco.c1{top:110px}.f18 .fco.c2{top:330px}
 .f18 .fco.c1::before{top:70px}.f18 .fco.c2::before{top:62px}
 .f18 .fco.c1{top:96px}.f18 .fco.c1::before{top:84px}
+.trow:has(.usave){flex-wrap:nowrap}
+.trow .usave.top{max-width:600px;padding:5px 22px 6px 12px}
+.svt b{font-size:22.5px}
+.svt>span{font-size:18px}
