@@ -197,3 +197,23 @@ OPEN2 = '''<section class="slide opening op2 v2 nofit" data-t="zoom" data-pos="a
       </div>
     </div>
   </section>'''
+
+
+# ---------- v3: stationery-on-grid-paper (from user's reference vector) ----------
+import os as _os
+_FR = open(_os.path.join(_os.path.dirname(__file__), 'stationery.svgfrag')).read()
+_C = ['#4372E8', '#E68A1E', '#5CC56E', '#A86AEE', '#DB5F6F', '#F5A940', '#4372E8']
+_W1 = ['มูล', 'นิธิ', 'ทิส', 'โก้']
+_W2 = ['เพื่อ', 'การ', 'กุศล']
+def _chunks(ws, off):
+    return ''.join('<span class="tc" style="color:%s;--d:%.2fs">%s</span>' % (_C[(i + off) % len(_C)], .35 + (i + off) * .09, w) for i, w in enumerate(ws))
+
+OPEN2 = '''<section class="slide opening op2 v3 nofit" data-t="zoom" data-pos="after" data-mood="blue">
+    <div class="ksky g3"></div><div class="kbox">
+      <svg class="stn" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">''' + _FR + '''</svg>
+      <div class="t3">
+        <h1 class="nw"><span class="ln">''' + _chunks(_W1, 0) + '''</span><span class="ln">''' + _chunks(_W2, 4) + '''</span></h1>
+        <p class="nw">TISCO FOUNDATION</p>
+      </div>
+    </div>
+  </section>'''
