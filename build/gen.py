@@ -253,6 +253,23 @@ for i in range(1,24):
                   '<div class="fco c1"><div class="fct"><span class="fci">'+RCPT+'</span><b class="nw">มีใบเสร็จ</b></div><span class="nw">ค่าเทอม 1,000 บาท<br>ชุดนักเรียน 500 บาท<br>ใช้จ่าย <u>500 บาทขึ้นไป</u><br>ต้องแนบใบเสร็จ</span><em class="fstamp nw">แนบด้วย!</em></div>'
                   '<div class="fco c2"><div class="fct"><span class="fci">'+PEN+'</span><b class="nw">ไม่มีใบเสร็จ</b></div><span class="nw">ค่าอาหารกลางวัน และค่ารถโดยสาร<br>จากบ้านไป-กลับโรงเรียน<br>เขียนให้ชัด <u>วันที่ จำนวนวัน ราคาต่อวัน</u></span><em class="fstamp nw">เขียนละเอียด!</em></div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
+    if n==20:
+        W,H=1282,912
+        pts=[((38,40,1195,195),'มีชื่อร้านค้า','ที่อยู่ เบอร์โทร'),
+             ((775,192,1140,226),'ระบุวันที่','วัน เดือน ปี ชัดเจน'),
+             ((238,232,565,268),'ระบุชื่อผู้ซื้อ','ชื่อ-สกุล นักเรียนทุน'),
+             ((150,332,930,422),'รายการ และราคา','บอกชัดว่าซื้ออะไร เท่าไร'),
+             ((775,735,1145,845),'ลงชื่อผู้รับเงิน','มีลายเซ็น / ตราประทับ')]
+        CK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+        boxes='';cards=''
+        for k,((x0,y0,x1,y1),t,sub) in enumerate(pts):
+            d=.9+k*.55
+            boxes+='<span class="rbx" style="left:%.2f%%;top:%.2f%%;width:%.2f%%;height:%.2f%%;--d:%.2fs"><em>%d</em></span>'%(x0/W*100,y0/H*100,(x1-x0)/W*100,(y1-y0)/H*100,d,k+1)
+            cards+='<div class="rcd" style="--d:%.2fs"><em>%d</em><div><b class="nw">%s</b><span class="nw">%s</span></div><i>%s</i></div>'%(d,k+1,t,sub,CK)
+        body=('<div class="trow pop" style="--i:0"><h2 class="title good">ตัวอย่างใบเสร็จที่น่าเชื่อถือ</h2><span class="tk-sub nw">เช็กให้ครบ 5 จุด!</span></div>'
+              '<div class="rgood"><div class="rpic pop" style="--i:1"><img src="images/receipt_good.jpg" alt="ตัวอย่างใบเสร็จที่น่าเชื่อถือ">'+boxes+'</div>'
+              '<div class="rlist">'+cards+'</div></div>')
+        x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
