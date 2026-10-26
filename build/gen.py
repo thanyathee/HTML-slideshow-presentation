@@ -205,7 +205,7 @@ for i in range(1,24):
         SHIRT=G('<path d="M8 3l4 2.5L16 3l5 3.5-2.5 4L17 9.5V21H7V9.5l-1.5 1L3 6.5z"/>')
         BUS=G('<rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".8" fill="currentColor"/><circle cx="16" cy="14.5" r=".8" fill="currentColor"/>')
         LAP=G('<rect x="4" y="4.5" width="16" height="11" rx="2"/><path d="M2 19.5h20"/>')
-        PIG=G('<path d="M5 11a7 6 0 0113.3-2.5H20v3.5l-1.6.8A7 6 0 0116 17v3h-3v-2h-3v2H7v-3.2A6 6 0 015 11z"/><circle cx="15.5" cy="10.5" r=".9" fill="currentColor"/><path d="M10 6.5h3"/>')
+        PIG=G('<path d="M4.5 12.5c0-3.6 3.4-6 7.5-6 1.6 0 3.1.3 4.3 1l2.2-1.5v3.2c.9.8 1.5 1.8 1.7 2.8H22v3h-1.9c-.5 1.2-1.4 2.2-2.6 2.9V21h-2.6v-1.9c-.9.2-1.9.3-2.9.3s-1.9-.1-2.7-.3V21H6.7v-2.8c-1.4-1.3-2.2-3-2.2-5.7z"/><path d="M10 8.5h3.5"/><circle cx="16.3" cy="11.3" r=".7" fill="currentColor"/><path d="M4.5 12.5c-1.2 0-2-.7-2-1.7"/>','2')
         CK=G('<path d="M5 12.5l4.5 4.5L19 7.5"/>','3.2'); NO=G('<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>','3.2')
         cats=[('เรื่องเรียน',BOOK,'#1D55C4',['*ค่าเทอม','ค่าเรียนพิเศษ / ค่าสมัครสอบ','ค่ากิจกรรม / ทัศนศึกษา / เข้าค่าย','หนังสือเรียน อุปกรณ์การเรียน','อุปกรณ์การเรียนช่าง / ทำโครงงาน','ถ่ายเอกสาร / พิมพ์งาน / เข้าเล่ม']),
               ('แต่งกาย & สุขภาพ',SHIRT,'#E8303A',['*ชุดนักเรียนนักศึกษา / ชุดพละ','ชุดลูกเสือเนตรนารี / รด. / ชุดพื้นเมือง','ตัดแว่นสายตา','ค่าตรวจสุขภาพ เพื่อมอบตัวเข้าศึกษาต่อ']),
@@ -216,9 +216,9 @@ for i in range(1,24):
             cc[(0,1,0,1)[j]]+='<div class="uc" style="--c:%s"><div class="uch"><i>%s</i><b class="nw">%s</b></div><div class="ucl">%s</div></div>'%(c,ic,lab,''.join(('<span class="nw hot">%s<sup>แนะนำ</sup></span>'%t[1:]) if t[0]=='*' else '<span class="nw">%s</span>'%t for t in its))
         bad=['ค่าเดินทางกลับภูมิลำเนา','เติมน้ำมันรถ','ซ่อมรถจักรยานยนต์','ซื้อโทรศัพท์ / จ่ายค่าโทรศัพท์','ข้าวสาร อาหารแห้ง ให้ครอบครัว','ค่าเช่าบ้าน ค่าน้ำ-ค่าไฟ ของที่บ้าน','ค่ายารักษาโรค / ค่ารักษาพยาบาล']
         bl=''.join('<div class="ubi"><i>%s</i><span class="nw">%s</span></div>'%(NO,t) for t in bad)
-        body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><div class="usave top"><span class="pig">%s</span><span class="nw"><b>ไม่จำเป็นต้องใช้?</b> เก็บออมไว้โดยไม่เบิกถอนก็ได้นะ</span></div></div>'
+        body=('<div class="trow pop" style="--i:0"><h2 class="title">การใช้จ่ายเงินทุนการศึกษา</h2><div class="usave top"><span class="pig">%s</span><span class="nw"><b>ยังไม่ใช้ ไม่ต้องเบิก</b> ออมไว้ในบัญชีได้ ไม่ถูกตัดทุน</span></div></div>'
                             '<div class="ug">'
-              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ได้</b><span class="upsub nw">เฉพาะค่าใช้จ่าย <u>เพื่อการเรียน</u> เท่านั้น</span><!--%d--></div><div class="ucg">%s</div></div>'
+              '<div class="up ok pop" style="--i:2"><div class="uph"><span class="upi">%s</span><b class="nw">ค่าใช้จ่ายเพื่อการเรียนเท่านั้น</b><!--%d--></div><div class="ucg">%s</div></div>'
               '<div class="up ng pop" style="--i:3"><div class="uph"><span class="upi">%s</span><b class="nw">ใช้ไม่ได้</b><small class="nw">ผิดวัตถุประสงค์</small></div><div class="ubl">%s</div></div>'
               '</div>'
               '<div class="uwarn bot pop" style="--i:4"><b class="nw">ระวัง!</b><span class="nw">ใช้จ่ายผิดวัตถุประสงค์ หรือแนบใบเสร็จที่ไม่น่าเชื่อถือ <u>จะถูกพิจารณาไม่ให้ทุนต่อเนื่อง</u></span></div>'

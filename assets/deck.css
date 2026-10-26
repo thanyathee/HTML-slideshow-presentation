@@ -1010,3 +1010,14 @@ tw{display:inline}
 .upsub u{font-size:23px;padding:1px 8px 3px;margin:0 2px;box-shadow:2px 2px 0 #0B2A6F}
 .ddtr .ok .rd u{background:#12A87A;box-shadow:0 0 0 3px #fff;transform:translate(-50%,-50%) rotate(6deg)}
 .ddtr .ok .rd u svg{color:#fff}
+/* slide 15 v4: calmer list */
+.up.ok .uph b{font-size:30px}
+.ucl span{font-size:17.5px;line-height:1.5}
+.ucl span::before{width:7px;height:7px;top:.68em}
+.uch b{font-size:21px}.uch i{width:30px;height:30px}
+.uc{padding:10px 16px 12px;gap:6px}
+.ucl span.hot{padding:0 10px 1px 22px}
+.ubi span{font-size:18px}
+.pig{background:#FF8FB1;color:#fff}
+.trow .usave.top{font-size:20px}
+.trow .usave.top .pig{width:46px;height:46px}.trow .usave.top .pig svg{width:32px;height:32px}
