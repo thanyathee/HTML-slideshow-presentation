@@ -1157,3 +1157,18 @@ tw{display:inline}
 .fhl{left:290px;top:426px;width:466px;height:164px}
 .sig{width:54px;height:32px}
 .ftr .hw.wide{font-size:17.5px}
+/* real PDF form background */
+.a4{padding:0;overflow:hidden}
+.a4img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fv{position:absolute;transform:translate(-50%,-100%);margin-top:-1px;z-index:2}
+.fv .hw{font-size:19px}
+.fc{position:absolute;display:flex;align-items:center;justify-content:center;z-index:2}
+.fc.l{justify-content:flex-start;padding-left:5px;overflow:visible}
+.fc .hw{font-size:15.5px}
+.fc .hw.wide{font-size:13.5px}
+.fc .ind{width:14px}
+.fc .sig{width:48px;height:28px}
+.fmk.m1{top:140px}.fmk.m2{top:470px}.fmk.m3{top:920px}
+.fmk{left:712px}
+.fhl{left:283px;top:440px;width:476px;height:158px}
+.fc.dt .hw{font-size:13.5px;padding:0}

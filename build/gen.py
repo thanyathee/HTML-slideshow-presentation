@@ -238,7 +238,7 @@ for i in range(1,24):
                   '<div class="fs-i fw3"><em>3</em><div><b class="nw">คำเตือน</b><span class="nw">อ่านระเบียบปฏิบัติการใช้จ่ายเงินทุน<br>ด้านหลังแบบฟอร์มอย่างละเอียด</span></div></div>'
                   '</div>')
             body=('<div class="trow pop" style="--i:0"><h2 class="title">แบบฟอร์มรายการใช้จ่ายเงิน</h2></div>'
-                  '<div class="cam"><div class="a4w">'+a4page('blank').replace('<div class="a4 nw">','<div class="a4 nw">'+mk,1)+'</div>'+side+'</div>')
+                  '<div class="cam"><div class="a4w">'+a4page('blank').replace('<div class="a4 nw">','<div class="a4 nw">'+mk,1).replace('form2570.jpg','form2570s.jpg')+'</div>'+side+'</div>')
         elif n==18:
             body=('<div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างการกรอกแบบฟอร์ม</h2></div>'
                   '<div class="cam"><div class="a4w">'+a4page('head')+'</div>'
