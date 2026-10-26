@@ -1335,3 +1335,14 @@ tw{display:inline}
 .rcb.ok{background:#12A87A}.rcb.ng{background:#E8303A}
 .slide[data-pos="active"] .rcb{animation:mkpop .5s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:calc(var(--i,1)*.15s + .9s)}
 .rcp .rcb{animation-delay:1s}
+/* slide 20: spotlight each receipt, then show all three */
+.rcps.rseq .rcp{z-index:1}
+.slide[data-pos="active"] .rseq .rcp{animation:none;opacity:1}
+.slide[data-pos="active"] .rseq .rcp:nth-child(1){animation:rsq1 9s cubic-bezier(.45,0,.25,1) both;z-index:3}
+.slide[data-pos="active"] .rseq .rcp:nth-child(2){animation:rsq2 9s cubic-bezier(.45,0,.25,1) both;z-index:3}
+.slide[data-pos="active"] .rseq .rcp:nth-child(3){animation:rsq3 9s cubic-bezier(.45,0,.25,1) both;z-index:3}
+@keyframes rsq1{0%{opacity:0;transform:translateX(103%) scale(.7)}5%,26%{opacity:1;transform:translateX(103%) translateY(-4%) scale(1.12)}31%,86%{opacity:0;transform:translateX(103%) translateY(-4%) scale(1.05)}87%{opacity:0;transform:rotate(-1.5deg) scale(.85)}96%,100%{opacity:1;transform:rotate(-1.5deg)}}
+@keyframes rsq2{0%,30%{opacity:0;transform:scale(.7)}36%,56%{opacity:1;transform:translateY(-4%) scale(1.12)}61%,86%{opacity:0;transform:translateY(-4%) scale(1.05)}87%{opacity:0;transform:scale(.85)}96%,100%{opacity:1;transform:none}}
+@keyframes rsq3{0%,60%{opacity:0;transform:translateX(-100%) scale(.7)}66%,84%{opacity:1;transform:translateX(-100%) translateY(-4%) scale(1.12)}88%{opacity:0;transform:translateX(-100%) translateY(-4%) scale(1.05)}89%{opacity:0;transform:rotate(1.5deg) scale(.85)}98%,100%{opacity:1;transform:rotate(1.5deg)}}
+.slide[data-pos="active"] .rseq .rcb{animation-delay:9s!important}
+.lite .rseq .rcp{animation:none!important;opacity:1!important}
