@@ -1628,3 +1628,18 @@ body::before{background:
 .sjcol.hl .sjm{color:#1D55C4}
 .sjstar{background:#FFD23F;color:#0B2A6F;font-size:16px}
 .sjcol.hl .sjc::after{content:"";position:absolute;inset:8px;border-radius:18px;background-image:radial-gradient(rgba(255,255,255,.22) 2px,transparent 2.6px);background-size:16px 16px;pointer-events:none}
+/* schedule v4: softer, friendlier */
+.sjtag{border:0;box-shadow:0 10px 24px rgba(29,85,196,.28);transform:rotate(-2deg);border-radius:22px;padding:12px 28px 16px}
+.sjtag.tB{box-shadow:0 10px 24px rgba(232,48,58,.28)}
+.sjroad{height:6px;top:121px;background:none;overflow:visible}
+.sjroad i{background:radial-gradient(circle,rgba(47,111,237,.45) 3px,transparent 3.6px) 0 50%/18px 6px repeat-x;border-radius:0}
+@keyframes roadFlow{to{background-position:18px 50%}}
+.sjn{width:56px;height:56px;border:5px solid #fff;box-shadow:0 6px 16px rgba(11,42,111,.22)}
+.sjcol.hl .sjn{width:64px;height:64px;border-color:#fff;box-shadow:0 0 0 6px rgba(255,210,63,.35),0 8px 18px rgba(11,42,111,.25)}
+.sjc{border-top:0;border-radius:28px;background:color-mix(in srgb,var(--c) 7%,#fff);box-shadow:0 10px 26px rgba(31,95,214,.10);border:1.5px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.sjc::before{display:none}
+.sjcol.hl .sjc{border:0;border-radius:28px;background:linear-gradient(160deg,#3B7BF5 0%,#1D55C4 100%);box-shadow:0 16px 34px rgba(29,85,196,.38)}
+.sjcol.hl .sjc::after{opacity:.6}
+.sjstar{border:0;box-shadow:0 6px 14px rgba(11,42,111,.2);border-radius:999px;padding:3px 12px 5px;transform:rotate(6deg)}
+.sjpills i{border:0;background:#fff;box-shadow:0 2px 8px rgba(31,95,214,.14)}
+.sjnote{background:#fff}
