@@ -298,9 +298,9 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
         <div class="card crow pop" style="--i:4"><span class="ico" style="--c:var(--acc)">%(fb)s</span><div><small>Facebook</small><b>TISCO Foundation</b>facebook.com/tiscofoundation</div></div>
       </div>
       <div class="qrs">
-        <div class="card qr pop" style="--i:2"><div class="code">%(q1)s</div><div><b>สมัครทุนออนไลน์</b><span>scholarship.tiscofoundation.org</span></div></div>
-        <div class="card qr pop" style="--i:3"><div class="code">%(q2)s</div><div><b>เว็บไซต์มูลนิธิ</b><span>tiscofoundation.org</span></div></div>
-        <div class="card qr pop" style="--i:4"><div class="code">%(q3)s</div><div><b>Facebook</b><span>facebook.com/tiscofoundation</span></div></div>
+        <a class="card qr pop" href="https://scholarship.tiscofoundation.org" target="_blank" rel="noopener" style="--i:2"><div class="code">%(q1)s</div><div><b>สมัครทุนออนไลน์</b><span>scholarship.tiscofoundation.org</span></div></a>
+        <a class="card qr pop" href="https://www.tiscofoundation.org" target="_blank" rel="noopener" style="--i:3"><div class="code">%(q2)s</div><div><b>เว็บไซต์มูลนิธิ</b><span>tiscofoundation.org</span></div></a>
+        <a class="card qr pop" href="https://www.facebook.com/tiscofoundation" target="_blank" rel="noopener" style="--i:4"><div class="code">%(q3)s</div><div><b>Facebook</b><span>facebook.com/tiscofoundation</span></div></a>
       </div>
     </div>
   </section>'''%dict(

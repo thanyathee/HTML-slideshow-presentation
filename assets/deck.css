@@ -1558,3 +1558,4 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
   #fbFs.fallback-fs{width:26px!important;height:26px!important}
   #fbFs.fallback-fs svg{width:13px!important;height:13px!important}
 }
+a.card.qr{text-decoration:none;color:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s}a.card.qr:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(31,95,214,.22)}
