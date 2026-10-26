@@ -968,3 +968,28 @@ tw{display:inline}
 .ucg{padding:9px}
 .ufoot{margin-top:10px}
 .usave,.uwarn{padding:5px 16px}
+/* slide 15 v2: bigger list rows */
+.ug{grid-template-columns:2.05fr 1fr}
+.ucl{display:flex;flex-direction:column;gap:2px}
+.ucl span{background:none;border:0;border-radius:0;padding:0 0 0 18px;font-size:19.5px;line-height:1.38;position:relative}
+.ucl span::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--c)}
+.ucl span em{display:inline;font-size:15px;margin-left:6px}
+.ucl span.hot{align-self:flex-start;font-weight:700;color:#0B2A6F;background:#FFD23F;border-radius:10px;padding:0 10px 1px 24px;margin-left:-6px;box-shadow:2px 2px 0 #0B2A6F}
+.ucl span.hot::before{left:9px;background:#0B2A6F}
+.ucl span.hot sup{font-size:12px;font-weight:700;vertical-align:3px;margin-left:8px;background:#E8303A;color:#fff;border-radius:6px;padding:0 6px 1px}
+.uc{padding:8px 14px 10px}
+.uch b{font-size:23px}.uch i{width:32px;height:32px}
+.ubi span{font-size:19.5px}
+.ubi{padding:5px 12px}
+.usave{font-size:21px}
+.uwarn{font-size:19px}
+.ucl span{line-height:1.3}
+.ucl span em.blk{display:block;margin:0}
+.ucl{gap:1px}
+.uc{padding:6px 14px 8px;gap:4px}
+.ucg,.ucc{gap:8px}.ucg{padding:8px}
+.uph{min-height:52px;padding:5px 16px 6px}
+.ubl{padding:8px 12px;gap:5px}
+.ufoot{margin-top:8px}
+.uwarn{padding:4px 16px;line-height:1.3}
+.trow:has(.tk-sub){margin-bottom:0}
