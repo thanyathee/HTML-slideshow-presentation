@@ -1447,3 +1447,44 @@ body:has(.opening[data-pos="active"]) .veil{opacity:0}
 .opc p{font-weight:600}
 .ktitle h1{font-weight:800;font-size:60px;line-height:1.3}
 .ktitle p{font-weight:700}
+/* ===== slide 2 v2: modern flat school scene ===== */
+.op2.v2 .ksky{background:linear-gradient(180deg,#5DB8F5 0%,#9BD6FA 45%,#D7F0FD 70%,#E9F8FF 100%)}
+.op2.v2 .ksky::after{height:30%;background:#5BBE77}
+.kscene2{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.op2.v2 .ktitle{top:3.5%;gap:10px}
+.op2.v2 .ktitle h1{font-size:56px;font-weight:800;color:#0B2A6F;background:rgba(255,255,255,.92);border:0;border-radius:24px;padding:4px 36px 10px;box-shadow:0 14px 40px rgba(11,42,111,.18),0 0 0 6px rgba(255,255,255,.45);transform:none;backdrop-filter:blur(6px)}
+.op2.v2 .ktitle p{font-size:24px;border:0;background:linear-gradient(90deg,#E8303A,#FF5A64);box-shadow:0 8px 22px rgba(232,48,58,.35);transform:none;padding:5px 24px 7px calc(24px + .2em)}
+.slide.op2.v2[data-pos="active"] .ktitle h1{animation:titleDrop .9s cubic-bezier(.2,1.3,.4,1) .2s backwards}
+.slide.op2.v2[data-pos="active"] .ktitle p{animation:titleDrop .9s cubic-bezier(.2,1.3,.4,1) .45s backwards}
+@keyframes titleDrop{from{opacity:0;transform:translateY(-40px) scale(.9)}}
+/* motion */
+.kwk{transform-box:fill-box;transform-origin:50% 100%}
+.slide[data-pos="active"] .kwk{animation:kbounce 1.1s ease-in-out var(--d) infinite}
+@keyframes kbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.kwv{transform-box:fill-box;transform-origin:0% 100%}
+.slide[data-pos="active"] .kwv{animation:kwave .55s ease-in-out var(--d) infinite alternate}
+@keyframes kwave{from{transform:rotate(-14deg)}to{transform:rotate(16deg)}}
+.ktr{transform-box:fill-box;transform-origin:50% 100%}
+.slide[data-pos="active"] .ktr{animation:tsway 4s ease-in-out var(--d) infinite alternate}
+@keyframes tsway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+.slide[data-pos="active"] .kcli{animation:cdrift 18s ease-in-out infinite alternate}
+.slide[data-pos="active"] .kcl.b .kcli{animation-duration:24s;animation-direction:alternate-reverse}
+.slide[data-pos="active"] .kcl.c .kcli{animation-duration:20s}
+@keyframes cdrift{from{transform:translateX(-50px)}to{transform:translateX(70px)}}
+.k2flag{transform-box:fill-box;transform-origin:0 50%}
+.slide[data-pos="active"] .k2flag{animation:flagw2 1.3s ease-in-out infinite alternate}
+@keyframes flagw2{from{transform:skewY(4deg) scaleX(1)}to{transform:skewY(-6deg) scaleX(.9)}}
+.k2hand{transform-box:view-box;transform-origin:640px 262px}
+.slide[data-pos="active"] .k2hand{animation:spin 8s linear infinite}
+.slide[data-pos="active"] .k2bus{animation:busIn 2.4s cubic-bezier(.2,.8,.3,1) .3s backwards,busBob .45s ease-in-out 2.7s infinite alternate}
+@keyframes busIn{from{transform:translateX(-520px)}}
+@keyframes busBob{to{transform:translateY(-2px)}}
+.slide[data-pos="active"] .k2bird{animation:bird 9s linear var(--d) infinite}
+@keyframes bird{0%{transform:translate(var(--bx,0px),var(--y)) translateX(-120px)}100%{transform:translateX(1400px) translateY(var(--y))}}
+.k2sp{transform-box:fill-box;transform-origin:center}
+.slide[data-pos="active"] .k2sp{animation:twinkle 2.2s ease-in-out var(--d) infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+.k2sunglow{transform-box:fill-box;transform-origin:center}
+.slide[data-pos="active"] .k2sunglow{animation:glow 4s ease-in-out infinite alternate}
+@keyframes glow{to{transform:scale(1.12);opacity:.8}}
+body::after{background:linear-gradient(180deg,#5DB8F5 0%,#BFE6FB 70%,#6CCB86 72%,#5BBE77 100%)}
