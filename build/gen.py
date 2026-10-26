@@ -280,7 +280,7 @@ for i in range(1,24):
             bd=('<i class="rcb %s">%s</i>'%(kind,OKI if kind=='ok' else NGI)) if kind else ''
             items+='<figure class="rcp pop" style="--i:%d"><img src="images/r%d_%d.jpg" alt="%s">%s</figure>'%(k+1,n,k+1,alt,bd)
         x=re.sub(r'<span class="zhint">.*?</span>','',x)
-        x=re.sub(r'<figure class="shot.*?</figure>','<div class="rcps n%d%s">%s</div>'%(cnt,(" rseq" if n==21 else ""),items),x,flags=re.S)
+        x=re.sub(r'<figure class="shot.*?</figure>','<div class="rcps n%d%s">%s</div>'%(cnt," rseq",items),x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
