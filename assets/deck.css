@@ -1179,3 +1179,12 @@ tw{display:inline}
 .f16 .fside{left:560px;right:40px;top:150px;bottom:40px;gap:16px}
 .f16 .fs-i{padding:18px 22px}
 .f16 .fs-i b{font-size:25px}.f16 .fs-i span{font-size:19px}
+/* handwriting font: Charm (pen-like, readable) */
+.hw{font-family:"Charm",cursive;font-weight:700;color:#1747B5;line-height:1.15}
+.fv .hw{font-size:22px}
+.fc .hw{font-size:18px}
+.fc .hw.wide{font-size:16px}
+.fc.dt .hw{font-size:16px}
+.fv{margin-top:3px}
+.hw{clip-path:inset(-60% 100% -60% 0)}
+@keyframes hwrite{to{clip-path:inset(-60% -4% -60% 0)}}
