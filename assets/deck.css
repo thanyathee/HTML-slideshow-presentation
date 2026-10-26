@@ -843,3 +843,8 @@ tw{display:inline}
 .dd{grid-template-columns:1.08fr 1.04fr 1.06fr}
 .ddw{display:block;margin-top:8px;background:#E8303A;color:#fff;font-weight:700;border-radius:10px;padding:3px 10px 5px;font-size:17px;text-align:center}
 .dd-no .ddl{gap:8px}
+/* slide 14: smoother icon motion — keep the bordered box still, gently float the glyph only */
+.ddic{animation:none;transform:rotate(-6deg) translateZ(0);backface-visibility:hidden}
+.ddic svg{animation:ddbob 2.8s ease-in-out infinite;will-change:transform;backface-visibility:hidden}
+.dd-no .ddic svg{animation-delay:-.9s}.dd-ca .ddic svg{animation-delay:-1.8s}
+@keyframes ddbob{0%,100%{transform:translate3d(0,1.5px,0)}50%{transform:translate3d(0,-2.5px,0)}}
