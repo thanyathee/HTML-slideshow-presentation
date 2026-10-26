@@ -1340,22 +1340,24 @@ tw{display:inline}
 .slide[data-pos="active"] .rseq .rcp:nth-child(2){animation:rz2 12s cubic-bezier(.45,0,.25,1) .6s both}
 .slide[data-pos="active"] .rseq .rcp:nth-child(3){animation:rz3 12s cubic-bezier(.45,0,.25,1) .6s both}
 @keyframes rz1{0%{opacity:0;transform:rotate(-1.5deg) translateY(30px)}6%,12%{opacity:1;transform:rotate(-1.5deg);z-index:1}
- 18%,30%{opacity:1;transform:translateX(var(--tx,103%)) translateY(-4%) scale(1.12);z-index:5}36%{opacity:1;transform:rotate(-1.5deg);z-index:1}
+ 18%,30%{opacity:1;transform:translateX(var(--tx,103%)) translateY(-11%) scale(1.33);z-index:5}36%{opacity:1;transform:rotate(-1.5deg);z-index:1}
  40%,58%{opacity:.25;transform:rotate(-1.5deg)}62%{opacity:1}66%,84%{opacity:.25;transform:rotate(-1.5deg)}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
 @keyframes rz2{0%{opacity:0;transform:translateY(30px)}6%,12%{opacity:1;transform:none}14%,32%{opacity:.25;transform:none}36%{opacity:1}
- 38%{transform:none;z-index:1}44%,56%{opacity:1;transform:translateY(-4%) scale(1.12);z-index:5}62%{opacity:1;transform:none;z-index:1}
+ 38%{transform:none;z-index:1}44%,56%{opacity:1;transform:translateY(-11%) scale(1.33);z-index:5}62%{opacity:1;transform:none;z-index:1}
  66%,84%{opacity:.25;transform:none}88%,100%{opacity:1;transform:none}}
 @keyframes rz3{0%{opacity:0;transform:rotate(1.5deg) translateY(30px)}6%,12%{opacity:1;transform:rotate(1.5deg)}14%,32%{opacity:.25;transform:rotate(1.5deg)}36%{opacity:1}
  40%,58%{opacity:.25;transform:rotate(1.5deg)}62%{opacity:1;transform:rotate(1.5deg);z-index:1}
- 70%,82%{opacity:1;transform:translateX(-100%) translateY(-4%) scale(1.12);z-index:5}88%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
+ 70%,82%{opacity:1;transform:translateX(-100%) translateY(-11%) scale(1.33);z-index:5}88%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
 .lite .rseq .rcp{animation:none!important;opacity:1!important}
 /* 2-receipt version (slides 21-22) */
 .slide[data-pos="active"] .rseq.n2 .rcp:nth-child(1){animation:rw1 8.5s cubic-bezier(.45,0,.25,1) .6s both}
 .slide[data-pos="active"] .rseq.n2 .rcp:nth-child(2){animation:rw2 8.5s cubic-bezier(.45,0,.25,1) .6s both}
 @keyframes rw1{0%{opacity:0;transform:rotate(-1.5deg) translateY(30px)}8%,16%{opacity:1;transform:rotate(-1.5deg);z-index:1}
- 25%,42%{opacity:1;transform:translateX(53%) translateY(-3%) scale(1.1);z-index:5}50%{opacity:1;transform:rotate(-1.5deg);z-index:1}
+ 25%,42%{opacity:1;transform:translateX(53%) translateY(-10%) scale(1.22);z-index:5}50%{opacity:1;transform:rotate(-1.5deg);z-index:1}
  54%,78%{opacity:.25;transform:rotate(-1.5deg)}84%,100%{opacity:1;transform:rotate(-1.5deg)}}
 @keyframes rw2{0%{opacity:0;transform:rotate(1.5deg) translateY(30px)}8%,16%{opacity:1;transform:rotate(1.5deg)}20%,45%{opacity:.25;transform:rotate(1.5deg)}50%{opacity:1;transform:rotate(1.5deg);z-index:1}
- 59%,76%{opacity:1;transform:translateX(-53%) translateY(-3%) scale(1.1);z-index:5}84%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
+ 59%,76%{opacity:1;transform:translateX(-53%) translateY(-10%) scale(1.22);z-index:5}84%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
 
 .rcp:has(img[src*="r24_1"]){--tx:88%}
+
+.rcps.rseq{position:relative;z-index:6}
