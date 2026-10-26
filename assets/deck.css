@@ -1526,3 +1526,11 @@ body:has(.op2.v3[data-pos="active"])::after{background-color:#EDF7F6;background-
 .t3 h1{line-height:1.42;font-size:100px}
 .t3 .ln+.ln{margin-top:-8px}
 .t3 .ln+.ln{margin-top:14px}.t3 h1{font-size:96px}
+/* opening slides: horizontal push transition, no white flash */
+.slide.opening{filter:none!important;transition:transform 1s cubic-bezier(.65,0,.25,1),opacity .2s linear,visibility 0s 1s}
+.slide.opening[data-pos="after"]{transform:translateX(115%);opacity:1}
+.slide.opening[data-pos="before"]{transform:translateX(-115%);opacity:1}
+.slide.opening[data-pos="active"]{transform:none;transition:transform 1s cubic-bezier(.65,0,.25,1),opacity .2s linear,visibility 0s 0s}
+.slide.op2[data-pos="before"]{opacity:0;transition:transform 1s cubic-bezier(.65,0,.25,1),opacity .6s ease .3s,visibility 0s 1s}
+body:has(.op2[data-pos="active"])::before{opacity:1}
+body::after{transition:opacity .9s ease .1s}
