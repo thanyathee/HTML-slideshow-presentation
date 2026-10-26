@@ -1052,3 +1052,4 @@ tw{display:inline}
 .trow .usave.top{padding:4px 40px 5px 16px;gap:20px}
 .svt b{font-size:30px;line-height:1.1}.svt>span{font-size:20px}
 .svt u{padding:0 10px 2px}
+.trow .usave.top{width:calc((100% - 20px) / 3.05);box-sizing:border-box;justify-content:center;padding:4px 14px 5px;transform:none}
