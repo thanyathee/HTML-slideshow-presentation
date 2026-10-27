@@ -1798,3 +1798,32 @@ body::before{background:
 .lblrow .lblpill{font-size:26px;padding:6px 22px 9px}.lblrow span{font-size:19px}
 .lblrow{gap:16px}.lblrow span{font-size:18px}
 .s9 .lblrow span{font-size:19px;white-space:normal;min-width:0;word-break:keep-all;overflow-wrap:normal}
+/* slide 8: playful myth-vs-fact */
+.s9 .card.top{position:relative;overflow:visible}
+.mtag8{position:absolute;left:-10px;top:-14px;z-index:3;font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;padding:2px 12px 4px;border-radius:999px;color:#fff;box-shadow:0 5px 12px rgba(11,42,111,.2);transform:rotate(-6deg)}
+.mtag8.bad{background:#E8303A}.mtag8.good{background:#12A87A}
+.s9 .strike{position:relative;display:inline-block}
+.s9 .strike::after{content:"";position:absolute;left:-4px;right:-4px;top:54%;height:4px;border-radius:3px;background:#E8303A;transform:scaleX(0);transform-origin:0 50%}
+.slide[data-pos="active"] .s9 .strike::after{animation:strk .55s cubic-bezier(.6,0,.3,1) 1s forwards}
+.slide[data-pos="active"] .s9 .strike{animation:fadeStr .3s ease 1.5s forwards}
+@keyframes strk{to{transform:scaleX(1)}}
+@keyframes fadeStr{to{opacity:.6}}
+.slide[data-pos="active"] .s9 .card.top.ok{animation:rise .85s var(--ease) backwards,okGlow 2.4s ease-in-out 1.8s infinite;animation-delay:calc(var(--i)*.09s + .2s),1.8s}
+@keyframes okGlow{0%,100%{box-shadow:0 0 0 0 rgba(18,168,122,0)}50%{box-shadow:0 0 0 6px rgba(18,168,122,.18)}}
+.slide[data-pos="active"] .s9 .card.top .chk{animation:mkpop .5s cubic-bezier(.3,1.7,.5,1) backwards;animation-delay:calc(var(--i)*.09s + .5s)}
+.s9 .cases .card{position:relative;overflow:visible}
+.s9 .cases .card:nth-child(1){transform:rotate(-1.2deg)}.s9 .cases .card:nth-child(3){transform:rotate(1.2deg)}
+.cst{position:absolute;right:-10px;top:-14px;z-index:3;font-style:normal;font-family:var(--display);font-weight:700;font-size:17px;padding:2px 12px 4px;border-radius:10px;border:2.5px solid;background:#fff;transform:rotate(8deg);opacity:0}
+.cst.no{color:#E8303A;border-color:#E8303A}.cst.ok{color:#fff;background:#12A87A;border-color:#0E7A57}
+.slide[data-pos="active"] .cst{animation:stamp .45s cubic-bezier(.3,1.6,.5,1) forwards}
+.slide[data-pos="active"] .cases .card:nth-child(1) .cst{animation-delay:1.7s}.slide[data-pos="active"] .cases .card:nth-child(2) .cst{animation-delay:1.95s}.slide[data-pos="active"] .cases .card:nth-child(3) .cst{animation-delay:2.2s}
+@keyframes stamp{from{opacity:0;transform:rotate(8deg) scale(2.2)}to{opacity:1;transform:rotate(8deg) scale(1)}}
+.slide[data-pos="active"] .cases .card.no .chk{animation:shakeX .5s ease-in-out 2.6s 2}
+.slide[data-pos="active"] .cases .card.ok .chk{animation:okBounce 1.6s ease-in-out 2.6s infinite}
+@keyframes shakeX{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px) rotate(-6deg)}75%{transform:translateX(6px) rotate(6deg)}}
+@keyframes okBounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-8px) scale(1.06)}}
+.lite .cst{opacity:1!important}.lite .s9 .strike::after{transform:none!important}
+.s9 em.mtag8{color:#fff!important;font-size:18px}
+.s9 em.cst.no{color:#E8303A!important}
+.s9 em.cst.ok{color:#fff!important}
+.s9 .card.top{margin-top:6px}
