@@ -1735,3 +1735,5 @@ body::before{background:
 .arow:nth-of-type(even){background:#FFD9AE;box-shadow:inset 6px 0 0 #EA6A0A}
 .arow:nth-of-type(even) b{color:#B8460A}
 .arow{padding-left:22px}
+.arow:nth-of-type(even){background:#FFE3C2;box-shadow:inset 6px 0 0 #FF7A00}
+.arow:nth-of-type(even) b{color:#F26A00}
