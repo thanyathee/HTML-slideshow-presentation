@@ -1759,3 +1759,15 @@ body::before{background:
 .amt .arow b{font-family:inherit;font-size:24px;font-weight:700}
 .amt .arow b{font-size:26px}
 .krd{display:inline-block;margin-top:4px;font-family:var(--display);font-weight:700;font-size:20px;color:#fff;border-radius:999px;padding:2px 14px 4px}.krd.r1{background:#1D55C4}.krd.r2{background:#E8303A}
+/* 4-receipt row (merged unreliable receipts) */
+.rcps.n4{gap:22px}
+.rcps.n4 .rcp img{max-height:440px}
+.rcps.n4 .rcp:nth-child(odd){transform:rotate(-1.5deg)}.rcps.n4 .rcp:nth-child(even){transform:rotate(1.5deg)}
+.slide[data-pos="active"] .rseq.n4 .rcp{animation:var(--an) 14s cubic-bezier(.45,0,.25,1) .6s both}
+.rseq.n4 .rcp:nth-child(1){--an:rq1;--tx:155%}.rseq.n4 .rcp:nth-child(2){--an:rq2;--tx:52%}.rseq.n4 .rcp:nth-child(3){--an:rq3;--tx:-52%}.rseq.n4 .rcp:nth-child(4){--an:rq4;--tx:-155%}
+@keyframes rq1{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg);z-index:1}15%,24%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}30%{opacity:1;transform:rotate(-1.5deg);z-index:1}32%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
+@keyframes rq2{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,28%{opacity:.25}30%{opacity:1;transform:rotate(1.5deg);z-index:1}36%,45%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}51%{opacity:1;transform:rotate(1.5deg);z-index:1}53%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(1.5deg)}}
+@keyframes rq3{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg)}11%,49%{opacity:.25}51%{opacity:1;transform:rotate(-1.5deg);z-index:1}57%,66%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}72%{opacity:1;transform:rotate(-1.5deg);z-index:1}74%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
+@keyframes rq4{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,70%{opacity:.25}72%{opacity:1;transform:rotate(1.5deg);z-index:1}78%,84%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}90%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
+.slide[data-pos="active"] .rseq.n4 .rcp:nth-child(n){animation:var(--an) 14s cubic-bezier(.45,0,.25,1) .6s both}
+.rseq.n4 .rcp:nth-child(4){--tx:-172%}.rseq.n4 .rcp:nth-child(3){--tx:-58%}

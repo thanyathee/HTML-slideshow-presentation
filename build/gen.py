@@ -79,6 +79,7 @@ def gantt():
     return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="ov">%s</div>\n  </section>'%(eb('กำหนดการ'),rows)
 for i in range(1,24):
     x=secs[i]; n=i+1
+    if n==23: continue  # merged into 22
     if n in (9,10): continue  # removed: write-form / online application detail slides
     if n==2:
         out.append(('sched','blue',sched2(0)))
@@ -321,14 +322,15 @@ for i in range(1,24):
               '<div class="rlist">'+cards+'</div></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     if n in (21,22,23,24):
-        cnt={21:3,22:2,23:2,24:3}[n]; kind={21:'ok',22:'ng',23:'ng',24:''}[n]
+        cnt={21:3,22:4,23:2,24:3}[n]; kind={21:'ok',22:'ng',23:'ng',24:''}[n]
         OKI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
         NGI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>'
         alt=re.search(r'alt="([^"]*)"',x).group(1)
         items=''
         for k in range(cnt):
             bd=('<i class="rcb %s">%s</i>'%(kind,OKI if kind=='ok' else NGI)) if kind else ''
-            items+='<figure class="rcp pop" style="--i:%d"><img src="images/r%d_%d.jpg" alt="%s">%s</figure>'%(k+1,n,k+1,alt,bd)
+            src=('r22_%d'%(k+1) if k<2 else 'r23_%d'%(k-1)) if n==22 else 'r%d_%d'%(n,k+1)
+            items+='<figure class="rcp pop" style="--i:%d"><img src="images/%s.jpg" alt="%s">%s</figure>'%(k+1,src,alt,bd)
         x=re.sub(r'<span class="zhint">.*?</span>','',x)
         x=re.sub(r'<figure class="shot.*?</figure>','<div class="rcps n%d%s">%s</div>'%(cnt," rseq",items),x,flags=re.S)
     x=x.replace('class="track pop"','class="ptrack pop"')
