@@ -1745,3 +1745,10 @@ body::before{background:
 .arow:nth-of-type(odd){background:#E3EDFF;box-shadow:none}
 .arow:nth-of-type(even){background:#FFF0E0;box-shadow:none}
 .arow{padding-left:18px}
+/* slide 3: punchy card headers */
+.card.list>h3,.card.amt>h3{display:block;margin:-22px -24px 16px;padding:13px 20px 15px;border-radius:24px 24px 0 0;font-family:var(--display);font-weight:700;font-size:30px;line-height:1.15;color:#fff;text-align:center;white-space:nowrap;position:relative;overflow:hidden;text-shadow:2px 2px 0 rgba(11,42,111,.25)}
+.card.list>h3{background:#1D55C4}
+.card.amt>h3{background:#FF7A00}
+.card.list>h3::after,.card.amt>h3::after{content:"";position:absolute;right:-8px;top:-10px;width:120px;height:70px;background-image:radial-gradient(rgba(255,255,255,.32) 2px,transparent 2.6px);background-size:14px 14px;transform:rotate(8deg)}
+.card.list,.card.amt{overflow:hidden}
+.card.amt>h3{font-size:27px;padding-left:12px;padding-right:12px}
