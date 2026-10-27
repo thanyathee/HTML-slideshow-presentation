@@ -179,9 +179,9 @@ for i in range(1,24):
         x=x.replace('<div class="card ev pop" style="--i:2"><b>','<div class="card ev mvproof pop" style="--i:2"><em class="mvone nw">ใช้อย่างใดอย่างหนึ่ง</em><b>',1)
         cal=[('มีนาคม','#2F6FED','ประกาศหน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
              ('15 พฤษภาคม','#F07A12','<span class="klv"><i>ป.6</i><i>ม.3</i></span><br>ส่งหลักฐานย้าย','dl'),
-             ('มิถุนายน','#12A87A','ประกาศรายชื่อ (1)<br>รอบแรก','an'),
+             ('มิถุนายน','#12A87A','ประกาศรายชื่อ (1)<br><span class="krd r1">รอบแรก</span>','an'),
              ('31 กรกฎาคม','#E8303A','<span class="klv"><i>ป.6</i><i>ม.3</i><i>ม.6</i></span><br><span class="klv"><i>ปวช.3</i><i>ปวส.2</i></span><br>ส่งหลักฐาน','dl'),
-             ('พฤศจิกายน','#12A87A','ประกาศรายชื่อ (2)<br>รอบรอฟังผล','an')]
+             ('พฤศจิกายน','#12A87A','ประกาศรายชื่อ (2)<br><span class="krd r2">รอบรอฟังผล</span>','an')]
         tiles=''
         for k,(m,c,t,f) in enumerate(cal):
             tag=''

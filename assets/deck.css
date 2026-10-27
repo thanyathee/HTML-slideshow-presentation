@@ -1758,3 +1758,4 @@ body::before{background:
 .arow b{font-size:23px}
 .amt .arow b{font-family:inherit;font-size:24px;font-weight:700}
 .amt .arow b{font-size:26px}
+.krd{display:inline-block;margin-top:4px;font-family:var(--display);font-weight:700;font-size:20px;color:#fff;border-radius:999px;padding:2px 14px 4px}.krd.r1{background:#1D55C4}.krd.r2{background:#E8303A}
