@@ -1834,3 +1834,5 @@ body::before{background:
 .mule u{background:#E8303A;color:#fff;padding:0 8px 1px}
 .mico{background:#E8303A;color:#fff;border-color:#fff}
 @keyframes mpulse{0%{box-shadow:0 0 0 0 rgba(232,48,58,.55)}70%{box-shadow:0 0 0 14px rgba(232,48,58,0)}100%{box-shadow:0 0 0 0 rgba(232,48,58,0)}}
+.lbnote{margin:10px 0 0;font-size:17px;color:var(--ink-3);text-align:center;font-weight:500}
+.s9 .lblrow{justify-content:flex-start}
