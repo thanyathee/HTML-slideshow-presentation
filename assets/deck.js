@@ -69,10 +69,31 @@
     [].forEach.call(s.querySelectorAll('.mg'),function(m){m.classList.toggle('cur',+m.dataset.g===g)});
   }
   slides.forEach(function(s){if(s.dataset.strip!==undefined)applyGroup(s,+s.dataset.strip,false)});
+  function morph(from,to){
+    try{
+      var src=from.querySelector('.sjcol.mid .sjc'),tgt=to.querySelector('.mvproof');
+      if(!src||!tgt||lite||reduce)return;
+      var r0=src.getBoundingClientRect();
+      var tr=to.style.transition,tf=to.style.transform,fl=to.style.filter;
+      to.style.transition='none';to.style.transform='none';to.style.filter='none';
+      var r1=tgt.getBoundingClientRect();
+      void to.offsetWidth;to.style.transition=tr;to.style.transform=tf;to.style.filter=fl;
+      var sc=r0.width/src.offsetWidth||1;
+      var box=document.createElement('div');box.className='morphbox';
+      var p=src.querySelector('p').cloneNode(true);p.style.fontSize=(parseFloat(getComputedStyle(src.querySelector('p')).fontSize)*sc)+'px';box.appendChild(p);
+      document.body.appendChild(box);tgt.classList.add('mvhide');
+      var k0={left:r0.left+'px',top:r0.top+'px',width:r0.width+'px',height:r0.height+'px',borderRadius:(24*sc)+'px'},
+          k1={left:r1.left+'px',top:r1.top+'px',width:r1.width+'px',height:r1.height+'px',borderRadius:(22*sc)+'px'};
+      box.animate([k0,k1],{duration:900,easing:'cubic-bezier(.65,0,.25,1)',fill:'forwards'});
+      p.animate([{opacity:1},{opacity:0}],{duration:450,delay:250,fill:'forwards'});
+      setTimeout(function(){tgt.classList.remove('mvhide');box.animate([{opacity:1},{opacity:0}],{duration:350,fill:'forwards'}).onfinish=function(){box.remove()}},950);
+    }catch(e){}
+  }
   function go(n){
     n=Math.max(0,Math.min(N-1,n));hideZoom();
     if(n!==cur||!slides[n].dataset.ready)clear();
     var sp=slides[cur],sn=slides[n];
+    if(n===cur+1&&sp.classList.contains('s1')&&sn.classList.contains('mvs'))morph(sp,sn);
     if(sp!==sn&&sp.dataset.strip!==undefined&&sn.dataset.strip!==undefined){
       sn.classList.add('keep');applyGroup(sn,+sp.dataset.strip,false);void sn.offsetWidth;
       requestAnimationFrame(function(){applyGroup(sn,+sn.dataset.strip,true)});

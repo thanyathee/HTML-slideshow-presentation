@@ -174,6 +174,18 @@ for i in range(1,24):
         x=x.replace('น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่ในปีการศึกษาหน้า','<span class="wl nw">น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูล</span><span class="wl nw">ตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่</span><span class="wl nw">ในปีการศึกษาหน้า</span>')
         x=x.replace('<b>15 พ.ค.</b>','<b>15 พฤษภาคม</b>').replace('<b>31 ก.ค.</b>','<b>31 กรกฎาคม</b>')
         x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน')
+        x=x.replace('<section class="slide"','<section class="slide mvs"',1)
+        x=x.replace('<div class="card ev pop" style="--i:2"><b>','<div class="card ev mvproof pop" style="--i:2"><em class="mvone nw">ใช้อย่างใดอย่างหนึ่ง</em><b>',1)
+        cal=[('มีนาคม','#2F6FED','แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
+             ('15 พฤษภาคม','#F07A12','<b>ป.6 ม.3</b><br>ส่งหลักฐานย้าย','dl'),
+             ('มิถุนายน','#12A87A','ประกาศ<br>รอบแรก (1)','an'),
+             ('31 กรกฎาคม','#E8303A','<b>ป.6 ม.3 ม.6</b><br><b>ปวช.3 ปวส.2</b><br>ส่งหลักฐาน','dl'),
+             ('พฤศจิกายน','#12A87A','ประกาศ<br>รอบรอฟังผล (2)','an')]
+        tiles=''
+        for k,(m,c,t,f) in enumerate(cal):
+            tag='<i class="ktag kdl nw">วันสุดท้าย</i>' if f=='dl' else ('<i class="ktag kan nw">ประกาศผล</i>' if f=='an' else '')
+            tiles+='<div class="ktl%s" style="--c:%s;--k:%d"><div class="kth"><span class="krg"></span><span class="krg"></span><b class="nw">%s</b></div><div class="ktb nw">%s</div>%s</div>'%(' k'+f if f else '',c,k,m,t,tag)
+        x=re.sub(r'<div class="p?track pop".*?</div>\s*</section>','<div class="ktline pop" style="--i:4">'+tiles+'</div>\n  </section>',x,flags=re.S)
     if n==13:
         ck='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         def it(t,cls=''): return '<div class="ai %s"><i>%s</i><span class="nw">%s</span></div>'%(cls,ck,t)
