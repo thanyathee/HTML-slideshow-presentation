@@ -1772,3 +1772,4 @@ body::before{background:
 .slide[data-pos="active"] .rseq.n4 .rcp:nth-child(n){animation:var(--an) 14s cubic-bezier(.45,0,.25,1) .6s both}
 .rseq.n4 .rcp:nth-child(4){--tx:-172%}.rseq.n4 .rcp:nth-child(3){--tx:-58%}
 .brand{background:none;border:0;padding:4px 8px;margin:-4px -8px;border-radius:8px;cursor:pointer;z-index:20;transition:background .2s,color .2s,opacity .5s}.brand:hover{background:rgba(29,85,196,.1);color:#1D55C4}
+.cinfo{justify-content:space-between}.cinfo .crow{flex:1;align-items:center}
