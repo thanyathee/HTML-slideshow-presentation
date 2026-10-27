@@ -51,7 +51,7 @@ def sched2(ti):
         star='<em class="sjstar nw">ประกาศผล!</em>' if hl else ''
         cols+=('<div class="sjcol%s" style="--c:%s;--k:%d"><div class="sjm nw">%s</div><div class="sjn">%d</div>'
                '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%(' hl' if hl else '',c,k,d,k+1,star,t,nt)
-    return ('<section class="slide sjs s%d" data-t="%s" data-pos="after">\n    '%(ti,'morph' if ti==0 else 'slide')+eb('กำหนดการ')+
+    return ('<section class="slide sjs s%d" data-t="slide" data-pos="after"%s>\n    '%(ti,' data-sched="1"' if ti==0 else '')+eb('กำหนดการ')+
             '\n    <div class="sjh pop" style="--i:0"><span class="sjtag t%s nw">%s</span><h2 class="sjt nw">%s</h2></div>'
             '\n    <div class="sj n%d"><div class="sjroad"><i></i></div>%s</div>\n  </section>')%(T['key'],T['tag'],T['title'],n,cols)
 OVM=['พ.ย.','ธ.ค.','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.']
@@ -349,7 +349,7 @@ out.append(('contact','cover',contact))
 _sc=[o for o in out if o[0]=='sched']+[out[[o[0] for o in out].index('sched')+1]]
 out=[o for o in out if all(o is not x for x in _sc)]
 _m=[o[0] for o in out].index('move')
-out=out[:_m]+[('','blue',overview())]+_sc+out[_m:]
+out=out[:_m]+_sc+out[_m:]
 def idx(key): return [o[0] for o in out].index(key)+3   # 1-based slide number incl. opening slide + cover
 AG=[('red','ทุนการศึกษาและเกณฑ์','ทุนการศึกษา'),('yellow','เอกสารและวิธีการสมัคร','เอกสารการขอรับทุนการศึกษา'),('blue','กำหนดการ','@@SCHED@@'),('orange','กรณีย้ายสถานศึกษา','กรณีย้ายสถานศึกษา'),('green','ประกาศผลและหลังประกาศ','ประกาศรายชื่อผู้ได้รับทุน'),('red','ข้อปฏิบัติและข้อห้าม','ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง'),('blue','การใช้จ่ายเงินทุน','การใช้จ่ายเงินทุนการศึกษา'),('yellow','แบบฟอร์มรายการใช้จ่าย','แบบฟอร์มรายการใช้จ่ายเงิน'),('green','ตัวอย่างใบเสร็จ','ตัวอย่างใบเสร็จที่น่าเชื่อถือ'),('orange','ติดต่อมูลนิธิ','ติดต่อมูลนิธิทิสโก้')]
 agenda=''.join('<button data-go="@@GO%d@@" style="--c:var(--%s)"><i></i>%s<span>@@PG%d@@</span></button>'%(k,c,t,k) for k,(c,t,_) in enumerate(AG))
