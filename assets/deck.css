@@ -1715,3 +1715,17 @@ body::before{background:
 .ktl{flex:1;display:flex;flex-direction:column}
 .ktline{grid-template-columns:1fr 1fr 1fr 1.25fr 1fr;align-items:stretch}
 .ktb tw{display:inline}
+/* slide 12 harmony: both cards share the same white body + solid header, red = proof */
+.mvs .row2{gap:22px;align-items:stretch}
+.mvs .card.who,.mvs .card.ev{background:#fff!important;color:#0B2A6F;border-radius:26px;box-shadow:0 12px 28px rgba(31,95,214,.13);border:3px solid transparent!important;overflow:hidden}
+.mvs .card.ev.mvproof{border-color:#E8303A!important;overflow:visible}
+.mvs .who b{background:#1D55C4;color:#fff;border-radius:23px 23px 0 0;margin:-1px -26px 16px}
+.mvs .row2 .ev b{background:#E8303A;color:#fff;border-radius:21px 21px 0 0;margin:-1px -26px 16px}
+.mvs .who .wl{font-size:21px;line-height:1.55;color:#0B2A6F}
+.mvs .ev li{font-size:20px;line-height:1.5;color:#0B2A6F}
+.mvs .ev li::marker{color:#E8303A}
+.mvs .mvone{background:#FFD23F;color:#0B2A6F;box-shadow:0 6px 14px rgba(11,42,111,.18)}
+.mvs .warn{background:#FFF1F1;color:#C8202B;border:2px solid #E8303A;box-shadow:none;font-size:21px;padding:6px 26px 8px}
+.ktline::before{display:none}
+.ktl{border-radius:16px}
+.kth{border-radius:16px 16px 0 0}
