@@ -1738,3 +1738,7 @@ body::before{background:
 .arow:nth-of-type(even){background:#FFE3C2;box-shadow:inset 6px 0 0 #FF7A00}
 .arow:nth-of-type(even) b{color:#F26A00}
 .mvs .warn{background:#FFD23F;color:#0B2A6F;border:0;box-shadow:0 8px 22px rgba(240,160,0,.25);font-weight:700}
+.mvs .mvone{font-size:21px;padding:4px 18px 7px;top:-20px}
+.klv{display:inline-flex;gap:8px;justify-content:center;margin:2px 0}
+.klv i{font-style:normal;font-family:var(--display);font-weight:700;font-size:18px;color:#0B2A6F;background:#FFE58A;border-radius:8px;padding:1px 8px 2px;line-height:1.3}
+.ktb{line-height:1.45}

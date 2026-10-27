@@ -177,14 +177,14 @@ for i in range(1,24):
         x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน')
         x=x.replace('<section class="slide"','<section class="slide mvs"',1)
         x=x.replace('<div class="card ev pop" style="--i:2"><b>','<div class="card ev mvproof pop" style="--i:2"><em class="mvone nw">ใช้อย่างใดอย่างหนึ่ง</em><b>',1)
-        cal=[('มีนาคม','#2F6FED','แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
-             ('15 พฤษภาคม','#F07A12','<b>ป.6 ม.3</b><br>ส่งหลักฐานย้าย','dl'),
-             ('มิถุนายน','#12A87A','ประกาศ<br>รอบแรก (1)','an'),
-             ('31 กรกฎาคม','#E8303A','<b>ป.6 ม.3 ม.6</b><br><b>ปวช.3 ปวส.2</b><br>ส่งหลักฐาน','dl'),
-             ('พฤศจิกายน','#12A87A','ประกาศ<br>รอบรอฟังผล (2)','an')]
+        cal=[('มีนาคม','#2F6FED','ประกาศหน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
+             ('15 พฤษภาคม','#F07A12','<span class="klv"><i>ป.6</i><i>ม.3</i></span><br>ส่งหลักฐานย้าย','dl'),
+             ('มิถุนายน','#12A87A','ประกาศรายชื่อ (1)<br>รอบแรก','an'),
+             ('31 กรกฎาคม','#E8303A','<span class="klv"><i>ป.6</i><i>ม.3</i><i>ม.6</i></span><br><span class="klv"><i>ปวช.3</i><i>ปวส.2</i></span><br>ส่งหลักฐาน','dl'),
+             ('พฤศจิกายน','#12A87A','ประกาศรายชื่อ (2)<br>รอบรอฟังผล','an')]
         tiles=''
         for k,(m,c,t,f) in enumerate(cal):
-            tag='<i class="ktag kdl nw">วันสุดท้าย</i>' if f=='dl' else ('<i class="ktag kan nw">ประกาศผล</i>' if f=='an' else '')
+            tag=''
             tiles+='<div class="ktl%s" style="--c:%s;--k:%d"><div class="kth"><span class="krg"></span><span class="krg"></span><b class="nw">%s</b></div><div class="ktb nw">%s</div>%s</div>'%(' k'+f if f else '',c,k,m,t,tag)
         x=re.sub(r'<div class="p?track pop".*?</div>\s*</section>','<div class="ktline pop" style="--i:4">'+tiles+'</div>\n  </section>',x,flags=re.S)
     if n==13:
