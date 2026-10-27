@@ -158,7 +158,7 @@ for i in range(1,24):
         x=re.sub(r'<div class="rowsx">.*?</section>',lambda m:new9+'\n  </section>',x,flags=re.S)
         _m=re.search(r'(<div class="lblrow pop" style="--i:3"><div class="lblpill">[^<]*</div>)<span>([^<]*)</span></div>',x)
         x=x.replace(_m.group(0),_m.group(1)+'</div>',1)
-        x=x.replace('</div></div></div>\n  </section>','</div></div><p class="lbnote pop" style="--i:7">* '+_m.group(2)+'</p></div>\n  </section>',1)
+        x=x.replace(_m.group(1),'<div class="lblrow pop" style="--i:3"><div class="lblpill nw">การกู้ยืม '+_m.group(2)+'</div>',1)
         x=x.replace('<div class="card case no pop" style="--i:4">','<div class="card case no pop" style="--i:4"><em class="cst no nw">สมัครไม่ได้</em>',1)
         x=x.replace('<div class="card case no pop" style="--i:5">','<div class="card case no pop" style="--i:5"><em class="cst no nw">สมัครไม่ได้</em>',1)
         x=x.replace('<div class="card case ok pop" style="--i:6">','<div class="card case ok pop" style="--i:6"><em class="cst ok nw">สมัครได้</em>',1)

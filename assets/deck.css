@@ -1837,3 +1837,4 @@ body::before{background:
 .lbnote{margin:10px 0 0;font-size:17px;color:var(--ink-3);text-align:center;font-weight:500}
 .s9 .lblrow{justify-content:flex-start}
 .mule{background:#FFE58A;border-color:#F5C842;color:#0B2A6F}
+.s9 .lblrow .lblpill{font-size:21px;padding:6px 22px 8px;white-space:nowrap}
