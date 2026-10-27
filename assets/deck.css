@@ -1827,3 +1827,10 @@ body::before{background:
 .s9 em.cst.no{color:#E8303A!important}
 .s9 em.cst.ok{color:#fff!important}
 .s9 .card.top{margin-top:6px}
+/* mule bar v2: lighter red, bigger text, edge-to-edge */
+.mule{justify-content:space-between;background:#FDE3E5;color:#9E1B24;border:2px solid #F3A9AE;box-shadow:none;padding:8px 18px 9px 10px;gap:12px}
+.mule>span:last-child{flex:1;font-size:22px;font-weight:600;text-align:center;white-space:nowrap}
+.mule b{background:#E8303A;color:#fff;font-size:23px}
+.mule u{background:#E8303A;color:#fff;padding:0 8px 1px}
+.mico{background:#E8303A;color:#fff;border-color:#fff}
+@keyframes mpulse{0%{box-shadow:0 0 0 0 rgba(232,48,58,.55)}70%{box-shadow:0 0 0 14px rgba(232,48,58,0)}100%{box-shadow:0 0 0 0 rgba(232,48,58,0)}}
