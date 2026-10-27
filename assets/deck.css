@@ -1686,3 +1686,4 @@ body::before{background:
 .sjcol.mid .sjn{width:62px;height:62px;font-size:32px;box-shadow:0 0 0 5px rgba(232,48,58,.18),0 6px 16px rgba(11,42,111,.22)}
 .sjmid{position:absolute;top:-14px;right:-8px;font-style:normal;font-family:var(--display);font-weight:700;font-size:15px;color:#fff;background:#E8303A;border-radius:999px;padding:2px 11px 4px;transform:rotate(6deg);box-shadow:0 5px 12px rgba(232,48,58,.3)}
 .slide[data-pos="active"] .sjmid{animation:stamp .45s cubic-bezier(.3,1.6,.5,1) 1.6s backwards}
+.sjcol .sjc{z-index:3}.sjstar,.sjmid{z-index:5}
