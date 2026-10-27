@@ -406,7 +406,7 @@ html='''<!doctype html>
 <div class="deck" id="deck">
 <div class="area" id="area">
 <div class="stage" id="stage">
-<div class="brand">TISCO FOUNDATION</div>
+<button class="brand" type="button" title="ไปหน้าสารบัญ" aria-label="ไปหน้าสารบัญ" onclick="window.deckGo&&deckGo(1)">TISCO FOUNDATION</button>
 <div id="zoom" hidden><img alt=""></div>
 %s
 </div>
