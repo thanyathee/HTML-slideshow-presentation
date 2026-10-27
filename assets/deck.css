@@ -1795,3 +1795,6 @@ body::before{background:
 .mule>span:last-child{font-size:19px}
 .mule{justify-content:center}
 .lblrow span{font-size:22px;white-space:normal;min-width:0;overflow-wrap:normal;word-break:keep-all;text-wrap:balance}
+.lblrow .lblpill{font-size:26px;padding:6px 22px 9px}.lblrow span{font-size:19px}
+.lblrow{gap:16px}.lblrow span{font-size:18px}
+.s9 .lblrow span{font-size:19px;white-space:normal;min-width:0;word-break:keep-all;overflow-wrap:normal}
