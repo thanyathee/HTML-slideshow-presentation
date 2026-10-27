@@ -1729,3 +1729,9 @@ body::before{background:
 .ktline::before{display:none}
 .ktl{border-radius:16px}
 .kth{border-radius:16px 16px 0 0}
+/* grant table: stronger blue/orange contrast */
+.arow:nth-of-type(odd){background:#DCE8FF;box-shadow:inset 6px 0 0 #1D55C4}
+.arow:nth-of-type(odd) b{color:#1D55C4}
+.arow:nth-of-type(even){background:#FFD9AE;box-shadow:inset 6px 0 0 #EA6A0A}
+.arow:nth-of-type(even) b{color:#B8460A}
+.arow{padding-left:22px}
