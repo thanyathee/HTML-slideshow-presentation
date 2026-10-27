@@ -39,7 +39,7 @@ SJ=[
   ('<b>มิถุนายน</b>','ประกาศรายชื่อ<br>ผู้ได้รับทุนรอบแรก','','#12A87A',1),
   ('<b>กรกฎาคม</b>','มูลนิธิส่ง<br>ตั๋วแลกเงิน<br>ไปที่สถานศึกษา','','#F07A12',0)],
  [('<b>1 พฤศจิกายน</b><small>ถึง</small><b>31 มกราคม</b>','สมัครขอรับทุน<span class="sjpills"><i>ทุนใหม่</i><i>ทุนต่อเนื่อง</i></span>','กรอกในใบสมัครว่า<br><b>ปีการศึกษาหน้า<br>จะย้ายสถานศึกษา</b>','#2F6FED',0),
-  ('<b>มีนาคม</b><small>ถึง</small><b>31 กรกฎาคม</b>','ส่งหลักฐาน<br>ยืนยันการย้าย<br>ให้มูลนิธิ','','#E8303A',0),
+  ('<b>มีนาคม</b><small>ถึง</small><b>31 กรกฎาคม</b>','ส่งหลักฐาน<br>ยืนยันการย้าย<br>ให้มูลนิธิ','','#E8303A',2),
   ('<b>สิงหาคม</b><small>ถึง</small><b>ตุลาคม</b>','มูลนิธิพิจารณา<br>ทุนรอบรอฟังผล','เฉพาะผู้ที่ส่งหลักฐาน<br>ยืนยันการย้ายแล้ว<br>เท่านั้น','#F07A12',0),
   ('<b>พฤศจิกายน</b>','ประกาศรายชื่อ<br>ผู้ได้รับทุน<br>รอบรอฟังผล','','#12A87A',1),
   ('<b>ธันวาคม</b>','มูลนิธิส่ง<br>ตั๋วแลกเงิน<br>ไปที่สถานศึกษา','','#2F6FED',0)]]
@@ -48,9 +48,9 @@ def sched2(ti):
     cols=''
     for k,(d,t,note,c,hl) in enumerate(st):
         nt='<span class="sjnote nw">%s</span>'%note if note else ''
-        star='<em class="sjstar nw">ประกาศผล!</em>' if hl else ''
+        star='<em class="sjstar nw">ประกาศผล!</em>' if hl==1 else ('<em class="sjmid nw">สำคัญ!</em>' if hl==2 else '')
         cols+=('<div class="sjcol%s" style="--c:%s;--k:%d"><div class="sjm nw">%s</div><div class="sjn">%d</div>'
-               '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%(' hl' if hl else '',c,k,d,k+1,star,t,nt)
+               '<div class="sjc">%s<p class="nw">%s</p>%s</div></div>')%({1:' hl',2:' mid'}.get(hl,''),c,k,d,k+1,star,t,nt)
     return ('<section class="slide sjs s%d" data-t="slide" data-pos="after"%s>\n    '%(ti,' data-sched="1"' if ti==0 else '')+eb('กำหนดการ')+
             '\n    <div class="sjh pop" style="--i:0"><span class="sjtag t%s nw">%s</span><h2 class="sjt nw">%s</h2></div>'
             '\n    <div class="sj n%d"><div class="sjroad"><i></i></div>%s</div>\n  </section>')%(T['key'],T['tag'],T['title'],n,cols)
