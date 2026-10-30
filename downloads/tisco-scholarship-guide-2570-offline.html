@@ -1880,6 +1880,17 @@ body::before{background:
 .dlb svg{width:30px;height:30px;flex:none;background:rgba(255,255,255,.2);border-radius:10px;padding:4px}
 .dlb span{display:flex;flex-direction:column;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;white-space:nowrap}
 .dlb small{font-family:var(--body);font-weight:500;font-size:14px;opacity:.9}
+/* download buttons v2: tiny, bottom-left, hidden while presenting fullscreen */
+.slide.cover{position:absolute}
+.dlrow{position:absolute;left:56px;bottom:14px;margin:0;gap:8px;opacity:.55;transition:opacity .25s}
+.dlrow:hover{opacity:1}
+.dlb{padding:4px 12px 5px 6px;border-radius:10px;gap:6px;box-shadow:none;background:rgba(11,42,111,.08)!important;color:#27408A}
+.dlb:hover{transform:none;box-shadow:none;background:rgba(11,42,111,.16)!important}
+.dlb svg{width:20px;height:20px;padding:2px;border-radius:6px;background:transparent}
+.dlb span{font-size:13px;font-weight:600}
+html:fullscreen .dlrow{display:none}
+@media (display-mode:fullscreen){.dlrow{display:none}}
+.dlrow{bottom:10px;left:58px;z-index:3}
 </style>
 </head>
 <body>
@@ -1912,7 +1923,7 @@ body::before{background:
         <h1 class="pop" style="--i:1">คู่มือสำหรับ<br>สถานศึกษา</h1>
         <p class="sub pop" style="--i:2">เพื่อใช้ชี้แจงให้นักเรียนทุน</p>
         <span class="org pop" style="--i:3">TISCO Foundation</span>
-        
+        <div class="dlrow" title="ดาวน์โหลดไฟล์"><a class="dlb pdf" href="downloads/tisco-scholarship-guide-2570.pdf" download="คู่มือสำหรับสถานศึกษา-ทุนการศึกษา-2570.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg><span>PDF</span></a><a class="dlb html" href="downloads/tisco-scholarship-guide-2570-offline.html" download="คู่มือทุนการศึกษา-2570-ออฟไลน์.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg><span>HTML ออฟไลน์</span></a></div>
       </div>
       <nav class="card agenda pop" style="--i:3"><h3>สารบัญ</h3><button data-go="2" style="--c:var(--red)"><i></i>ทุนการศึกษาและเกณฑ์<span>3</span></button><button data-go="5" style="--c:var(--yellow)"><i></i>เอกสารและวิธีการสมัคร<span>6</span></button><button data-go="9" style="--c:var(--blue)"><i></i>กำหนดการ<span>10</span></button><button data-go="11" style="--c:var(--orange)"><i></i>กรณีย้ายสถานศึกษา<span>12</span></button><button data-go="12" style="--c:var(--green)"><i></i>ประกาศผลและหลังประกาศ<span>13</span></button><button data-go="14" style="--c:var(--red)"><i></i>ข้อปฏิบัติและข้อห้าม<span>15</span></button><button data-go="15" style="--c:var(--blue)"><i></i>การใช้จ่ายเงินทุน<span>16</span></button><button data-go="16" style="--c:var(--yellow)"><i></i>แบบฟอร์มรายการใช้จ่าย<span>17</span></button><button data-go="19" style="--c:var(--green)"><i></i>ตัวอย่างใบเสร็จ<span>20</span></button><button data-go="23" style="--c:var(--orange)"><i></i>ติดต่อมูลนิธิ<span>24</span></button></nav>
     </div>

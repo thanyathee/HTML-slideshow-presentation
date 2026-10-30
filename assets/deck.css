@@ -1847,3 +1847,14 @@ body::before{background:
 .dlb svg{width:30px;height:30px;flex:none;background:rgba(255,255,255,.2);border-radius:10px;padding:4px}
 .dlb span{display:flex;flex-direction:column;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;white-space:nowrap}
 .dlb small{font-family:var(--body);font-weight:500;font-size:14px;opacity:.9}
+/* download buttons v2: tiny, bottom-left, hidden while presenting fullscreen */
+.slide.cover{position:absolute}
+.dlrow{position:absolute;left:56px;bottom:14px;margin:0;gap:8px;opacity:.55;transition:opacity .25s}
+.dlrow:hover{opacity:1}
+.dlb{padding:4px 12px 5px 6px;border-radius:10px;gap:6px;box-shadow:none;background:rgba(11,42,111,.08)!important;color:#27408A}
+.dlb:hover{transform:none;box-shadow:none;background:rgba(11,42,111,.16)!important}
+.dlb svg{width:20px;height:20px;padding:2px;border-radius:6px;background:transparent}
+.dlb span{font-size:13px;font-weight:600}
+html:fullscreen .dlrow{display:none}
+@media (display-mode:fullscreen){.dlrow{display:none}}
+.dlrow{bottom:10px;left:58px;z-index:3}
