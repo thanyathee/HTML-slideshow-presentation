@@ -1839,3 +1839,11 @@ body::before{background:
 .mule{background:#FFE58A;border-color:#F5C842;color:#0B2A6F}
 .s9 .lblrow .lblpill{font-size:21px;padding:6px 22px 8px;white-space:nowrap}
 .s9 .lblrow .lblpill{flex:1;width:100%;text-align:center;font-size:23px;padding:7px 18px 9px;align-self:stretch}
+/* cover: download buttons */
+.dlrow{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.dlb{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;border-radius:18px;padding:10px 20px 11px 14px;box-shadow:0 10px 22px rgba(11,42,111,.2);transition:transform .2s var(--ease),box-shadow .2s}
+.dlb:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(11,42,111,.28)}
+.dlb.pdf{background:#E8303A}.dlb.html{background:#1D55C4}
+.dlb svg{width:30px;height:30px;flex:none;background:rgba(255,255,255,.2);border-radius:10px;padding:4px}
+.dlb span{display:flex;flex-direction:column;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;white-space:nowrap}
+.dlb small{font-family:var(--body);font-weight:500;font-size:14px;opacity:.9}
