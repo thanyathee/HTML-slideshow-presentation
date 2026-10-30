@@ -1858,3 +1858,4 @@ body::before{background:
 html:fullscreen .dlrow{display:none}
 @media (display-mode:fullscreen){.dlrow{display:none}}
 .dlrow{bottom:10px;left:58px;z-index:3}
+.mule>span:last-child{white-space:normal;min-width:0;word-break:keep-all;overflow-wrap:normal;text-wrap:balance}.mule u{white-space:nowrap;display:inline-block}

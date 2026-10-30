@@ -257,7 +257,7 @@ for i in range(1,24):
             h+=('<div class="ddc dd-%s pop" style="--i:%d"><div class="ddh"><span class="ddic">%s</span><b class="nw">%s</b><small>%s</small></div><div class="ddl">%s</div></div>')%(k,j+1,mk[k],lab,en,li)
         body=('<div class="trow pop" style="--i:0"><h2 class="title">ข้อปฏิบัติและข้อห้ามของทุนต่อเนื่อง</h2><span class="tk-sub nw">อ่านให้ครบ ห้ามพลาด!</span></div>'
               '<div class="dd">'+h+'</div>'
-              '<div class="mule pop" style="--i:5"><span class="mico">!</span><b class="nw">ระวังบัญชีม้า!</b><span class="nw">อย่าให้ผู้อื่นยืม เช่า หรือซื้อบัญชีไปใช้งาน หากมีกรณีพิพาทหรือถูกอายัดบัญชี <u>จะถือว่าสละสิทธิ์การได้ทุน</u></span></div>')
+              '<div class="mule pop" style="--i:5"><span class="mico">!</span><b class="nw">ระวังบัญชีม้า!</b><span>อย่าให้ผู้อื่นยืม เช่า หรือซื้อบัญชีไปใช้งาน หากมีกรณีพิพาทหรือถูกอายัดบัญชี <u>จะถือว่าสละสิทธิ์การได้ทุน</u></span></div>')
         x=re.sub(r'<div class="trow pop".*?</section>',lambda m:body+'\n  </section>',x,flags=re.S)
     if n==16:
         G=lambda d,w='2.2':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%s" stroke-linecap="round" stroke-linejoin="round">%s</svg>'%(w,d)
