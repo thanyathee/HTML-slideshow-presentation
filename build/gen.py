@@ -414,7 +414,7 @@ html='''<!doctype html>
 <symbol id="check" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#2DD4A0"/><path d="M17 31l9 9 18-20" fill="none" stroke="#06133F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="cross" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FF5A64"/><path d="M20 20l20 20M40 20L20 40" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></symbol>
 </defs></svg>
-<div id="bg"></div><div class="veil"></div><div class="progress"><i></i></div>
+<div id="bg"></div><div class="veil"></div><div id="fbfull" aria-hidden="true"><div class="fbbox"><img src="images/follow-fb.jpg" alt=""><a class="fbhot2" href="https://www.facebook.com/tiscofoundation" target="_blank" rel="noopener" aria-label="เปิดเพจ Facebook TISCO Foundation"></a></div></div><div class="progress"><i></i></div>
 <div class="deck" id="deck">
 <div class="area" id="area">
 <div class="stage" id="stage">
