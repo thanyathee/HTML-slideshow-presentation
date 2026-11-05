@@ -42,16 +42,16 @@
 
   /* Fill the slide: scale each slide's content up (never down) until it uses the available width and height */
   function fillSlides(){
-    var PADX=72,PADY=38;
+    var PADX=72,PADY=38,EBH=42;
     slides.forEach(function(s){
       if(s.classList.contains('cover')||s.classList.contains('nofit'))return;
       var w=s.querySelector(':scope>.fit');
       if(!w){
         w=document.createElement('div');w.className='fit';
-        [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&c.classList.contains('confetti')))w.appendChild(c)});
+        [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&(c.classList.contains('confetti')||c.classList.contains('eyebrow'))))w.appendChild(c)});var eb=s.querySelector(':scope>.eyebrow');if(eb){eb.classList.add('ebf');s.classList.add('hasebf')}
         s.appendChild(w);
       }
-      var W=1280-PADX,H=720-PADY,lo=1,hi=1.32,k=1;w.style.minHeight='0';w.style.transform='none';
+      var W=1280-PADX,H=720-PADY-(s.classList.contains('hasebf')?EBH:0),lo=1,hi=1.32,k=1;w.style.minHeight='0';w.style.transform='none';
       function ok(x){w.style.width=(W/x)+'px';return w.offsetHeight*x<=H}
       if(ok(hi))k=hi;else{if(!ok(1)){lo=.72;hi=1}for(var i=0;i<10;i++){var m=(lo+hi)/2;if(ok(m)){k=m;lo=m}else hi=m}k=lo}
       w.style.width=(W/k)+'px';w.style.height='auto';w.style.minHeight=(H/k)+'px';w.style.transform='scale('+k+')';

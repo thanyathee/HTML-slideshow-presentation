@@ -1915,6 +1915,11 @@ body:has(.followfb[data-pos="active"]) #fbfull{opacity:1;visibility:visible;poin
 body:has(.followfb[data-pos="active"]) .fbbox{transform:translate(-50%,-50%)}
 body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .followfb .fbimg,.followfb .fbhot{display:none}
+/* uniform section label (eyebrow) on every slide: fixed size = slide 3, outside the auto-fit scaling */
+.slide .eyebrow.ebf{position:absolute;left:36px;top:21px;margin:0;transform:scale(1.135);transform-origin:0 0;z-index:3}
+.slide.hasebf{padding-top:64px}
+.slide.nofit .eyebrow{transform:scale(1.135);transform-origin:0 0;margin-bottom:4px}
+.card.list li span{white-space:nowrap}.card.list li{font-size:.97em}
 </style>
 </head>
 <body>
@@ -11176,16 +11181,16 @@ vec4 blend(const in vec4 x, const in vec4 y, const in float opacity) {
 
   /* Fill the slide: scale each slide's content up (never down) until it uses the available width and height */
   function fillSlides(){
-    var PADX=72,PADY=38;
+    var PADX=72,PADY=38,EBH=42;
     slides.forEach(function(s){
       if(s.classList.contains('cover')||s.classList.contains('nofit'))return;
       var w=s.querySelector(':scope>.fit');
       if(!w){
         w=document.createElement('div');w.className='fit';
-        [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&c.classList.contains('confetti')))w.appendChild(c)});
+        [].slice.call(s.childNodes).forEach(function(c){if(!(c.nodeType===1&&(c.classList.contains('confetti')||c.classList.contains('eyebrow'))))w.appendChild(c)});var eb=s.querySelector(':scope>.eyebrow');if(eb){eb.classList.add('ebf');s.classList.add('hasebf')}
         s.appendChild(w);
       }
-      var W=1280-PADX,H=720-PADY,lo=1,hi=1.32,k=1;w.style.minHeight='0';w.style.transform='none';
+      var W=1280-PADX,H=720-PADY-(s.classList.contains('hasebf')?EBH:0),lo=1,hi=1.32,k=1;w.style.minHeight='0';w.style.transform='none';
       function ok(x){w.style.width=(W/x)+'px';return w.offsetHeight*x<=H}
       if(ok(hi))k=hi;else{if(!ok(1)){lo=.72;hi=1}for(var i=0;i<10;i++){var m=(lo+hi)/2;if(ok(m)){k=m;lo=m}else hi=m}k=lo}
       w.style.width=(W/k)+'px';w.style.height='auto';w.style.minHeight=(H/k)+'px';w.style.transform='scale('+k+')';

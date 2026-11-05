@@ -1882,3 +1882,8 @@ body:has(.followfb[data-pos="active"]) #fbfull{opacity:1;visibility:visible;poin
 body:has(.followfb[data-pos="active"]) .fbbox{transform:translate(-50%,-50%)}
 body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .followfb .fbimg,.followfb .fbhot{display:none}
+/* uniform section label (eyebrow) on every slide: fixed size = slide 3, outside the auto-fit scaling */
+.slide .eyebrow.ebf{position:absolute;left:36px;top:21px;margin:0;transform:scale(1.135);transform-origin:0 0;z-index:3}
+.slide.hasebf{padding-top:64px}
+.slide.nofit .eyebrow{transform:scale(1.135);transform-origin:0 0;margin-bottom:4px}
+.card.list li span{white-space:nowrap}.card.list li{font-size:.97em}
