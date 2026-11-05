@@ -368,6 +368,10 @@ contact='''<section class="slide" data-t="zoom" data-pos="after">
  fb=ico('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/>'),
  q1=qr['scholarship'],q2=qr['website'],q3=qr['facebook'])
 out.append(('contact','cover',contact))
+out.append(('follow','cover','''<section class="slide nofit followfb" data-t="slide" data-pos="after">
+    <img class="fbimg" src="images/follow-fb.jpg" alt="ติดตามเพจ มูลนิธิทิสโก้ เพื่อการกุศล สแกน QR Code หรือค้นหา TISCO Foundation บน Facebook">
+    <a class="fbhot" href="https://www.facebook.com/tiscofoundation" target="_blank" rel="noopener" aria-label="เปิดเพจ Facebook TISCO Foundation"></a>
+  </section>'''))
 _sc=[o for o in out if o[0]=='sched']+[out[[o[0] for o in out].index('sched')+1]]
 out=[o for o in out if all(o is not x for x in _sc)]
 _m=[o[0] for o in out].index('move')
