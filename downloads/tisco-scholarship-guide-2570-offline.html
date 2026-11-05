@@ -1920,6 +1920,12 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .slide.hasebf{padding-top:64px}
 .slide.nofit .eyebrow{transform:scale(1.135);transform-origin:0 0;margin-bottom:4px}
 .card.list li span{white-space:nowrap}.card.list li{font-size:.97em}
+/* iPhone/Safari fixes */
+.card.list li{font-size:.92em}
+.mule>span:last-child{font-size:20px}
+.dd{flex:1 0 auto;min-height:auto}
+.ddc{overflow:visible}
+@media (min-aspect-ratio:16/9){.fbbox{top:0;transform:translate(-50%,0) scale(1.04)}body:has(.followfb[data-pos="active"]) .fbbox{transform:translate(-50%,0)}}
 </style>
 </head>
 <body>
