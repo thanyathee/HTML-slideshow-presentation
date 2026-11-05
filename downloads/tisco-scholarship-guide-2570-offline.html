@@ -1892,6 +1892,12 @@ html:fullscreen .dlrow{display:none}
 @media (display-mode:fullscreen){.dlrow{display:none}}
 .dlrow{bottom:10px;left:58px;z-index:3}
 .mule>span:last-child{white-space:normal;min-width:0;word-break:keep-all;overflow-wrap:normal;text-wrap:balance}.mule u{white-space:nowrap;display:inline-block}
+/* fix hairline seams at rounded corners when scaled (fullscreen): draw bottom color bar as inset shadow instead of border */
+.tk{border-bottom:0;box-shadow:inset 0 -7px 0 var(--c),0 12px 30px rgba(31,95,214,.14)}
+.ddc{border-bottom:0;box-shadow:inset 0 -7px 0 var(--c),0 12px 30px rgba(31,95,214,.14)}
+.up{border-bottom:0;box-shadow:inset 0 -7px 0 var(--pc),0 12px 30px rgba(31,95,214,.14)}
+.tk,.ddc,.up{backface-visibility:hidden}
+.tk p u,.ai b.lv{-webkit-box-decoration-break:clone;box-decoration-break:clone}
 </style>
 </head>
 <body>
