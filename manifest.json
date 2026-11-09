@@ -1,0 +1,1 @@
+{"name": "สไลด์คู่มือทุนการศึกษา", "short_name": "สไลด์คู่มือทุน", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#0B2A6F", "theme_color": "#1D55C4", "icons": [{"src": "images/tsg-icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "images/tsg-icon-512.png", "sizes": "512x512", "type": "image/png"}]}
