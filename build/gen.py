@@ -201,10 +201,17 @@ for i in range(1,24):
             tag=''
             tiles+='<div class="ktl%s" style="--c:%s;--k:%d"><div class="kth"><span class="krg"></span><span class="krg"></span><b class="nw">%s</b></div><div class="ktb nw">%s</div>%s</div>'%(' k'+f if f else '',c,k,m,t,tag)
         x=re.sub(r'<div class="p?track pop".*?</div>\s*</section>','\n  </section>',x,flags=re.S)
+        def _lv(*a): return '<span class="klv">'+''.join('<i>%s</i>'%v for v in a)+'</span>'
+        def _card(cls,c,top,big,body): return '<div class="lncard %s" style="--c:%s"><div class="lnd"><small class="nw">%s</small><b class="nw">%s</b></div><div class="lnb">%s</div></div>'%(cls,c,top,big,body)
+        _arr='<div class="lnarr"><svg viewBox="0 0 48 24"><path d="M2 12h38M32 4l10 8-10 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+        def _lane(k,cls,lab,send,ann,i): return '<div class="mvlane %s pop" style="--i:%d">%s%s%s</div>'%(cls,i,send,_arr,ann.replace('@@R@@','<div class="lnann"><small class="nw">ประกาศรายชื่อ</small><div class="lnlab"><em>%d</em><b class="nw">%s</b></div></div>'%(k,lab)))
+        MVT2=('<div class="mvstart pop" style="--i:1"><span class="mvsm"><b>มีนาคม</b></span><span class="nw">ประกาศหน้าเพจ Facebook <b>ให้ส่งหลักฐานยืนยันการย้ายสถานศึกษา</b></span></div>'
+          +_lane(1,'l1','รอบแรก',_card('snd','#F07A12','ส่งหลักฐานภายใน','15 พฤษภาคม',_lv('ป.6','ม.3')),_card('ann','#1D55C4','','มิถุนายน','@@R@@'),2)
+          +_lane(2,'l2','รอบรอฟังผล',_card('snd','#12A87A','ส่งหลักฐานภายใน','31 กรกฎาคม',_lv('ป.6','ม.3','ม.6','ปวช.3','ปวส.2')),_card('ann','#C8202B','','พฤศจิกายน','@@R@@'),3))
         MVTL=('<section class="slide mvt" data-t="slide" data-pos="after">\n    '+eb(SEC[12])+
           '\n    <div class="trow pop" style="--i:0"><h2 class="title">ช่วงเวลาส่งหลักฐานย้ายสถานศึกษา</h2></div>'
-          '\n    <div class="ktline pop" style="--i:1">'+tiles+'</div>'
-          '\n    <div class="warn mvtw pop" style="--i:2">ต้องส่งหลักฐานยืนยันการย้ายสถานศึกษาก่อน ถึงจะได้รับการพิจารณาทุน</div>\n  </section>')
+          '\n    <div class="mvt2">'+MVT2+'</div>'
+          '\n    <div class="warn mvtw pop" style="--i:4">ต้องส่งหลักฐานยืนยันการย้ายสถานศึกษาก่อน ถึงจะได้รับการพิจารณาทุน</div>\n  </section>')
     if n==13:
         ck='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         def it(t,cls=''): return '<div class="ai %s"><i>%s</i><span class="nw">%s</span></div>'%(cls,ck,t)
