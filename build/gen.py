@@ -180,11 +180,13 @@ for i in range(1,24):
     if n==12:
         x=x.replace('<li>หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษาของสถานศึกษาใหม่</li>','<li class="nw">หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษา<br>ของสถานศึกษาใหม่</li>')
         x=x.replace('น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่ในปีการศึกษาหน้า','<span class="wl nw">น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูล</span><span class="wl nw">ตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่</span><span class="wl nw">ในปีการศึกษาหน้า</span>')
+        fb='<svg viewBox="0 0 24 24"><path fill="#fff" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>'
+        x=x.replace('<span class="wl nw">ในปีการศึกษาหน้า</span></div>','<span class="wl nw">ในปีการศึกษาหน้า</span><div class="mvch"><div class="mvct"><span class="mvfb nw"><i>'+fb+'</i><span><small>ส่งทางเพจ Facebook</small><b>TISCO Foundation</b></span></span></div><button class="mvpost" type="button" aria-label="ดูโปสเตอร์"><img src="images/move-proof.jpg" alt="โปสเตอร์การส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่"><span>แตะเพื่อขยาย</span></button></div></div>',1)
         x=x.replace('<b>15 พ.ค.</b>','<b>15 พฤษภาคม</b>').replace('<b>31 ก.ค.</b>','<b>31 กรกฎาคม</b>')
         x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน')
-        x=x.replace('<section class="slide"','<section class="slide mvs"',1)
+        x=x.replace('<section class="slide"','<section class="slide mvs" data-maxk="1.12"',1)
         x=x.replace('<div class="card ev pop" style="--i:2"><b>','<div class="card ev mvproof pop" style="--i:2"><em class="mvone nw">ใช้อย่างใดอย่างหนึ่ง</em><b>',1)
-        cal=[('มีนาคม','#2F6FED','ประกาศหน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
+        cal=[('มีนาคม','#2F6FED','ประกาศ<br>หน้าเพจ Facebook<br>ให้ส่งหลักฐาน',''),
              ('15 พฤษภาคม','#F07A12','<span class="klv"><i>ป.6</i><i>ม.3</i></span><br>ส่งหลักฐานย้าย','dl'),
              ('มิถุนายน','#12A87A','ประกาศรายชื่อ (1)<br><span class="krd r1">รอบแรก</span>','an'),
              ('31 กรกฎาคม','#E8303A','<span class="klv"><i>ป.6</i><i>ม.3</i><i>ม.6</i></span><br><span class="klv"><i>ปวช.3</i><i>ปวส.2</i></span><br>ส่งหลักฐาน','dl'),
@@ -193,7 +195,11 @@ for i in range(1,24):
         for k,(m,c,t,f) in enumerate(cal):
             tag=''
             tiles+='<div class="ktl%s" style="--c:%s;--k:%d"><div class="kth"><span class="krg"></span><span class="krg"></span><b class="nw">%s</b></div><div class="ktb nw">%s</div>%s</div>'%(' k'+f if f else '',c,k,m,t,tag)
-        x=re.sub(r'<div class="p?track pop".*?</div>\s*</section>','<div class="ktline pop" style="--i:4">'+tiles+'</div>\n  </section>',x,flags=re.S)
+        x=re.sub(r'<div class="p?track pop".*?</div>\s*</section>','\n  </section>',x,flags=re.S)
+        MVTL=('<section class="slide mvt" data-t="slide" data-pos="after">\n    '+eb(SEC[12])+
+          '\n    <div class="trow pop" style="--i:0"><h2 class="title">ช่วงเวลาส่งหลักฐานย้ายสถานศึกษา</h2></div>'
+          '\n    <div class="ktline pop" style="--i:1">'+tiles+'</div>'
+          '\n    <div class="warn mvtw pop" style="--i:2">ต้องส่งหลักฐานยืนยันการย้ายสถานศึกษาก่อน ถึงจะได้รับการพิจารณาทุน</div>\n  </section>')
     if n==13:
         ck='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         def it(t,cls=''): return '<div class="ai %s"><i>%s</i><span class="nw">%s</span></div>'%(cls,ck,t)
@@ -344,6 +350,7 @@ for i in range(1,24):
     if n==17:
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
     out.append((KEYS.get(n,''),OLDMOOD[n],x))
+    if n==12: out.append(('',OLDMOOD[n],MVTL))
 def ico(p): return '<svg viewBox="0 0 24 24">%s</svg>'%p
 contact='''<section class="slide" data-t="zoom" data-pos="after">
     <div class="eyebrow pop" style="--i:0"><i></i><b>ติดต่อ</b><span>@@N@@ / @@T@@</span></div>
