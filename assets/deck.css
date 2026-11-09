@@ -2025,3 +2025,6 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .mvs .mvleft{align-items:center;gap:16px}
 .mvs .mvch.mvbox{align-self:stretch;margin:0 14px}
 .mvs .mvpost.mvbig{width:478px;max-width:100%}
+.mvs .who .mvck{display:flex;align-items:center;gap:10px;font-weight:700;color:#1D55C4}
+.mvs .who .mvck i{flex:0 0 28px;width:28px;height:28px;border-radius:7px;background:#12A87A;display:grid;place-items:center}
+.mvs .who .mvck svg{width:20px;height:20px}
