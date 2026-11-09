@@ -1982,3 +1982,46 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .mvs .card.who{overflow:visible}
 .mvs .mvct::before{font-family:var(--display);font-size:24px;font-weight:700;color:#0B2A6F;line-height:1.2;padding-left:14px;border-left:6px solid #E8303A;border-radius:2px}
 .mvs .mvct{gap:12px}
+/* slide 12 layout v3: poster left, two cards right */
+.mvs .row2.mvl{display:grid;grid-template-columns:1fr 1.08fr;gap:26px;align-items:center;margin-top:4px}
+.mvs .mvr{display:flex;flex-direction:column;gap:30px;min-width:0}
+.mvs .mvpost.mvbig{width:auto;flex:none;margin:0;transform:rotate(-1.5deg);border-radius:20px;box-shadow:0 18px 40px rgba(11,42,111,.25);border:5px solid #fff}
+.mvs .mvpost.mvbig:hover{transform:rotate(0) scale(1.02)}
+.mvs .mvpost.mvbig span{font-size:15px;padding:5px 0 7px}
+.mvs .mvch{border-top:2px dashed #CFE0FA;padding-top:12px;margin-top:12px;justify-content:flex-start}
+.mvs .mvct{flex-direction:row;align-items:center;gap:16px}
+.mvs .card.who,.mvs .card.ev{padding-bottom:18px!important}
+.mvs .who .wl{font-size:21px;line-height:1.5}
+.mvs .ev ul{gap:4px}
+.mvs .ev li{font-size:21px}
+.mvs .warn{margin-top:22px}
+.mvs .mvr{gap:34px}
+.mvs .row2.mvl{margin-top:14px}
+.mvs .mvpost.mvbig span{left:auto;right:12px;bottom:12px;border-radius:999px;padding:4px 14px 6px;font-size:14px}
+.mvs .mvr{gap:28px}
+.mvs .row2.mvl{margin-top:-8px}
+.mvs .mvch{padding-top:10px;margin-top:10px}
+.mvs .ev li{font-size:24px;line-height:1.45}
+.mvs .ev ul{gap:12px;padding-top:6px;padding-bottom:8px}
+.mvs .card.ev{padding-bottom:24px!important}
+.mvs .row2 .who>b,.mvs .row2 .ev>b{font-size:32px;padding:10px 26px 12px}
+.mvs .row2 .ev>b{font-size:34px}
+.mvs .who .wl{font-size:20px;line-height:1.45}
+.mvs .mvr{gap:26px}
+.mvs .ev li::marker{font-size:1.1em}
+.mvs .card.who{padding-bottom:14px!important}
+.mvs .row2.mvl{margin-top:-14px}
+.mvs .card.ev{padding-bottom:12px!important}
+.mvs .ev ul{padding-bottom:0;margin-bottom:0}
+/* slide 12 v4: channel box above poster */
+.mvs .mvleft{display:flex;flex-direction:column;gap:20px;min-width:0}
+.mvs .mvch.mvbox{position:static;margin:0;padding:12px 20px;border:0;border-top:0;background:#fff;border-radius:20px;box-shadow:0 10px 24px rgba(31,95,214,.14);display:flex;justify-content:center}
+.mvs .mvbox .mvct{flex-direction:row;align-items:center;gap:18px}
+.mvs .mvbox .mvct::before{font-size:26px}
+.mvs .mvpost.mvbig{transform:rotate(-1deg)}
+.mvs .who .wl{font-size:24px;line-height:1.5}
+.mvs .card.who{padding-bottom:18px!important}
+.mvs .row2.mvl{align-items:center;margin-top:-6px}
+.mvs .mvleft{align-items:center;gap:16px}
+.mvs .mvch.mvbox{align-self:stretch;margin:0 14px}
+.mvs .mvpost.mvbig{width:478px;max-width:100%}

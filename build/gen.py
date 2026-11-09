@@ -181,7 +181,12 @@ for i in range(1,24):
         x=x.replace('<li>หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษาของสถานศึกษาใหม่</li>','<li class="nw">หนังสือรับรองสถานภาพการเป็นนักเรียน/นักศึกษา<br>ของสถานศึกษาใหม่</li>')
         x=x.replace('น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูลตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่ในปีการศึกษาหน้า','<span class="wl nw">น้องๆ ทั้งทุนใหม่และทุนต่อเนื่อง ที่กรอกข้อมูล</span><span class="wl nw">ตอนสมัครว่า จะย้าย/เปลี่ยนสถานศึกษาใหม่</span><span class="wl nw">ในปีการศึกษาหน้า</span>')
         fb='<svg viewBox="0 0 24 24"><path fill="#fff" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>'
-        x=x.replace('<span class="wl nw">ในปีการศึกษาหน้า</span></div>','<span class="wl nw">ในปีการศึกษาหน้า</span><div class="mvch"><div class="mvct"><span class="mvfb nw"><i>'+fb+'</i><span><small>ส่งทางเพจ Facebook</small><b>TISCO Foundation</b></span></span></div><button class="mvpost" type="button" aria-label="ดูโปสเตอร์"><img src="images/move-proof.jpg" alt="โปสเตอร์การส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่"><span>แตะเพื่อขยาย</span></button></div></div>',1)
+        x=x.replace('<span class="wl nw">ในปีการศึกษาหน้า</span></div>','<span class="wl nw">ในปีการศึกษาหน้า</span><div class="mvch"><div class="mvct"><span class="mvfb nw"><i>'+fb+'</i><span><small>แจ้งหน้าเพจ Facebook</small><b>TISCO Foundation</b></span></span></div></div></div>',1)
+        def _mvl(m):
+            g=m.group(1); ch=re.search(r'<div class="mvch">.*?</span></span></div></div>',g,flags=re.S).group(0); g=g.replace(ch,'')
+            return '<div class="row2 mvl"><div class="mvleft">'+ch.replace('class="mvch"','class="mvch mvbox pop" style="--i:1"')+'<button class="mvpost mvbig pop" style="--i:2" type="button" aria-label="ดูโปสเตอร์"><img src="images/move-proof.jpg" alt="โปสเตอร์การส่งหลักฐานยืนยันการย้ายสถานศึกษาใหม่"><span>แตะเพื่อขยาย</span></button></div><div class="mvr">'+g+'</div></div>'
+        x=re.sub(r'<div class="row2">(.*?</ul></div>)\s*</div>',_mvl,x,count=1,flags=re.S)
+        x=re.sub(r'\s*<div class="warn pop"[^>]*>.*?</div>','',x,count=1,flags=re.S)
         x=x.replace('<b>15 พ.ค.</b>','<b>15 พฤษภาคม</b>').replace('<b>31 ก.ค.</b>','<b>31 กรกฎาคม</b>')
         x=x.replace('<b>31 ม.ค.</b>ปิดรับสมัคร','<b>มีนาคม</b>แจ้งหน้าเพจ Facebook<br>ให้ส่งหลักฐาน')
         x=x.replace('<section class="slide"','<section class="slide mvs" data-maxk="1.12"',1)
