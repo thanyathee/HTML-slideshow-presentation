@@ -36,6 +36,7 @@ def img(m):
     return cache[p]
 html = re.sub(r'images/[A-Za-z0-9_.-]+\.(?:jpg|jpeg|png|svg)', img, html)
 html = re.sub(r'<div class="dlrow[^"]*"[^>]*>.*?</a></div>', '', html, flags=re.S)
+html = re.sub(r'<link rel="manifest"[^>]*>\n?', '', html)
 open(OUT, 'w', encoding='utf-8').write(html)
 left = re.findall(r'(?:src|href)="(?!data:|#|https?:|mailto:)[^"]+"', html)
 print('size MB', round(os.path.getsize(OUT) / 1e6, 1), 'external refs left:', left[:5], 'remote:', re.findall(r'https://fonts[^"\')]+', html)[:3])
