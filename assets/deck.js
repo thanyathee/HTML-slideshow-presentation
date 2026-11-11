@@ -206,8 +206,8 @@
   document.addEventListener('keydown',function(e){
     var k=e.key,btn=e.target&&e.target.tagName==='BUTTON';
     if(k==='Escape'){hideZoom();return}
-    if(k==='ArrowRight'||k==='PageDown'||(k===' '&&!btn)){e.preventDefault();go(cur+1)}
-    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();go(cur-1)}
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||(k===' '&&!btn)){e.preventDefault();go(cur+1)}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();go(cur-1)}
     else if(k==='Home')go(0);else if(k==='End')go(N-1);
     else if(k==='f'||k==='F')toggleFs();
   });
