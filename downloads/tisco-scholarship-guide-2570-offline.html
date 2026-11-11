@@ -2183,6 +2183,18 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .fxs .fxic{flex:0 0 46px;width:46px;height:46px;padding:9px;border-radius:14px;background:#fff;color:#1D55C4;box-shadow:0 4px 10px rgba(29,85,196,.18)}
 .fxs .fxst.fx1 .fxic{color:#E8303A;box-shadow:0 4px 10px rgba(232,48,58,.18)}
 .slide[data-pos="active"].fxs .fxic{animation:fxChip .6s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:1s}
+/* slide 3: horizontal slack so wider font rendering doesn't overflow */
+.s3 .card.list li{font-size:21px}
+.s3 .arow,.s3 .arow span,.s3 .arow b{font-size:25px}
+.s3 .arow{gap:18px}
+.card.list>h3,.card.amt>h3{font-size:27px}
+.s3{grid-template-columns:1.1fr 1fr}
+.s3{grid-template-columns:1.12fr 1fr}
+.s3 .card.list li{font-size:20px}
+.s3 .card.list li span{white-space:normal!important}
+.s3 .arow span{flex:1 1 auto!important;min-width:0;white-space:normal!important}
+.s3 .arow b{flex:none}
+.card.amt>h3{font-size:25px}
 </style>
 </head>
 <body>

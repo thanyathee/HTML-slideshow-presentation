@@ -18,7 +18,8 @@ for fam, pkg, ws in fams:
                 print('missing', p); continue
             css += "@font-face{font-family:'%s';font-style:normal;font-weight:%d;font-display:block;src:url(data:font/woff2;base64,%s) format('woff2');unicode-range:%s}\n" % (fam, w, b64(p), rng)
 html = re.sub(r'<link rel="preconnect"[^>]*>\s*', '', html)
-html = re.sub(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com[^>]*>', '<style>' + css + '</style>', html)
+html = re.sub(r'<link rel="preload"[^>]*>\s*', '', html)
+html = html.replace('<link rel="stylesheet" href="assets/fonts.css">', '<style>' + css + '</style>')
 def inline_css(m):
     c = open(os.path.join(R, m.group(1)), encoding='utf-8').read()
     return '<style>' + c + '</style>'
