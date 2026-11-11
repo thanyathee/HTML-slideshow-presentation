@@ -121,7 +121,6 @@
     if(n!==cur||!slides[n].dataset.ready)clear();
     var sp=slides[cur],sn=slides[n];
     if(n===cur+1&&sp.classList.contains('s1')&&sn.classList.contains('mvs'))morph(sp,sn);
-    if(n===cur+1&&sp.querySelector('.docs.d9:not(.d9b)')&&sn.querySelector('.docs.d9b'))docMorph(sp,sn);
     if(sp!==sn&&sp.dataset.strip!==undefined&&sn.dataset.strip!==undefined){
       sn.classList.add('keep');applyGroup(sn,+sp.dataset.strip,false);void sn.offsetWidth;
       requestAnimationFrame(function(){applyGroup(sn,+sn.dataset.strip,true)});
