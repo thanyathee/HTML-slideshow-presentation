@@ -2191,3 +2191,18 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .mmwrap .card{box-sizing:border-box}
 .card.doc.mmhide{opacity:0!important;animation:none!important}
 .slide.mmrun .card.doc.mmhide~*{}
+/* magic move v2: plain crossfade for the two slides, new cards wait */
+.slide.mmgo{transition:opacity .45s ease,visibility 0s .45s!important;transform:none!important;filter:none!important}
+.slide.mmgo[data-pos="active"]{transition:opacity .45s ease,visibility 0s 0s!important}
+.slide.mmrun .card.doc.pop:not(.mmhide){animation-delay:calc(.75s + var(--i,0)*.07s)!important}
+.mmwrap{will-change:transform,opacity}
+.slide.mmgo{transition:opacity .35s ease,visibility 0s .35s!important}
+.slide.mmrun .pop:not(.card){animation-delay:.05s!important;animation-duration:.6s!important}
+.slide.mmrun .card.doc.pop:not(.mmhide){animation-delay:calc(.7s + var(--i,0)*.06s)!important}
+/* slide 15: bigger announce block, centered March banner */
+.lnann{gap:6px}
+.lnann small{font-size:32px}
+.mvlane .lnlab em{width:52px;height:52px;font-size:30px}
+.mvlane .lnlab b{font-size:36px}
+.mvlane .lnlab{gap:14px}
+.mvstart{justify-content:center}

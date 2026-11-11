@@ -96,25 +96,32 @@
       var src={};[].forEach.call(from.querySelectorAll('.docs .card.doc'),function(c){src[docKey(c)]=c});
       var pairs=[];[].forEach.call(to.querySelectorAll('.docs .card.doc'),function(c){var k=docKey(c);if(src[k])pairs.push([src[k],c])});
       if(!pairs.length)return;
-      var tr=to.style.transition,tf=to.style.transform,fl=to.style.filter;
-      to.style.transition='none';to.style.transform='none';to.style.filter='none';
+      var r0s=pairs.map(function(p){return p[0].getBoundingClientRect()});
+      from.classList.add('mmgo');to.classList.add('mmgo','mmrun');
+      var tr=to.style.transition;to.style.transition='none';
       var r1s=pairs.map(function(p){return p[1].getBoundingClientRect()});
-      void to.offsetWidth;to.style.transition=tr;to.style.transform=tf;to.style.filter=fl;
-      to.classList.add('mmrun');
+      void to.offsetWidth;to.style.transition=tr;
+      var D=800,E='cubic-bezier(.4,0,.2,1)',wraps=[];
+      function mk(card,w,h){var wr=document.createElement('div');wr.className='mmwrap';var inn=document.createElement('div');inn.className=card.parentNode.className;inn.style.cssText='display:block;margin:0;padding:0';
+        var c=card.cloneNode(true);c.classList.remove('pop','mmhide');c.style.cssText='margin:0;width:100%;height:100%;animation:none;opacity:1;transform:none;box-sizing:border-box';
+        inn.style.width='100%';inn.style.height='100%';inn.appendChild(c);wr.appendChild(inn);wr.style.width=w+'px';wr.style.height=h+'px';document.body.appendChild(wr);return wr}
       pairs.forEach(function(p,i){
-        var a=p[0],b=p[1],r0=a.getBoundingClientRect(),r1=r1s[i];
-        var w=a.offsetWidth,h=a.offsetHeight,wrap=document.createElement('div');wrap.className='mmwrap';
-        var inner=document.createElement('div');inner.className=a.parentNode.className;inner.style.cssText='display:block;margin:0;padding:0;gap:0';
-        var cl=a.cloneNode(true);cl.classList.remove('pop');cl.style.cssText='margin:0;width:'+w+'px;height:'+h+'px;animation:none;opacity:1;transform:none';
-        inner.appendChild(cl);wrap.appendChild(inner);document.body.appendChild(wrap);
-        b.classList.add('mmhide');a.classList.add('mmhide');setTimeout(function(){a.classList.remove('mmhide')},1600);
-        var t0='translate('+r0.left+'px,'+r0.top+'px) scale('+(r0.width/w)+','+(r0.height/h)+')',
-            t1='translate('+r1.left+'px,'+r1.top+'px) scale('+(r1.width/w)+','+(r1.height/h)+')';
-        var d=i*60;
-        wrap.animate([{transform:t0},{transform:t1}],{duration:950,delay:d,easing:'cubic-bezier(.65,0,.25,1)',fill:'forwards'});
-        setTimeout(function(){b.classList.remove('mmhide');wrap.animate([{opacity:1},{opacity:0}],{duration:300,fill:'forwards'}).onfinish=function(){wrap.remove()}},1000+d);
+        var a=p[0],b=p[1],r0=r0s[i],r1=r1s[i];
+        var aw=a.offsetWidth,ah=a.offsetHeight,bw=b.offsetWidth,bh=b.offsetHeight,k0=r0.width/aw,k1=r1.width/bw;
+        var same=docKey(a)===docKey(b)&&a.querySelector('.dt').textContent===b.querySelector('.dt').textContent;
+        var f0={transform:'translate('+r0.left+'px,'+r0.top+'px) scale('+k0+')',width:aw+'px',height:ah+'px'},
+            f1={transform:'translate('+r1.left+'px,'+r1.top+'px) scale('+k1+')',width:bw+'px',height:bh+'px'};
+        var wb=mk(b,bw,bh);wb.animate([f0,f1],{duration:D,easing:E,fill:'forwards'});wraps.push(wb);
+        if(!same){var wa=mk(a,aw,ah);wa.animate([f0,f1],{duration:D,easing:E,fill:'forwards'});wa.animate([{opacity:1},{opacity:1,offset:.2},{opacity:0,offset:.6},{opacity:0}],{duration:D,fill:'forwards',composite:'replace'});
+          wb.animate([{opacity:0},{opacity:0,offset:.2},{opacity:1,offset:.6},{opacity:1}],{duration:D,fill:'forwards'});wraps.push(wa)}
+        a.classList.add('mmhide');b.classList.add('mmhide');
       });
-      setTimeout(function(){to.classList.remove('mmrun')},1500);
+      setTimeout(function(){
+        pairs.forEach(function(p){p[0].classList.remove('mmhide');p[1].classList.remove('mmhide')});
+        requestAnimationFrame(function(){wraps.forEach(function(x){x.remove()})});
+        from.classList.remove('mmgo');
+        setTimeout(function(){to.classList.remove('mmgo','mmrun')},900);
+      },D+20);
     }catch(e){}
   }
   function go(n){
