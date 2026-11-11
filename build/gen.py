@@ -104,7 +104,7 @@ FX2=fxslide('form-advisor.jpg','จดหมายรับรองความ
   ['<span class="nw">ข้อมูลอาจารย์ <b>คณะ ภาควิชา เบอร์โทร E-mail</b></span>',
    '<span class="nw">ข้อมูลนักศึกษา <b>ชั้นปี คณะ สาขา หลักสูตร</b></span>',
    '<span class="nw">ความเห็นของอาจารย์ <b>ลงชื่อ และวันที่</b></span>'],
-  '<span class="nw">ไม่ต้องระบุข้อมูลอ่อนไหว เช่น เชื้อชาติ ศาสนา</span><span class="nw">สุขภาพ ความพิการ ของนักศึกษาและครอบครัว</span>')
+  '')
 
 
 for i in range(1,24):
@@ -235,7 +235,7 @@ for i in range(1,24):
         def _card(cls,c,top,big,body): return '<div class="lncard %s" style="--c:%s"><div class="lnd"><small class="nw">%s</small><b class="nw">%s</b></div><div class="lnb">%s</div></div>'%(cls,c,top,big,body)
         _arr='<div class="lnarr"><svg viewBox="0 0 48 24"><path d="M2 12h38M32 4l10 8-10 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
         def _lane(k,cls,lab,send,ann,i): return '<div class="mvlane %s pop" style="--i:%d">%s%s%s</div>'%(cls,i,send,_arr,ann.replace('@@R@@','<div class="lnann"><small class="nw">ประกาศรายชื่อ</small><div class="lnlab"><em>%d</em><b class="nw">%s</b></div></div>'%(k,lab)))
-        MVT2=('<div class="mvstart pop" style="--i:1"><span class="mvsm"><b>มีนาคม</b></span><span class="nw">ประกาศหน้าเพจ Facebook <b>ให้ส่งหลักฐานยืนยันการย้ายสถานศึกษา</b></span></div>'
+        MVT2=('<div class="mvstart pop" style="--i:1"><span class="mvsm"><b>มีนาคม</b></span><svg class="mvmeg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4a1 1 0 0 0 1 1h2l5 4V5L6 9H4a1 1 0 0 0-1 1z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="nw">ประกาศหน้าเพจ Facebook <b>ให้ส่งหลักฐานยืนยันการย้ายสถานศึกษา</b></span></div>'
           +_lane(1,'l1','รอบแรก',_card('snd','#F07A12','ส่งหลักฐานภายใน','15 พฤษภาคม',_lv('ป.6','ม.3')),_card('ann','#1D55C4','','มิถุนายน','@@R@@'),2)
           +_lane(2,'l2','รอบรอฟังผล',_card('snd','#12A87A','ส่งหลักฐานภายใน','31 กรกฎาคม',_lv('ป.6','ม.3','ม.6','ปวช.3','ปวส.2')),_card('ann','#C8202B','','พฤศจิกายน','@@R@@'),3))
         MVTL=('<section class="slide mvt" data-t="slide" data-pos="after">\n    '+eb(SEC[12])+

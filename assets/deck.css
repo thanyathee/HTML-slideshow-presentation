@@ -1765,10 +1765,10 @@ body::before{background:
 .rcps.n4 .rcp:nth-child(odd){transform:rotate(-1.5deg)}.rcps.n4 .rcp:nth-child(even){transform:rotate(1.5deg)}
 .slide[data-pos="active"] .rseq.n4 .rcp{animation:var(--an) 14s cubic-bezier(.45,0,.25,1) .6s both}
 .rseq.n4 .rcp:nth-child(1){--an:rq1;--tx:155%}.rseq.n4 .rcp:nth-child(2){--an:rq2;--tx:52%}.rseq.n4 .rcp:nth-child(3){--an:rq3;--tx:-52%}.rseq.n4 .rcp:nth-child(4){--an:rq4;--tx:-155%}
-@keyframes rq1{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg);z-index:1}15%,24%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}30%{opacity:1;transform:rotate(-1.5deg);z-index:1}32%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
-@keyframes rq2{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,28%{opacity:.25}30%{opacity:1;transform:rotate(1.5deg);z-index:1}36%,45%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}51%{opacity:1;transform:rotate(1.5deg);z-index:1}53%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(1.5deg)}}
-@keyframes rq3{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg)}11%,49%{opacity:.25}51%{opacity:1;transform:rotate(-1.5deg);z-index:1}57%,66%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}72%{opacity:1;transform:rotate(-1.5deg);z-index:1}74%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
-@keyframes rq4{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,70%{opacity:.25}72%{opacity:1;transform:rotate(1.5deg);z-index:1}78%,84%{opacity:1;transform:translateX(var(--tx)) translateY(-10%) scale(1.45);z-index:5}90%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
+@keyframes rq1{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg);z-index:1}15%,24%{opacity:1;transform:translateX(var(--tx)) translateY(-13%) scale(1.75);z-index:5}30%{opacity:1;transform:rotate(-1.5deg);z-index:1}32%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
+@keyframes rq2{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,28%{opacity:.25}30%{opacity:1;transform:rotate(1.5deg);z-index:1}36%,45%{opacity:1;transform:translateX(var(--tx)) translateY(-13%) scale(1.75);z-index:5}51%{opacity:1;transform:rotate(1.5deg);z-index:1}53%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(1.5deg)}}
+@keyframes rq3{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(-1.5deg)}11%,49%{opacity:.25}51%{opacity:1;transform:rotate(-1.5deg);z-index:1}57%,66%{opacity:1;transform:translateX(var(--tx)) translateY(-13%) scale(1.75);z-index:5}72%{opacity:1;transform:rotate(-1.5deg);z-index:1}74%,84%{opacity:.25}88%,100%{opacity:1;transform:rotate(-1.5deg)}}
+@keyframes rq4{0%{opacity:0;transform:translateY(30px)}5%,9%{opacity:1;transform:rotate(1.5deg)}11%,70%{opacity:.25}72%{opacity:1;transform:rotate(1.5deg);z-index:1}78%,84%{opacity:1;transform:translateX(var(--tx)) translateY(-13%) scale(1.75);z-index:5}90%,100%{opacity:1;transform:rotate(1.5deg);z-index:1}}
 .slide[data-pos="active"] .rseq.n4 .rcp:nth-child(n){animation:var(--an) 14s cubic-bezier(.45,0,.25,1) .6s both}
 .rseq.n4 .rcp:nth-child(4){--tx:-172%}.rseq.n4 .rcp:nth-child(3){--tx:-58%}
 .brand{background:none;border:0;padding:4px 8px;margin:-4px -8px;border-radius:8px;cursor:pointer;z-index:20;transition:background .2s,color .2s,opacity .5s}.brand:hover{background:rgba(29,85,196,.1);color:#1D55C4}
@@ -2154,3 +2154,40 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .s3 .arow span{flex:1 1 auto!important;min-width:0;white-space:normal!important}
 .s3 .arow b{flex:none}
 .card.amt>h3{font-size:25px}
+/* slide 10: bigger text in top two boxes, same box size */
+.s9 .card.top{height:86px;box-sizing:border-box;padding-top:0;padding-bottom:0}
+.s9 .card.top>span{font-size:38px;line-height:1.2}
+/* slide 15: bigger level chips (same card size) */
+.mvt .lncard{height:120px;min-height:0}
+.mvt .lnb{padding:8px 10px}
+.mvt .lnb .klv{max-width:none;gap:8px 10px}
+.mvt .l1 .lnb .klv i{font-size:42px;padding:4px 22px 7px;border-radius:14px}
+.mvt .l2 .lnb .klv{max-width:280px}
+.mvt .l2 .lnb .klv i{font-size:29px;padding:2px 13px 4px;border-radius:11px}
+/* slide 15: March banner — highlighted + motion */
+.mvstart{position:relative;overflow:hidden;font-size:24px;padding:12px 26px 12px 12px;background:linear-gradient(90deg,#FFFFFF,#EEF5FF);box-shadow:0 0 0 3px #2F6FED,0 12px 28px rgba(47,111,237,.28)}
+.mvstart b{color:#1D55C4}
+.mvsm{font-size:26px;box-shadow:0 6px 14px rgba(47,111,237,.35)}
+.mvmeg{flex:0 0 40px;width:40px;height:40px;color:#E8303A;transform-origin:30% 50%}
+.mvstart::after{content:"";position:absolute;top:0;bottom:0;left:-30%;width:22%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);pointer-events:none}
+.slide[data-pos="active"].mvt .mvstart::after{animation:mvShine 3.2s ease-in-out 1s infinite}
+.slide[data-pos="active"].mvt .mvmeg{animation:mvMeg 1.6s ease-in-out .8s infinite}
+.slide[data-pos="active"].mvt .mvsm{animation:mvPulse 1.6s ease-in-out .8s infinite}
+@keyframes mvShine{0%{left:-30%}60%,100%{left:120%}}
+@keyframes mvMeg{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(-14deg) scale(1.1)}20%{transform:rotate(10deg) scale(1.1)}30%{transform:rotate(-8deg)}40%{transform:rotate(4deg)}}
+@keyframes mvPulse{0%,100%{box-shadow:0 6px 14px rgba(47,111,237,.35),0 0 0 0 rgba(47,111,237,.45)}50%{box-shadow:0 6px 14px rgba(47,111,237,.35),0 0 0 10px rgba(47,111,237,0)}}
+@media (prefers-reduced-motion:reduce){.slide[data-pos="active"].mvt .mvstart::after,.slide[data-pos="active"].mvt .mvmeg,.slide[data-pos="active"].mvt .mvsm{animation:none}}
+.mvstart .mvsm b{color:#fff}
+.mvstart>span.nw{font-weight:600;color:#0B2A6F}
+.mvt .l2 .lnb .klv{max-width:300px}
+.mvt .l2 .lnb .klv i{font-size:31px}
+/* slides 8-9: form zooms out into place */
+.slide[data-pos="active"].fxs .mvpost.fxpaper{position:relative;z-index:5;animation:fxZoom 1.9s cubic-bezier(.2,.9,.25,1) .15s both}
+@keyframes fxZoom{0%{opacity:0;transform:translate(-84%,-2%) scale(1.45) rotate(-3deg);filter:blur(5px)}18%{opacity:1;filter:blur(0)}45%{transform:translate(-84%,-2%) scale(1.2) rotate(0)}100%{opacity:1;transform:rotate(1.2deg) scale(1);filter:none}}
+.slide[data-pos="active"].fxs .fxr>*{animation-delay:calc(1.35s + var(--i,0)*.08s)!important}
+@media (prefers-reduced-motion:reduce){.slide[data-pos="active"].fxs .mvpost.fxpaper{animation:none}}
+/* slide 6 -> 7 magic move */
+.mmwrap{position:fixed;left:0;top:0;z-index:60;transform-origin:0 0;pointer-events:none}
+.mmwrap .card{box-sizing:border-box}
+.card.doc.mmhide{opacity:0!important;animation:none!important}
+.slide.mmrun .card.doc.mmhide~*{}

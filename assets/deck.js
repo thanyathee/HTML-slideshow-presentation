@@ -89,11 +89,40 @@
       setTimeout(function(){tgt.classList.remove('mvhide');box.animate([{opacity:1},{opacity:0}],{duration:350,fill:'forwards'}).onfinish=function(){box.remove()}},950);
     }catch(e){}
   }
+  function docKey(c){var d=c.querySelector('.dt');if(!d)return '';var t=d.childNodes[0].textContent.replace(/\s+/g,'').trim();if(t.indexOf('แบบฟอร์มการขอรับทุนการศึกษา')===0)t='APPFORM';var sm=d.querySelector('small');return t+'|'+(sm?sm.textContent.replace(/\s+/g,''):'')}
+  function docMorph(from,to){
+    try{
+      if(lite||reduce)return;
+      var src={};[].forEach.call(from.querySelectorAll('.docs .card.doc'),function(c){src[docKey(c)]=c});
+      var pairs=[];[].forEach.call(to.querySelectorAll('.docs .card.doc'),function(c){var k=docKey(c);if(src[k])pairs.push([src[k],c])});
+      if(!pairs.length)return;
+      var tr=to.style.transition,tf=to.style.transform,fl=to.style.filter;
+      to.style.transition='none';to.style.transform='none';to.style.filter='none';
+      var r1s=pairs.map(function(p){return p[1].getBoundingClientRect()});
+      void to.offsetWidth;to.style.transition=tr;to.style.transform=tf;to.style.filter=fl;
+      to.classList.add('mmrun');
+      pairs.forEach(function(p,i){
+        var a=p[0],b=p[1],r0=a.getBoundingClientRect(),r1=r1s[i];
+        var w=a.offsetWidth,h=a.offsetHeight,wrap=document.createElement('div');wrap.className='mmwrap';
+        var inner=document.createElement('div');inner.className=a.parentNode.className;inner.style.cssText='display:block;margin:0;padding:0;gap:0';
+        var cl=a.cloneNode(true);cl.classList.remove('pop');cl.style.cssText='margin:0;width:'+w+'px;height:'+h+'px;animation:none;opacity:1;transform:none';
+        inner.appendChild(cl);wrap.appendChild(inner);document.body.appendChild(wrap);
+        b.classList.add('mmhide');a.classList.add('mmhide');setTimeout(function(){a.classList.remove('mmhide')},1600);
+        var t0='translate('+r0.left+'px,'+r0.top+'px) scale('+(r0.width/w)+','+(r0.height/h)+')',
+            t1='translate('+r1.left+'px,'+r1.top+'px) scale('+(r1.width/w)+','+(r1.height/h)+')';
+        var d=i*60;
+        wrap.animate([{transform:t0},{transform:t1}],{duration:950,delay:d,easing:'cubic-bezier(.65,0,.25,1)',fill:'forwards'});
+        setTimeout(function(){b.classList.remove('mmhide');wrap.animate([{opacity:1},{opacity:0}],{duration:300,fill:'forwards'}).onfinish=function(){wrap.remove()}},1000+d);
+      });
+      setTimeout(function(){to.classList.remove('mmrun')},1500);
+    }catch(e){}
+  }
   function go(n){
     n=Math.max(0,Math.min(N-1,n));hideZoom();
     if(n!==cur||!slides[n].dataset.ready)clear();
     var sp=slides[cur],sn=slides[n];
     if(n===cur+1&&sp.classList.contains('s1')&&sn.classList.contains('mvs'))morph(sp,sn);
+    if(n===cur+1&&sp.querySelector('.docs.d9:not(.d9b)')&&sn.querySelector('.docs.d9b'))docMorph(sp,sn);
     if(sp!==sn&&sp.dataset.strip!==undefined&&sn.dataset.strip!==undefined){
       sn.classList.add('keep');applyGroup(sn,+sp.dataset.strip,false);void sn.offsetWidth;
       requestAnimationFrame(function(){applyGroup(sn,+sn.dataset.strip,true)});
