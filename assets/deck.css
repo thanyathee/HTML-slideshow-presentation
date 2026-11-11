@@ -2206,3 +2206,13 @@ body:has(.followfb[data-pos="active"]) .progress{opacity:0}
 .mvlane .lnlab b{font-size:36px}
 .mvlane .lnlab{gap:14px}
 .mvstart{justify-content:center}
+/* slide 19: panels extend down so inner cards clear the colour bar; warning bar stays put */
+.up.ok .ucg{padding-bottom:18px}
+.up.ng .ubl{padding-bottom:18px}
+.uwarn.bot{margin-top:0}
+/* slide 28: back to a normal in-frame slide (no full-window overlay) */
+#fbfull{display:none!important}
+.followfb .fbimg,.followfb .fbhot{display:block}
+.slide.followfb{overflow:hidden;border-radius:inherit}
+.followfb .fbimg{object-fit:contain;background:#5DB8F5}
+body:has(.followfb[data-pos="active"]) .progress{opacity:1}
