@@ -77,6 +77,36 @@ def gantt():
             ch+='<div class="chev%s%s" style="--c:var(--%s)"><span class="stepn s">%d</span><b>%s</b><small>%s</small></div>'%(' first' if p==0 else '',' dk' if not w else '',c,p+1,sh,d)
         rows+='<div class="ov-row pop" style="--i:%d"><div class="ov-l"><span class="ab">%s</span><b>%s</b><em>%s</em></div><div class="ov-c">%s</div></div>'%(j+1,T['key'],T['title'],T['tag'],ch)
     return '<section class="slide" data-t="zoom" data-pos="after">\n    %s\n    <div class="trow pop" style="--i:0"><h2 class="title">ภาพรวมกำหนดการทั้งปี</h2><span class="loop">วนรอบใหม่ทุกปี</span></div>\n    <div class="ov">%s</div>\n  </section>'%(eb('กำหนดการ'),rows)
+def fxslide(img,alt,name,chips,who,pts,note):
+    ch=''.join('<i class="c%d" style="--k:%d">%s</i>'%(2 if 'ปริญญาตรี' in c else 1 if 'อาชีว' in c else 0,k,c) for k,c in enumerate(chips))
+    pl=''.join('<li><em>%d</em>%s</li>'%(k+1,t) for k,t in enumerate(pts))
+    return ('<section class="slide fxs" data-t="slide" data-pos="after">\n    '+eb('เอกสาร')+
+      '\n    <div class="fxrow">'
+      '<div class="fxr"><div class="trow pop" style="--i:0"><h2 class="title">ตัวอย่างแบบฟอร์ม</h2></div>'
+      '<div class="fxname pop" style="--i:2">%s</div>'%name+
+      '<div class="fxfor pop" style="--i:3"><b class="nw">ใช้สำหรับ</b><span class="fxchips">%s</span></div>'%ch+
+      (('<div class="fxwho fxsplit pop" style="--i:4"><b class="nw">ผู้กรอก / ลงนาม</b><div class="fxsg">'+''.join('<div class="fxst fx%d"><span class="fxchips">%s</span><span class="nw fxsn">%s</span></div>'%(k,''.join('<i class="c%d" style="--k:%d">%s</i>'%(2 if 'ปริญญาตรี' in c else 1 if 'อาชีว' in c else 0,j+3,c) for j,c in enumerate(a.split(' / '))),b) for k,(a,b) in enumerate(who))+'</div></div>') if isinstance(who,list) else '<div class="fxwho pop" style="--i:4"><b class="nw">ผู้กรอก / ลงนาม</b><span class="fxwt">%s</span></div>'%who)+
+      '<ol class="fxpts pop" style="--i:5">%s</ol>'%pl+
+      ('<div class="fxnote pop" style="--i:6">%s</div>'%note if note else '')+
+      '</div><button class="mvpost fxpaper pop" style="--i:1" type="button" aria-label="ดูแบบฟอร์ม"><img src="images/%s" alt="%s"><span>แตะเพื่อขยาย</span></button></div>\n  </section>'%(img,alt))
+FX1=fxslide('form-loan.jpg','แบบฟอร์มรับรองสถานะการกู้ยืม กยศ./กรอ. และการได้รับทุนการศึกษาอื่น',
+  '<span class="nw">แบบฟอร์มรับรองสถานะการกู้ยืม กยศ./กรอ.</span><span class="nw">และการได้รับทุนการศึกษาอื่น</span>',
+  ['มัธยมศึกษาตอนปลาย','อาชีวศึกษา','ปริญญาตรี'],
+  [('มัธยมศึกษาตอนปลาย / อาชีวศึกษา','<svg class="fxic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 20v-1.5A4.5 4.5 0 0 1 8 14h2a4.5 4.5 0 0 1 4.5 4.5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="14" y="4" width="7.5" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12l3-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>ครูผู้ดูแลทุน <small>หรือ</small> ครูที่ปรึกษา</span>'),('ปริญญาตรี','<svg class="fxic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20.5h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>หน่วยงานทุนการศึกษา<br>ของมหาวิทยาลัย</span>')],
+  ['<span class="nw">สถานะการกู้ยืมเงินจาก <b>กยศ. / กรอ.</b></span>',
+   '<span class="nw">ทุนต่อเนื่องจากหน่วยงานอื่น <b>ระบุชื่อและจำนวนเงิน</b></span>',
+   '<span class="nw">ลงนาม <b>ผู้รับรองข้อมูล</b> และ <b>ผู้รับทราบ</b> (ผู้อำนวยการสถานศึกษา)</span>'],
+  '<span class="nw"><b>ปริญญาตรี</b> ลงนามช่อง "ผู้รับรองข้อมูล" เพียง 1 จุด ก็ถือว่าครบ</span>')
+FX2=fxslide('form-advisor.jpg','จดหมายรับรองความเห็นจากอาจารย์ที่ปรึกษา',
+  '<span class="nw">จดหมายรับรองความเห็นจาก</span><span class="nw">อาจารย์ที่ปรึกษา / อาจารย์ผู้ดูแลนักศึกษา</span>',
+  ['ปริญญาตรีเท่านั้น'],
+  '<span class="nw">อาจารย์ที่ปรึกษา หรืออาจารย์ผู้ดูแลนักศึกษา</span>',
+  ['<span class="nw">ข้อมูลอาจารย์ <b>คณะ ภาควิชา เบอร์โทร E-mail</b></span>',
+   '<span class="nw">ข้อมูลนักศึกษา <b>ชั้นปี คณะ สาขา หลักสูตร</b></span>',
+   '<span class="nw">ความเห็นของอาจารย์ <b>ลงชื่อ และวันที่</b></span>'],
+  '<span class="nw">ไม่ต้องระบุข้อมูลอ่อนไหว เช่น เชื้อชาติ ศาสนา</span><span class="nw">สุขภาพ ความพิการ ของนักศึกษาและครอบครัว</span>')
+
+
 for i in range(1,24):
     x=secs[i]; n=i+1
     if n==23: continue  # merged into 22
@@ -363,6 +393,8 @@ for i in range(1,24):
         x=re.sub(r'<svg class="bob".*?</svg>','<div class="alert" aria-hidden="true">!</div>',x,flags=re.S)
     out.append((KEYS.get(n,''),OLDMOOD[n],x))
     if n==12: out.append(('',OLDMOOD[n],MVTL))
+    if n==7:
+        out.append(('',OLDMOOD[n],FX1)); out.append(('',OLDMOOD[n],FX2))
 def ico(p): return '<svg viewBox="0 0 24 24">%s</svg>'%p
 contact='''<section class="slide" data-t="zoom" data-pos="after">
     <div class="eyebrow pop" style="--i:0"><i></i><b>ติดต่อ</b><span>@@N@@ / @@T@@</span></div>
